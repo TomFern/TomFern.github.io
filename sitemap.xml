@@ -3,16 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://TomFern.github.io/</loc>
+    <loc>https://tomfern.com/</loc>
   </url>
   
   <url>
-    <loc>https://TomFern.github.io/categories/</loc>
+    <loc>https://tomfern.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://TomFern.github.io/tags/</loc>
+    <loc>https://tomfern.com/tags/</loc>
     <priority>0</priority>
   </url>
   
