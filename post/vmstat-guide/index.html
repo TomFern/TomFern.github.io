@@ -64,7 +64,7 @@
   "description" : "A getting started guide for vmstat, iostat, mpstat and pidstat.
 ",
   "inLanguage" : "en",
-  "wordCount": 2365,
+  "wordCount": 2223,
   "datePublished" : "2019-01-06T21:12:00",
   "dateModified" : "2019-01-06T21:12:00",
   "image" : "https://tomfern.com",
@@ -313,10 +313,8 @@ div.alert a:hover {
   <i class="fas fa-calendar"></i>&nbsp;Posted on January 6, 2019
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;12&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;11&nbsp;minutes
   
-  
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;2365&nbsp;words
   
   
     &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tom
@@ -740,18 +738,12 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
  0 12 773184 3782540 161528 3176304    0    0  1184 38944 2888 9877 20  5  1 74  0
  2  9 773184 3745748 161528 3213272    0    0  2660 36868 2876 7426 18  7  1 73  0
- 0 11 773184 3708956 161532 3249208    0    0  1472 40960 2785 6505 16  4  6 73  0
- 0 11 773184 3670652 161532 3287428    0    0  2788 43008 2877 6729 19  6  1 74  0
  0 11 773184 3630836 161540 3326616    0    0  2688 43052 2959 7064 23  5  1 70  0
- 1 10 771648 2329348 161792 4841456    0    0  1228 38912 2883 7420 20  7  1 72  0
  2 11 771648 2297092 161792 4873416    0    0  2672 40960 3034 7547 23  6  2 69  0
  1 11 771648 2255008 161796 4915000    0    0  2088 38912 2939 7370 24  6  2 67  0
- 2 10 771648 2216200 161796 4954140    0    0  2076 32840 2914 9180 20  6  2 72  0
  0 11 771648 2142616 161796 4992940    0    0  2148 38916 2976 8061 31  6  1 63  0
  1 10 771648 2100532 161804 5034252   20    0  1608 41012 3919 9665 34 11  1 54  0
- 0 11 819776 149836 157540 6949188    0    0  1920 12292 2702 5527  6  4  0 90  0
- 2 11 819776 152876 157540 6944792    0    0  7808  4096 2167 4859  5  5  4 86  0
- 0 11 819776 150608 157548 6947260    0    0  4996  6168 2578 4496  7  6  7 80  0</code></pre></div>
+ 0 11 819776 149836 157540 6949188    0    0  1920 12292 2702 5527  6  4  0 90  0</code></pre></div>
 <p>What can you see? A consistent high number of sleeping (b), memory utilization going up, no swapping&hellip; that&rsquo;s good,
 disks are being written.</p>
 
@@ -766,7 +758,6 @@ Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
 01:34:50 PM  all   24.54    0.00    4.22   68.87    1.06    1.06    0.00    0.00    0.00    0.26
 01:34:51 PM  all   19.05    0.00    3.44   74.87    1.06    0.53    0.00    0.00    0.00    1.06
 01:34:52 PM  all   19.37    0.00    3.14   74.61    0.79    1.05    0.00    0.00    0.00    1.05
-01:34:53 PM  all   18.80    0.00    2.61   76.50    1.31    0.52    0.00    0.00    0.00    0.26
 01:34:54 PM  all   22.08    0.00    3.12   62.86    0.52    1.04    0.00    0.00    0.00   10.39</code></pre></div>
 <p>Again there it is, a high iowait. There is something funny going on with the disks.</p>
 
@@ -805,11 +796,7 @@ Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
 
 01:36:26 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
 01:36:27 PM     0      2546      0.00      0.00      0.00      99  kworker/u8:3+flush-8:48
-01:36:27 PM   980      3435   2524.00  35096.00      0.00       0  mysqld
-
-01:36:27 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
-01:36:28 PM     0      2546      0.00      0.00      0.00      98  kworker/u8:3+flush-8:48
-01:36:28 PM   980      3435   2628.00  37484.00      0.00       0  mysqld</code></pre></div>
+01:36:27 PM   980      3435   2524.00  35096.00      0.00       0  mysqld</code></pre></div>
 <p>We find a mysql server, a kernel thread flushing data and jbd2 (filesystem journal).</p>
 
 <p>Aha! we found what has been causing all that troublesome I/O. To continue investigating we would need to get into the database, but
