@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>MySQLSlap (part 1) - tomfern.com</title>
+  <meta property="og:title" content="MySQLSlap (part 1)" />
+  <meta name="twitter:title" content="MySQLSlap (part 1)" />
+  <meta name="description" content="A guide to benchmarking with mysqlslap.">
+  <meta property="og:description" content="A guide to benchmarking with mysqlslap.">
+  <meta name="twitter:description" content="A guide to benchmarking with mysqlslap.">
+  <meta name="author" content="Tom"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "tomfern.com",
+    
+    "url": "https://tomfern.com"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https://tomfern.com"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://tomfern.com",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https://tomfern.com/post/mysqlslap-guide-1/",
+          "name": "My s q l slap (part 1)"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Tom"
+  },
+  "headline": "MySQLSlap (part 1)",
+  "description" : "A guide to benchmarking with mysqlslap.
+",
+  "inLanguage" : "en",
+  "wordCount": 812,
+  "datePublished" : "2019-01-08T11:02:00",
+  "dateModified" : "2019-01-08T11:02:00",
+  "image" : "https://tomfern.com",
+  "keywords" : [ "mysql, mariadb, guides" ],
+  "mainEntityOfPage" : "https://tomfern.com/post/mysqlslap-guide-1/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https://tomfern.com",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://tomfern.com",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="MySQLSlap (part 1)" />
+<meta property="og:description" content="A guide to benchmarking with mysqlslap.">
+<meta property="og:url" content="https://tomfern.com/post/mysqlslap-guide-1/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="tomfern.com" />
+  <meta name="twitter:title" content="MySQLSlap (part 1)" />
+  <meta name="twitter:description" content="A guide to benchmarking with mysqlslap.">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TomFernBlog" />
+  <meta name="twitter:creator" content="@TomFernBlog" />
+  <link href='https://tomfern.com/favicon/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TomFernBlog" />
+  <meta name="twitter:creator" content="@TomFernBlog" />
+  <meta property="og:url" content="https://tomfern.com/post/mysqlslap-guide-1/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="tomfern.com" />
+
+  <meta name="generator" content="Hugo 0.53" />
+  <link rel="alternate" href="https://tomfern.com/index.xml" type="application/rss+xml" title="tomfern.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://tomfern.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://tomfern.com/css/highlight.min.css" /><link rel="stylesheet" href="https://tomfern.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<style>
+ 
+
+div.alert {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+div.alert p {
+  position: relative;
+  display: block;
+  font-size: 1rem;
+  margin-left: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.alert p:first-child::before {
+  position: absolute;
+  top: -0.5rem;
+  left: -2rem;
+  font-family: 'FontAwesome';
+  font-size: 1.5rem;
+  color: #fff;
+  content: '\f05a';
+  width: 1.5rem;
+  text-align: center;
+}
+
+div.alert-warning p:first-child::before {
+  content: '\f071';
+}
+
+div.alert a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  border-bottom: solid 1px #e4e4e4;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+div.alert a:hover {
+  border-bottom-color: transparent;
+  color: rgba(255,255,255,0.5) !important;
+}
+
+.alert-note {
+  color: #fff;
+  background-color: #03A9F4;  
+  border-color: #bce8f1;
+}
+
+.alert-warning {
+  color: #fff;
+  background-color: #f44336;  
+  border-color: #ebccd1;
+}
+
+.toc {
+    background-color: #F5F5F5;
+}
+
+.heading {
+    font-weight: 800;
+}
+
+.tip-box
+{
+     background-color: #f0f7fb;
+     background-repeat: no-repeat;
+     border-left: solid 4px #3498db;
+     overflow: hidden;
+     padding: 1rem;
+}
+
+
+</style>
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://tomfern.com">tomfern.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>MySQLSlap (part 1)</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 8, 2019
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
+  
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tom
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>A guide to benchmarking with mysqlslap.</p>
+
+<hr />
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#how-does-it-work">How does it work?</a></li>
+<li><a href="#auto-generate-sql">Auto generate sql</a></li>
+<li><a href="#what-other-things-can-it-do">What other things can it do?</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<p>There are loads of ways to benchmark MySQL. <code>mysqlslap</code> was, I believe, one of the first official tools for this. It&rsquo;s bundled with the client tools for MySQL and MariaDB,
+so you probably already have it installed.</p>
+
+<p>In this post I&rsquo;ll cover the basics and the <em>auto generate sql</em> mode, be sure to read the <a href="../mysqlslap-guide-2">second part</a> about other ways to use it.</p>
+
+<h2 id="how-does-it-work">How does it work?</h2>
+
+<p>mysqlslap uses the same connection parameters as the normal mysql client, so <code>--host</code> <code>--port</code> <code>--socket</code> <code>--username</code> <code>--password</code> all work
+ (but strangely the <code>--defaults-file</code> doesn&rsquo;t).</p>
+
+<p>In the examples below, however, the parameters <em>will be omitted</em> for brevity&rsquo;s sake.</p>
+
+<p>mysqlslap works in 3 stages:</p>
+
+<ol>
+<li>create test schema</li>
+<li>run test as multiple clients</li>
+<li>delete test schema.</li>
+</ol>
+
+<p>The first and last are executed as a single connection, only in the middle step time is measured.</p>
+
+<h2 id="auto-generate-sql">Auto generate sql</h2>
+
+<p>In auto generate sql mode, mysqlslap will handle table and queries. No need to write any SQL.</p>
+
+<p>This mode activated with <code>--auto-generate-sql</code> (or in short form: <code>-a</code>).</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=10
+Benchmark
+        Average number of seconds to run all queries: 0.004 seconds
+        Minimum number of seconds to run all queries: 0.004 seconds
+        Maximum number of seconds to run all queries: 0.004 seconds
+        Number of clients running queries: 1
+        Average number of queries per client: 10</code></pre></div>
+<p>What happened?</p>
+
+<ol>
+<li>The <code>mysqlslap</code> schema was created</li>
+<li>A test table <code>t1</code> was created. It has 1 integer and 1 varchar(128) column, no explicit primary key</li>
+<li>The table was populated with random rows</li>
+<li>A full table SELECT is run 10 times, sequentially, from a single connection</li>
+<li>The <code>mysqlslap</code> schema is dropped</li>
+<li>The total time taken reported</li>
+</ol>
+
+<p>Let&rsquo;s break down the options:</p>
+
+<ul>
+<li><code>--auto-generate-sql-load-type</code> what is the test type to run</li>
+<li><code>--auto-generate-sql-execute-number</code> how many queries to execute per client</li>
+</ul>
+
+<p>What is different about this next one?</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># simulating 10 clients
+-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=1 --concurrency=10
+Benchmark
+        Average number of seconds to run all queries: 0.015 seconds
+        Minimum number of seconds to run all queries: 0.015 seconds
+        Maximum number of seconds to run all queries: 0.015 seconds
+        Number of clients running queries: 10
+        Average number of queries per client: 1</code></pre></div>
+<p>This one runs the same total number of SELECTs as before, however it does it in parallel.
+There are 10 clients running the a single query. We get the total taken to run the 10 queries.</p>
+
+<p>Did you notice the times reported? Why is it that we get the same values for average, max and min?
+This is because so far we ran the test only 1 time. We can choose to repeat the test using then <code>--iterations</code> parameter.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># 100 iterations, 10 clients
+-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=1 --concurrency=10 --iterations=100
+Benchmark
+        Average number of seconds to run all queries: 0.006 seconds
+        Minimum number of seconds to run all queries: 0.001 seconds
+        Maximum number of seconds to run all queries: 0.015 seconds
+        Number of clients running queries: 10
+        Average number of queries per client: 1</code></pre></div>
+<p>What changed?
+Essentially the whole thing (schema created and dropped) is done 100 times.
+Now times are different because we added some variability.</p>
+
+<h2 id="what-other-things-can-it-do">What other things can it do?</h2>
+
+<p>We can try other types of tests, <code>--auto-generate-sql-load-type</code> can be:</p>
+
+<ul>
+<li>read: <code>SELECT * FROM table</code></li>
+<li>write: <code>INSERT</code></li>
+<li>key: <code>SELECT (primary keys columns)</code></li>
+<li>update: <code>UPDATE (primary keys)</code></li>
+<li>mixed: <code>INSERT INTO table; SELECT * FROM table</code></li>
+</ul>
+
+<p>The mixed mode is the default, it generates 2 queries and both count towards the <code>--auto-generate-sql-execute-number</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-execute-number=10
+Benchmark
+        Average number of seconds to run all queries: 0.006 seconds
+        Minimum number of seconds to run all queries: 0.006 seconds
+        Maximum number of seconds to run all queries: 0.006 seconds
+        Number of clients running queries: 1
+        Average number of queries per client: 10</code></pre></div>
+<p>Since we asked to generate 10 queries, mysqlslap ran 5 INSERTS and 5 SELECTs. We get the total time to run all the queries.</p>
+
+<p>The generated table can be tweaked with the following options:</p>
+
+<ul>
+<li><code>--number-char-cols</code> number of varchar columns (1)</li>
+<li><code>--number-int-cols</code> number of integer columns (1)</li>
+<li><code>--auto-generate-sql-guid-primary</code> add a varchar(36) primary column (none)</li>
+<li><code>--auto-generate-sql-add-autoincrement</code> add an auto-increment bigint column with an unique index (none)</li>
+<li><code>--auto-generate-sql-secondary-indexes</code> generate n integer columns with unique indexes (0)</li>
+</ul>
+
+<p>The table row distribution can be further tweaked with:</p>
+
+<ul>
+<li><code>--auto-generate-sql-write-number</code> how many rows to insert into test table (100)</li>
+<li><code>--auto-generate-sql-unique-query-number</code> how many unique rows, so we can play with cardinality (10)</li>
+</ul>
+
+<p>Other commonly used options are:</p>
+
+<ul>
+<li><code>-vv</code> show verbose output</li>
+<li><code>--csv</code> output into CSV file</li>
+<li><code>--no-drop</code> don&rsquo;t drop the schema when done</li>
+<li><code>--create-schema</code> use a different test schema name</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>mysqlslap is, arguably, a simple benchmark tool, but sometimes simpler is better.</p>
+
+<p>And since we can almost always count on having it installed it&rsquo;s a good idea to get familiarized with it.</p>
+
+<p>The <a href="../mysqlslap-guide-2">next part</a> will cover the query mode.</p>
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://tomfern.com/tags/mysql/">mysql</a>&nbsp;
+            
+              <a href="https://tomfern.com/tags/mariadb/">mariadb</a>&nbsp;
+            
+              <a href="https://tomfern.com/tags/guides/">guides</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fmysqlslap-guide-1%2f&amp;text=MySQLSlap%20%28part%201%29&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//plus.google.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fmysqlslap-guide-1%2f" target="_blank" title="Share on Google Plus">
+          <i class="fab fa-google-plus"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2fmysqlslap-guide-1%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fmysqlslap-guide-1%2f&amp;title=MySQLSlap%20%28part%201%29" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2fmysqlslap-guide-1%2f&amp;title=MySQLSlap%20%28part%201%29" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fmysqlslap-guide-1%2f&amp;title=MySQLSlap%20%28part%201%29" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2fmysqlslap-guide-1%2f&amp;description=MySQLSlap%20%28part%201%29" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+              </div>
+            </section>
+        
+
+        
+          
+          
+          <h4 class="see-also">See also</h4>
+          <ul>
+          
+            <li><a href="/post/sar-guide/">System monitoring with sar</a></li>
+          
+            <li><a href="/post/vmstat-guide/">A guide to vmstat and friends</a></li>
+          
+          </ul>
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://tomfern.com/post/sar-guide/" data-toggle="tooltip" data-placement="top" title="System monitoring with sar">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://tomfern.com/post/mysqlslap-guide-2/" data-toggle="tooltip" data-placement="top" title="MySQLSlap (part 2)">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://twitter.com/TomFernBlog" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="https://tomfern.com/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Tom
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2019
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://tomfern.com">tomfern.com</a>
+          
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.53</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://tomfern.com/js/main.js"></script>
+<script src="https://tomfern.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://tomfern.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+

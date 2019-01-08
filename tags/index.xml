@@ -5,7 +5,7 @@
     <link>https://tomfern.com/tags/</link>
     <description>Recent content in Tags on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 07 Jan 2019 01:40:00 -0300</lastBuildDate>
+    <lastBuildDate>Tue, 08 Jan 2019 11:22:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>Guides</title>
       <link>https://tomfern.com/tags/guides/</link>
-      <pubDate>Mon, 07 Jan 2019 01:40:00 -0300</pubDate>
+      <pubDate>Tue, 08 Jan 2019 11:22:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/guides/</guid>
       <description></description>
@@ -29,11 +29,29 @@
     </item>
     
     <item>
+      <title>Mariadb</title>
+      <link>https://tomfern.com/tags/mariadb/</link>
+      <pubDate>Tue, 08 Jan 2019 11:22:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/mariadb/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Monitoring</title>
       <link>https://tomfern.com/tags/monitoring/</link>
       <pubDate>Mon, 07 Jan 2019 01:40:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>https://tomfern.com/tags/mysql/</link>
+      <pubDate>Tue, 08 Jan 2019 11:22:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/mysql/</guid>
       <description></description>
     </item>
     
