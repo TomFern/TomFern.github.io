@@ -5,7 +5,7 @@
     <link>https://tomfern.com/tags/</link>
     <description>Recent content in Tags on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 08 Jan 2019 11:22:00 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 09 Jan 2019 00:05:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>Guides</title>
       <link>https://tomfern.com/tags/guides/</link>
-      <pubDate>Tue, 08 Jan 2019 11:22:00 -0300</pubDate>
+      <pubDate>Wed, 09 Jan 2019 00:05:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/guides/</guid>
       <description></description>
@@ -22,7 +22,7 @@
     <item>
       <title>Linux</title>
       <link>https://tomfern.com/tags/linux/</link>
-      <pubDate>Mon, 07 Jan 2019 01:40:00 -0300</pubDate>
+      <pubDate>Wed, 09 Jan 2019 00:05:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/linux/</guid>
       <description></description>
@@ -49,16 +49,25 @@
     <item>
       <title>Mysql</title>
       <link>https://tomfern.com/tags/mysql/</link>
-      <pubDate>Tue, 08 Jan 2019 11:22:00 -0300</pubDate>
+      <pubDate>Wed, 09 Jan 2019 00:05:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/mysql/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Pgsql</title>
+      <link>https://tomfern.com/tags/pgsql/</link>
+      <pubDate>Wed, 09 Jan 2019 00:05:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/pgsql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Unix</title>
       <link>https://tomfern.com/tags/unix/</link>
-      <pubDate>Mon, 07 Jan 2019 01:40:00 -0300</pubDate>
+      <pubDate>Wed, 09 Jan 2019 00:05:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/unix/</guid>
       <description></description>

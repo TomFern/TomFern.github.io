@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>tomfern.com - tomfern.com</title>
+  <meta property="og:title" content="tomfern.com" />
+  <meta name="twitter:title" content="tomfern.com" />
+  <meta name="description" content="Tags:
+
+
+objective: guides
+activities: monitoring tuning benchmarking
+categories: container
+products: linux mysql mariadb docker pgsql
+
+
+Blog todo:
+
+
+SSL
+bigpic OK
+Dominio redirect
+google analitics
+check google console https://www.google.com/webmasters/tools/
+front page contetn? NOT YET
+github page OK
+https OK
+subtitle OK for now
+about me pic OK
+favicon OK
+menu OK
+
+
+TEST
+
+TODO Benchmarking with sysbench
+
+A guide to sysbench">
+  <meta property="og:description" content="Tags:
+
+
+objective: guides
+activities: monitoring tuning benchmarking
+categories: container
+products: linux mysql mariadb docker pgsql
+
+
+Blog todo:
+
+
+SSL
+bigpic OK
+Dominio redirect
+google analitics
+check google console https://www.google.com/webmasters/tools/
+front page contetn? NOT YET
+github page OK
+https OK
+subtitle OK for now
+about me pic OK
+favicon OK
+menu OK
+
+
+TEST
+
+TODO Benchmarking with sysbench
+
+A guide to sysbench">
+  <meta name="twitter:description" content="Tags:
+
+
+objective: guides
+activities: monitoring tuning benchmarking
+categories: container
+products: linux mysql mariadb docker pgsql
+
+
+Blog todo:
+
+
+SSL
+bigpic OK
+Dominio redirect
+google analitics …">
+  <meta name="author" content="Tom"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "tomfern.com",
+    
+    "url": "https://tomfern.com"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https://tomfern.com"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://tomfern.com",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https://tomfern.com/post/tomfern/",
+          "name": ""
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Tom"
+  },
+  "headline": "",
+  "description" : "Tags:
+ objective: guides activities: monitoring tuning benchmarking categories: container products: linux mysql mariadb docker pgsql  Blog todo:
+ SSL bigpic OK Dominio redirect google analitics check google console https://www.google.com/webmasters/tools/ front page contetn? NOT YET github page OK https OK subtitle OK for now about me pic OK favicon OK menu OK  TEST TODO Benchmarking with sysbench A guide to sysbench
+",
+  "inLanguage" : "en",
+  "wordCount": 9580,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "2019-01-08T00:00:00",
+  "image" : "https://tomfern.com",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https://tomfern.com/post/tomfern/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https://tomfern.com",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https://tomfern.com",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="tomfern.com" />
+<meta property="og:description" content="Tags:
+
+
+objective: guides
+activities: monitoring tuning benchmarking
+categories: container
+products: linux mysql mariadb docker pgsql
+
+
+Blog todo:
+
+
+SSL
+bigpic OK
+Dominio redirect
+google analitics
+check google console https://www.google.com/webmasters/tools/
+front page contetn? NOT YET
+github page OK
+https OK
+subtitle OK for now
+about me pic OK
+favicon OK
+menu OK
+
+
+TEST
+
+TODO Benchmarking with sysbench
+
+A guide to sysbench">
+<meta property="og:url" content="https://tomfern.com/post/tomfern/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="tomfern.com" />
+  <meta name="twitter:title" content="tomfern.com" />
+  <meta name="twitter:description" content="Tags:
+
+
+objective: guides
+activities: monitoring tuning benchmarking
+categories: container
+products: linux mysql mariadb docker pgsql
+
+
+Blog todo:
+
+
+SSL
+bigpic OK
+Dominio redirect
+google analitics …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TomFernBlog" />
+  <meta name="twitter:creator" content="@TomFernBlog" />
+  <link href='https://tomfern.com/favicon/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TomFernBlog" />
+  <meta name="twitter:creator" content="@TomFernBlog" />
+  <meta property="og:url" content="https://tomfern.com/post/tomfern/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="tomfern.com" />
+
+  <meta name="generator" content="Hugo 0.53" />
+  <link rel="alternate" href="https://tomfern.com/index.xml" type="application/rss+xml" title="tomfern.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://tomfern.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://tomfern.com/css/highlight.min.css" /><link rel="stylesheet" href="https://tomfern.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<style>
+ 
+
+div.alert {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+div.alert p {
+  position: relative;
+  display: block;
+  font-size: 1rem;
+  margin-left: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.alert p:first-child::before {
+  position: absolute;
+  top: -0.5rem;
+  left: -2rem;
+  font-family: 'FontAwesome';
+  font-size: 1.5rem;
+  color: #fff;
+  content: '\f05a';
+  width: 1.5rem;
+  text-align: center;
+}
+
+div.alert-warning p:first-child::before {
+  content: '\f071';
+}
+
+div.alert a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  border-bottom: solid 1px #e4e4e4;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+div.alert a:hover {
+  border-bottom-color: transparent;
+  color: rgba(255,255,255,0.5) !important;
+}
+
+.alert-note {
+  color: #fff;
+  background-color: #03A9F4;  
+  border-color: #bce8f1;
+}
+
+.alert-warning {
+  color: #fff;
+  background-color: #f44336;  
+  border-color: #ebccd1;
+}
+
+.toc {
+    background-color: #F5F5F5;
+}
+
+.heading {
+    font-weight: 800;
+}
+
+.tip-box
+{
+     background-color: #f0f7fb;
+     background-repeat: no-repeat;
+     border-left: solid 4px #3498db;
+     overflow: hidden;
+     padding: 1rem;
+}
+
+
+</style>
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://tomfern.com">tomfern.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  <div class="intro-header"></div>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Tags:</p>
+
+<ul>
+<li>objective: guides</li>
+<li>activities: monitoring tuning benchmarking</li>
+<li>categories: container</li>
+<li>products: linux mysql mariadb docker pgsql</li>
+</ul>
+
+<p>Blog todo:</p>
+
+<ul>
+<li>SSL</li>
+<li>bigpic OK</li>
+<li>Dominio redirect</li>
+<li>google analitics</li>
+<li>check google console <a href="https://www.google.com/webmasters/tools/">https://www.google.com/webmasters/tools/</a></li>
+<li>front page contetn? NOT YET</li>
+<li>github page OK</li>
+<li>https OK</li>
+<li>subtitle OK for now</li>
+<li>about me pic OK</li>
+<li>favicon OK</li>
+<li>menu OK</li>
+</ul>
+
+<h2 id="test"><strong>TEST</strong></h2>
+
+<h2 id="benchmarking-with-sysbench"><span class="org-todo todo TODO">TODO</span> Benchmarking with sysbench</h2>
+
+<p>A guide to sysbench</p>
+
+<hr />
+
+<h3 id="why-when-how">Why, When, How?</h3>
+
+<p>Benchmark shows the difference between should and does.</p>
+
+<p>Benchmarks can help us tell how good (or bad) a system is for a particular task.
+When done while <a href="../../tags/monitoring">monitoring</a> , it&rsquo;s a great tool to rank and compare server performance and can help us identify problems or bottlenecks.</p>
+
+<p>As to when: whenever we can, as long as the system is not under production load. A good benchmark will stress the server so we don&rsquo;t want users affected.
+Right after provisioning a server, during a maintenace window, before and after any major changes, these are all good oportunities to take advantage of a few precious
+minutes of calm to run some tests.</p>
+
+<p>We should try to mimic as best as possible the behaviour of the software we have running.
+Is it single or multithreaded? Is it on more CPU bound or disk IO bound. Does it access data randomly or sequentially.
+Is it read heavy or write heavy?. Does it manage data on fixed-size blocks?</p>
+
+<h3 id="introducing-sysbench">Introducing sysbench</h3>
+
+<p>Sysbench is a popular benchmark tool that is available for linux, mac and can even run on windows (with it&rsquo;s subsystem for linux).
+It ships with tests for the OS and databases. It is extensible and scriptable, so writting our own tests is possible.</p>
+
+<p>If you are running linux, it&rsquo;s most likely available in your distribution repository. Otherwise head to sysbench&rsquo;s <a href="https://github.com/akopytov/sysbench">github</a> for instructions.</p>
+
+<h3 id="getting-started">Getting started</h3>
+
+<p>The general syntax is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sysbench &lt;testname&gt; &lt;action&gt; [test-specific options]</code></pre></div>
+<p>Sysbench has quite a few options, but help a few keystrokes away. To get to the general help:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sysbench --help</code></pre></div>
+<p>And for the specific test use:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sysbench &lt;testname&gt; help</code></pre></div>
+<p>Some tests have a <em>prepare</em> and <em>cleanup</em> action, some also have an optional <em>warmup</em> action, others can be <em>run</em> directly.</p>
+
+<h3 id="the-test-loop">The test loop</h3>
+
+<p>All tests have in sysbench a common structure, the requested number of worker threads are created, each one will run its own test loop,
+each iteration of the loop is called an <em>event</em> and can have any number of operations. Sysbench keeps counters on all events across all threads.</p>
+
+<p>When it&rsquo;s done, we get the statistics for all events. Under <em>latency</em> we can see the average event duration.
+These values are common to all tests, so it&rsquo;s a good idea to get familiar with them.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">...
+General statistics:
+    total time:                          10.0014s
+    total number of events:              32479
+
+Latency (ms):
+         min:                                    1.11
+         avg:                                    2.46
+         max:                                   41.95
+         95th percentile:                       11.24
+         sum:                                79934.27
+
+Threads fairness:
+    events (avg/stddev):           4059.8750/59.44
+    execution time (avg/stddev):   9.9918/0.01</code></pre></div>
+<p>On multithread tests we want that events are distributed fairly among all threads, i.e. all threads should execute approximaterly the same number of events.
+This is shown under <em>fairness</em>, the <em>stddev</em> (standard deviation) should be small in relation to the <em>average</em>.</p>
+
+<p>Most of the benchmarks will run for a specified time or until a certain condition is met. The default time limit is 10 seconds, but we can
+change that using the <code>--time</code> parameter. Alternatively we can set a limit number of <code>--events</code>.</p>
+
+<h3 id="testing-your-cpus">Testing your CPUs</h3>
+
+<p>In this first test we&rsquo;ll torture the CPUs by computing prime numbers.
+Each single event will check prime numbers up to the provided <code>--cpu-max-prime</code>.
+The higher this value is, the longer it takes an event to end.</p>
+
+<p>I usually like to start with single threaded test. I try to find a <code>--cpu-max-prime</code> that will take at least a few seconds to complete.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># sysbench cpu test, single event
+-&gt; sysbench cpu run --threads=1 --events=1 --cpu-max-prime=8000000
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 8000000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:     0.09
+
+General statistics:
+    total time:                          11.2315s
+    total number of events:              1
+
+Latency (ms):
+         min:                                11231.45
+         avg:                                11231.45
+         max:                                11231.45
+         95th percentile:                    11317.84
+         sum:                                11231.45
+
+Threads fairness:
+    events (avg/stddev):           1.0000/0.00
+    execution time (avg/stddev):   11.2314/0.00</code></pre></div>
+<p>With a suitable max prime number found, the next step is to run a longer test.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># sysbench cpu, single thread
+-&gt; sysbench cpu run --threads=1 --time=60 --cpu-max-prime=8000000
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 8000000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:     0.09
+
+General statistics:
+    total time:                          67.5691s
+    total number of events:              6
+
+Latency (ms):
+         min:                                11217.78
+         avg:                                11261.48
+         max:                                11302.15
+         95th percentile:                    11317.84
+         sum:                                67568.87
+
+Threads fairness:
+    events (avg/stddev):           6.0000/0.00
+    execution time (avg/stddev):   67.5689/0.00</code></pre></div>
+<p>On <em>average</em>, it took 11.261 seconds to calculate primes up to our limit.
+A lower average is better, since it means the CPU takes less time to reach the same point. For the same reason, a higher value in <em>events per second</em> is better.</p>
+
+<p>If we are going to run multithreaded applications (databases, web servers, etc), we need to run another test with an appropiate number <code>--threads</code>.
+For example in a system with 4 cores with hyperthreading this is a good starting point.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># cpu test, 8 threads
+-&gt; sysbench cpu run --threads=8 --time=60 --cpu-max-prime=8000000
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 8
+Initializing random number generator from current time
+
+
+Prime numbers limit: 8000000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:     0.29
+
+General statistics:
+    total time:                          82.1154s
+    total number of events:              24
+
+Latency (ms):
+         min:                                26514.20
+         avg:                                27212.58
+         max:                                28103.35
+         95th percentile:                    27846.48
+         sum:                               653101.88
+
+Threads fairness:
+    events (avg/stddev):           3.0000/0.00
+    execution time (avg/stddev):   81.6377/0.36</code></pre></div>
+<h3 id="testing-your-memory">Testing your memory</h3>
+
+<p>For memory we can test either <em>write</em> or <em>read</em> speeds, the mode is selected with <code>--memory-open</code>.
+We can choose between sequential (<em>seq</em>) and random (<em>rnd</em>) access modes with <code>--memory-access-mode</code>.</p>
+
+<p>This benchmark has a special stop condition: <code>--memory-total-size</code>. Bear in mind, this isn&rsquo;t the total size allocated in RAM, so we don&rsquo;t run
+the risk of getting out of memory errors.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># memory, no time limit, stop on 100GB written
+-&gt; sysbench memory run --memory-total-size=100G --memory-open=write --memory-access-mode=rnd --time=0
+WARNING: Both event and time limits are disabled, running an endless test
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Running memory speed test with the following options:
+  block size: 1KiB
+  total size: 102400MiB
+  operation: write
+  scope: global
+
+Initializing worker threads...
+
+Threads started!
+
+Total operations: 104857600 (5010197.95 per second)
+
+102400.00 MiB transferred (4892.77 MiB/sec)
+
+
+General statistics:
+    total time:                          20.9272s
+    total number of events:              104857600
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                    0.38
+         95th percentile:                        0.00
+         sum:                                10816.80
+
+Threads fairness:
+    events (avg/stddev):           104857600.0000/0.00
+    execution time (avg/stddev):   10.8168/0.00</code></pre></div>
+<p>Memory is so fast that the <em>latency</em> units are too big, but we can think of the <em>MiB per seconds</em> as the average speed.</p>
+
+<p>If we have a service that work with fixed-size blocks, for example if plan to have a database,
+we should set <code>--memory-block-size</code> to match it.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># some memory tests for MySQL (page size is 16K)
+sysbench memory run --threads=8 --memory-block-size=16K --memory-total-size=100G --memory-oper=write
+sysbench memory run --threads=8 --memory-block-size=16K --memory-total-size=100G --memory-oper=read</code></pre></div>
+<h3 id="testing-your-disk-i-o-speed">Testing your disk I/O speed</h3>
+
+<p>Before starting, we need to <em>prepare</em> a file or set of files to work on. We set the <strong>total</strong> space to allocate with <code>--file-total-size</code> (which must be at least 2GB)
+and how many files there will be in the set, the space will be split into even sized files.</p>
+
+<p>We probably want to avoid caching the files in memory so it might me a good idea to include <code>--file-extra-flags=direct</code> to bypass it.</p>
+
+<p>It&rsquo;s generally recommended, whenever possible, that allocated space is larger than the installed RAM.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench fileio prepare --file-num=10 --file-total-size=10G --file-extra-flags=direct
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+10 files, 1048576Kb each, 10240Mb total
+Creating files for the test...
+Extra file open flags: (none)
+Creating file test_file.0
+Creating file test_file.1
+Creating file test_file.2
+Creating file test_file.3
+Creating file test_file.4
+Creating file test_file.5
+Creating file test_file.6
+Creating file test_file.7
+Creating file test_file.8
+Creating file test_file.9
+10737418240 bytes written in 45.15 seconds (226.78 MiB/sec).</code></pre></div>
+<p><strong>Note</strong>: <em>prepare</em> can reutilize previous test files, but it only can <strong>grow</strong> them, so you can only reuse test files if they are bigger or equal.
+Otherwise we must <em>cleanup</em> and <em>prepare</em> again.</p>
+
+<p>Now we need to choose a <code>--file-test-mode</code> for the <em>run</em>:</p>
+
+<ul>
+<li>seqwr: sequential write</li>
+<li>seqrewr: sequential read+write</li>
+<li>seqrd: sequential read</li>
+<li>rndrd: random read</li>
+<li>rndwr: random write</li>
+<li>rndrw: random read write</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># file read-write test
+-&gt; sysbench fileio run --file-num=10 --file-total-size=10G --file-test-mode=rndrw --file-extra-flags=direct --time=60
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Extra file open flags: directio
+10 files, 1GiB each
+10GiB total file size
+Block size 16KiB
+Number of IO requests: 0
+Read/Write ratio for combined random IO test: 1.50
+Periodic FSYNC enabled, calling fsync() each 100 requests.
+Calling fsync() at the end of test, Enabled.
+Using synchronous I/O mode
+Doing random r/w test
+Initializing worker threads...
+
+Threads started!
+
+
+File operations:
+    reads/s:                      2388.59
+    writes/s:                     1592.38
+    fsyncs/s:                     398.14
+
+Throughput:
+    read, MiB/s:                  37.32
+    written, MiB/s:               24.88
+
+General statistics:
+    total time:                          60.0027s
+    total number of events:              262756
+
+Latency (ms):
+         min:                                    0.06
+         avg:                                    0.23
+         max:                                   77.63
+         95th percentile:                        0.39
+         sum:                                59796.75
+
+Threads fairness:
+    events (avg/stddev):           262756.0000/0.00
+    execution time (avg/stddev):   59.7967/0.00</code></pre></div>
+<p>As always, it&rsquo;s a good idea to try to match as best as possible the disk IO activity for our application. We have some flexibility here
+with additional options:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">fileio options:
+  --file-num=N                  number of files to create [128]
+  --file-block-size=N           block size to use in all IO operations [16384]
+  --file-total-size=SIZE        total size of files to create [2G]
+  --file-test-mode=STRING       test mode {seqwr, seqrewr, seqrd, rndrd, rndwr, rndrw}
+  --file-io-mode=STRING         file operations mode {sync,async,mmap} [sync]
+  --file-async-backlog=N        number of asynchronous operatons to queue per thread [128]
+  --file-extra-flags=[LIST,...] list of additional flags to use to open files {sync,dsync,direct} []
+  --file-fsync-freq=N           do fsync() after this number of requests (0 - don&#39;t use fsync()) [100]
+  --file-fsync-all[=on|off]     do fsync() after each write operation [off]
+  --file-fsync-end[=on|off]     do fsync() at the end of test [on]
+  --file-fsync-mode=STRING      which method to use for synchronization {fsync, fdatasync} [fsync]
+  --file-merged-requests=N      merge at most this number of IO requests if possible (0 - don&#39;t merge) [0]
+  --file-rw-ratio=N             reads/writes ratio for combined test [1.5]</code></pre></div>
+<p>As an example, for a system destined to run a MySQL server we could try something like this.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># a test simulating MySQL file activity
+sysbench fileio run --threads=8 --file-extra-flags=direct --file-test-mode=rndrw --file-num=10 --file-block-size=1M</code></pre></div>
+<p>After running our tests, we need only to remove the work files with <em>cleanup</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench fileio cleanup --file-num=10
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Removing test files...</code></pre></div>
+<h3 id="testing-mutexes">Testing mutexes</h3>
+
+<p>This benchmark is intended to test the speed for mutex locks (mutex stands for &ldquo;mutual exclusion&rdquo;).
+Which play an important part in multithreading. It simulates high concurrency, with threads acquiring and releasing locks frequently.</p>
+
+<p>Sysbench creates an initial pool of <code>--mutex-num</code> mutexes, then it starts the threads, which iterate over an empty loop, every <code>--mutex-loops</code> the thread will
+grab one random mutex from the pool, modify a global variable, and release it. Each event will acquire and release the mutexes until the <code>--mutex-locks</code> value is reached.</p>
+
+<p>Here the <code>--time</code> or <code>--events</code> parameters are ignored completely. Sysbench always runs one event per thread.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench mutex run --threads=10
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 10
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+
+General statistics:
+    total time:                          0.8845s
+    total number of events:              10
+
+Latency (ms):
+         min:                                  802.84
+         avg:                                  855.55
+         max:                                  873.81
+         95th percentile:                      877.61
+         sum:                                 8555.51
+
+Threads fairness:
+    events (avg/stddev):           1.0000/0.00
+    execution time (avg/stddev):   0.8556/0.02</code></pre></div>
+<h3 id="testing-threads">Testing threads</h3>
+
+<p>Here we have a test for the CPU scheduler. It can simulate high concurrency conditions, where multiple threads
+compete for mutexes.</p>
+
+<p>Each thread will take <code>--thread-locks</code> mutexes and yield the CPU. This causes the thread to stop running and is placed on the run queue by the scheduler.
+Once the thread is again scheduled to run, the mutexes are released.</p>
+
+<p>A single event will perform these actions <code>--thread-yields</code> times, so the higher this number, the higher the concurrency placed on each mutex,
+and the lower the number of events per second.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench threads run --threads=4 --thread-yields=1000 --thread-locks=10
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 4
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+
+General statistics:
+    total time:                          10.0005s
+    total number of events:              50754
+
+Latency (ms):
+         min:                                    0.50
+         avg:                                    0.79
+         max:                                   14.37
+         95th percentile:                        0.81
+         sum:                                39980.48
+
+Threads fairness:
+    events (avg/stddev):           12688.5000/54.38
+    execution time (avg/stddev):   9.9951/0.00</code></pre></div>
+<h3 id="what-s-next">What&rsquo;s next?</h3>
+
+<p>Whew, that was a longer post than I intended and to think I only covered a few possibilities.</p>
+
+<p>There is still more to say about sysbench, check the <a href="../sysbench-guide-2">second part</a> where I deal with databases, so the fun is just starting.</p>
+
+<p>So long.
+Tomas</p>
+
+<h2 id="sysbench-for-databases"><span class="org-todo todo TODO">TODO</span> Sysbench for databases</h2>
+
+<p>This is my second part of the sysbench guide, I&rsquo;ll cover here some basic benchmarks for databases. Feel free to check my first part where we test the system.</p>
+
+<h3 id="connecting-to-the-db">Connecting to the DB</h3>
+
+<p>First things first, we&rsquo;ll need a test database. We&rsquo;ll stick to the default &ldquo;sbtest&rdquo;, so go ahead and create it. I&rsquo;ll wait.</p>
+
+<p>Now sysbench needs the connection parameters. The actual values depend on the target. Sysbench supports MySQL and postgreSQL.</p>
+
+<p>For MySQL, MariaDB or Percona Server the command line options are:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">--db-driver=mysql
+--mysql-host=
+--mysql-port=
+--mysql-user=
+--mysql-password=</code></pre></div>
+<p>For postgreSQL, we have:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">--db-driver=pgsql
+--pgsql-host=
+--pgsql-port=
+--pgsql-user=
+--pgsql-password=</code></pre></div>
+<p>For brevity&rsquo;s sake, I will be <em>omitting these parameters</em> in the examples below, but they are required so don&rsquo;t you forget them.</p>
+
+<h3 id="the-test-table">The test table</h3>
+
+<p>Here we have the prototypical test table</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="o">`</span><span class="n">sbtest1</span><span class="o">`</span> <span class="p">(</span>
+  <span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="o">`</span><span class="n">k</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="o">`</span><span class="k">c</span><span class="o">`</span> <span class="nb">char</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8mb4_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="o">`</span><span class="k">pad</span><span class="o">`</span> <span class="nb">char</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8mb4_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
+  <span class="k">KEY</span> <span class="o">`</span><span class="n">k_1</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">k</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8mb4_unicode_ci</span></code></pre></div>
+<p>That&rsquo;s it. 4 columns: 2 integer and 2 chars. Unfortunately we don&rsquo;t have so many built-in options to tweak the table as in other tools such as <a href="../mysqlslap-guide-1">mysqlslap</a>
+We do, however, have some control.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">--auto_inc[=on|off]              sets the id column as autoincrement/serial
+--create_secondary[=on|off]      creates a secondary index on column k (on)
+--mysql_storage_engine=[engine]  storage engine, only applies to MySQL (innodb)</code></pre></div>
+<p>The <code>id</code> column is populated either by the DB (with autoincrement/serial), or by sequential integers generated by sysbench,
+<code>k</code> is assigned a random number between 1 and whatever the table size is. The char columns are filled with random numbers,
+in groups of 11 digits separated by dashes, no index is created for either <code>c</code> or <code>pad</code>.</p>
+
+<h3 id="bulk-insert">Bulk insert</h3>
+
+<p>Bulk insert does concurrent multi-row inserts, we specify how many threads we want and each one inserts into its own table.
+So the total number of tables is the same as the number of threads.</p>
+
+<p>The default is 1 thread. But that is easily changed. Let&rsquo;s create 20 tables.</p>
+
+<p><em>(remember that the db connection parameters are omitted)</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sysbench bulk_insert prepare --threads=20</code></pre></div>
+<p>Now lets insert 1M rows and see how long it takes. The rows distributed  over all the tables.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># Insert 1M rows total, concurrently on the 20 tables
+-&gt; sysbench bulk_insert run --threads=20 --events=1000000 --time=0
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 20
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           43
+        other:                           0
+        total:                           43
+    transactions:                        1000000 (144368.49 per sec.)
+    queries:                             43     (6.21 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          6.9213s
+    total number of events:              1000000
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.07
+         max:                                 2932.57
+         95th percentile:                        0.00
+         sum:                                67550.48
+
+Threads fairness:
+    events (avg/stddev):           50000.0000/13956.14
+    execution time (avg/stddev):   3.3775/0.26</code></pre></div>
+<p>We can see that 1M rows whre added using a total of 43 INSERTs statements (an average of 23255.8 rows per INSERT). The total time was about 6.92 seconds.</p>
+
+<p>The <em>latency</em> statistics are interesting here, the <em>average</em> time to insert a set of rows was 0.07 milliseconds, but max was way higher, about 2.9 seconds.
+This is because the inserted rows are unevenly inserted among the tables, we can see this by comparing the fairness <em>stdev</em> vs the <em>avg</em>.</p>
+
+<p>After we are satisfied we can drop the tables, and be ready for the next test.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sysbench bulk_insert cleanup --threads=20</code></pre></div>
+<h3 id="oltp-read-only">OLTP read-only</h3>
+
+<p>OLTP (Online Transaction Processing) tests try simulate transaction-oriented loads in the database, sysbench does this by running several kinds of queries inside a transaction.</p>
+
+<p>Lets start simple. We want to create 10 tables, each with 10K rows. For a total of 100K rows.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># Prepare 10 tables, each with 10K rows
+sysbench oltp_read_only prepare --tables=10 --table_size=100000</code></pre></div>
+<p>It&rsquo;s usually a good idea to <code>prewarm</code> the database, i.e. load the tables into the buffer pool. So we can more acurately simulate the steady-state/warm performance.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sysbench oltp_read_only prewarm --tables=10 --threads=10</code></pre></div>
+<p>Run the benchmark with 10K events, with a ratio of 2 threads per table</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench oltp_read_only run --tables=10 --threads=20 --events=10000 --time=0
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 20
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            140000
+        write:                           0
+        other:                           20000
+        total:                           160000
+    transactions:                        10000  (1077.22 per sec.)
+    queries:                             160000 (17235.59 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          9.2813s
+    total number of events:              10000
+
+Latency (ms):
+         min:                                    4.37
+         avg:                                   18.54
+         max:                                   69.91
+         95th percentile:                       29.19
+         sum:                               185396.12
+
+Threads fairness:
+    events (avg/stddev):           500.0000/4.46
+    execution time (avg/stddev):   9.2698/0.01</code></pre></div>
+<p>So, this is interesting: Why did we get 140K reads when we asked for 10K events?</p>
+
+<p>Sysbench by default runs the following statements per event:</p>
+
+<ul>
+<li>10 x point selects: <code>select c from table where id=i</code></li>
+<li>1 x simple range: <code>select c from table where id between a and b</code></li>
+<li>1 x sum range: <code>select sum(k) from table where id between a and b</code></li>
+<li>1 x order range: <code>select c from table where id between a and b order by c</code></li>
+<li>1 x distinct range: <code>select distinct c from table where id between a and b order by c</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sysbench oltp_read_only cleanup --tables=20</code></pre></div>
+<p>Wasn&rsquo;t that fun?</p>
+
+<h3 id="oltp-write-only">OLTP write only</h3>
+
+<p>This is the write counterpart of the previous test. By now, you know the drill, right?</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sysbench oltp_write_only prepare --tables=10
+sysbench oltp_write_only prewarm --tables=10 --threads=10</code></pre></div>
+<p>Lets use a time limit instead:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench oltp_write_only run --tables=10 --threads=20 --events=0 --time=30
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 20
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           341181
+        other:                           170918
+        total:                           512099
+    transactions:                        85123  (2836.18 per sec.)
+    queries:                             512099 (17062.42 per sec.)
+    ignored errors:                      672    (22.39 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          30.0117s
+    total number of events:              85123
+
+Latency (ms):
+         min:                                    0.53
+         avg:                                    7.05
+         max:                                   67.17
+         95th percentile:                       14.21
+         sum:                               599892.48
+
+Threads fairness:
+    events (avg/stddev):           4256.1500/49.08
+    execution time (avg/stddev):   29.9946/0.00</code></pre></div>
+<p>Each write_only event consists of:</p>
+
+<ul>
+<li>1 x index_updates: <code>update table set k~k+1 where id=i</code></li>
+<li>1 x non_index_updates: <code>update table set c=? where id=i</code></li>
+<li>1 x delete_inserts: <code>delete from table where id~i; insert into table (id, k, c, pad) values (...)</code></li>
+</ul>
+
+<p>When using a time stop condition, we&rsquo;ll want to compare rates, such as <em>queries per second</em> or <em>transactions per second</em></p>
+
+<h3 id="oltp-read-write">OLTP read write</h3>
+
+<p>This test combines the last two in one package. First it runs the same code as in oltp_read_only and then continues with oltp_write_only.
+We can even reuse the table from the previous benchmark.</p>
+
+<p>The transaction content for tests can be tweaked.</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">--range_selects[=on|off]      Enable/disable all range SELECT queries [on]
+--range_size=N                Range size for range SELECT queries [100]
+--simple_ranges=N             Number of simple range SELECT queries per transaction [1]
+--point_selects=N             Number of point SELECT queries per transaction [10]
+--order_ranges=N              Number of SELECT ORDER BY queries per transaction [1]
+--distinct_ranges=N           Number of SELECT DISTINCT queries per transaction [1]
+--delete_inserts=N            Number of DELETE/INSERT combinations per transaction [1]
+--index_updates=N             Number of UPDATE index queries per transaction [1]
+--non_index_updates=N         Number of UPDATE non-index queries per transaction [1]
+--sum_ranges=N                Number of SELECT SUM() queries per transaction [1]
+--skip_trx[=on|off]           Don&#39;t start explicit transactions and execute all queries in the AUTOCOMMIT mode [off]</code></pre></div>
+<h3 id="conclusion">Conclusion</h3>
+
+<p>These aren&rsquo;t the only DB tests that ship with sysbench, but the basic procedure doesn&rsquo;t change. Unfortunately there isn&rsquo;t any command to get a list of the available tests,
+but you can search for .lua files in your sysbench install dir.</p>
+
+<p>So long.</p>
+
+<p>Tomas</p>
+
+<h2 id="drafts"><strong>DRAFTS</strong></h2>
+
+<h2 id="unused-index-cleanup"><span class="org-todo todo TODO">TODO</span> Unused index cleanup</h2>
+
+<p>I love indexes: they speed up my queries, they let me make quicker joins, they are, in one word: neat. Undoubtedly relational databases would be infeasible without them.</p>
+
+<p>But what happens when indexes are left unused? Maybe application requirements or the workload changed. Maybe someone was toying with indexes in the hope to speed up some pesky query. Whatever the reasons periodically we&rsquo;ll need to identify and remove them.</p>
+
+<!--more-->
+
+<p>Indexes also have a dark side: they penalize writes. With a side dish of taking additional disk space. Most of the times the benefits greatly surpasses these downsides.</p>
+
+<h3 id="finding-unused-indexes-in-mysql">Finding unused indexes in MySQL</h3>
+
+<p>Since MySQL 5.6 we have two great tools: the <strong>performance_schema</strong>, which collects a lot of nice metrics and the <strong>sys</strong> schema which offers easy-to-read views.</p>
+
+<p>The first thing to do is ensure that performance_schema is enabled and configured. There is a lot to say about configuring the performance schema, but for now it is enough using the MySQL Workbench &ldquo;Performance Schema Setup&rdquo;: it should be set to at least the &ldquo;Server Default&rdquo; level.</p>
+
+
+<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/performance_schema_easy_mode.png" alt="Figure 1: easy mode setup"/>
+    </div>
+    <a href="/images/performance_schema_easy_mode.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Figure 1: easy mode setup</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+<p>Once everything is set up, we&rsquo;ll be using this:</p>
+
+<p><code>select * from sys.schema_unused_indexes</code></p>
+
+<blockquote>
+<p>The <a href="https://dev.mysql.com/doc/refman/5.7/en/sys-schema-unused-indexes.html">schema_unused_indexes View</a></p>
+
+<p>These views display indexes for which there are no events, which indicates that they are not being used. By default, rows are sorted by schema and table.</p>
+
+<p>This view is most useful when the server has been up and processing long enough that its workload is representative. Otherwise, presence of an index in this view may not be meaningful.</p>
+</blockquote>
+
+<p>And here is the catch: at first glance it seems that we need to ensure that the server has been running for some time, i.e. the performance counters are
+reset on service restart. But I found that this is not enough, because all the counters are also reset <strong>if any index on that table is modified</strong></p>
+
+<p>That&rsquo;s right. Running an <code>alter table add|remove index</code>, marks all the other indexes on that table table as unused.</p>
+
+<p>I found this behaviour in both MySQL and MariaDB. If you wish to have some fun test it yourself:</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">database</span> <span class="n">super</span><span class="p">;</span>
+<span class="k">create</span> <span class="k">table</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span> <span class="p">(</span>
+  <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+  <span class="n">hability</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
+  <span class="k">key</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+  <span class="k">key</span><span class="p">(</span><span class="n">hability</span><span class="p">)</span>
+<span class="p">);</span>
+<span class="k">insert</span> <span class="k">into</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span> <span class="k">values</span>
+<span class="p">(</span><span class="s1">&#39;the flash&#39;</span><span class="p">,</span><span class="s1">&#39;speed&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;aquaman&#39;</span><span class="p">,</span><span class="s1">&#39;fish language&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;batman&#39;</span><span class="p">,</span><span class="s1">&#39;rich&#39;</span><span class="p">),</span>
+<span class="p">(</span><span class="s1">&#39;superman&#39;</span><span class="p">,</span><span class="s1">&#39;all of them&#39;</span><span class="p">);</span>
+
+<span class="c1">-- use the index and check the counters
+</span><span class="c1"></span><span class="k">select</span> <span class="n">name</span> <span class="k">from</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span><span class="p">;</span>
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">sys</span><span class="p">.</span><span class="n">schema_unused_indexes</span><span class="p">;</span>
+
+<span class="c1">-- any one of these resets the index usage counters
+</span><span class="c1"></span><span class="k">alter</span> <span class="k">table</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span> <span class="k">add</span> <span class="k">key</span> <span class="n">name_hability</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">hability</span><span class="p">);</span>
+<span class="k">alter</span> <span class="k">table</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span> <span class="k">drop</span> <span class="k">key</span> <span class="n">name_hability</span><span class="p">;</span></code></pre></div>
+<div class="src-block-caption">
+  <span class="src-block-number">Code Snippet 1</span>:
+  Testing schema_unused_indexes
+</div>
+
+<h3 id="conclusion-1">Conclusion</h3>
+
+<p>Here&rsquo;s my general strategy:</p>
+
+<ol>
+<li>Backup the tables or at the very least export the index definitions</li>
+
+<li><p>Ensure that both server has been running for enough time <strong>AND</strong> that the table has not been modified recently</p>
+
+<p><code>show table status from &lt;SCHEMA&gt; where name = &lt;TABLE&gt;;</code></p></li>
+
+<li><p>Save the list of the unused indexes somewhere safe, you&rsquo;ll probably lose it after modifying the table</p>
+
+<p><code>create table unused_backup as select * from sys.schema_unused_indexes;</code></p></li>
+
+<li><p>Delete the unused indexes</p></li>
+</ol>
+
+<p>Cheers</p>
+
+<h2 id="container-comparison"><span class="org-todo todo TODO">TODO</span> Container comparison</h2>
+
+<p>[container-comp-1.png]
+[container-comp-10.png]</p>
+
+<p>LXC:
+<a href="https://jlk.fjfi.cvut.cz/arch/manpages/man/lxc.container.conf.5">https://jlk.fjfi.cvut.cz/arch/manpages/man/lxc.container.conf.5</a></p>
+
+<h2 id="the-cost-of-indexing-on-mysql"><span class="org-todo todo TODO">TODO</span> The cost of indexing on MySQL</h2>
+
+<p>Recently I&rsquo;ve been tidying up some MySQL indexes. This entails removing duplicates and redudant, and changing the keys when needed.</p>
+
+<p>I got curious about how much of a performance bump we get by removing unused indexes, so I decided to run some benchmarks.</p>
+
+<!--more-->
+
+<p>Indexes need to be updated when the referenced row changes, (are they synchronous?). So it is expected to have a penalized writes.</p>
+
+<p>All tests are done on MySQL 5.7.28 and sysbench 1.0.15.</p>
+
+<p><strong>OLTP Insert</strong></p>
+
+<p>I started with sysbench&rsquo;s default test table, which starts with 2 indexes, the primary key and an additional index:</p>
+
+<p>CREATE TABLE `sbtest1` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `k` int(11) NOT NULL DEFAULT &lsquo;0&rsquo;,
+  `c` char(120) NOT NULL DEFAULT &ldquo;,
+  `pad` char(60) NOT NULL DEFAULT &ldquo;,
+  PRIMARY KEY (`id`),
+  KEY `k_1` (`k`)
+)</p>
+
+<p>I ran the sysbench oltp_insert test several turns, each time I added a some duplicate KEY(k) index.
+The tests were tuned more heavily on the write side, with a rate of 10 writes (updates,inserts,deletes) per each read.</p>
+
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/images/cost-of-indexes/oltp_insert.svg" alt="/images/cost-of-indexes/oltp_insert.svg"/>
+    </div>
+    <a href="/images/cost-of-indexes/oltp_insert.svg" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+
+<p>We can see there is a almost linear relation between number of indexes and test time. The tests with 59 indexes took 2.6 times longer than with 4 indexes. That&rsquo;s a quite a lot.</p>
+
+<p><strong>Bulk insert</strong></p>
+
+<p>This test is completely focused on writes, so here we should see the most performance impact.</p>
+
+<p>This is the time it took to insert 1M rows into an emptied table.</p>
+
+<p><strong>OLTP delete</strong>
+<strong>OLTP read only</strong>
+<strong>OLTP read+write</strong>
+<strong>OLTP write only</strong></p>
+
+<h2 id="next"><strong>NEXT</strong></h2>
+
+<h2 id="optimizing-docker-performance--for-dbs----title-in-progress">Optimizing docker performance (for dbs) (title in progress)</h2>
+
+<h2 id="ideas"><strong>IDEAS</strong></h2>
+
+<h2 id="benchmarking-mysql-vs-maria-vs-percona">Benchmarking mysql vs maria vs percona</h2>
+
+<h2 id="benchmarking-innodb-file-format-row-format-myisam">Benchmarking innodb, file format, row format, myisam</h2>
+
+<h2 id="benchmarking-tokudb-rocksdb-xtradb">Benchmarking tokudb, rocksdb, xtradb</h2>
+
+<h2 id="benchmarking-fs-types-ext4-ext3-ext2-xfs-zfs">Benchmarking Fs types, ext4, ext3, ext2, xfs, zfs</h2>
+
+<h2 id="production"><strong>PRODUCTION</strong></h2>
+
+<h2 id="about-me"><span class="org-todo done DONE">DONE</span> About me</h2>
+
+<p>My name is Tomas Fernandez, I live in Argentina. I work mostly as a DBA and I love it. I also love programming languages in general.</p>
+
+<p>After getting my a degree on Electronic Engineering, 15 years ago, I&rsquo;ve been working in the IT sector.
+During this time I wore various hats, working on a network operation centers on a big Telcos, as an developer, as sysadmin and lastly as a DBA.
+I&rsquo;m great with working with remote teams around the world, I&rsquo;ve been doing so for the past 9 years.</p>
+
+<p>I also love learning languages, sailing and swimming. I&rsquo;m currently studying Portuguese.</p>
+
+<p>I&rsquo;ve written a bit about why I decided to start a blog on my <a href="../../post/welcome">first post</a>.</p>
+
+<p>I&rsquo;m so glad you&rsquo;re here.</p>
+
+<p>Tomas</p>
+
+<h2 id="welcome-welcome-and-welcome"><span class="org-todo done DONE">DONE</span> Welcome, welcome &amp; welcome</h2>
+
+<p>Hello</p>
+
+<!--more-->
+
+<p>Hey! Did I say welcome already? Glad you&rsquo;re here.</p>
+
+<p>So, about blogging: three things moved me to start doing it.</p>
+
+<p>Number one, I&rsquo;ve been turning in essays during my Portuguese classes, every week. Right now I&rsquo;m on vacation
+and feeling the writing bug.</p>
+
+<p>Number two, learning. For me, experience and explaining are the best roads to learning.
+We all get experience, living and working, everyday. Sometimes we can choose what or where, sometimes not.
+But explaining is more deliberate. I found that explaining things to myself, in as simple words as I can manage, is the most powerful way of learning.</p>
+
+<p>I began writing about things I found interesting, I think it&rsquo;ll be mostly about data and databases, things I deal in my work.</p>
+
+<p>As for number three, over the years I&rsquo;ve benefited so much from other people&rsquo;s blogs that I now feel indebted. Hopefully I can give back something here.</p>
+
+<p>Does the internet need another blog? I don&rsquo;t know. But for me, so far, the effort has been worthwhile, and I hope this maybe can help somebody else.</p>
+
+<p>Enjoy.</p>
+
+<p>Tomas</p>
+
+<h2 id="a-guide-to-vmstat-and-friends"><span class="org-todo done DONE">DONE</span> A guide to vmstat and friends</h2>
+
+<p>A getting started guide for vmstat, iostat, mpstat and pidstat.</p>
+
+<!--more-->
+
+<hr />
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#test"><strong>TEST</strong></a></li>
+<li><a href="#benchmarking-with-sysbench"><span class="org-todo todo TODO">TODO</span> Benchmarking with sysbench</a>:sysbench:guides:</li>
+<li><a href="#sysbench-for-databases"><span class="org-todo todo TODO">TODO</span> Sysbench for databases</a>:mysql:pgsql:mariadb:sysbench:guides:</li>
+<li><a href="#drafts"><strong>DRAFTS</strong></a></li>
+<li><a href="#unused-index-cleanup"><span class="org-todo todo TODO">TODO</span> Unused index cleanup</a>:mysql:mariadb:tuning:</li>
+<li><a href="#container-comparison"><span class="org-todo todo TODO">TODO</span> Container comparison</a>:containers:docker:mariadb:benchmarks:sysbench:</li>
+<li><a href="#the-cost-of-indexing-on-mysql"><span class="org-todo todo TODO">TODO</span> The cost of indexing on MySQL</a>:mysql:mariadb:benchmarks:</li>
+<li><a href="#next"><strong>NEXT</strong></a></li>
+<li><a href="#optimizing-docker-performance--for-dbs----title-in-progress">Optimizing docker performance (for dbs) (title in progress)</a></li>
+<li><a href="#ideas"><strong>IDEAS</strong></a></li>
+<li><a href="#benchmarking-mysql-vs-maria-vs-percona">Benchmarking mysql vs maria vs percona</a></li>
+<li><a href="#benchmarking-innodb-file-format-row-format-myisam">Benchmarking innodb, file format, row format, myisam</a></li>
+<li><a href="#benchmarking-tokudb-rocksdb-xtradb">Benchmarking tokudb, rocksdb, xtradb</a></li>
+<li><a href="#benchmarking-fs-types-ext4-ext3-ext2-xfs-zfs">Benchmarking Fs types, ext4, ext3, ext2, xfs, zfs</a></li>
+<li><a href="#production"><strong>PRODUCTION</strong></a></li>
+<li><a href="#about-me"><span class="org-todo done DONE">DONE</span> About me</a></li>
+<li><a href="#welcome-welcome-and-welcome"><span class="org-todo done DONE">DONE</span> Welcome, welcome &amp; welcome</a></li>
+<li><a href="#a-guide-to-vmstat-and-friends"><span class="org-todo done DONE">DONE</span> A guide to vmstat and friends</a>:guides:monitoring:linux:unix:</li>
+<li><a href="#system-monitoring-with-sar"><span class="org-todo done DONE">DONE</span> System monitoring with sar</a>:guides:monitoring:linux:unix:</li>
+<li><a href="#mysqlslap--part-1"><span class="org-todo done DONE">DONE</span> MySQLSlap (part 1)</a>:mysql:mariadb:guides:</li>
+<li><a href="#mysqlslap--part-2"><span class="org-todo done DONE">DONE</span> MySQLSlap (part 2)</a>:mysql:mariadb:guides:</li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<h3 id="vmstat">vmstat</h3>
+
+<p>Once I figured out how vmstat works, I found that I almost could no longer live without it, it&rsquo;s that good.
+Fortunately it&rsquo;s available everywhere, so I don&rsquo;t. There are many versions around, both for
+Linux and Unix.</p>
+
+<p>vmstat does a little bit of everything: memory, processes, I/O, swap, disks, CPU.</p>
+
+<p>The basic syntax is:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">vmstat [options] &lt;interval&gt; &lt;count&gt;</code></pre></div>
+<p>vmstat prints a new update every <em>interval</em> seconds, stopping after <em>count</em> lines.
+If no count is supplied, vmstat continues until killed. If there isn&rsquo;t any <em>interval</em>, only 1 line is printed.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># 1 update per second, 5 updates
+-&gt; vmstat 1 5
+procs   -----------memory----------   --swap-    ---io--- -system-- ------cpu-----
+ r  b   swpd    free   buff  cache    si   so    bi    bo   in   cs us sy id wa st
+ 4  0      0 4098084 375068 3462944    0    0    34    25  340  320  8  3 89  0  0
+ 1  0      0 4098184 375068 3463264    0    0     0     0 1263 3198  4  3 93  0  0
+ 0  0      0 4098436 375068 3462924    0    0     0     0 1141 2999  3  2 95  0  0
+ 0  0      0 4097736 375076 3462916    0    0     0     0 2166 4414  5  4 92  0  0
+ 0  0      0 4096476 375076 3462916    0    0     0     0 1103 3130  3  3 94  0  0</code></pre></div>
+<p>The values in the very first line are averages since boot, thus it usually stands out as different than the rest.</p>
+
+<p>All values, with the exception of memory and processes, are average <em>rates</em> from the previous update.
+Memory and processes (the first 6 columns) are always instantaneous values.
+Memory is shown in KBs but <code>-S</code> changes units, e.g. <code>-S M</code> for MBs.</p>
+
+<p>If your version of vmstat supports <code>-w</code>, use it,  makes the table wider and easier to read.</p>
+
+<p>So what does each column mean?</p>
+
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>meaning</th>
+<th>unit</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>r</td>
+<td>number of processes running</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td>b</td>
+<td>number of processes sleeping</td>
+<td>-</td>
+</tr>
+
+<tr>
+<td>spwd</td>
+<td>swap memory used</td>
+<td>K</td>
+</tr>
+
+<tr>
+<td>free</td>
+<td>amount of idle memory</td>
+<td>K</td>
+</tr>
+
+<tr>
+<td>buff</td>
+<td>memory used for buffers</td>
+<td>K</td>
+</tr>
+
+<tr>
+<td>cache</td>
+<td>memory used for cache</td>
+<td>K</td>
+</tr>
+
+<tr>
+<td>si</td>
+<td>swaps per second from disk to memory</td>
+<td>1/s</td>
+</tr>
+
+<tr>
+<td>so</td>
+<td>swaps per second from memory to disk</td>
+<td>1/s</td>
+</tr>
+
+<tr>
+<td>bi</td>
+<td>blocks per second received from block device</td>
+<td>blocks/s</td>
+</tr>
+
+<tr>
+<td>bo</td>
+<td>blocks per second sent to block device</td>
+<td>blocks/s</td>
+</tr>
+
+<tr>
+<td>in</td>
+<td>interrupts per second</td>
+<td>1/s</td>
+</tr>
+
+<tr>
+<td>cs</td>
+<td>context switches per second</td>
+<td>1/s</td>
+</tr>
+
+<tr>
+<td>us</td>
+<td>CPU user time</td>
+<td>% of total</td>
+</tr>
+
+<tr>
+<td>sy</td>
+<td>CPU system time</td>
+<td>% of total</td>
+</tr>
+
+<tr>
+<td>id</td>
+<td>CPU idle time</td>
+<td>% of total</td>
+</tr>
+
+<tr>
+<td>st</td>
+<td>CPU time stolen from Virtual Machine</td>
+<td>% of total</td>
+</tr>
+</tbody>
+</table>
+
+<p>A few guidelines to read the values:</p>
+
+<ul>
+<li>check first <em>si</em> and <em>so</em> for swapping activity, this is <em>the</em> performance killer</li>
+<li>check that memory allocation makes sense for the workload</li>
+<li>consistent high <em>us</em> indicate possible CPU bound load</li>
+<li>consistent high <em>wa</em> indicate possible I/O bound load</li>
+<li>if this is a VM and <em>st</em> (steal) is consistently high for long, the host system could be overloaded or the VM under-provisioned</li>
+</ul>
+
+<p><code>-d</code> gets us per-device I/O counters since boot. With <code>-p &lt;PART&gt;</code> we get the same for an specific parition.</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">-&gt; vmstat -d 1
+disk- ------------reads------------ ------------writes----------- -----IO------
+       total merged sectors      ms  total merged sectors      ms    cur    sec
+sda   154968   4762 5471678   52614 123981  67290 4139296   68873      0     45
+sda   154968   4762 5471678   52614 123985  67305 4139440   68876      0     45
+sda   187412   5295 5735630   57902 126252  67704 5888256   80177      0     51
+...</code></pre></div>
+<p>Columns are read like this:</p>
+
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>total</td>
+<td>total number of reads / writes</td>
+</tr>
+
+<tr>
+<td>merged</td>
+<td>merged requests (N requests into one I/O)</td>
+</tr>
+
+<tr>
+<td>sectors</td>
+<td>number of sectors read / written</td>
+</tr>
+
+<tr>
+<td>ms</td>
+<td>milliseconds spent reading / writing</td>
+</tr>
+
+<tr>
+<td>cur</td>
+<td>number of I/O operations running</td>
+</tr>
+
+<tr>
+<td>s</td>
+<td>seconds spent for I/O</td>
+</tr>
+</tbody>
+</table>
+
+<p>We can also access a detailed cache utilization report with <code>-m</code>, but it may require root permissions to work.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">&gt; vmstat -m
+Cache                            Num  Total   Size  Pages
+ecryptfs_inode_cache            1544   1564    960     17
+ecryptfs_file_cache              256   1024     16    256
+ecryptfs_auth_tok_list_item       19     76    832     19
+nf_conntrack_expect                0      0    216     18
+nf_conntrack                     101    200    320     25
+fuse_request                      80     80    400     20
+fuse_inode                        42     76    832     19
+ext4_groupinfo_4k               1716   1736    144     28
+ext4_inode_cache              325004 327150   1080     30
+ext4_allocation_context          128    128    128     32
+ext4_io_end                      256    320     64     64
+ext4_extent_status            156920 156978     40    102
+mbcache                          294    438     56     73
+...</code></pre></div>
+<p>And the columns are:</p>
+
+<table>
+<thead>
+<tr>
+<th>column</th>
+<th>meaning</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>cache</td>
+<td>the cache name</td>
+</tr>
+
+<tr>
+<td>num</td>
+<td>active object count</td>
+</tr>
+
+<tr>
+<td>total</td>
+<td>total object count</td>
+</tr>
+
+<tr>
+<td>size</td>
+<td>size per object</td>
+</tr>
+
+<tr>
+<td>pages</td>
+<td>pages with one or more active object</td>
+</tr>
+</tbody>
+</table>
+
+<p>vmstat also has these one-shot views:</p>
+
+<ul>
+<li><code>-s</code> system statistics</li>
+<li><code>-D</code> all disks summary</li>
+<li><code>-f</code> forks</li>
+</ul>
+
+<h3 id="iostat">iostat</h3>
+
+<p>iostat shows the combined CPU and disk I/O statistics. As with vmstat, it can work with <em>interval</em> and <em>count</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># one update per second
+-&gt; iostat 1
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          12.14    0.03    5.66    0.03    0.00   82.14
+
+Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+sda               4.41        29.11        49.44    3409859    5790640
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           5.56    0.00    3.79    0.00    0.00   90.66
+
+Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+sda               0.00         0.00         0.00          0          0
+...</code></pre></div>
+<p>Again, the first report shows averages since boot (we can omit it with <code>-y</code>). While the following shows rates since the previous interval.</p>
+
+<p>We can choose to only see cpu with <code>-c</code> or disk with <code>-d</code>. Also <code>-x</code> shows extended I/O statistics and <code>-m</code> changes units to MB.
+<code>-h</code> changes into an easier to read (for humans) format.</p>
+
+<h3 id="mpstat">mpstat</h3>
+
+<p>mpstat shows (more) detailed CPU statistics. We get vmstat&rsquo;s counters plus some. Same deal with the
+<em>interval</em> and <em>count</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># 1 update per second
+-&gt; mpstat 1
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+
+06:48:41 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+06:48:42 PM  all    7.85    0.00    3.04    0.00    0.25    0.51    0.00    0.00    0.00   88.35
+06:48:43 PM  all   10.08    0.00    4.79    0.00    1.01    0.00    0.00    0.00    0.00   84.13
+06:48:44 PM  all    7.25    0.00    5.25    0.00    0.75    0.50    0.00    0.00    0.00   86.25
+06:48:45 PM  all    9.07    0.00    3.78    0.25    1.01    0.50    0.00    0.00    0.00   85.39</code></pre></div>
+<p>First line is, yet again, averages since boot.</p>
+
+<p>We can choose to only show activity for some CPUs with <code>-P</code>, e.g. <code>-P 1,3</code></p>
+
+<p>There are additional views: <code>-I ALL</code> shows all CPU interruptions, <code>-n</code> shows CPU statistics based on NUMA placement nodes
+(use <code>-N</code> to indicate which nodes to report). There is even a JSON output with <code>-o JSON</code></p>
+
+<p>mpstat shows general CPU utilization, to track an individual process there is <em>pidstat</em></p>
+
+<h3 id="pidstat">pidstat</h3>
+
+<p>This one has some similarities with <em>top</em>. Every <em>interval</em> pidstat prints what processes were running.
+We can also track particular processes with <code>-p</code>. Threads are shown with <code>-t</code>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># track process CPU activity, thread view
+-&gt; pidstat -t -p 25809 1
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/29/2018 	_x86_64_	(4 CPU)
+
+11:00:58 PM   UID      TGID       TID    %usr %system  %guest   %wait    %CPU   CPU  Command
+11:00:58 PM   980     25809         -    0.22    0.07    0.00    0.00    0.28     1  mysqld
+11:00:58 PM   980         -     25809    0.00    0.00    0.00    0.00    0.00     1  |__mysqld
+11:00:58 PM   980         -     25811    0.00    0.00    0.00    0.00    0.00     0  |__mysqld
+11:00:58 PM   980         -     25812    0.00    0.00    0.00    0.00    0.00     3  |__mysqld
+11:00:58 PM   980         -     25820    0.00    0.00    0.00    0.00    0.00     1  |__mysqld
+11:00:58 PM   980         -     25834    0.02    0.01    0.00    0.01    0.02     3  |__mysqld
+11:00:58 PM   980         -     25835    0.02    0.00    0.00    0.01    0.02     3  |__mysqld
+11:00:58 PM   980         -     25836    0.01    0.00    0.00    0.01    0.02     2  |__mysqld
+11:00:58 PM   980         -     25837    0.01    0.00    0.00    0.01    0.01     0  |__mysqld</code></pre></div>
+<p><code>-r</code> shows memory per process, which gives a quick way to check for memory leaks</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># track process memory activity
+-&gt; pidstat -r -p 27766 1
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/30/2018 	_x86_64_	(4 CPU)
+
+09:42:59 PM   UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+09:43:00 PM  1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+09:43:01 PM  1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+09:43:02 PM  1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+09:43:03 PM  1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+Average:     1000     27766      0.00      0.00  689680   17128   0.15  mysqld</code></pre></div>
+<p>pidstat can start a program with <code>-e</code> and show its activity during the execution.</p>
+
+<p>Besides CPU, pidstat can also show per-process I/O activity</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># per-process I/O
+-&gt; pidstat -d 1 5
+Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
+
+04:04:53 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+04:04:54 PM  1000     14423    276.00 197888.00      0.00       1  dd
+04:04:55 PM  1000     14423      0.00 218880.00      0.00       0  dd
+04:04:56 PM  1000     14423      0.00 224664.00      0.00       0  dd
+04:04:57 PM  1000     14423      0.00 230428.00      0.00       0  dd
+04:04:59 PM  1000     14423      0.00 192520.00      0.00       0  dd
+Average:     1000     14423     46.00 207763.33      0.00       0  dd</code></pre></div>
+<p>If pidstat prints negative values, it means it doesn&rsquo;t have enough permissions to access the process.
+Try switching to the user running the process (or as root, that should always).</p>
+
+<p>pidstat supports all these views:</p>
+
+<ul>
+<li><code>-d</code>  I/O statistics</li>
+<li><code>-u</code>  CPU statistics</li>
+<li><code>-R</code>  process priority</li>
+<li><code>-r</code>  memory utilization</li>
+<li><code>-s</code>  stack utilization</li>
+<li><code>-t</code>  thread statistics</li>
+<li><code>-w</code>  task switching</li>
+<li><code>-v</code>  file descriptor</li>
+</ul>
+
+<h3 id="putting-it-all-together">Putting it all together</h3>
+
+<p>These programs complement each other. How would all work together?
+Let&rsquo;s say we want to find why my machine is running slow.</p>
+
+<p>The first thing we can check is vmstat:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; vmstat 1
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0 12 773184 3782540 161528 3176304    0    0  1184 38944 2888 9877 20  5  1 74  0
+ 2  9 773184 3745748 161528 3213272    0    0  2660 36868 2876 7426 18  7  1 73  0
+ 0 11 773184 3630836 161540 3326616    0    0  2688 43052 2959 7064 23  5  1 70  0
+ 2 11 771648 2297092 161792 4873416    0    0  2672 40960 3034 7547 23  6  2 69  0
+ 1 11 771648 2255008 161796 4915000    0    0  2088 38912 2939 7370 24  6  2 67  0
+ 0 11 771648 2142616 161796 4992940    0    0  2148 38916 2976 8061 31  6  1 63  0
+ 1 10 771648 2100532 161804 5034252   20    0  1608 41012 3919 9665 34 11  1 54  0
+ 0 11 819776 149836 157540 6949188    0    0  1920 12292 2702 5527  6  4  0 90  0</code></pre></div>
+<p>What can you see? A consistent high number of sleeping (b), memory utilization going up, no swapping&hellip; that&rsquo;s good,
+disks are being written.</p>
+
+<p>Hmm, a consistently high CPU wait (wa).
+There are indications of an I/O bottleneck, the CPUs are waiting for disks requests.</p>
+
+<p>What does mpstat say?</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">mpstat 1
+Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
+
+01:34:49 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:34:50 PM  all   24.54    0.00    4.22   68.87    1.06    1.06    0.00    0.00    0.00    0.26
+01:34:51 PM  all   19.05    0.00    3.44   74.87    1.06    0.53    0.00    0.00    0.00    1.06
+01:34:52 PM  all   19.37    0.00    3.14   74.61    0.79    1.05    0.00    0.00    0.00    1.05
+01:34:54 PM  all   22.08    0.00    3.12   62.86    0.52    1.04    0.00    0.00    0.00   10.39</code></pre></div>
+<p>Again there it is, a high iowait. There is something funny going on with the disks.</p>
+
+<p>Let&rsquo;s try iostat:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">iostat -x 1 -y
+Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.00    0.00    0.00    0.00    0.00    0.00
+
+Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util
+sda             54.00    0.00   2532.00      0.00     0.00     0.00   0.00   0.00    0.57    0.00   0.02    46.89     0.00   0.06   0.30
+dm-0            54.00    0.00   2532.00      0.00     0.00     0.00   0.00   0.00    0.50    0.00   0.03    46.89     0.00   0.24   1.30
+sdd              1.00  347.00      4.00  39512.00     0.00     0.00   0.00   0.00   53.00    5.42   0.99     4.00   113.87   2.86  99.40
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          23.90    0.00    6.49   68.31    0.00    1.30
+
+Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util
+sda             69.00    0.00   2636.00      0.00     2.00     0.00   2.82   0.00    0.58    0.00   0.06    38.20     0.00   0.29   2.00
+dm-0            71.00    0.00   2636.00      0.00     0.00     0.00   0.00   0.00    1.03    0.00   0.07    37.13     0.00   0.32   2.30
+sdd              0.00  340.00      0.00  38672.00     0.00     0.00   0.00   0.00    0.00    5.84   0.99     0.00   113.74   2.92  99.30</code></pre></div>
+<p>Quite a lot of writes on the <em>sdd</em> device. Even worse, the %util is reaching 100%, the device is saturated
+(%util is only meaningful for spinning disks, RAID or SDD have different capacities)</p>
+
+<p>So the problem seems to be related with sdd.</p>
+
+<p>Can we check what processes are doing I/O?</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">sudo pidstat -d 1
+Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
+
+01:36:25 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+01:36:26 PM     0      2546      3.81      0.00      0.00     100  kworker/u8:3+flush-8:48
+01:36:26 PM     0      2799      0.00     38.10      0.00      48  jbd2/sdd1-8
+01:36:26 PM   980      3435   1474.29  36323.81      0.00       0  mysqld
+
+01:36:26 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+01:36:27 PM     0      2546      0.00      0.00      0.00      99  kworker/u8:3+flush-8:48
+01:36:27 PM   980      3435   2524.00  35096.00      0.00       0  mysqld</code></pre></div>
+<p>We find a mysql server, a kernel thread flushing data and jbd2 (filesystem journal).</p>
+
+<p>Aha! we found what has been causing all that troublesome I/O. To continue investigating we would need to get into the database, but
+this post is getting way too long already. If you are curious, the root cause was some bad queries that were creating temporary tables.</p>
+
+<h3 id="related-links">Related links</h3>
+
+<ul>
+<li>manpages
+
+<ul>
+<li>vmstat: <a href="https://linux.die.net/man/8/vmstat">https://linux.die.net/man/8/vmstat</a></li>
+<li>iostat: <a href="https://linux.die.net/man/1/iostat">https://linux.die.net/man/1/iostat</a></li>
+<li>mpstat: <a href="https://linux.die.net/man/1/mpstat">https://linux.die.net/man/1/mpstat</a></li>
+<li>pidstat: <a href="https://linux.die.net/man/1/pidstat">https://linux.die.net/man/1/pidstat</a></li>
+</ul></li>
+</ul>
+
+<h3 id="what-s-next-1">What&rsquo;s next?</h3>
+
+<p>How about some long term analysis? Something that can work unattended and do reports? Sounds nice?</p>
+
+<p>Good, I guess <a href="../sar-guide">next article</a> will be about <strong>sar</strong>.</p>
+
+<p>So long.</p>
+
+<p>Tomas</p>
+
+<h2 id="system-monitoring-with-sar"><span class="org-todo done DONE">DONE</span> System monitoring with sar</h2>
+
+<p>A guide to system monitoring with sar</p>
+
+<!--more-->
+
+<hr />
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#test"><strong>TEST</strong></a></li>
+<li><a href="#benchmarking-with-sysbench"><span class="org-todo todo TODO">TODO</span> Benchmarking with sysbench</a>:sysbench:guides:</li>
+<li><a href="#sysbench-for-databases"><span class="org-todo todo TODO">TODO</span> Sysbench for databases</a>:mysql:pgsql:mariadb:sysbench:guides:</li>
+<li><a href="#drafts"><strong>DRAFTS</strong></a></li>
+<li><a href="#unused-index-cleanup"><span class="org-todo todo TODO">TODO</span> Unused index cleanup</a>:mysql:mariadb:tuning:</li>
+<li><a href="#container-comparison"><span class="org-todo todo TODO">TODO</span> Container comparison</a>:containers:docker:mariadb:benchmarks:sysbench:</li>
+<li><a href="#the-cost-of-indexing-on-mysql"><span class="org-todo todo TODO">TODO</span> The cost of indexing on MySQL</a>:mysql:mariadb:benchmarks:</li>
+<li><a href="#next"><strong>NEXT</strong></a></li>
+<li><a href="#optimizing-docker-performance--for-dbs----title-in-progress">Optimizing docker performance (for dbs) (title in progress)</a></li>
+<li><a href="#ideas"><strong>IDEAS</strong></a></li>
+<li><a href="#benchmarking-mysql-vs-maria-vs-percona">Benchmarking mysql vs maria vs percona</a></li>
+<li><a href="#benchmarking-innodb-file-format-row-format-myisam">Benchmarking innodb, file format, row format, myisam</a></li>
+<li><a href="#benchmarking-tokudb-rocksdb-xtradb">Benchmarking tokudb, rocksdb, xtradb</a></li>
+<li><a href="#benchmarking-fs-types-ext4-ext3-ext2-xfs-zfs">Benchmarking Fs types, ext4, ext3, ext2, xfs, zfs</a></li>
+<li><a href="#production"><strong>PRODUCTION</strong></a></li>
+<li><a href="#about-me"><span class="org-todo done DONE">DONE</span> About me</a></li>
+<li><a href="#welcome-welcome-and-welcome"><span class="org-todo done DONE">DONE</span> Welcome, welcome &amp; welcome</a></li>
+<li><a href="#a-guide-to-vmstat-and-friends"><span class="org-todo done DONE">DONE</span> A guide to vmstat and friends</a>:guides:monitoring:linux:unix:</li>
+<li><a href="#system-monitoring-with-sar"><span class="org-todo done DONE">DONE</span> System monitoring with sar</a>:guides:monitoring:linux:unix:</li>
+<li><a href="#mysqlslap--part-1"><span class="org-todo done DONE">DONE</span> MySQLSlap (part 1)</a>:mysql:mariadb:guides:</li>
+<li><a href="#mysqlslap--part-2"><span class="org-todo done DONE">DONE</span> MySQLSlap (part 2)</a>:mysql:mariadb:guides:</li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<p>sar is part of the <a href="http://pagesperso-orange.fr/sebastien.godard">sysstat</a> project, a suite of programs for system monitoring.
+With sar, we can log system activity, build performance reports and even make plots.</p>
+
+<p>sar is available on Linux, Solaris, AIX and HP-UX.</p>
+
+<p>We can choose to run sar automatically, as an unattended script. Or interactively and get system metrics on the spot.</p>
+
+<h3 id="unattended-mode">Unattended mode</h3>
+
+<p>With a simple cron entry we can log system activity. If possible, as root, otherwise some data may be missing.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># cron entries, take a sample every 10 minutes
+@reboot /usr/lib/sa/sa1 --boot
+*/10 * * * * /usr/lib/sa/sa1 1 1 -S DISK</code></pre></div>
+<p>The <code>@reboot</code> line is kind of optional, but if the cron supports it&rsquo;s good to have since it ensures the counters are reset
+on boot.</p>
+
+<p><code>sa1</code> is script that calls <code>sadc</code>, which does the actual collection.
+To prevent the files from growing too large not everything is stored, however
+additional counters can be enabled with <code>-S</code>.</p>
+
+<p>Optional collection options for sadc:</p>
+
+<ul>
+<li>DISK block devices</li>
+<li>XDISK block devices and partitions</li>
+<li>INT system interrupts</li>
+<li>IPV6 network IPV6 statistics</li>
+<li>POWER power management</li>
+<li>SNMP is for the SNMP statistics</li>
+<li>ALL everything except XDISK</li>
+<li>XALL everthing including XDISK</li>
+</ul>
+
+<div class="tip-box">
+  <div></div>
+
+<p>Also check sysstat&rsquo;s config for compression and retention options.<br />
+/etc/conf.d/sysstat or /etc/default/sysstat</p>
+
+<p></div></p>
+
+<p>To access the stored data we have two alternatives:</p>
+
+<p><code>sa2</code> is a script that generates an activity report for the previous day (/var/log/sarNN). This can be croned easily:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># generate daily activity report
+00 18 * * * /usr/lib/sa/sa2 -A</code></pre></div>
+<p>The other way is calling <code>sar</code> directly, this lets us choose the view:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># sar views with extended options
+-u [ALL]  CPU utilization (default view)
+-b        I/O rates
+-d        block device activity
+-F        mounted filesystem statistics
+-n ALL    network statistics
+-P ALL    per processor statistics
+-q        queue and load average
+-r [ALL]  memory utilization
+-H        hugepages utilization
+-S        swap space utilization
+-B        paging statistics
+-W        swapping activity
+-v        inode and kernel tables
+-w        task/process creation
+-y        TTY device activity
+-m ALL    power management statistics
+-I ALL    interrupts
+-A        Everything</code></pre></div>
+<p>Some views have additional options, for example <code>-n ALL</code> shows all network activity (including protocols) while <code>-n DEV</code>
+only shows network devices.</p>
+
+<p>sar by default shows today&rsquo;s logs, <code>-1</code> brings yesterday&rsquo;s, <code>-2</code> the day before yesterday and so on.
+We can specify the day&rsquo;s starting <code>-s</code> and end times <code>-e</code> in HH:MM:SS format</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># yesterday&#39;s cpu report, with start and end time
+sar -1 -s 2:58:05 -e 2:58:55
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/26/2018 	_x86_64_	(4 CPU)
+
+02:58:05 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+02:58:10 PM     all     10.89      0.00      7.82      0.00      0.00     81.29
+02:58:15 PM     all      9.82      0.00      7.35      0.00      0.00     82.83
+02:58:20 PM     all     11.28      0.00      6.33      0.05      0.00     82.34
+02:58:25 PM     all     10.69      0.00      7.06      0.05      0.00     82.21
+02:58:30 PM     all     10.27      0.00      7.02      0.00      0.00     82.71
+02:58:35 PM     all     11.49      0.00      8.22      0.00      0.00     80.30
+02:58:40 PM     all     11.90      0.00      6.66      0.05      0.00     81.39
+02:58:45 PM     all     14.38      0.00      7.14      0.05      0.00     78.43
+02:58:50 PM     all     10.66      0.00      6.63      0.00      0.00     82.71
+02:58:55 PM     all     15.01      0.00      6.63      0.00      0.00     78.35
+Average:        all     11.63      0.00      7.09      0.02      0.00     81.26</code></pre></div>
+<h3 id="interactive-sar">Interactive sar</h3>
+
+<p>A quicker alternative is running sar interactively. We can log system activity while doing some other tasks.
+Perhaps while running a benchmark or doing some troubleshooting.</p>
+
+<p>With the <code>-o</code> option, sar stores/appends data in a file or directory.</p>
+
+<p>sar takes a sample <em>interval</em> (in seconds) and <em>count</em> that works as a stop condition.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># collect activity in my_metrics file, 1 sample per second, 60 samples total
+sar -o my_metrics 1 60
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+
+07:01:06 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+07:01:07 PM     all     11.08      0.00      4.79      0.00      0.00     84.13
+07:01:08 PM     all     13.71      0.00      7.11      0.25      0.00     78.93
+07:01:09 PM     all     13.62      0.00      6.43      0.00      0.00     79.95
+07:01:10 PM     all     13.99      0.00      6.36      0.00      0.00     79.64
+...</code></pre></div>
+<p>If you&rsquo;ve used <a href="../vmstat-guide/#mpstat">mpstat</a> before, you&rsquo;ll recognize the format, it&rsquo;s exactly the same.</p>
+
+<p>To retrieve the results we use <code>-f</code>.
+We can use a different <em>interval</em> or <em>count</em> and the output will be filtered appropiately.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># print report from my_metrics file
+sar -f my_metrics -s 14:00:00 1 5
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+
+14:00:00 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+14:00:01 PM     all      9.47      0.00      6.01      0.00      0.00     84.52
+14:00:02 PM     all     11.11      0.00      5.05      0.00      0.00     83.84
+14:00:03 PM     all     29.62      0.00      9.87      0.00      0.00     60.51
+14:00:04 PM     all     12.85      0.00      3.27      0.00      0.00     83.88
+14:00:05 PM     all     20.00      0.00      8.86      0.00      0.00     71.14
+Average:        all     16.09      0.00      6.57      0.00      0.00     77.35</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># print memory activity from my_metrics file
+sar -r -f my_metrics
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+
+07:45:47 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+07:45:48 PM    755544   5216144   5525576     47.27    876804   3773928  14648100     83.48   7714540   2267792      4404
+07:45:49 PM    753728   5214328   5527772     47.29    876804   3773548  14648100     83.48   7716816   2267400      4420
+07:45:50 PM    734512   5195136   5546088     47.45    876804   3774448  14651412     83.49   7734560   2268308      4432
+07:45:51 PM    717524   5178164   5562876     47.59    876804   3774648  14670976     83.61   7750836   2268504      4448
+07:45:52 PM    711580   5172232   5568900     47.65    876804   3774568  14670976     83.61   7757748   2268428      4460
+Average:       734578   5195201   5546242     47.45    876804   3774228  14657913     83.53   7734900   2268086      4433</code></pre></div>
+<h3 id="exporting-sar-s-data">Exporting sar&rsquo;s data</h3>
+
+<p>Wouldn&rsquo;t it be great to be able to export the collected data? Maybe to a database or a spreasheet?
+Don&rsquo;t we deserve some nice plots? No worries, <code>sadf</code> has us covered.</p>
+
+<p>sadf syntax is a bit quirkier:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">sadf [options] [ &lt;interval&gt; [ &lt;count&gt; ] ] [ &lt;datafile&gt; | -[0-9]+ ] -- [sar options]
+
+  options:
+    -p table
+    -d CSV
+    -r raw CSV (as read from the kernel)
+    -x XML
+    -d JSON
+    -g SVG</code></pre></div>
+<p>The options to the right of the <code>--</code> are sent to sar for printing the report, here we can choose what views to export.</p>
+
+<p>To select the log file we can use either <code>0</code>, <code>-1</code>, etc for daily logs (as in the unattended mode) or just
+provide the path to the datafile.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># export yesterday&#39;s I/O activity in CSV
+sadf -d -1  -- -b
+# hostname;interval;timestamp;tps;rtps;wtps;bread/s;bwrtn/s
+ix;1;2018-12-26 17:58:06 UTC;20.00;0.00;20.00;0.00;168.00
+ix;1;2018-12-26 17:58:07 UTC;0.00;0.00;0.00;0.00;0.00
+ix;1;2018-12-26 17:58:08 UTC;0.00;0.00;0.00;0.00;0.00
+ix;1;2018-12-26 17:58:09 UTC;71.00;0.00;71.00;0.00;624.00
+...</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># export CPU activity from my_metrics file in JSON
+sadf -j my_metrics -- -u
+{&#34;sysstat&#34;: {
+        &#34;hosts&#34;: [
+                {
+                        &#34;nodename&#34;: &#34;ix&#34;,
+                        &#34;sysname&#34;: &#34;Linux&#34;,
+                        &#34;release&#34;: &#34;4.19.8-arch1-1-ARCH&#34;,
+                        &#34;machine&#34;: &#34;x86_64&#34;,
+                        &#34;number-of-cpus&#34;: 4,
+                        &#34;file-date&#34;: &#34;2018-12-26&#34;,
+                        &#34;file-utc-time&#34;: &#34;17:58:05&#34;,
+                        &#34;statistics&#34;: [
+                                {
+                                        &#34;timestamp&#34;: {&#34;date&#34;: &#34;2018-12-26&#34;, &#34;time&#34;: &#34;17:58:06&#34;, &#34;utc&#34;: 1, &#34;interval&#34;: 1},
+                                        &#34;cpu-load&#34;: [
+                                                {&#34;cpu&#34;: &#34;all&#34;, &#34;user&#34;: 16.11, &#34;nice&#34;: 0.00, &#34;system&#34;: 10.58, &#34;iowait&#34;: 0.00, &#34;steal&#34;: 0.00, &#34;idle&#34;: 73.32}
+                                        ]
+                                },
+...</code></pre></div>
+<p>With <code>-g</code> we get SVG output that we can redirect into a file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># export CPU activity as SVG plot
+sadf -g -- -u &gt; cpu.svg</code></pre></div>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/img/sadf-cpu-example.png" alt="Figure 2: CPU utilization plot"/>
+    </div>
+    <a href="/img/sadf-cpu-example.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Figure 2: CPU utilization plot</p>
+      </figcaption>
+  </figure>
+</div>
+
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># export network activity for device eth0 as SVG plot
+sadf -g  -- -n DEV --iface=eth0 &gt; a.svg</code></pre></div>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/img/sadf-network-example.png" alt="Figure 3: network usage plot"/>
+    </div>
+    <a href="/img/sadf-network-example.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Figure 3: network usage plot</p>
+      </figcaption>
+  </figure>
+</div>
+
+
+<h3 id="related-links-1">Related links</h3>
+
+<ul>
+<li>sysstat website: <a href="http://pagesperso-orange.fr/sebastien.godard">http://pagesperso-orange.fr/sebastien.godard</a></li>
+<li>sysstat github: <a href="https://github.com/sysstat/sysstat">https://github.com/sysstat/sysstat</a></li>
+<li>manpages
+
+<ul>
+<li>sar: <a href="https://linux.die.net/man/1/sar">https://linux.die.net/man/1/sar</a></li>
+<li>sa1: <a href="https://linux.die.net/man/8/sa1">https://linux.die.net/man/8/sa1</a></li>
+<li>sa2: <a href="https://linux.die.net/man/8/sa2">https://linux.die.net/man/8/sa2</a></li>
+<li>sadc: <a href="https://linux.die.net/man/8/sadc">https://linux.die.net/man/8/sadc</a></li>
+<li>sadf: <a href="https://linux.die.net/man/1/sadf">https://linux.die.net/man/1/sadf</a></li>
+</ul></li>
+</ul>
+
+<h3 id="wrapping-up">Wrapping up</h3>
+
+<p>For sure, there are a lot of more options available, I just can&rsquo;t cover them all, but I think the basics were covered.</p>
+
+<p>That&rsquo;s all for now. If interested on system monitoring, sure to check my previous article about <a href="../vmstat-guide">vmstat</a>.</p>
+
+<p>Have a good one.</p>
+
+<p>Tomas</p>
+
+<h2 id="mysqlslap--part-1"><span class="org-todo done DONE">DONE</span> MySQLSlap (part 1)</h2>
+
+<p>A guide to benchmarking with mysqlslap.</p>
+
+<!--more-->
+
+<hr />
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
+<ul>
+<li><a href="#test"><strong>TEST</strong></a></li>
+<li><a href="#benchmarking-with-sysbench"><span class="org-todo todo TODO">TODO</span> Benchmarking with sysbench</a>:sysbench:guides:</li>
+<li><a href="#sysbench-for-databases"><span class="org-todo todo TODO">TODO</span> Sysbench for databases</a>:mysql:pgsql:mariadb:sysbench:guides:</li>
+<li><a href="#drafts"><strong>DRAFTS</strong></a></li>
+<li><a href="#unused-index-cleanup"><span class="org-todo todo TODO">TODO</span> Unused index cleanup</a>:mysql:mariadb:tuning:</li>
+<li><a href="#container-comparison"><span class="org-todo todo TODO">TODO</span> Container comparison</a>:containers:docker:mariadb:benchmarks:sysbench:</li>
+<li><a href="#the-cost-of-indexing-on-mysql"><span class="org-todo todo TODO">TODO</span> The cost of indexing on MySQL</a>:mysql:mariadb:benchmarks:</li>
+<li><a href="#next"><strong>NEXT</strong></a></li>
+<li><a href="#optimizing-docker-performance--for-dbs----title-in-progress">Optimizing docker performance (for dbs) (title in progress)</a></li>
+<li><a href="#ideas"><strong>IDEAS</strong></a></li>
+<li><a href="#benchmarking-mysql-vs-maria-vs-percona">Benchmarking mysql vs maria vs percona</a></li>
+<li><a href="#benchmarking-innodb-file-format-row-format-myisam">Benchmarking innodb, file format, row format, myisam</a></li>
+<li><a href="#benchmarking-tokudb-rocksdb-xtradb">Benchmarking tokudb, rocksdb, xtradb</a></li>
+<li><a href="#benchmarking-fs-types-ext4-ext3-ext2-xfs-zfs">Benchmarking Fs types, ext4, ext3, ext2, xfs, zfs</a></li>
+<li><a href="#production"><strong>PRODUCTION</strong></a></li>
+<li><a href="#about-me"><span class="org-todo done DONE">DONE</span> About me</a></li>
+<li><a href="#welcome-welcome-and-welcome"><span class="org-todo done DONE">DONE</span> Welcome, welcome &amp; welcome</a></li>
+<li><a href="#a-guide-to-vmstat-and-friends"><span class="org-todo done DONE">DONE</span> A guide to vmstat and friends</a>:guides:monitoring:linux:unix:</li>
+<li><a href="#system-monitoring-with-sar"><span class="org-todo done DONE">DONE</span> System monitoring with sar</a>:guides:monitoring:linux:unix:</li>
+<li><a href="#mysqlslap--part-1"><span class="org-todo done DONE">DONE</span> MySQLSlap (part 1)</a>:mysql:mariadb:guides:</li>
+<li><a href="#mysqlslap--part-2"><span class="org-todo done DONE">DONE</span> MySQLSlap (part 2)</a>:mysql:mariadb:guides:</li>
+</ul>
+
+<p></div>
+<!--endtoc--></p>
+
+<p>There are loads of ways to benchmark MySQL. <code>mysqlslap</code> was, I believe, one of the first official tools for this. It&rsquo;s bundled with the client tools for MySQL and MariaDB,
+so you probably already have it installed.</p>
+
+<p>In this post I&rsquo;ll cover the basics and the <em>auto generate sql</em> mode, be sure to read the <a href="../mysqlslap-guide-2">second part</a> about other ways to use it.</p>
+
+<h3 id="how-does-it-work">How does it work?</h3>
+
+<p>mysqlslap uses the same connection parameters as the normal mysql client, so <code>--host</code> <code>--port</code> <code>--socket</code> <code>--username</code> <code>--password</code> all work
+ (but strangely the <code>--defaults-file</code> doesn&rsquo;t).</p>
+
+<p>In the examples below, however, the parameters <em>will be omitted</em> for brevity&rsquo;s sake.</p>
+
+<p>mysqlslap works in 3 stages:</p>
+
+<ol>
+<li>create test schema</li>
+<li>run test as multiple clients</li>
+<li>delete test schema.</li>
+</ol>
+
+<p>The first and last are executed as a single connection, only in the middle step time is measured.</p>
+
+<h3 id="auto-generate-sql">Auto generate sql</h3>
+
+<p>In auto generate sql mode, mysqlslap will handle table and queries. No need to write any SQL.</p>
+
+<p>This mode activated with <code>--auto-generate-sql</code> (or in short form: <code>-a</code>).</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=10
+Benchmark
+        Average number of seconds to run all queries: 0.004 seconds
+        Minimum number of seconds to run all queries: 0.004 seconds
+        Maximum number of seconds to run all queries: 0.004 seconds
+        Number of clients running queries: 1
+        Average number of queries per client: 10</code></pre></div>
+<p>What happened?</p>
+
+<ol>
+<li>The <code>mysqlslap</code> schema was created</li>
+<li>A test table <code>t1</code> was created. It has 1 integer and 1 varchar(128) column, no explicit primary key</li>
+<li>The table was populated with random rows</li>
+<li>A full table SELECT is run 10 times, sequentially, from a single connection</li>
+<li>The <code>mysqlslap</code> schema is dropped</li>
+<li>The total time taken reported</li>
+</ol>
+
+<p>Let&rsquo;s break down the options:</p>
+
+<ul>
+<li><code>--auto-generate-sql-load-type</code> what is the test type to run</li>
+<li><code>--auto-generate-sql-execute-number</code> how many queries to execute per client</li>
+</ul>
+
+<p>What is different about this next one?</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># simulating 10 clients
+-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=1 --concurrency=10
+Benchmark
+        Average number of seconds to run all queries: 0.015 seconds
+        Minimum number of seconds to run all queries: 0.015 seconds
+        Maximum number of seconds to run all queries: 0.015 seconds
+        Number of clients running queries: 10
+        Average number of queries per client: 1</code></pre></div>
+<p>This one runs the same total number of SELECTs as before, however it does it in parallel.
+There are 10 clients running the a single query. We get the total taken to run the 10 queries.</p>
+
+<p>Did you notice the times reported? Why is it that we get the same values for average, max and min?
+This is because so far we ran the test only 1 time. We can choose to repeat the test using then <code>--iterations</code> parameter.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># 100 iterations, 10 clients
+-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=1 --concurrency=10 --iterations=100
+Benchmark
+        Average number of seconds to run all queries: 0.006 seconds
+        Minimum number of seconds to run all queries: 0.001 seconds
+        Maximum number of seconds to run all queries: 0.015 seconds
+        Number of clients running queries: 10
+        Average number of queries per client: 1</code></pre></div>
+<p>What changed?
+Essentially the whole thing (schema created and dropped) is done 100 times.
+Now times are different because we added some variability.</p>
+
+<h3 id="what-other-things-can-it-do">What other things can it do?</h3>
+
+<p>We can try other types of tests, <code>--auto-generate-sql-load-type</code> can be:</p>
+
+<ul>
+<li>read: <code>SELECT * FROM table</code></li>
+<li>write: <code>INSERT</code></li>
+<li>key: <code>SELECT (primary keys columns)</code></li>
+<li>update: <code>UPDATE (primary keys)</code></li>
+<li>mixed: <code>INSERT INTO table; SELECT * FROM table</code></li>
+</ul>
+
+<p>The mixed mode is the default, it generates 2 queries and both count towards the <code>--auto-generate-sql-execute-number</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-execute-number=10
+Benchmark
+        Average number of seconds to run all queries: 0.006 seconds
+        Minimum number of seconds to run all queries: 0.006 seconds
+        Maximum number of seconds to run all queries: 0.006 seconds
+        Number of clients running queries: 1
+        Average number of queries per client: 10</code></pre></div>
+<p>Since we asked to generate 10 queries, mysqlslap ran 5 INSERTS and 5 SELECTs. We get the total time to run all the queries.</p>
+
+<p>The generated table can be tweaked with the following options:</p>
+
+<ul>
+<li><code>--number-char-cols</code> number of varchar columns (1)</li>
+<li><code>--number-int-cols</code> number of integer columns (1)</li>
+<li><code>--auto-generate-sql-guid-primary</code> add a varchar(36) primary column (none)</li>
+<li><code>--auto-generate-sql-add-autoincrement</code> add an auto-increment bigint column with an unique index (none)</li>
+<li><code>--auto-generate-sql-secondary-indexes</code> generate n integer columns with unique indexes (0)</li>
+</ul>
+
+<p>The table row distribution can be further tweaked with:</p>
+
+<ul>
+<li><code>--auto-generate-sql-write-number</code> how many rows to insert into test table (100)</li>
+<li><code>--auto-generate-sql-unique-query-number</code> how many unique rows, so we can play with cardinality (10)</li>
+</ul>
+
+<p>Other commonly used options are:</p>
+
+<ul>
+<li><code>-vv</code> show verbose output</li>
+<li><code>--csv</code> output into CSV file</li>
+<li><code>--no-drop</code> don&rsquo;t drop the schema when done</li>
+<li><code>--create-schema</code> use a different test schema name</li>
+</ul>
+
+<h3 id="conclusion-2">Conclusion</h3>
+
+<p>mysqlslap is, arguably, a simple benchmark tool, but sometimes simpler is better.</p>
+
+<p>And since we can almost always count on having it installed it&rsquo;s a good idea to get familiarized with it.</p>
+
+<p>The <a href="../mysqlslap-guide-2">next part</a> will cover the query mode.</p>
+
+<h2 id="mysqlslap--part-2"><span class="org-todo done DONE">DONE</span> MySQLSlap (part 2)</h2>
+
+<p>This is the second part of my mysqlslap guide, you can read the <a href="../mysqlslap-guide-1">first part</a></p>
+
+<!--more-->
+
+<hr />
+
+<p>mysqlslap uses the same connection parameters as the normal mysql client, so <code>--host</code> <code>--port</code> <code>--socket</code> <code>--username</code> <code>--password</code> work.
+In the examples below the parameters <em>will be omitted</em> for brevity&rsquo;s sake.</p>
+
+<h3 id="the-query-mode">The query mode</h3>
+
+<p>Query mode allow us to benchmark ad-hoc queries. It&rsquo;s a quick way to troubleshoot a troublesome query.</p>
+
+<p>In its simplest form we pass the query:</p>
+
+<p>(Remember that the connection parameters are <em>omitted</em>)</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --query=&#34;call superheroes.secret_identity(&#39;batman&#39;);&#34;
+  Benchmark
+          Average number of seconds to run all queries: 0.000 seconds
+          Minimum number of seconds to run all queries: 0.000 seconds
+          Maximum number of seconds to run all queries: 0.000 seconds
+          Number of clients running queries: 1
+          Average number of queries per client: 1</code></pre></div>
+<p>We can also write our SQL in a file. mysqlslap is quirky when parsing files, it expects each statement into its own line, we can regain the normal behaviour using <code>--delimiter</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">mysqlslap --query=&#39;my_query.sql&#39; --delimiter=&#39;;&#39;</code></pre></div>
+<p>If we want to repeat the query 10 times we use <code>--iterations</code>. mysqlslap opens 1 connection and runs the query 10 times, sequentially.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --iterations=10 --query=&#34;SELECT sleep(0.1);&#34;
+Benchmark
+        Average number of seconds to run all queries: 0.102 seconds
+        Minimum number of seconds to run all queries: 0.101 seconds
+        Maximum number of seconds to run all queries: 0.104 seconds
+        Number of clients running queries: 1
+        Average number of queries per client: 1</code></pre></div>
+<p>The average time for each query was 0.101. The total execution time unfortunately is not shown by the tool but was a little longer than 1 second.</p>
+
+<p>We can also use <code>--concurrency</code> to simulate many clients running at the same time. For example to simulate 20 clients, each one running time the query one time:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --concurrency=20 --query=&#34;SELECT sleep(0.1);&#34;
+Benchmark
+        Average number of seconds to run all queries: 0.107 seconds
+        Minimum number of seconds to run all queries: 0.107 seconds
+        Maximum number of seconds to run all queries: 0.107 seconds
+        Number of clients running queries: 20
+        Average number of queries per client: 1</code></pre></div>
+<p>This time the command returned after a little longer than 100 ms, because the sleep was concurrent.
+It returned after the last client finished sleeping.</p>
+
+<p>And we can combine concurrency and iterations, this will run the query a total of 200 times:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --concurrency=20 --iterations=10 --query=&#34;SELECT sleep(0.1);&#34;
+Benchmark
+        Average number of seconds to run all queries: 0.111 seconds
+        Minimum number of seconds to run all queries: 0.104 seconds
+        Maximum number of seconds to run all queries: 0.121 seconds
+        Number of clients running queries: 20
+        Average number of queries per client: 1</code></pre></div>
+<p>Total run time a little longer than 1 second.</p>
+
+<p>What about if we want to create the test data? mysqlslap provides the <code>--create-schema</code> and the <code>--create</code> parameters.
+We can supply the create DDL directly as strings or inside a text file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># database dropped when done
+mysqlslap --query=&#34;select * from heroes;&#34; --create-schema=&#39;superheroes&#39; --create=&#39;schema.sql&#39; --delimiter=&#34;;&#34;</code></pre></div>
+<p><strong>A word of warning</strong>, the schema will be dropped afterwards (unless using <code>--no-drop</code>).</p>
+
+<h3 id="conclusion-3">Conclusion</h3>
+
+<p>Pretty neat, right?</p>
+
+<p>If you haven&rsquo;t already, check the <a href="../mysqlslap-guide-1">first part</a> of the guide to mysqlslap.</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2ftomfern%2f&amp;text=&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//plus.google.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2ftomfern%2f" target="_blank" title="Share on Google Plus">
+          <i class="fab fa-google-plus"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2ftomfern%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2ftomfern%2f&amp;title=" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2ftomfern%2f&amp;title=" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2ftomfern%2f&amp;title=" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2ftomfern%2f&amp;description=" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+              </div>
+            </section>
+        
+
+        
+          
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://tomfern.com/post/sar-guide/" data-toggle="tooltip" data-placement="top" title="System monitoring with sar">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://tomfern.com/post/mysqlslap-guide-1/" data-toggle="tooltip" data-placement="top" title="MySQLSlap (part 1)">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://twitter.com/TomFernBlog" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="https://tomfern.com/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Tom
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2019
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://tomfern.com">tomfern.com</a>
+          
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="http://gohugo.io">Hugo v0.53</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://tomfern.com/js/main.js"></script>
+<script src="https://tomfern.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://tomfern.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
+
