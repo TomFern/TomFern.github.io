@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tomfern.com/post/unused-index-cleanup/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tomfern.com/post/sysbench-guide-2/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
@@ -91,6 +96,12 @@
   
   <url>
     <loc>https://tomfern.com/tags/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/tuning/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
     <priority>0</priority>
   </url>

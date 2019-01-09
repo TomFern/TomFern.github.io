@@ -40,7 +40,7 @@
     <item>
       <title>Mysql</title>
       <link>https://tomfern.com/tags/mysql/</link>
-      <pubDate>Wed, 09 Jan 2019 00:13:00 -0300</pubDate>
+      <pubDate>Wed, 09 Jan 2019 16:15:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/mysql/</guid>
       <description></description>
@@ -52,6 +52,15 @@
       <pubDate>Wed, 09 Jan 2019 00:13:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/pgsql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tuning</title>
+      <link>https://tomfern.com/tags/tuning/</link>
+      <pubDate>Wed, 09 Jan 2019 16:15:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/tuning/</guid>
       <description></description>
     </item>
     
