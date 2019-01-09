@@ -3,12 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://tomfern.com/post/sysbench-guide-2/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/post/sysbench-guide-1/</loc>
+    <loc>https://tomfern.com/post/mysqlslap-guide-1/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
   
@@ -18,7 +13,12 @@
   </url>
   
   <url>
-    <loc>https://tomfern.com/post/mysqlslap-guide-1/</loc>
+    <loc>https://tomfern.com/post/sysbench-guide-2/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/post/sysbench-guide-1/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
   
