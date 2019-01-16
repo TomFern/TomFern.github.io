@@ -5,10 +5,19 @@
     <link>https://tomfern.com/</link>
     <description>Recent content on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 09 Jan 2019 16:15:00 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 16 Jan 2019 12:36:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The cost of idle indexes</title>
+      <link>https://tomfern.com/post/cost-of-idle-indexes/</link>
+      <pubDate>Wed, 16 Jan 2019 12:36:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/post/cost-of-idle-indexes/</guid>
+      <description>&lt;p&gt;A simple benchmark to assess the cost of unused indexes on MariaDB.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>MySQL index cleanup</title>

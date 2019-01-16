@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tomfern.com/post/cost-of-idle-indexes/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tomfern.com/post/unused-index-cleanup/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
@@ -45,6 +50,12 @@
   <url>
     <loc>https://tomfern.com/page/about/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/benchmarks/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>

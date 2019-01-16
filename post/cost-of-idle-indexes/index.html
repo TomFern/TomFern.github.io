@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>MySQL index cleanup - tomfern.com</title>
-  <meta property="og:title" content="MySQL index cleanup" />
-  <meta name="twitter:title" content="MySQL index cleanup" />
-  <meta name="description" content="Removing unused indexes for improved performance.">
-  <meta property="og:description" content="Removing unused indexes for improved performance.">
-  <meta name="twitter:description" content="Removing unused indexes for improved performance.">
+  <title>The cost of idle indexes - tomfern.com</title>
+  <meta property="og:title" content="The cost of idle indexes" />
+  <meta name="twitter:title" content="The cost of idle indexes" />
+  <meta name="description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
+  <meta property="og:description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
+  <meta name="twitter:description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
   <meta name="author" content="Tom"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -48,8 +48,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https://tomfern.com/post/unused-index-cleanup/",
-          "name": "My s q l index cleanup"
+          "@id": "https://tomfern.com/post/cost-of-idle-indexes/",
+          "name": "The cost of idle indexes"
         }
     }]
 }
@@ -60,16 +60,16 @@
   "author": {
     "name" : "Tom"
   },
-  "headline": "MySQL index cleanup",
-  "description" : "Removing unused indexes for improved performance.
+  "headline": "The cost of idle indexes",
+  "description" : "A simple benchmark to assess the cost of unused indexes on MariaDB.
 ",
   "inLanguage" : "en",
-  "wordCount": 553,
-  "datePublished" : "2019-01-09T16:15:00",
-  "dateModified" : "2019-01-09T16:15:00",
+  "wordCount": 478,
+  "datePublished" : "2019-01-16T12:36:00",
+  "dateModified" : "2019-01-16T12:36:00",
   "image" : "https://tomfern.com",
-  "keywords" : [ "mysql, tuning" ],
-  "mainEntityOfPage" : "https://tomfern.com/post/unused-index-cleanup/",
+  "keywords" : [ "mysql, benchmarks" ],
+  "mainEntityOfPage" : "https://tomfern.com/post/cost-of-idle-indexes/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https://tomfern.com",
@@ -83,13 +83,13 @@
 }
 </script>
 
-<meta property="og:title" content="MySQL index cleanup" />
-<meta property="og:description" content="Removing unused indexes for improved performance.">
-<meta property="og:url" content="https://tomfern.com/post/unused-index-cleanup/" />
+<meta property="og:title" content="The cost of idle indexes" />
+<meta property="og:description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
+<meta property="og:url" content="https://tomfern.com/post/cost-of-idle-indexes/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="tomfern.com" />
-  <meta name="twitter:title" content="MySQL index cleanup" />
-  <meta name="twitter:description" content="Removing unused indexes for improved performance.">
+  <meta name="twitter:title" content="The cost of idle indexes" />
+  <meta name="twitter:description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TomFernBlog" />
   <meta name="twitter:creator" content="@TomFernBlog" />
@@ -97,7 +97,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TomFernBlog" />
   <meta name="twitter:creator" content="@TomFernBlog" />
-  <meta property="og:url" content="https://tomfern.com/post/unused-index-cleanup/" />
+  <meta property="og:url" content="https://tomfern.com/post/cost-of-idle-indexes/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="tomfern.com" />
 
@@ -302,7 +302,7 @@ div.alert a:hover {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>MySQL index cleanup</h1>
+                <h1>The cost of idle indexes</h1>
               
               
               
@@ -310,7 +310,7 @@ div.alert a:hover {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 9, 2019
+  <i class="fas fa-calendar"></i>&nbsp;Posted on January 16, 2019
   
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
   
@@ -336,7 +336,7 @@ div.alert a:hover {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Removing unused indexes for improved performance.</p>
+        <p>A simple benchmark to assess the cost of unused indexes on MariaDB.</p>
 
 <hr />
 
@@ -346,150 +346,149 @@ div.alert a:hover {
 <div class="heading">Table of Contents</div>
 
 <ul>
-<li><a href="#unused-indexes-in-mysql">Unused indexes in MySQL</a></li>
-<li><a href="#the-catch">The catch</a></li>
+<li><a href="#the-test">The test</a></li>
+<li><a href="#bulk-insert">Bulk insert</a></li>
+<li><a href="#oltp-write-only">OLTP write only</a></li>
+<li><a href="#oltp-read-write">OLTP read+write</a></li>
+<li><a href="#oltp-read-only">OLTP read only</a></li>
 <li><a href="#related-links">Related links</a></li>
-<li><a href="#a-final-word">A final word</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
 </ul>
 
 <p></div>
 <!--endtoc--></p>
 
-<p>Fixing a query by finding the right index feels great, as if by magic, things are blazing fast again.</p>
+<p>The last few days I&rsquo;ve been <a href="../unused-index-cleanup">cleaning up indexes</a>. This entails removing duplicate, unused or redundant indexes.</p>
 
-<p>But indexes, like everything in life, needs balancing. As things inevitably change, some indexes will be left abandoned and unused.
-What happens then? Well, the database engine must keep them updated regardless, that&rsquo;s wasted I/O. They also take up space. Pruning indexes is
-the life of any dba.</p>
+<p>There were quite a lot of indexes, so it was hard work. I knew why this was important to do:
+as the table changes, indexes need to be kept updated,
+less indexes means less updates and less wasted resources.</p>
 
-<h2 id="unused-indexes-in-mysql">Unused indexes in MySQL</h2>
+<p>But I wanted to have a real number to attach to the theory. How much benefit is there <em>really</em>? So I decided to run some simple benchmarks
+ with <a href="../sysbench-guide-2">sysbench</a>.</p>
 
-<p>Fortunately in MySQL has are two great tools: the <em>performance_schema</em>, which collects all kind of metrics and the <em>sys</em> schema which offers easier-to-read views.</p>
+<h2 id="the-test">The test</h2>
 
-<p>The first thing to do is ensure that performance_schema is enabled and configured. There is a global configuration setting to enable it, requires restart to take effect.</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># my.cnf
-# ~~~~~~
+<p>The test procedure is really simple:</p>
 
-[mysqld]
-performance_schema=ON</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">-- check if performance_schema is enabled
-select @@performance_schema;</code></pre></div>
-<p>Then there is the runtime configuration to control what types of events to log. This is quite a complex subject because there is so many knobs to turn.</p>
+<ol>
+<li>create a test table</li>
+<li>run the desired benchmark</li>
+<li>add an index</li>
+<li>repeat benchmark</li>
+</ol>
 
-<p>We&rsquo;ll cheat, we have indexes to delete, no time to be reading manuals. MySQL Workbench has a <em>Performance Schema Setup</em> wizard.</p>
+<p>I started with 1 index (the primary key) and went up in 10 index increments. InnoDB supports up to 64 indexes per table.</p>
+
+<p>Each particular combination of test + number of indexes was run 3 times. On the plots
+we&rsquo;ll see the median, maximum and minimum values.</p>
+
+<p>Testing was done on MariaDB 10.3.12 running in a docker container.</p>
+
+<h2 id="bulk-insert">Bulk insert</h2>
+
+<p>Let&rsquo;s start with multi-row inserts.
+This test is entirely focused on writes, so the number of indexes should have a high impact.</p>
 
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/img/performance_schema_setup.png" alt="Figure 1: performance schema setup"/>
+      <img itemprop="thumbnail" src="/plots/cost-of-indexes/bulk_insert.png" alt="Figure 1: Bulk insert. 1 thread."/>
     </div>
-    <a href="/img/performance_schema_setup.png" itemprop="contentUrl"></a>
+    <a href="/plots/cost-of-indexes/bulk_insert.png" itemprop="contentUrl"></a>
       <figcaption>
-          <p>Figure 1: performance schema setup</p>
+          <p>Figure 1: Bulk insert. 1 thread.</p>
       </figcaption>
   </figure>
 </div>
 
+
+<p>RPS with 11 indexes is about 3 times slower. That&rsquo;s a lot. 61 indexes perform the worst, almost 13 times worse.</p>
+
+<h2 id="oltp-write-only">OLTP write only</h2>
+
+<p>This being a write only test, the number of indexes should still matter a lot.</p>
 
 
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/img/sys_installer.png" alt="Figure 2: installing the sys schema"/>
+      <img itemprop="thumbnail" src="/plots/cost-of-indexes/oltp_wo.png" alt="Figure 2: OLTP Write Only. 1 thread."/>
     </div>
-    <a href="/img/sys_installer.png" itemprop="contentUrl"></a>
+    <a href="/plots/cost-of-indexes/oltp_wo.png" itemprop="contentUrl"></a>
       <figcaption>
-          <p>Figure 2: installing the sys schema</p>
+          <p>Figure 2: OLTP Write Only. 1 thread.</p>
       </figcaption>
   </figure>
 </div>
 
 
-<p>Setting the slider to at least <em>Server Default</em> should be enough.</p>
+<p>11 indexes make transactions 40% slower. A considerable fall in performance. Worse case is a little bit less than 5 times slower.</p>
+
+<h2 id="oltp-read-write">OLTP read+write</h2>
+
+<p>A mix of reads and writes.</p>
 
 
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/img/performance_schema_slider.png" alt="Figure 3: cheat mode: enabled"/>
+      <img itemprop="thumbnail" src="/plots/cost-of-indexes/oltp_rw.png" alt="Figure 3: OTLP Read&#43;Write. 1 thread."/>
     </div>
-    <a href="/img/performance_schema_slider.png" itemprop="contentUrl"></a>
+    <a href="/plots/cost-of-indexes/oltp_rw.png" itemprop="contentUrl"></a>
       <figcaption>
-          <p>Figure 3: cheat mode: enabled</p>
+          <p>Figure 3: OTLP Read&#43;Write. 1 thread.</p>
       </figcaption>
   </figure>
 </div>
 
 
-<h2 id="the-catch">The catch</h2>
+<p>With 11 indexes there is only about a 10% reduction in TPS. This should be due the fact that read speed is less affected
+by extra indexes.</p>
 
-<p>Once everything is set up, we&rsquo;ll find unused indexes in a view.</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">sys</span><span class="p">.</span><span class="n">schema_unused_indexes</span></code></pre></div>
-<p>The documentation states:</p>
+<h2 id="oltp-read-only">OLTP read only</h2>
 
-<blockquote>
-<p>The <a href="https://dev.mysql.com/doc/refman/8.0/en/sys-schema-unused-indexes.html">schema_unused_indexes</a> View</p>
+<p>Why does the number of indexes affect read speed?
+Well, for one thing the query optimizer needs to check all the indexes on a table (even if they are duplicate),
+also there&rsquo;s some additional I/O required. So there is a cost, but it should be minimal.</p>
 
-<p>These views display indexes for which there are no events, which indicates that they are not being used. By default, rows are sorted by schema and table.</p>
+<p>Let&rsquo;s see if it shows in the test.</p>
 
-<p>This view is most useful when the server has been up and processing long enough that its workload is representative. Otherwise, presence of an index in this view may not be meaningful.</p>
-</blockquote>
 
-<p>At first glance it seems that we need only to check that the server has been running for some time,
-i.e. the performance counters are reset on service restart.</p>
 
-<p>That&rsquo;s not entirely true, because all the counters for a particular table are also reset when any of its indexes are <strong>modified</strong>.
-Doing any <code>alter table [add|remove] index</code>, marks all the other indexes on that table table as unused.</p>
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/plots/cost-of-indexes/oltp_ro.png" alt="Figure 4: OTLP Read Only. 1 thread."/>
+    </div>
+    <a href="/plots/cost-of-indexes/oltp_ro.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Figure 4: OTLP Read Only. 1 thread.</p>
+      </figcaption>
+  </figure>
+</div>
 
-<p>If you wish to have some fun test it yourself:</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">create</span> <span class="k">database</span> <span class="n">super</span><span class="p">;</span>
-<span class="k">create</span> <span class="k">table</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span> <span class="p">(</span>
-  <span class="n">name</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
-  <span class="n">hability</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="k">not</span> <span class="k">null</span><span class="p">,</span>
-  <span class="k">key</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
-  <span class="k">key</span><span class="p">(</span><span class="n">hability</span><span class="p">)</span>
-<span class="p">);</span>
-<span class="k">insert</span> <span class="k">into</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span> <span class="k">values</span>
-<span class="p">(</span><span class="s1">&#39;the flash&#39;</span><span class="p">,</span><span class="s1">&#39;speed&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="s1">&#39;aquaman&#39;</span><span class="p">,</span><span class="s1">&#39;fish language&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="s1">&#39;batman&#39;</span><span class="p">,</span><span class="s1">&#39;rich&#39;</span><span class="p">),</span>
-<span class="p">(</span><span class="s1">&#39;superman&#39;</span><span class="p">,</span><span class="s1">&#39;all of them&#39;</span><span class="p">);</span>
 
-<span class="c1">-- use the index and check the counters
-</span><span class="c1"></span><span class="k">select</span> <span class="n">name</span> <span class="k">from</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span><span class="p">;</span>
-<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">sys</span><span class="p">.</span><span class="n">schema_unused_indexes</span><span class="p">;</span>
+<p>As expected, TPS does depend on the number of indexes. Compared with previous tests, however, the impact is low:
+the worst case, having 61 indexes means a 7% reduction in transaction speed.</p>
 
-<span class="c1">-- any one of these resets the index usage counters
-</span><span class="c1"></span><span class="k">alter</span> <span class="k">table</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span> <span class="k">add</span> <span class="k">key</span> <span class="n">name_hability</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">hability</span><span class="p">);</span>
-<span class="k">alter</span> <span class="k">table</span> <span class="n">super</span><span class="p">.</span><span class="n">heroes</span> <span class="k">drop</span> <span class="k">key</span> <span class="n">name_hability</span><span class="p">;</span></code></pre></div>
 <h2 id="related-links">Related links</h2>
 
 <ul>
-<li>performance_schema quickstart: <a href="https://dev.mysql.com/doc/mysql-perfschema-excerpt/8.0/en/performance-schema-quick-start.html">https://dev.mysql.com/doc/mysql-perfschema-excerpt/8.0/en/performance-schema-quick-start.html</a></li>
-<li>performance_schema config: <a href="https://dev.mysql.com/doc/mysql-perfschema-excerpt/8.0/en/performance-schema-runtime-configuration.html">https://dev.mysql.com/doc/mysql-perfschema-excerpt/8.0/en/performance-schema-runtime-configuration.html</a></li>
-<li>schema_unused_indexes: <a href="https://dev.mysql.com/doc/refman/8.0/en/sys-schema-unused-indexes.html">https://dev.mysql.com/doc/refman/8.0/en/sys-schema-unused-indexes.html</a></li>
+<li>benchmark data: <a href="https://github.com/TomFern/benchmark-data/tree/master/cost-of-idle-indexes">https://github.com/TomFern/benchmark-data/tree/master/cost-of-idle-indexes</a></li>
 </ul>
 
-<h2 id="a-final-word">A final word</h2>
+<h2 id="conclusion">Conclusion</h2>
 
-<p>Here&rsquo;s my general strategy:</p>
+<p>No major discoveries here. Everything lines up with what we could have expected. It would be interesting
+to repeat the tests with higher a resolution between the first 15 or so indexes. Which, frankly,
+is much more common than having 60+.</p>
 
-<ul>
-<li>Backup the tables, or at the very least export the index definitions (just in case)</li>
-<li>Ensure that both server has been running for enough time <strong>and</strong> that the table has not been modified recently</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">show table status from &lt;SCHEMA&gt; where name = &lt;TABLE&gt;</code></pre></div>
-<ul>
-<li>Save the list of the unused indexes somewhere safe, you&rsquo;ll probably lose it after modifying the table</li>
-</ul>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">create table unused_backup as select * from sys.schema_unused_indexes</code></pre></div>
-<ul>
-<li>Delete the unused indexes</li>
-</ul>
-
-<p>Hope that helps.</p>
+<p>Bye.</p>
 
 <p>Tomas</p>
 
@@ -498,7 +497,7 @@ Doing any <code>alter table [add|remove] index</code>, marks all the other index
             
               <a href="https://tomfern.com/tags/mysql/">mysql</a>&nbsp;
             
-              <a href="https://tomfern.com/tags/tuning/">tuning</a>&nbsp;
+              <a href="https://tomfern.com/tags/benchmarks/">benchmarks</a>&nbsp;
             
           </div>
         
@@ -513,49 +512,49 @@ Doing any <code>alter table [add|remove] index</code>, marks all the other index
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2funused-index-cleanup%2f&amp;text=MySQL%20index%20cleanup&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fcost-of-idle-indexes%2f&amp;text=The%20cost%20of%20idle%20indexes&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//plus.google.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2funused-index-cleanup%2f" target="_blank" title="Share on Google Plus">
+        <a href="//plus.google.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fcost-of-idle-indexes%2f" target="_blank" title="Share on Google Plus">
           <i class="fab fa-google-plus"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2funused-index-cleanup%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2fcost-of-idle-indexes%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2funused-index-cleanup%2f&amp;title=MySQL%20index%20cleanup" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fcost-of-idle-indexes%2f&amp;title=The%20cost%20of%20idle%20indexes" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2funused-index-cleanup%2f&amp;title=MySQL%20index%20cleanup" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2fcost-of-idle-indexes%2f&amp;title=The%20cost%20of%20idle%20indexes" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2funused-index-cleanup%2f&amp;title=MySQL%20index%20cleanup" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fcost-of-idle-indexes%2f&amp;title=The%20cost%20of%20idle%20indexes" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2funused-index-cleanup%2f&amp;description=MySQL%20index%20cleanup" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2fcost-of-idle-indexes%2f&amp;description=The%20cost%20of%20idle%20indexes" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -572,11 +571,11 @@ Doing any <code>alter table [add|remove] index</code>, marks all the other index
           <h4 class="see-also">See also</h4>
           <ul>
           
+            <li><a href="/post/unused-index-cleanup/">MySQL index cleanup</a></li>
+          
             <li><a href="/post/sysbench-guide-2/">Sysbench for databases</a></li>
           
             <li><a href="/post/mysqlslap-guide-2/">MySQLSlap (part 2)</a></li>
-          
-            <li><a href="/post/mysqlslap-guide-1/">MySQLSlap (part 1)</a></li>
           
           </ul>
           
@@ -587,13 +586,9 @@ Doing any <code>alter table [add|remove] index</code>, marks all the other index
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://tomfern.com/post/sysbench-guide-2/" data-toggle="tooltip" data-placement="top" title="Sysbench for databases">&larr; Previous Post</a>
+              <a href="https://tomfern.com/post/unused-index-cleanup/" data-toggle="tooltip" data-placement="top" title="MySQL index cleanup">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://tomfern.com/post/cost-of-idle-indexes/" data-toggle="tooltip" data-placement="top" title="The cost of idle indexes">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

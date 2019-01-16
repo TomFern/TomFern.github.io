@@ -5,10 +5,19 @@
     <link>https://tomfern.com/tags/</link>
     <description>Recent content in Tags on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Wed, 09 Jan 2019 00:13:00 -0300</lastBuildDate>
+    <lastBuildDate>Wed, 16 Jan 2019 12:36:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Benchmarks</title>
+      <link>https://tomfern.com/tags/benchmarks/</link>
+      <pubDate>Wed, 16 Jan 2019 12:36:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/benchmarks/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Guides</title>
@@ -40,7 +49,7 @@
     <item>
       <title>Mysql</title>
       <link>https://tomfern.com/tags/mysql/</link>
-      <pubDate>Wed, 09 Jan 2019 16:15:00 -0300</pubDate>
+      <pubDate>Wed, 16 Jan 2019 12:36:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/mysql/</guid>
       <description></description>
