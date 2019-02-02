@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tomfern.com/post/docker-perf-tips/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tomfern.com/post/a-container-for-my-dbs/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
@@ -82,6 +87,12 @@
   
   <url>
     <loc>https://tomfern.com/tags/linux/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/mariadb/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
     <priority>0</priority>
   </url>

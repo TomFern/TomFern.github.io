@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>A container for my databases - tomfern.com</title>
-  <meta property="og:title" content="A container for my databases" />
-  <meta name="twitter:title" content="A container for my databases" />
-  <meta name="description" content="Playing with databases in containers.">
-  <meta property="og:description" content="Playing with databases in containers.">
-  <meta name="twitter:description" content="Playing with databases in containers.">
+  <title>Making the most out of Docker - tomfern.com</title>
+  <meta property="og:title" content="Making the most out of Docker" />
+  <meta name="twitter:title" content="Making the most out of Docker" />
+  <meta name="description" content="A few tips to make the most of a Docker.">
+  <meta property="og:description" content="A few tips to make the most of a Docker.">
+  <meta name="twitter:description" content="A few tips to make the most of a Docker.">
   <meta name="author" content="Tom"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -48,8 +48,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https://tomfern.com/post/a-container-for-my-dbs/",
-          "name": "A container for my databases"
+          "@id": "https://tomfern.com/post/docker-perf-tips/",
+          "name": "Making the most out of docker"
         }
     }]
 }
@@ -60,16 +60,16 @@
   "author": {
     "name" : "Tom"
   },
-  "headline": "A container for my databases",
-  "description" : "Playing with databases in containers.
+  "headline": "Making the most out of Docker",
+  "description" : "A few tips to make the most of a Docker.
 ",
   "inLanguage" : "en",
-  "wordCount": 464,
-  "datePublished" : "2019-01-18T17:59:00",
-  "dateModified" : "2019-01-18T17:59:00",
+  "wordCount": 802,
+  "datePublished" : "2019-02-02T11:21:00",
+  "dateModified" : "2019-02-02T11:21:00",
   "image" : "https://tomfern.com",
-  "keywords" : [ "docker, mysql, benchmarks" ],
-  "mainEntityOfPage" : "https://tomfern.com/post/a-container-for-my-dbs/",
+  "keywords" : [ "docker, mariadb, linux" ],
+  "mainEntityOfPage" : "https://tomfern.com/post/docker-perf-tips/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https://tomfern.com",
@@ -83,13 +83,13 @@
 }
 </script>
 
-<meta property="og:title" content="A container for my databases" />
-<meta property="og:description" content="Playing with databases in containers.">
-<meta property="og:url" content="https://tomfern.com/post/a-container-for-my-dbs/" />
+<meta property="og:title" content="Making the most out of Docker" />
+<meta property="og:description" content="A few tips to make the most of a Docker.">
+<meta property="og:url" content="https://tomfern.com/post/docker-perf-tips/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="tomfern.com" />
-  <meta name="twitter:title" content="A container for my databases" />
-  <meta name="twitter:description" content="Playing with databases in containers.">
+  <meta name="twitter:title" content="Making the most out of Docker" />
+  <meta name="twitter:description" content="A few tips to make the most of a Docker.">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TomFernBlog" />
   <meta name="twitter:creator" content="@TomFernBlog" />
@@ -97,7 +97,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TomFernBlog" />
   <meta name="twitter:creator" content="@TomFernBlog" />
-  <meta property="og:url" content="https://tomfern.com/post/a-container-for-my-dbs/" />
+  <meta property="og:url" content="https://tomfern.com/post/docker-perf-tips/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="tomfern.com" />
 
@@ -302,7 +302,7 @@ div.alert a:hover {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>A container for my databases</h1>
+                <h1>Making the most out of Docker</h1>
               
               
               
@@ -310,9 +310,9 @@ div.alert a:hover {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 18, 2019
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 2, 2019
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
   
   
   
@@ -336,7 +336,7 @@ div.alert a:hover {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Playing with databases in containers.</p>
+        <p>A few tips to make the most of a Docker.</p>
 
 <hr />
 
@@ -346,160 +346,197 @@ div.alert a:hover {
 <div class="heading">Table of Contents</div>
 
 <ul>
-<li><a href="#containers-tested">Containers tested</a>
-
-<ul>
-<li><a href="#docker">Docker</a></li>
-<li><a href="#rkt">rkt</a></li>
-<li><a href="#lxc">LXC</a></li>
-<li><a href="#systemd-spawn">systemd-spawn</a></li>
-</ul></li>
-<li><a href="#benchmarks">Benchmarks</a>
-
-<ul>
-<li><a href="#single-thread">Single thread</a></li>
-<li><a href="#10-threads">10 Threads</a></li>
-</ul></li>
+<li><a href="#network">Network</a></li>
+<li><a href="#storage">Storage</a></li>
+<li><a href="#use-limits">Use limits</a></li>
 <li><a href="#related-links">Related links</a></li>
-<li><a href="#that-s-it">That&rsquo;s it</a></li>
 </ul>
 
 <p></div>
 <!--endtoc--></p>
 
-<p>Who doesn&rsquo;t like containers? Anyone doesn&rsquo;t like to have most of the benefits of virtual machines with much, much less overhead?</p>
+<p>Some options that might increase performance, some that don&rsquo;t.</p>
 
-<p>They&rsquo;ve been around since forever (anyone still remember chroot?)
-but only in recent years their popularity boomed, mainly due to cloud computing, I&rsquo;m sure.</p>
+<h2 id="network">Network</h2>
 
-<p>I&rsquo;ve been running databases in docker for a while now. I was curious about other alternatives, so I did a bit of benchmarking.</p>
+<p>Containers get connected to a bridge network by default.
+A software bridge that allows communication between containers running on the same host &amp; bridge.
+We can also create and use custom bridges, to create isolated groups of containers.
+To allow connections from outside, we must map the host&rsquo;s ports to a container&rsquo;s with <code>-p</code> (<em>publish</em> e.g. -p 3306:3306)
+This is easy and flexible, but it makes Docker start an additional process (<em>docker-proxy</em>), which can use a non-trivial amount of CPU.</p>
 
-<h2 id="containers-tested">Containers tested</h2>
+<p>What&rsquo;s the alternative? Consider using <code>--net=host</code>, which connects the container network directly the host.
+In my experience, a considerable boost can be gained, specially when there are multiple connections.</p>
 
-<h3 id="docker">Docker</h3>
+<p>The downside of this is that we run the risk of inadvertently exposing ports to the outside world.
+Moreover, changing service ports is, yet again, a hassle.
+We&rsquo;ll need to deal with configuration settings inside the container.</p>
 
-<p>It&rsquo;s not a coincidence that Docker appeared around the same time container technology began its popularity rise.</p>
-
-<p>It&rsquo;s main selling point is its easy of use and an enormous ecosystem of ready to use images.</p>
-
-<h3 id="rkt">rkt</h3>
-
-<p>rkt is an interesting alternative to Docker. rkt has the same features and can even download and run Docker images.</p>
-
-<p>rkt takes security-minded approach to containers. It supports signed images, a feature sorely needed in Docker.</p>
-
-<h3 id="lxc">LXC</h3>
-
-<p>LXC (linux containers) is the technology that was originally behind docker.</p>
-
-<p>LXC just runs containers, that&rsquo;s it. We can regain some of Docker-like features if we mix in some additional
-components like LXD (hypervisor and management) and LXCFS (an overlay filesystem).
-For snapshots we can use LVM or an snapshot-capable filesystem.</p>
-
-<h3 id="systemd-spawn">systemd-spawn</h3>
-
-<p>systemd-nspawn is &ldquo;chroot on steroids&rdquo;.
-A much simpler tool, it doesn&rsquo;t provide any form of image management. It requires a more DIY approach, we need to set up everything by ourselves.</p>
-
-<p>nspawn, unlike chroot, does provide a network virtualization and it&rsquo;s capable of fully booting a linux container.</p>
-
-<p>It&rsquo;s a lightweight alternative worth considering if your linux distribution uses systemd.</p>
-
-<h2 id="benchmarks">Benchmarks</h2>
-
-<p>The databases tested are MariaDB 10.3.12 and Postgres 11.1.</p>
-
-<p>I&rsquo;m using <a href="../sysbench-guide-2">sysbench</a>&rsquo;s OLTP read+write test, using 1 and 10 threads.
-I&rsquo;ve run each test 3 times, 20 minutes each test. The graph consists of the max, median and min <em>average</em> TPS values.</p>
-
-<h3 id="single-thread">Single thread</h3>
+<p>How much more we can get out of Docker?
+I ran a <a href="../../post/sysbench-guide-2">sysbench</a> OLTP read+write test with 8 threads on MariaDB 10.3.12 to see.</p>
 
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/plots/a-container-for-my-dbs/mariadb-rw-1.png" alt="Figure 1: MariaDB - 1 thread"/>
+      <img itemprop="thumbnail" src="/plots/docker-perf-tips/oltp_rw.png" alt="Figure 1: network types"/>
     </div>
-    <a href="/plots/a-container-for-my-dbs/mariadb-rw-1.png" itemprop="contentUrl"></a>
+    <a href="/plots/docker-perf-tips/oltp_rw.png" itemprop="contentUrl"></a>
       <figcaption>
-          <p>Figure 1: MariaDB - 1 thread</p>
+          <p>Figure 1: network types</p>
       </figcaption>
   </figure>
 </div>
 
+
+<p>In my test, host network means about a 37% TPS increase. I&rsquo;ll let you decide if that is worth letting go of port mapping.</p>
+
+<h2 id="storage">Storage</h2>
+
+<p>Containers are made up of several layers, the top one is the only one that can be written into.
+Once a container is stopped and removed, this layer is lost.
+The layers are managed by one of Docker&rsquo;s storage drivers, which does copy-on-write.
+Docker&rsquo;s documentation states that this feature reduces performance.</p>
+
+<p>To provide permanent storage we can use volumes and bind mounts.
+Volumes are managed by Docker itself, whereas bind mounts provide a way to map directory or file between the host and the container.
+In theory, these methods should be more efficient because they bypass Docker&rsquo;s storage driver.</p>
+
+<p>I was curious about a case in which I had to write lots of data but I didn&rsquo;t need persistence.
+The best solution would have been to a tmpfs mount, being memory storage, it&rsquo;s the fastest.
+But we don&rsquo;t always have enough memory. What&rsquo;s the best other alternative?</p>
+
+<p>I tested random write speed with <a href="http://freshmeat.sourceforge.net/projects/fio">fio</a> on an EC2 host with an io1 1000 IOPS volume.</p>
 
 
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/plots/a-container-for-my-dbs/postgres-rw-1.png" alt="Figure 2: PostgreSQL - 1 thread"/>
+      <img itemprop="thumbnail" src="/plots/docker-perf-tips/fio_write_3.png" alt="Figure 2: random write speeds"/>
     </div>
-    <a href="/plots/a-container-for-my-dbs/postgres-rw-1.png" itemprop="contentUrl"></a>
+    <a href="/plots/docker-perf-tips/fio_write_3.png" itemprop="contentUrl"></a>
       <figcaption>
-          <p>Figure 2: PostgreSQL - 1 thread</p>
+          <p>Figure 2: random write speeds</p>
       </figcaption>
   </figure>
 </div>
 
 
-<p>I was surprised that docker did so well, I wouldn&rsquo;t have been shocked if it were the worst, but it performed best.</p>
+<p>As you can see, the mount option really makes no difference for write speeds.</p>
 
-<h3 id="10-threads">10 Threads</h3>
-
-<p>How does performance change with a higher thread count?</p>
+<p>To put things into perspective I repeated the test with a tmpfs mount.
+I had to use a log scale to even see the slower options.</p>
 
 
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/plots/a-container-for-my-dbs/mariadb-rw-10.png" alt="Figure 3: MariaDB - 10 threads"/>
+      <img itemprop="thumbnail" src="/plots/docker-perf-tips/fio_write_4_log.png" alt="Figure 3: random write speeds"/>
     </div>
-    <a href="/plots/a-container-for-my-dbs/mariadb-rw-10.png" itemprop="contentUrl"></a>
+    <a href="/plots/docker-perf-tips/fio_write_4_log.png" itemprop="contentUrl"></a>
       <figcaption>
-          <p>Figure 3: MariaDB - 10 threads</p>
+          <p>Figure 3: random write speeds</p>
       </figcaption>
   </figure>
 </div>
 
 
+<h2 id="use-limits">Use limits</h2>
 
+<p>Containers, by default, don&rsquo;t have any limits.
+Any of them can hoard all the host system&rsquo;s resources.
+This may be well and fine for development, but a potential disaster for production.</p>
 
-<div class="box" >
-  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    <div class="img">
-      <img itemprop="thumbnail" src="/plots/a-container-for-my-dbs/postgres-rw-10.png" alt="Figure 4: PostgreSQL - 10 threads"/>
-    </div>
-    <a href="/plots/a-container-for-my-dbs/postgres-rw-10.png" itemprop="contentUrl"></a>
-      <figcaption>
-          <p>Figure 4: PostgreSQL - 10 threads</p>
-      </figcaption>
-  </figure>
-</div>
+<p>Thus, a final recommendation: set limits for production containers. At the very least a memory limit.
+To avoid swapping and containers getting killed by out of memory errors.
+We can also set limits for CPU and disk I/O.</p>
 
+<p>First, we need to find out suitable limits. We can start the container normally and check resource usage:</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">docker stats &lt;CONTAINER_ID&gt;
 
-<p>A higher load tends to even out things. Docker suffers a bit more with MariaDB.
-All in all it doesn&rsquo;t look like there is much of a speed difference between container types.</p>
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+529ea41caf55        jolly_borg          3.36%               5.016MiB / 983.9MiB   0.51%               0B / 0B             36.1MB / 24.4GB     7</code></pre></div>
+<p>A lot of details can be found under the <strong>/sys/fs/cgroup</strong> filesystem.
+For example, we can get a great deal of interesting memory counters.</p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">-&gt; cat /sys/fs/cgroup/memory/docker/&lt;FULL_CONTAINER_ID&gt;/memory.stats
 
+cache 41623552
+rss 1097854976
+rss_huge 0
+shmem 15343616
+mapped_file 24809472
+dirty 0
+writeback 0
+swap 122916864
+pgpgin 91463838
+pgpgout 91185552
+pgfault 165685756
+pgmajfault 3525
+inactive_anon 373063680
+active_anon 738381824
+inactive_file 10625024
+active_file 15716352
+unevictable 0
+hierarchical_memory_limit 9223372036854771712
+hierarchical_memsw_limit 9223372036854771712
+total_cache 41623552
+total_rss 1096085504
+total_rss_huge 0
+total_shmem 15343616
+total_mapped_file 24809472
+total_dirty 0
+total_writeback 0
+total_swap 122916864
+total_pgpgin 91463838
+total_pgpgout 91186010
+total_pgfault 165685756
+total_pgmajfault 3525
+total_inactive_anon 373063680
+total_active_anon 738381824
+total_inactive_file 10625024
+total_active_file 15716352
+total_unevictable 0</code></pre></div>
+<div class="tip-box">
+  <div></div>
+
+<p>To get the full container id: <code>docker ps --no-trunc</code></p>
+
+<p></div></p>
+
+<p>Once we have an estimation, we can try starting a new container with some limits.</p>
+
+<p>For a hard memory limit, we can use <code>--memory</code>.
+Use <code>--cpus</code> to limit the amount of CPUs available.</p>
+
+<div class="tip-box">
+  <div></div>
+
+<p>When setting a memory limit, Docker will set a swap limit of <code>--memory</code> * 2.
+This can be changed with <code>--memory-swap</code>: <em>total swap allowed</em> = <code>--memory</code> - <code>--memory-swap</code>.</p>
+
+<p></div></p>
+
+<p>Container limits can even be changed while they are running.
+We don&rsquo;t need to restart containers as
+Docker can change limits at runtime: <code>docker update</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># set limits, 4 CPUs, 4G of memory, 1G of swap
+docker run -it --cpus=4 --memory=4G --memory-swap=5G ubuntu:latest bash
+# increase memory limits, 8G memory, 1G of swap
+docker update --memory=8G --memory-swap=9G &lt;CONTAINER_ID&gt;</code></pre></div>
 <h2 id="related-links">Related links</h2>
 
 <ul>
-<li>benchmark data:  <a href="https://github.com/TomFern/benchmark-data/tree/master/a-container-for-my-dbs">https://github.com/TomFern/benchmark-data/tree/master/a-container-for-my-dbs</a></li>
-<li>docker: <a href="https://docs.docker.com/">https://docs.docker.com/</a></li>
-<li>lxc: <a href="https://linuxcontainers.org/">https://linuxcontainers.org/</a></li>
-<li>rkt: <a href="https://coreos.com/rkt/">https://coreos.com/rkt/</a></li>
-<li>systemd-nspawn: <a href="https://wiki.archlinux.org/index.php/systemd-nspawn">https://wiki.archlinux.org/index.php/systemd-nspawn</a></li>
+<li>Benchmark data: <a href="https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips">https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips</a></li>
+<li><a href="https://docs.docker.com/network/">https://docs.docker.com/network/</a></li>
+<li><a href="https://docs.docker.com/storage/">https://docs.docker.com/storage/</a></li>
+<li><a href="https://docs.docker.com/config/containers/resource%5Fconstraints/">https://docs.docker.com/config/containers/resource%5Fconstraints/</a></li>
+<li><a href="https://docs.docker.com/config/containers/runmetrics/">https://docs.docker.com/config/containers/runmetrics/</a></li>
 </ul>
 
-<h2 id="that-s-it">That&rsquo;s it</h2>
-
-<p>Hope you enjoyed this post. It was fun for me playing around with containers.</p>
-
-<p>Given that there is not a clear winner yet, I think I&rsquo;ll stick with Docker for now.</p>
-
-<p>Have a good one.</p>
+<p>See you.</p>
 
 <p>Tomas</p>
 
@@ -508,9 +545,9 @@ All in all it doesn&rsquo;t look like there is much of a speed difference betwee
             
               <a href="https://tomfern.com/tags/docker/">docker</a>&nbsp;
             
-              <a href="https://tomfern.com/tags/mysql/">mysql</a>&nbsp;
+              <a href="https://tomfern.com/tags/mariadb/">mariadb</a>&nbsp;
             
-              <a href="https://tomfern.com/tags/benchmarks/">benchmarks</a>&nbsp;
+              <a href="https://tomfern.com/tags/linux/">linux</a>&nbsp;
             
           </div>
         
@@ -525,49 +562,49 @@ All in all it doesn&rsquo;t look like there is much of a speed difference betwee
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fa-container-for-my-dbs%2f&amp;text=A%20container%20for%20my%20databases&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;text=Making%20the%20most%20out%20of%20Docker&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//plus.google.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fa-container-for-my-dbs%2f" target="_blank" title="Share on Google Plus">
+        <a href="//plus.google.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f" target="_blank" title="Share on Google Plus">
           <i class="fab fa-google-plus"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2fa-container-for-my-dbs%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fa-container-for-my-dbs%2f&amp;title=A%20container%20for%20my%20databases" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;title=Making%20the%20most%20out%20of%20Docker" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2fa-container-for-my-dbs%2f&amp;title=A%20container%20for%20my%20databases" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;title=Making%20the%20most%20out%20of%20Docker" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fa-container-for-my-dbs%2f&amp;title=A%20container%20for%20my%20databases" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;title=Making%20the%20most%20out%20of%20Docker" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2fa-container-for-my-dbs%2f&amp;description=A%20container%20for%20my%20databases" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;description=Making%20the%20most%20out%20of%20Docker" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -584,11 +621,11 @@ All in all it doesn&rsquo;t look like there is much of a speed difference betwee
           <h4 class="see-also">See also</h4>
           <ul>
           
-            <li><a href="/post/cost-of-idle-indexes/">The cost of idle indexes</a></li>
+            <li><a href="/post/a-container-for-my-dbs/">A container for my databases</a></li>
           
-            <li><a href="/post/unused-index-cleanup/">MySQL index cleanup</a></li>
+            <li><a href="/post/sysbench-guide-1/">Benchmarking with sysbench</a></li>
           
-            <li><a href="/post/sysbench-guide-2/">Sysbench for databases</a></li>
+            <li><a href="/post/sar-guide/">System monitoring with sar</a></li>
           
           </ul>
           
@@ -599,13 +636,9 @@ All in all it doesn&rsquo;t look like there is much of a speed difference betwee
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://tomfern.com/post/cost-of-idle-indexes/" data-toggle="tooltip" data-placement="top" title="The cost of idle indexes">&larr; Previous Post</a>
+              <a href="https://tomfern.com/post/a-container-for-my-dbs/" data-toggle="tooltip" data-placement="top" title="A container for my databases">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://tomfern.com/post/docker-perf-tips/" data-toggle="tooltip" data-placement="top" title="Making the most out of Docker">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

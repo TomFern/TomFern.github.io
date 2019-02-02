@@ -22,7 +22,7 @@
     <item>
       <title>Docker</title>
       <link>https://tomfern.com/tags/docker/</link>
-      <pubDate>Fri, 18 Jan 2019 17:59:00 -0300</pubDate>
+      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/docker/</guid>
       <description></description>
@@ -40,9 +40,18 @@
     <item>
       <title>Linux</title>
       <link>https://tomfern.com/tags/linux/</link>
-      <pubDate>Wed, 09 Jan 2019 00:05:00 -0300</pubDate>
+      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mariadb</title>
+      <link>https://tomfern.com/tags/mariadb/</link>
+      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/mariadb/</guid>
       <description></description>
     </item>
     
