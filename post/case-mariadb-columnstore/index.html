@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Making the most out of Docker - tomfern.com</title>
-  <meta property="og:title" content="Making the most out of Docker" />
-  <meta name="twitter:title" content="Making the most out of Docker" />
-  <meta name="description" content="A few tips to make the most of a Docker.">
-  <meta property="og:description" content="A few tips to make the most of a Docker.">
-  <meta name="twitter:description" content="A few tips to make the most of a Docker.">
+  <title>Case study: MariaDB ColumnStore - tomfern.com</title>
+  <meta property="og:title" content="Case study: MariaDB ColumnStore" />
+  <meta name="twitter:title" content="Case study: MariaDB ColumnStore" />
+  <meta name="description" content="Taking advantage of column-based databases.">
+  <meta property="og:description" content="Taking advantage of column-based databases.">
+  <meta name="twitter:description" content="Taking advantage of column-based databases.">
   <meta name="author" content="Tom"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -48,8 +48,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https://tomfern.com/post/docker-perf-tips/",
-          "name": "Making the most out of docker"
+          "@id": "https://tomfern.com/post/case-mariadb-columnstore/",
+          "name": "Case study maria d b column store"
         }
     }]
 }
@@ -60,16 +60,16 @@
   "author": {
     "name" : "Tom"
   },
-  "headline": "Making the most out of Docker",
-  "description" : "A few tips to make the most of a Docker.
+  "headline": "Case study: MariaDB ColumnStore",
+  "description" : "Taking advantage of column-based databases.
 ",
   "inLanguage" : "en",
-  "wordCount": 802,
-  "datePublished" : "2019-02-02T11:21:00",
-  "dateModified" : "2019-02-02T11:21:00",
+  "wordCount": 1071,
+  "datePublished" : "2019-03-04T15:29:00",
+  "dateModified" : "2019-03-04T15:29:00",
   "image" : "https://tomfern.com",
-  "keywords" : [ "docker, mariadb, linux, benchmarks" ],
-  "mainEntityOfPage" : "https://tomfern.com/post/docker-perf-tips/",
+  "keywords" : [ "ColumnarDatabases, MariaDB, CaseStudy" ],
+  "mainEntityOfPage" : "https://tomfern.com/post/case-mariadb-columnstore/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https://tomfern.com",
@@ -83,13 +83,13 @@
 }
 </script>
 
-<meta property="og:title" content="Making the most out of Docker" />
-<meta property="og:description" content="A few tips to make the most of a Docker.">
-<meta property="og:url" content="https://tomfern.com/post/docker-perf-tips/" />
+<meta property="og:title" content="Case study: MariaDB ColumnStore" />
+<meta property="og:description" content="Taking advantage of column-based databases.">
+<meta property="og:url" content="https://tomfern.com/post/case-mariadb-columnstore/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="tomfern.com" />
-  <meta name="twitter:title" content="Making the most out of Docker" />
-  <meta name="twitter:description" content="A few tips to make the most of a Docker.">
+  <meta name="twitter:title" content="Case study: MariaDB ColumnStore" />
+  <meta name="twitter:description" content="Taking advantage of column-based databases.">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TomFernBlog" />
   <meta name="twitter:creator" content="@TomFernBlog" />
@@ -97,7 +97,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TomFernBlog" />
   <meta name="twitter:creator" content="@TomFernBlog" />
-  <meta property="og:url" content="https://tomfern.com/post/docker-perf-tips/" />
+  <meta property="og:url" content="https://tomfern.com/post/case-mariadb-columnstore/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="tomfern.com" />
 
@@ -302,7 +302,7 @@ div.alert a:hover {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="post-heading">
               
-                <h1>Making the most out of Docker</h1>
+                <h1>Case study: MariaDB ColumnStore</h1>
               
               
               
@@ -310,9 +310,9 @@ div.alert a:hover {
                 <span class="post-meta">
   
   
-  <i class="fas fa-calendar"></i>&nbsp;Posted on February 2, 2019
+  <i class="fas fa-calendar"></i>&nbsp;Posted on March 4, 2019
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;4&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
   
   
   
@@ -336,7 +336,7 @@ div.alert a:hover {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>A few tips to make the most of a Docker.</p>
+        <p>Taking advantage of column-based databases.</p>
 
 <hr />
 
@@ -346,210 +346,299 @@ div.alert a:hover {
 <div class="heading">Table of Contents</div>
 
 <ul>
-<li><a href="#network">Network</a></li>
-<li><a href="#storage">Storage</a></li>
-<li><a href="#use-limits">Use limits</a></li>
+<li><a href="#the-product">The Product</a>
+
+<ul>
+<li><a href="#the-issue">The Issue</a></li>
+<li><a href="#the-requirements">The Requirements</a></li>
+</ul></li>
+<li><a href="#the-columnstore">The ColumnStore</a>
+
+<ul>
+<li><a href="#the-test">The Test</a></li>
+</ul></li>
+<li><a href="#the-solution">The Solution</a>
+
+<ul>
+<li><a href="#caveats">Caveats</a></li>
+</ul></li>
 <li><a href="#related-links">Related links</a></li>
+<li><a href="#thanks">Thanks</a></li>
 </ul>
 
 <p></div>
 <!--endtoc--></p>
 
-<p>Some options that might increase performance, some that don&rsquo;t.</p>
+<p>A recent project I worked on provided an opportunity to work with MariaDB ColumnStore.</p>
 
-<h2 id="network">Network</h2>
+<h2 id="the-product">The Product</h2>
 
-<p>Containers get connected to a bridge network by default.
-A software bridge that allows communication between containers running on the same host &amp; bridge.
-We can also create and use custom bridges, to create isolated groups of containers.
-To allow connections from outside, we must map the host&rsquo;s ports to a container&rsquo;s with <code>-p</code> (<em>publish</em> e.g. -p 3306:3306)
-This is easy and flexible, but it makes Docker start an additional process (<em>docker-proxy</em>), which can use a non-trivial amount of CPU.</p>
+<p>The product is a business intelligence application. Its main view, a very comprehensive dashboard with an abundance of counters,
+showing all operational aspects: from server status, database backups, support tickets and SLA to datacenter atmospheric conditions.</p>
 
-<p>What&rsquo;s the alternative? Consider using <code>--net=host</code>, which connects the container network directly the host.
-In my experience, a considerable boost can be gained, specially when there are multiple connections.</p>
+<p>In the middle of all this: several MariaDB databases fed through multiple ETL jobs.</p>
 
-<p>The downside of this is that we run the risk of inadvertently exposing ports to the outside world.
-Moreover, changing service ports is, yet again, a hassle.
-We&rsquo;ll need to deal with configuration settings inside the container.</p>
+<p>As the application grew, the dashboard got increasingly more intricate. The tables got bigger and the queries slower.
+To cope with the higher load, aggregate tables were added at some point. These tables contained precomputed subtotals for various predefined filters.</p>
 
-<p>How much more we can get out of Docker?
-I ran a <a href="../../post/sysbench-guide-2">sysbench</a> OLTP read+write test with 8 threads on MariaDB 10.3.12 to see.</p>
+<h3 id="the-issue">The Issue</h3>
+
+<p>The aggregate tables worked really well for a very long time.
+However, it still had its downsides, all of which got worse as data ingestion rate increased:</p>
+
+<ul>
+<li>db schema and operation gets more complex</li>
+<li>tables need to be updated frequently as new data is added</li>
+<li>higher resource utilization, locks and timeouts during update jobs</li>
+<li>even on the best cases, some lag between precomputed and actual data is always present</li>
+</ul>
+
+<p>That last one was causing the big trouble. Dashboards where getting out of date fast, new data was being added faster than it could be processed.
+As a result, users where more frequently seeing stale data.</p>
+
+<h3 id="the-requirements">The Requirements</h3>
+
+<p>The main requirement is to have the dashboards to be as close as possible to real time, while keeping page load times within reason.</p>
+
+<p>Several solutions were proposed, including partitioning, sharding and adding more replication slaves.
+After talking and discussing options, we settled trying out MariaDB ColumnStore.</p>
+
+<p>Some reasons we thought it would be a good solution:</p>
+
+<ul>
+<li>Familiarity: They were already running MySQL and MariaDB.</li>
+<li>Simplicity: We could get rid of the aggregate tables and their update processes.</li>
+<li>Integration: No need to overhaul the whole setup, we could copy the tables at our convenience.</li>
+</ul>
+
+<h2 id="the-columnstore">The ColumnStore</h2>
+
+<p>MariaDB ColumnStore (CS) is a special version of MariaDB,
+it supports all the traditional MariaDB features while providing an additional storage engine: ColumnStore, for columnar-based tables.</p>
+
+<p>But while MariaDB has a 1 query = 1 CPU restriction, CS is all about parallelism.
+Not only a single query can be processed by multiple CPUs: queries can be distributed among multiple CS servers,</p>
+
+<h3 id="the-test">The Test</h3>
+
+<p>For the test I was given a modest VM with 8 CPUs and 15 GB of RAM.
+We picked a pilot table, extracted one month worth of data from the table (about 5M rows) and proceded to run the tests.</p>
+
+<p>As a &ldquo;control group&rdquo;, a vanilla MariaDB server was installed and the usual production queries were benchmarked.</p>
+
+<p>Then the second phase began: after removing MariaDB, a CS server was installed and data imported in a ColumnStore table.
+Again, bechmarks were run.</p>
+
+<p>Here are the times to compute an aggregate table:</p>
 
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/plots/docker-perf-tips/oltp_rw.png" alt="Figure 1: network types"/>
+      <img itemprop="thumbnail" src="/plots/case-mariadb-columnstore/query_load.png" alt="Figure 1: Computing the aggregate table"/>
     </div>
-    <a href="/plots/docker-perf-tips/oltp_rw.png" itemprop="contentUrl"></a>
+    <a href="/plots/case-mariadb-columnstore/query_load.png" itemprop="contentUrl"></a>
       <figcaption>
-          <p>Figure 1: network types</p>
+          <p>Figure 1: Computing the aggregate table</p>
       </figcaption>
   </figure>
 </div>
 
 
-<p>In my test, host network means about a 37% TPS increase. I&rsquo;ll let you decide if that is worth letting go of port mapping.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>InnoDB</th>
+<th>ColumnStore</th>
+</tr>
+</thead>
 
-<h2 id="storage">Storage</h2>
+<tbody>
+<tr>
+<td>Query Time</td>
+<td>7.549 s</td>
+<td>0.169 s</td>
+</tr>
+</tbody>
+</table>
 
-<p>Containers are made up of several layers, the top one is the only one that can be written into.
-Once a container is stopped and removed, this layer is lost.
-The layers are managed by one of Docker&rsquo;s storage drivers, which does copy-on-write.
-Docker&rsquo;s documentation states that this feature reduces performance.</p>
+<p>Quite impressive: about 44 times faster.</p>
 
-<p>To provide permanent storage we can use volumes and bind mounts.
-Volumes are managed by Docker itself, whereas bind mounts provide a way to map directory or file between the host and the container.
-In theory, these methods should be more efficient because they bypass Docker&rsquo;s storage driver.</p>
+<p>We can&rsquo;t claim victory yet, as this does not really reflect the actual user experience.
+Remember the app is fed from the precomputed aggregate table.</p>
 
-<p>I was curious about a case in which I had to write lots of data but I didn&rsquo;t need persistence.
-The best solution would have been to a tmpfs mount, being memory storage, it&rsquo;s the fastest.
-But we don&rsquo;t always have enough memory. What&rsquo;s the best other alternative?</p>
-
-<p>I tested random write speed with <a href="http://freshmeat.sourceforge.net/projects/fio">fio</a> on an EC2 host with an io1 1000 IOPS volume.</p>
+<p>The real test is about estimating page load time. How does the realtime aggregation compares against getting the precomputed table?</p>
 
 
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/plots/docker-perf-tips/fio_write_3.png" alt="Figure 2: random write speeds"/>
+      <img itemprop="thumbnail" src="/plots/case-mariadb-columnstore/opmode2.png" alt="/plots/case-mariadb-columnstore/opmode2.png"/>
     </div>
-    <a href="/plots/docker-perf-tips/fio_write_3.png" itemprop="contentUrl"></a>
-      <figcaption>
-          <p>Figure 2: random write speeds</p>
-      </figcaption>
+    <a href="/plots/case-mariadb-columnstore/opmode2.png" itemprop="contentUrl"></a>
   </figure>
 </div>
 
 
-<p>As you can see, the mount option really makes no difference for write speeds.</p>
+<table>
+<thead>
+<tr>
+<th>Query Time</th>
+<th>1 thread</th>
+<th>2 threads</th>
+<th>4 threads</th>
+</tr>
+</thead>
 
-<p>To put things into perspective I repeated the test with a tmpfs mount.
-I had to use a log scale to even see the slower options.</p>
+<tbody>
+<tr>
+<td>InnoDB</td>
+<td>0.005 s</td>
+<td>0.006 s</td>
+<td>0.010 s</td>
+</tr>
+
+<tr>
+<td>ColumnStore</td>
+<td>0.169 s</td>
+<td>0.242 s</td>
+<td>0.443 s</td>
+</tr>
+</tbody>
+</table>
+
+<p>From the user perspective, performance with CS is <em>worse</em>, the page load time increases in about 2 orders of magnitude.
+True, the data show is as realtime as possible. But can we do better?</p>
+
+<p>Yes, of course. So far we only scratched the surface.</p>
+
+<p>MariaDB ColumnStore has 3 modes of operation, these can be set at global level or session level:</p>
+
+<ul>
+<li>Mode 0: generic row-by-row mode, highly compatible but much slower.</li>
+<li>Mode 1: distributed, very fast but non-parallelizable queries are rejected.</li>
+<li>Mode 2: automatic, switches between mode 0 and 1 depending on query.</li>
+</ul>
+
+<p>Mode 1 is the default, which means it wants to be fed good queries.
+To make the previous tests work, I had to switch to mode 0, so we&rsquo;re not
+getting the best possible performance.</p>
+
+<p>With a surprisingly little bit of rewriting, the same queries were running on mode 1.</p>
+
+<p>Let&rsquo;s see how well it does:</p>
 
 
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
-      <img itemprop="thumbnail" src="/plots/docker-perf-tips/fio_write_4_log.png" alt="Figure 3: random write speeds"/>
+      <img itemprop="thumbnail" src="/plots/case-mariadb-columnstore/opmodes_vs_innodb.png" alt="Figure 2: Aggregate table vs ColumnStore (optimized)"/>
     </div>
-    <a href="/plots/docker-perf-tips/fio_write_4_log.png" itemprop="contentUrl"></a>
+    <a href="/plots/case-mariadb-columnstore/opmodes_vs_innodb.png" itemprop="contentUrl"></a>
       <figcaption>
-          <p>Figure 3: random write speeds</p>
+          <p>Figure 2: Aggregate table vs ColumnStore (optimized)</p>
       </figcaption>
   </figure>
 </div>
 
 
-<h2 id="use-limits">Use limits</h2>
+<table>
+<thead>
+<tr>
+<th>Query Time</th>
+<th>1 thread</th>
+<th>2 threads</th>
+<th>4 threads</th>
+</tr>
+</thead>
 
-<p>Containers, by default, don&rsquo;t have any limits.
-Any of them can hoard all the host system&rsquo;s resources.
-This may be well and fine for development, but a potential disaster for production.</p>
+<tbody>
+<tr>
+<td>InnoDB (aggregate)</td>
+<td>0.005 s</td>
+<td>0.006 s</td>
+<td>0.010 s</td>
+</tr>
 
-<p>Thus, a final recommendation: set limits for production containers. At the very least a memory limit.
-To avoid swapping and containers getting killed by out of memory errors.
-We can also set limits for CPU and disk I/O.</p>
+<tr>
+<td>ColumnStore (mode 1)</td>
+<td>0.048 s</td>
+<td>0.068 s</td>
+<td>0.117 s</td>
+</tr>
 
-<p>First, we need to find out suitable limits. We can start the container normally and check resource usage:</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">docker stats &lt;CONTAINER_ID&gt;
+<tr>
+<td>ColumnStore (mode 0)</td>
+<td>0.169 s</td>
+<td>0.242 s</td>
+<td>0.443 s</td>
+</tr>
+</tbody>
+</table>
 
-CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
-529ea41caf55        jolly_borg          3.36%               5.016MiB / 983.9MiB   0.51%               0B / 0B             36.1MB / 24.4GB     7</code></pre></div>
-<p>A lot of details can be found under the <strong>/sys/fs/cgroup</strong> filesystem.
-For example, we can get a great deal of interesting memory counters.</p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">-&gt; cat /sys/fs/cgroup/memory/docker/&lt;FULL_CONTAINER_ID&gt;/memory.stats
+<p>Query times improved a lot, realtime <em>mode 1</em> takes only 1 order of magnitude more than getting the precomputed data, that&rsquo;s quite a feat.
+Page load times are still worse, but it&rsquo;s very much within the usual latency for a web application.</p>
 
-cache 41623552
-rss 1097854976
-rss_huge 0
-shmem 15343616
-mapped_file 24809472
-dirty 0
-writeback 0
-swap 122916864
-pgpgin 91463838
-pgpgout 91185552
-pgfault 165685756
-pgmajfault 3525
-inactive_anon 373063680
-active_anon 738381824
-inactive_file 10625024
-active_file 15716352
-unevictable 0
-hierarchical_memory_limit 9223372036854771712
-hierarchical_memsw_limit 9223372036854771712
-total_cache 41623552
-total_rss 1096085504
-total_rss_huge 0
-total_shmem 15343616
-total_mapped_file 24809472
-total_dirty 0
-total_writeback 0
-total_swap 122916864
-total_pgpgin 91463838
-total_pgpgout 91186010
-total_pgfault 165685756
-total_pgmajfault 3525
-total_inactive_anon 373063680
-total_active_anon 738381824
-total_inactive_file 10625024
-total_active_file 15716352
-total_unevictable 0</code></pre></div>
-<div class="tip-box">
-  <div></div>
+<h2 id="the-solution">The Solution</h2>
 
-<p>To get the full container id: <code>docker ps --no-trunc</code></p>
+<p>Once the plan was green-lighted, I proceeded to install a proper CS server (only one node for now, but we can add more later).</p>
 
-<p></div></p>
+<p>To provide load-balancing a MariaDB MaxScale proxy was added.
+This proved a key component as it also allows to capture changes on the
+main db, which are then sent to CS without needing to modify any other processes.</p>
 
-<p>Once we have an estimation, we can try starting a new container with some limits.</p>
+<p>With proper load balancing in place, we took to opportunity to add more slave replicas to increase the performance of the general queries.</p>
 
-<p>For a hard memory limit, we can use <code>--memory</code>.
-Use <code>--cpus</code> to limit the amount of CPUs available.</p>
+<h3 id="caveats">Caveats</h3>
 
-<div class="tip-box">
-  <div></div>
+<p>Some problems we encountered along the way:</p>
 
-<p>When setting a memory limit, Docker will set a swap limit of <code>--memory</code> * 2.
-This can be changed with <code>--memory-swap</code>: <em>total swap allowed</em> = <code>--memory</code> - <code>--memory-swap</code>.</p>
+<ul>
+<li>Not all queries were as easy to optimize for mode 1.</li>
+<li>Not all aggregation functions are available for CS tables:
+Things like <code>SUM(FIND_IN_SET(code,'0,1'))</code> don&rsquo;t work. In some cases, we had to add additional columns to work around this.</li>
+</ul>
 
-<p></div></p>
+<!--listend-->
 
-<p>Container limits can even be changed while they are running.
-We don&rsquo;t need to restart containers as
-Docker can change limits at runtime: <code>docker update</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># set limits, 4 CPUs, 4G of memory, 1G of swap
-docker run -it --cpus=4 --memory=4G --memory-swap=5G ubuntu:latest bash
-# increase memory limits, 8G memory, 1G of swap
-docker update --memory=8G --memory-swap=9G &lt;CONTAINER_ID&gt;</code></pre></div>
+<ul>
+<li>Datatypes in CS are more strict than in MariaDB, JOINS require types to match much more closely.</li>
+<li>Some queries where trying to aggregate too many columns at a time, which probably made sense of a Row based database. But for CS we found
+it&rsquo;s better to split them in separate queries.</li>
+<li>Big joins can fail due to lack of memory, disk-based joins are disabled by default. Enabling the feature fixes the issue,
+but performance goes down fast. As a result, we had to tweak joins and where conditions on some queries.</li>
+</ul>
+
 <h2 id="related-links">Related links</h2>
 
 <ul>
-<li>Benchmark data: <a href="https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips">https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips</a></li>
-<li><a href="https://docs.docker.com/network/">https://docs.docker.com/network/</a></li>
-<li><a href="https://docs.docker.com/storage/">https://docs.docker.com/storage/</a></li>
-<li><a href="https://docs.docker.com/config/containers/resource%5Fconstraints/">https://docs.docker.com/config/containers/resource%5Fconstraints/</a></li>
-<li><a href="https://docs.docker.com/config/containers/runmetrics/">https://docs.docker.com/config/containers/runmetrics/</a></li>
+<li>MariaDB ColumnStore: <a href="https://mariadb.com/kb/en/library/mariadb-columnstore/">https://mariadb.com/kb/en/library/mariadb-columnstore/</a></li>
+<li>Operating modes: <a href="https://mariadb.com/kb/en/library/columnstore-operating-mode/">https://mariadb.com/kb/en/library/columnstore-operating-mode/</a></li>
+<li>Aggregate functions: <a href="https://mariadb.com/kb/en/library/columnstore-distributed-aggregate-functions/">https://mariadb.com/kb/en/library/columnstore-distributed-aggregate-functions/</a></li>
+<li>MariaDB MaxScale: <a href="https://mariadb.com/kb/en/maxscale/">https://mariadb.com/kb/en/maxscale/</a></li>
+<li>Change Data Capture: <a href="https://mariadb.com/kb/en/mariadb-maxscale-22-change-data-capture-cdc-protocol/">https://mariadb.com/kb/en/mariadb-maxscale-22-change-data-capture-cdc-protocol/</a></li>
 </ul>
 
-<p>See you.</p>
+<h2 id="thanks">Thanks</h2>
+
+<p>I&rsquo;d like to thank the customer who very graciously allowed me to publish this entry and share the experience.</p>
+
+<p>Later</p>
 
 <p>Tomas</p>
 
         
           <div class="blog-tags">
             
-              <a href="https://tomfern.com/tags/docker/">docker</a>&nbsp;
+              <a href="https://tomfern.com/tags/columnardatabases/">ColumnarDatabases</a>&nbsp;
             
-              <a href="https://tomfern.com/tags/mariadb/">mariadb</a>&nbsp;
+              <a href="https://tomfern.com/tags/mariadb/">MariaDB</a>&nbsp;
             
-              <a href="https://tomfern.com/tags/linux/">linux</a>&nbsp;
-            
-              <a href="https://tomfern.com/tags/benchmarks/">benchmarks</a>&nbsp;
+              <a href="https://tomfern.com/tags/casestudy/">CaseStudy</a>&nbsp;
             
           </div>
         
@@ -564,49 +653,49 @@ docker update --memory=8G --memory-swap=9G &lt;CONTAINER_ID&gt;</code></pre></di
     <ul class="share">
       
       <li>
-        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;text=Making%20the%20most%20out%20of%20Docker&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
+        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fcase-mariadb-columnstore%2f&amp;text=Case%20study%3a%20MariaDB%20ColumnStore&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//plus.google.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f" target="_blank" title="Share on Google Plus">
+        <a href="//plus.google.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fcase-mariadb-columnstore%2f" target="_blank" title="Share on Google Plus">
           <i class="fab fa-google-plus"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f" target="_blank" title="Share on Facebook">
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2fcase-mariadb-columnstore%2f" target="_blank" title="Share on Facebook">
           <i class="fab fa-facebook"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;title=Making%20the%20most%20out%20of%20Docker" target="_blank" title="Share on Reddit">
+        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fcase-mariadb-columnstore%2f&amp;title=Case%20study%3a%20MariaDB%20ColumnStore" target="_blank" title="Share on Reddit">
           <i class="fab fa-reddit"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;title=Making%20the%20most%20out%20of%20Docker" target="_blank" title="Share on LinkedIn">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2fcase-mariadb-columnstore%2f&amp;title=Case%20study%3a%20MariaDB%20ColumnStore" target="_blank" title="Share on LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;title=Making%20the%20most%20out%20of%20Docker" target="_blank" title="Share on StumbleUpon">
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fcase-mariadb-columnstore%2f&amp;title=Case%20study%3a%20MariaDB%20ColumnStore" target="_blank" title="Share on StumbleUpon">
           <i class="fab fa-stumbleupon"></i>
         </a>
       </li>
   
       
       <li>
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2fdocker-perf-tips%2f&amp;description=Making%20the%20most%20out%20of%20Docker" target="_blank" title="Share on Pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2fcase-mariadb-columnstore%2f&amp;description=Case%20study%3a%20MariaDB%20ColumnStore" target="_blank" title="Share on Pinterest">
           <i class="fab fa-pinterest"></i>
         </a>
       </li>
@@ -620,17 +709,6 @@ docker update --memory=8G --memory-swap=9G &lt;CONTAINER_ID&gt;</code></pre></di
         
           
           
-          <h4 class="see-also">See also</h4>
-          <ul>
-          
-            <li><a href="/post/a-container-for-my-dbs/">A container for my databases</a></li>
-          
-            <li><a href="/post/cost-of-idle-indexes/">The cost of idle indexes</a></li>
-          
-            <li><a href="/post/sysbench-guide-1/">Benchmarking with sysbench</a></li>
-          
-          </ul>
-          
         
       </article>
 
@@ -638,13 +716,9 @@ docker update --memory=8G --memory-swap=9G &lt;CONTAINER_ID&gt;</code></pre></di
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://tomfern.com/post/a-container-for-my-dbs/" data-toggle="tooltip" data-placement="top" title="A container for my databases">&larr; Previous Post</a>
+              <a href="https://tomfern.com/post/docker-perf-tips/" data-toggle="tooltip" data-placement="top" title="Making the most out of Docker">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://tomfern.com/post/case-mariadb-columnstore/" data-toggle="tooltip" data-placement="top" title="Case study: MariaDB ColumnStore">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

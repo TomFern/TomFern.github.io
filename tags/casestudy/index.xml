@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mariadb on tomfern.com</title>
-    <link>https://tomfern.com/tags/mariadb/</link>
-    <description>Recent content in Mariadb on tomfern.com</description>
+    <title>Casestudy on tomfern.com</title>
+    <link>https://tomfern.com/tags/casestudy/</link>
+    <description>Recent content in Casestudy on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 04 Mar 2019 15:29:00 -0300</lastBuildDate>
     
-	<atom:link href="https://tomfern.com/tags/mariadb/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://tomfern.com/tags/casestudy/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -17,15 +17,6 @@
       
       <guid>https://tomfern.com/post/case-mariadb-columnstore/</guid>
       <description>&lt;p&gt;Taking advantage of column-based databases.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Making the most out of Docker</title>
-      <link>https://tomfern.com/post/docker-perf-tips/</link>
-      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
-      
-      <guid>https://tomfern.com/post/docker-perf-tips/</guid>
-      <description>&lt;p&gt;A few tips to make the most of a Docker.&lt;/p&gt;</description>
     </item>
     
   </channel>
