@@ -19,14 +19,14 @@
     "@type": "WebSite",
     "name": "tomfern.com",
     
-    "url": "https:\/\/tomfern.com"
+    "url": "https://tomfern.com"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/tomfern.com"
+  "url": "https://tomfern.com"
   
   
   
@@ -41,14 +41,14 @@
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@id": "https:\/\/tomfern.com",
+          "@id": "https://tomfern.com",
           "name": "home"
         }
     },{
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/tomfern.com\/post\/sar-guide\/",
+          "@id": "https://tomfern.com/post/sar-guide/",
           "name": "System monitoring with sar"
         }
     }]
@@ -61,20 +61,21 @@
     "name" : "Tom"
   },
   "headline": "System monitoring with sar",
-  "description" : "A guide to system monitoring with sar\n",
+  "description" : "A guide to system monitoring with sar
+",
   "inLanguage" : "en",
-  "wordCount":  1223 ,
+  "wordCount": 1225,
   "datePublished" : "2019-01-07T01:40:00",
   "dateModified" : "2019-01-07T01:40:00",
-  "image" : "https:\/\/tomfern.com",
+  "image" : "https://tomfern.com",
   "keywords" : [ "guides, monitoring, linux, unix" ],
-  "mainEntityOfPage" : "https:\/\/tomfern.com\/post\/sar-guide\/",
+  "mainEntityOfPage" : "https://tomfern.com/post/sar-guide/",
   "publisher" : {
     "@type": "Organization",
-    "name" : "https:\/\/tomfern.com",
+    "name" : "https://tomfern.com",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/tomfern.com",
+        "url" : "https://tomfern.com",
         "height" :  60 ,
         "width" :  60
     }
@@ -100,7 +101,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="tomfern.com" />
 
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link rel="alternate" href="https://tomfern.com/index.xml" type="application/rss+xml" title="tomfern.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -336,32 +337,47 @@ div.alert a:hover {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>A guide to system monitoring with sar</p>
-<hr>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+
+<hr />
+
+<div class="ox-hugo-toc toc">
+<div></div>
+
+<div class="heading">Table of Contents</div>
+
 <ul>
 <li><a href="#unattended-mode">Unattended mode</a></li>
 <li><a href="#interactive-sar">Interactive sar</a></li>
-<li><a href="#exporting-sar-s-data">Exporting sar's data</a></li>
+<li><a href="#exporting-sar-s-data">Exporting sar&rsquo;s data</a></li>
 <li><a href="#related-links">Related links</a></li>
 <li><a href="#wrapping-up">Wrapping up</a></li>
 </ul>
-<!-- raw HTML omitted -->
+
+<p></div>
+<!--endtoc--></p>
+
 <p>sar is part of the <a href="http://pagesperso-orange.fr/sebastien.godard">sysstat</a> project, a suite of programs for system monitoring.
 With sar, we can log system activity, build performance reports and even make plots.</p>
+
 <p>sar is available on Linux, Solaris, AIX and HP-UX.</p>
+
 <p>We can choose to run sar automatically, as an unattended script. Or interactively and get system metrics on the spot.</p>
+
 <h2 id="unattended-mode">Unattended mode</h2>
+
 <p>With a simple cron entry we can log system activity. If possible, as root, otherwise some data may be missing.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># cron entries, take a sample every 10 minutes
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># cron entries, take a sample every 10 minutes
 @reboot /usr/lib/sa/sa1 --boot
-*/10 * * * * /usr/lib/sa/sa1 1 1 -S DISK
-</code></pre></div><p>The <code>@reboot</code> line is kind of optional, but if the cron supports it's good to have since it ensures the counters are reset
+*/10 * * * * /usr/lib/sa/sa1 1 1 -S DISK</code></pre></div>
+<p>The <code>@reboot</code> line is kind of optional, but if the cron supports it&rsquo;s good to have since it ensures the counters are reset
 on boot.</p>
+
 <p><code>sa1</code> is script that calls <code>sadc</code>, which does the actual collection.
 To prevent the files from growing too large not everything is stored, however
 additional counters can be enabled with <code>-S</code>.</p>
+
 <p>Optional collection options for sadc:</p>
+
 <ul>
 <li>DISK block devices</li>
 <li>XDISK block devices and partitions</li>
@@ -372,15 +388,21 @@ additional counters can be enabled with <code>-S</code>.</p>
 <li>ALL everything except XDISK</li>
 <li>XALL everthing including XDISK</li>
 </ul>
-<!-- raw HTML omitted -->
-<p>Also check sysstat's config for compression and retention options.<!-- raw HTML omitted -->
+
+<div class="tip-box">
+  <div></div>
+
+<p>Also check sysstat&rsquo;s config for compression and retention options.<br />
 /etc/conf.d/sysstat or /etc/default/sysstat</p>
-<!-- raw HTML omitted -->
+
+<p></div></p>
+
 <p>To access the stored data we have two alternatives:</p>
+
 <p><code>sa2</code> is a script that generates an activity report for the previous day (/var/log/sarNN). This can be croned easily:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># generate daily activity report
-00 18 * * * /usr/lib/sa/sa2 -A
-</code></pre></div><p>The other way is calling <code>sar</code> directly, this lets us choose the view:</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># generate daily activity report
+00 18 * * * /usr/lib/sa/sa2 -A</code></pre></div>
+<p>The other way is calling <code>sar</code> directly, this lets us choose the view:</p>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text"># sar views with extended options
 -u [ALL]  CPU utilization (default view)
 -b        I/O rates
@@ -399,12 +421,13 @@ additional counters can be enabled with <code>-S</code>.</p>
 -y        TTY device activity
 -m ALL    power management statistics
 -I ALL    interrupts
--A        Everything
-</code></pre></div><p>Some views have additional options, for example <code>-n ALL</code> shows all network activity (including protocols) while <code>-n DEV</code>
+-A        Everything</code></pre></div>
+<p>Some views have additional options, for example <code>-n ALL</code> shows all network activity (including protocols) while <code>-n DEV</code>
 only shows network devices.</p>
-<p>sar by default shows today's logs, <code>-1</code> brings yesterday's, <code>-2</code> the day before yesterday and so on.
-We can specify the day's starting <code>-s</code> and end times <code>-e</code> in HH:MM:SS format</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># yesterday&#39;s cpu report, with start and end time
+
+<p>sar by default shows today&rsquo;s logs, <code>-1</code> brings yesterday&rsquo;s, <code>-2</code> the day before yesterday and so on.
+We can specify the day&rsquo;s starting <code>-s</code> and end times <code>-e</code> in HH:MM:SS format</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># yesterday&#39;s cpu report, with start and end time
 sar -1 -s 2:58:05 -e 2:58:55
 Linux 4.19.8-arch1-1-ARCH (ix) 	12/26/2018 	_x86_64_	(4 CPU)
 
@@ -419,14 +442,16 @@ Linux 4.19.8-arch1-1-ARCH (ix) 	12/26/2018 	_x86_64_	(4 CPU)
 02:58:45 PM     all     14.38      0.00      7.14      0.05      0.00     78.43
 02:58:50 PM     all     10.66      0.00      6.63      0.00      0.00     82.71
 02:58:55 PM     all     15.01      0.00      6.63      0.00      0.00     78.35
-Average:        all     11.63      0.00      7.09      0.02      0.00     81.26
+Average:        all     11.63      0.00      7.09      0.02      0.00     81.26</code></pre></div>
+<h2 id="interactive-sar">Interactive sar</h2>
 
-</code></pre></div><h2 id="interactive-sar">Interactive sar</h2>
 <p>A quicker alternative is running sar interactively. We can log system activity while doing some other tasks.
 Perhaps while running a benchmark or doing some troubleshooting.</p>
+
 <p>With the <code>-o</code> option, sar stores/appends data in a file or directory.</p>
+
 <p>sar takes a sample <em>interval</em> (in seconds) and <em>count</em> that works as a stop condition.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># collect activity in my_metrics file, 1 sample per second, 60 samples total
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># collect activity in my_metrics file, 1 sample per second, 60 samples total
 sar -o my_metrics 1 60
 Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
 
@@ -435,11 +460,12 @@ Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
 07:01:08 PM     all     13.71      0.00      7.11      0.25      0.00     78.93
 07:01:09 PM     all     13.62      0.00      6.43      0.00      0.00     79.95
 07:01:10 PM     all     13.99      0.00      6.36      0.00      0.00     79.64
-...
-</code></pre></div><p>If you've used <a href="../vmstat-guide/#mpstat">mpstat</a> before, you'll recognize the format, it's exactly the same.</p>
+...</code></pre></div>
+<p>If you&rsquo;ve used <a href="../vmstat-guide/#mpstat">mpstat</a> before, you&rsquo;ll recognize the format, it&rsquo;s exactly the same.</p>
+
 <p>To retrieve the results we use <code>-f</code>.
 We can use a different <em>interval</em> or <em>count</em> and the output will be filtered appropiately.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># print report from my_metrics file
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># print report from my_metrics file
 sar -f my_metrics -s 14:00:00 1 5
 Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
 
@@ -449,8 +475,7 @@ Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
 14:00:03 PM     all     29.62      0.00      9.87      0.00      0.00     60.51
 14:00:04 PM     all     12.85      0.00      3.27      0.00      0.00     83.88
 14:00:05 PM     all     20.00      0.00      8.86      0.00      0.00     71.14
-Average:        all     16.09      0.00      6.57      0.00      0.00     77.35
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># print memory activity from my_metrics file
+Average:        all     16.09      0.00      6.57      0.00      0.00     77.35</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># print memory activity from my_metrics file
 sar -r -f my_metrics
 Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
 
@@ -460,10 +485,12 @@ Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
 07:45:50 PM    734512   5195136   5546088     47.45    876804   3774448  14651412     83.49   7734560   2268308      4432
 07:45:51 PM    717524   5178164   5562876     47.59    876804   3774648  14670976     83.61   7750836   2268504      4448
 07:45:52 PM    711580   5172232   5568900     47.65    876804   3774568  14670976     83.61   7757748   2268428      4460
-Average:       734578   5195201   5546242     47.45    876804   3774228  14657913     83.53   7734900   2268086      4433
-</code></pre></div><h2 id="exporting-sar-s-data">Exporting sar's data</h2>
-<p>Wouldn't it be great to be able to export the collected data? Maybe to a database or a spreasheet?
-Don't we deserve some nice plots? No worries, <code>sadf</code> has us covered.</p>
+Average:       734578   5195201   5546242     47.45    876804   3774228  14657913     83.53   7734900   2268086      4433</code></pre></div>
+<h2 id="exporting-sar-s-data">Exporting sar&rsquo;s data</h2>
+
+<p>Wouldn&rsquo;t it be great to be able to export the collected data? Maybe to a database or a spreasheet?
+Don&rsquo;t we deserve some nice plots? No worries, <code>sadf</code> has us covered.</p>
+
 <p>sadf syntax is a bit quirkier:</p>
 <div class="highlight"><pre class="chroma"><code class="language-text" data-lang="text">sadf [options] [ &lt;interval&gt; [ &lt;count&gt; ] ] [ &lt;datafile&gt; | -[0-9]+ ] -- [sar options]
 
@@ -473,19 +500,19 @@ Don't we deserve some nice plots? No worries, <code>sadf</code> has us covered.<
     -r raw CSV (as read from the kernel)
     -x XML
     -d JSON
-    -g SVG
-</code></pre></div><p>The options to the right of the <code>--</code> are sent to sar for printing the report, here we can choose what views to export.</p>
+    -g SVG</code></pre></div>
+<p>The options to the right of the <code>--</code> are sent to sar for printing the report, here we can choose what views to export.</p>
+
 <p>To select the log file we can use either <code>0</code>, <code>-1</code>, etc for daily logs (as in the unattended mode) or just
 provide the path to the datafile.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># export yesterday&#39;s I/O activity in CSV
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># export yesterday&#39;s I/O activity in CSV
 sadf -d -1  -- -b
 # hostname;interval;timestamp;tps;rtps;wtps;bread/s;bwrtn/s
 ix;1;2018-12-26 17:58:06 UTC;20.00;0.00;20.00;0.00;168.00
 ix;1;2018-12-26 17:58:07 UTC;0.00;0.00;0.00;0.00;0.00
 ix;1;2018-12-26 17:58:08 UTC;0.00;0.00;0.00;0.00;0.00
 ix;1;2018-12-26 17:58:09 UTC;71.00;0.00;71.00;0.00;624.00
-...
-</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># export CPU activity from my_metrics file in JSON
+...</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># export CPU activity from my_metrics file in JSON
 sadf -j my_metrics -- -u
 {&#34;sysstat&#34;: {
         &#34;hosts&#34;: [
@@ -504,11 +531,11 @@ sadf -j my_metrics -- -u
                                                 {&#34;cpu&#34;: &#34;all&#34;, &#34;user&#34;: 16.11, &#34;nice&#34;: 0.00, &#34;system&#34;: 10.58, &#34;iowait&#34;: 0.00, &#34;steal&#34;: 0.00, &#34;idle&#34;: 73.32}
                                         ]
                                 },
-...
-</code></pre></div><p>With <code>-g</code> we get SVG output that we can redirect into a file.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># export CPU activity as SVG plot
-sadf -g -- -u &gt; cpu.svg
-</code></pre></div>
+...</code></pre></div>
+<p>With <code>-g</code> we get SVG output that we can redirect into a file.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># export CPU activity as SVG plot
+sadf -g -- -u &gt; cpu.svg</code></pre></div>
+
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -522,9 +549,9 @@ sadf -g -- -u &gt; cpu.svg
   </figure>
 </div>
 
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># export network activity for device eth0 as SVG plot
-sadf -g  -- -n DEV --iface=eth0 &gt; a.svg
-</code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># export network activity for device eth0 as SVG plot
+sadf -g  -- -n DEV --iface=eth0 &gt; a.svg</code></pre></div>
+
 
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -538,24 +565,31 @@ sadf -g  -- -n DEV --iface=eth0 &gt; a.svg
   </figure>
 </div>
 
+
 <h2 id="related-links">Related links</h2>
+
 <ul>
 <li>sysstat website: <a href="http://pagesperso-orange.fr/sebastien.godard">http://pagesperso-orange.fr/sebastien.godard</a></li>
 <li>sysstat github: <a href="https://github.com/sysstat/sysstat">https://github.com/sysstat/sysstat</a></li>
 <li>manpages
+
 <ul>
 <li>sar: <a href="https://linux.die.net/man/1/sar">https://linux.die.net/man/1/sar</a></li>
 <li>sa1: <a href="https://linux.die.net/man/8/sa1">https://linux.die.net/man/8/sa1</a></li>
 <li>sa2: <a href="https://linux.die.net/man/8/sa2">https://linux.die.net/man/8/sa2</a></li>
 <li>sadc: <a href="https://linux.die.net/man/8/sadc">https://linux.die.net/man/8/sadc</a></li>
 <li>sadf: <a href="https://linux.die.net/man/1/sadf">https://linux.die.net/man/1/sadf</a></li>
+</ul></li>
 </ul>
-</li>
-</ul>
+
 <h2 id="wrapping-up">Wrapping up</h2>
-<p>For sure, there are a lot of more options available, I just can't cover them all, but I think the basics were covered.</p>
-<p>That's all for now. If interested on system monitoring, sure to check my previous article about <a href="../vmstat-guide">vmstat</a>.</p>
+
+<p>For sure, there are a lot of more options available, I just can&rsquo;t cover them all, but I think the basics were covered.</p>
+
+<p>That&rsquo;s all for now. If interested on system monitoring, sure to check my previous article about <a href="../vmstat-guide">vmstat</a>.</p>
+
 <p>Have a good one.</p>
+
 <p>Tomas</p>
 
         
@@ -680,14 +714,6 @@ sadf -g  -- -n DEV --iface=eth0 &gt; a.svg
         <ul class="list-inline text-center footer-links">
           
               <li>
-                <a href="mailto:blog@tomfern.com" title="Email me">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li>
                 <a href="https://twitter.com/TomFernBlog" title="Twitter">
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
@@ -735,7 +761,7 @@ sadf -g  -- -n DEV --iface=eth0 &gt; a.svg
         
         <p class="credits theme-by text-muted"> O caos é uma ordem por descifrar</p>
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.61.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

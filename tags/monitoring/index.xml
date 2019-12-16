@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>monitoring on tomfern.com</title>
+    <title>Monitoring on tomfern.com</title>
     <link>https://tomfern.com/tags/monitoring/</link>
-    <description>Recent content in monitoring on tomfern.com</description>
+    <description>Recent content in Monitoring on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>blog@tomfern.com (Tom)</managingEditor>
-    <webMaster>blog@tomfern.com (Tom)</webMaster>
     <lastBuildDate>Mon, 07 Jan 2019 01:40:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
@@ -16,7 +14,7 @@
       <title>System monitoring with sar</title>
       <link>https://tomfern.com/post/sar-guide/</link>
       <pubDate>Mon, 07 Jan 2019 01:40:00 -0300</pubDate>
-      <author>blog@tomfern.com (Tom)</author>
+      
       <guid>https://tomfern.com/post/sar-guide/</guid>
       <description>&lt;p&gt;A guide to system monitoring with sar&lt;/p&gt;</description>
     </item>
@@ -25,7 +23,7 @@
       <title>A guide to vmstat and friends</title>
       <link>https://tomfern.com/post/vmstat-guide/</link>
       <pubDate>Sun, 06 Jan 2019 21:12:00 -0300</pubDate>
-      <author>blog@tomfern.com (Tom)</author>
+      
       <guid>https://tomfern.com/post/vmstat-guide/</guid>
       <description>&lt;p&gt;A getting started guide for vmstat, iostat, mpstat and pidstat.&lt;/p&gt;</description>
     </item>

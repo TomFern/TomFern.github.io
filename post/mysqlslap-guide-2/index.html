@@ -19,14 +19,14 @@
     "@type": "WebSite",
     "name": "tomfern.com",
     
-    "url": "https:\/\/tomfern.com"
+    "url": "https://tomfern.com"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https:\/\/tomfern.com"
+  "url": "https://tomfern.com"
   
   
   
@@ -41,14 +41,14 @@
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@id": "https:\/\/tomfern.com",
+          "@id": "https://tomfern.com",
           "name": "home"
         }
     },{
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/tomfern.com\/post\/mysqlslap-guide-2\/",
+          "@id": "https://tomfern.com/post/mysqlslap-guide-2/",
           "name": "My s q l slap (part 2)"
         }
     }]
@@ -61,20 +61,21 @@
     "name" : "Tom"
   },
   "headline": "MySQLSlap (part 2)",
-  "description" : "This is the second part of my mysqlslap guide, you can read the first part\n",
+  "description" : "This is the second part of my mysqlslap guide, you can read the first part
+",
   "inLanguage" : "en",
-  "wordCount":  522 ,
+  "wordCount": 522,
   "datePublished" : "2019-01-08T00:21:00",
   "dateModified" : "2019-01-08T00:21:00",
-  "image" : "https:\/\/tomfern.com",
+  "image" : "https://tomfern.com",
   "keywords" : [ "mysql, guides" ],
-  "mainEntityOfPage" : "https:\/\/tomfern.com\/post\/mysqlslap-guide-2\/",
+  "mainEntityOfPage" : "https://tomfern.com/post/mysqlslap-guide-2/",
   "publisher" : {
     "@type": "Organization",
-    "name" : "https:\/\/tomfern.com",
+    "name" : "https://tomfern.com",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https:\/\/tomfern.com",
+        "url" : "https://tomfern.com",
         "height" :  60 ,
         "width" :  60
     }
@@ -100,7 +101,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="tomfern.com" />
 
-  <meta name="generator" content="Hugo 0.61.0" />
+  <meta name="generator" content="Hugo 0.54.0" />
   <link rel="alternate" href="https://tomfern.com/index.xml" type="application/rss+xml" title="tomfern.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -336,63 +337,77 @@ div.alert a:hover {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>This is the second part of my mysqlslap guide, you can read the <a href="../mysqlslap-guide-1">first part</a></p>
-<hr>
+
+<hr />
+
 <p>mysqlslap uses the same connection parameters as the normal mysql client, so <code>--host</code> <code>--port</code> <code>--socket</code> <code>--username</code> <code>--password</code> work.
-In the examples below the parameters <em>will be omitted</em> for brevity's sake.</p>
+In the examples below the parameters <em>will be omitted</em> for brevity&rsquo;s sake.</p>
+
 <h2 id="the-query-mode">The query mode</h2>
-<p>Query mode allow us to benchmark ad-hoc queries. It's a quick way to troubleshoot a troublesome query.</p>
+
+<p>Query mode allow us to benchmark ad-hoc queries. It&rsquo;s a quick way to troubleshoot a troublesome query.</p>
+
 <p>In its simplest form we pass the query:</p>
+
 <p>(Remember that the connection parameters are <em>omitted</em>)</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-&gt; mysqlslap --query=&#34;call superheroes.secret_identity(&#39;batman&#39;);&#34;
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --query=&#34;call superheroes.secret_identity(&#39;batman&#39;);&#34;
   Benchmark
           Average number of seconds to run all queries: 0.000 seconds
           Minimum number of seconds to run all queries: 0.000 seconds
           Maximum number of seconds to run all queries: 0.000 seconds
           Number of clients running queries: 1
-          Average number of queries per client: 1
-</code></pre></div><p>We can also write our SQL in a file. mysqlslap is quirky when parsing files, it expects each statement into its own line, we can regain the normal behaviour using <code>--delimiter</code></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">mysqlslap --query=&#39;my_query.sql&#39; --delimiter=&#39;;&#39;
-</code></pre></div><p>If we want to repeat the query 10 times we use <code>--iterations</code>. mysqlslap opens 1 connection and runs the query 10 times, sequentially.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-&gt; mysqlslap --iterations=10 --query=&#34;SELECT sleep(0.1);&#34;
+          Average number of queries per client: 1</code></pre></div>
+<p>We can also write our SQL in a file. mysqlslap is quirky when parsing files, it expects each statement into its own line, we can regain the normal behaviour using <code>--delimiter</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">mysqlslap --query=&#39;my_query.sql&#39; --delimiter=&#39;;&#39;</code></pre></div>
+<p>If we want to repeat the query 10 times we use <code>--iterations</code>. mysqlslap opens 1 connection and runs the query 10 times, sequentially.</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --iterations=10 --query=&#34;SELECT sleep(0.1);&#34;
 Benchmark
         Average number of seconds to run all queries: 0.102 seconds
         Minimum number of seconds to run all queries: 0.101 seconds
         Maximum number of seconds to run all queries: 0.104 seconds
         Number of clients running queries: 1
-        Average number of queries per client: 1
-</code></pre></div><p>The average time for each query was 0.101. The total execution time unfortunately is not shown by the tool but was a little longer than 1 second.</p>
+        Average number of queries per client: 1</code></pre></div>
+<p>The average time for each query was 0.101. The total execution time unfortunately is not shown by the tool but was a little longer than 1 second.</p>
+
 <p>We can also use <code>--concurrency</code> to simulate many clients running at the same time. For example to simulate 20 clients, each one running time the query one time:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-&gt; mysqlslap --concurrency=20 --query=&#34;SELECT sleep(0.1);&#34;
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --concurrency=20 --query=&#34;SELECT sleep(0.1);&#34;
 Benchmark
         Average number of seconds to run all queries: 0.107 seconds
         Minimum number of seconds to run all queries: 0.107 seconds
         Maximum number of seconds to run all queries: 0.107 seconds
         Number of clients running queries: 20
-        Average number of queries per client: 1
-</code></pre></div><p>This time the command returned after a little longer than 100 ms, because the sleep was concurrent.
+        Average number of queries per client: 1</code></pre></div>
+<p>This time the command returned after a little longer than 100 ms, because the sleep was concurrent.
 It returned after the last client finished sleeping.</p>
+
 <p>And we can combine concurrency and iterations, this will run the query a total of 200 times:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-&gt; mysqlslap --concurrency=20 --iterations=10 --query=&#34;SELECT sleep(0.1);&#34;
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; mysqlslap --concurrency=20 --iterations=10 --query=&#34;SELECT sleep(0.1);&#34;
 Benchmark
         Average number of seconds to run all queries: 0.111 seconds
         Minimum number of seconds to run all queries: 0.104 seconds
         Maximum number of seconds to run all queries: 0.121 seconds
         Number of clients running queries: 20
-        Average number of queries per client: 1
-</code></pre></div><p>Total run time a little longer than 1 second.</p>
+        Average number of queries per client: 1</code></pre></div>
+<p>Total run time a little longer than 1 second.</p>
+
 <p>What about if we want to create the test data? mysqlslap provides the <code>--create-schema</code> and the <code>--create</code> parameters.
 We can supply the create DDL directly as strings or inside a text file.</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># database dropped when done
-mysqlslap --query=&#34;select * from heroes;&#34; --create-schema=&#39;superheroes&#39; --create=&#39;schema.sql&#39; --delimiter=&#34;;&#34;
-</code></pre></div><p><strong>A word of warning</strong>, the schema will be dropped afterwards (unless using <code>--no-drop</code>).</p>
+<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># database dropped when done
+mysqlslap --query=&#34;select * from heroes;&#34; --create-schema=&#39;superheroes&#39; --create=&#39;schema.sql&#39; --delimiter=&#34;;&#34;</code></pre></div>
+<p><strong>A word of warning</strong>, the schema will be dropped afterwards (unless using <code>--no-drop</code>).</p>
+
 <h2 id="related-links">Related links</h2>
+
 <ul>
-<li>MariaDB's mysqlslap: <a href="https://mariadb.com/kb/en/library/mysqlslap/">https://mariadb.com/kb/en/library/mysqlslap/</a></li>
-<li>MySQL's mysqlslap: <a href="https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html">https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html</a></li>
+<li>MariaDB&rsquo;s mysqlslap: <a href="https://mariadb.com/kb/en/library/mysqlslap/">https://mariadb.com/kb/en/library/mysqlslap/</a></li>
+<li>MySQL&rsquo;s mysqlslap: <a href="https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html">https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html</a></li>
 </ul>
+
 <h2 id="conclusion">Conclusion</h2>
+
 <p>Pretty neat, right?</p>
-<p>If you haven't already, check the <a href="../mysqlslap-guide-1">first part</a> of the guide to mysqlslap.</p>
+
+<p>If you haven&rsquo;t already, check the <a href="../mysqlslap-guide-1">first part</a> of the guide to mysqlslap.</p>
 
         
           <div class="blog-tags">
@@ -516,14 +531,6 @@ mysqlslap --query=&#34;select * from heroes;&#34; --create-schema=&#39;superhero
         <ul class="list-inline text-center footer-links">
           
               <li>
-                <a href="mailto:blog@tomfern.com" title="Email me">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-              <li>
                 <a href="https://twitter.com/TomFernBlog" title="Twitter">
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
@@ -571,7 +578,7 @@ mysqlslap --query=&#34;select * from heroes;&#34; --create-schema=&#39;superhero
         
         <p class="credits theme-by text-muted"> O caos é uma ordem por descifrar</p>
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.61.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>
