@@ -1,26 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on tomfern.com</title>
     <link>https://tomfern.com/tags/</link>
     <description>Recent content in Tags on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 02 Feb 2019 11:21:00 -0300</lastBuildDate>
+    <lastBuildDate>Mon, 04 Mar 2019 15:29:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Benchmarks</title>
-      <link>https://tomfern.com/tags/benchmarks/</link>
-      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
-      
-      <guid>https://tomfern.com/tags/benchmarks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Casestudy</title>
+      <title>CaseStudy</title>
       <link>https://tomfern.com/tags/casestudy/</link>
       <pubDate>Mon, 04 Mar 2019 15:29:00 -0300</pubDate>
       
@@ -29,7 +20,7 @@
     </item>
     
     <item>
-      <title>Columnardatabases</title>
+      <title>ColumnarDatabases</title>
       <link>https://tomfern.com/tags/columnardatabases/</link>
       <pubDate>Mon, 04 Mar 2019 15:29:00 -0300</pubDate>
       
@@ -38,34 +29,7 @@
     </item>
     
     <item>
-      <title>Docker</title>
-      <link>https://tomfern.com/tags/docker/</link>
-      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
-      
-      <guid>https://tomfern.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Guides</title>
-      <link>https://tomfern.com/tags/guides/</link>
-      <pubDate>Wed, 09 Jan 2019 00:13:00 -0300</pubDate>
-      
-      <guid>https://tomfern.com/tags/guides/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://tomfern.com/tags/linux/</link>
-      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
-      
-      <guid>https://tomfern.com/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mariadb</title>
+      <title>MariaDB</title>
       <link>https://tomfern.com/tags/mariadb/</link>
       <pubDate>Mon, 04 Mar 2019 15:29:00 -0300</pubDate>
       
@@ -74,16 +38,34 @@
     </item>
     
     <item>
-      <title>Monitoring</title>
-      <link>https://tomfern.com/tags/monitoring/</link>
-      <pubDate>Mon, 07 Jan 2019 01:40:00 -0300</pubDate>
+      <title>benchmarks</title>
+      <link>https://tomfern.com/tags/benchmarks/</link>
+      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
       
-      <guid>https://tomfern.com/tags/monitoring/</guid>
+      <guid>https://tomfern.com/tags/benchmarks/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Mysql</title>
+      <title>docker</title>
+      <link>https://tomfern.com/tags/docker/</link>
+      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://tomfern.com/tags/linux/</link>
+      <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mysql</title>
       <link>https://tomfern.com/tags/mysql/</link>
       <pubDate>Fri, 18 Jan 2019 17:59:00 -0300</pubDate>
       
@@ -92,16 +74,7 @@
     </item>
     
     <item>
-      <title>Pgsql</title>
-      <link>https://tomfern.com/tags/pgsql/</link>
-      <pubDate>Wed, 09 Jan 2019 00:13:00 -0300</pubDate>
-      
-      <guid>https://tomfern.com/tags/pgsql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tuning</title>
+      <title>tuning</title>
       <link>https://tomfern.com/tags/tuning/</link>
       <pubDate>Wed, 09 Jan 2019 16:15:00 -0300</pubDate>
       
@@ -110,11 +83,38 @@
     </item>
     
     <item>
-      <title>Unix</title>
+      <title>guides</title>
+      <link>https://tomfern.com/tags/guides/</link>
+      <pubDate>Wed, 09 Jan 2019 00:13:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/guides/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pgsql</title>
+      <link>https://tomfern.com/tags/pgsql/</link>
+      <pubDate>Wed, 09 Jan 2019 00:13:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/pgsql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>unix</title>
       <link>https://tomfern.com/tags/unix/</link>
       <pubDate>Wed, 09 Jan 2019 00:05:00 -0300</pubDate>
       
       <guid>https://tomfern.com/tags/unix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monitoring</title>
+      <link>https://tomfern.com/tags/monitoring/</link>
+      <pubDate>Mon, 07 Jan 2019 01:40:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/monitoring/</guid>
       <description></description>
     </item>
     

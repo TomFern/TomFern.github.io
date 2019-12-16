@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Case study: MariaDB ColumnStore :mariadb-columnstore:mysql:case-study: - tomfern.com</title>
+  <meta name="description" content="Working">
+  <meta name="author" content="Tom"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "tomfern.com",
+    
+    "url": "https:\/\/tomfern.com"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/tomfern.com"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/tomfern.com",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/tomfern.com\/post\/spartans\/",
+          "name": "Case study maria d b column store mariadb columnstore mysql case study "
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Tom"
+  },
+  "headline": "Case study: MariaDB ColumnStore :mariadb-columnstore:mysql:case-study:",
+  "description" : "Working\n",
+  "inLanguage" : "en",
+  "wordCount":  1053 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "2019-02-18T00:00:00",
+  "image" : "https:\/\/tomfern.com",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/tomfern.com\/post\/spartans\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/tomfern.com",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/tomfern.com",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Case study: MariaDB ColumnStore :mariadb-columnstore:mysql:case-study:" />
+<meta property="og:description" content="Working">
+<meta property="og:url" content="https://tomfern.com/post/spartans/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="tomfern.com" />
+
+  <meta name="twitter:title" content="Case study: MariaDB ColumnStore :mariadb-columnstore:mysql:case-study:" />
+  <meta name="twitter:description" content="Working">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@TomFernBlog" />
+  <meta name="twitter:creator" content="@TomFernBlog" />
+  <link href='https://tomfern.com/favicon/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.61.0" />
+  <link rel="alternate" href="https://tomfern.com/index.xml" type="application/rss+xml" title="tomfern.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://tomfern.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://tomfern.com/css/highlight.min.css" /><link rel="stylesheet" href="https://tomfern.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<style>
+ 
+
+div.alert {
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+div.alert p {
+  position: relative;
+  display: block;
+  font-size: 1rem;
+  margin-left: 2rem;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.alert p:first-child::before {
+  position: absolute;
+  top: -0.5rem;
+  left: -2rem;
+  font-family: 'FontAwesome';
+  font-size: 1.5rem;
+  color: #fff;
+  content: '\f05a';
+  width: 1.5rem;
+  text-align: center;
+}
+
+div.alert-warning p:first-child::before {
+  content: '\f071';
+}
+
+div.alert a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  border-bottom: solid 1px #e4e4e4;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+div.alert a:hover {
+  border-bottom-color: transparent;
+  color: rgba(255,255,255,0.5) !important;
+}
+
+.alert-note {
+  color: #fff;
+  background-color: #03A9F4;  
+  border-color: #bce8f1;
+}
+
+.alert-warning {
+  color: #fff;
+  background-color: #f44336;  
+  border-color: #ebccd1;
+}
+
+.toc {
+    background-color: #F5F5F5;
+}
+
+.heading {
+    font-weight: 800;
+}
+
+.tip-box
+{
+     background-color: #f0f7fb;
+     background-repeat: no-repeat;
+     border-left: solid 4px #3498db;
+     overflow: hidden;
+     padding: 1rem;
+}
+
+
+</style>
+
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://tomfern.com">tomfern.com</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Tags" href="/tags">Tags</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="post-heading">
+              
+                <h1>Case study: MariaDB ColumnStore :mariadb-columnstore:mysql:case-study:</h1>
+              
+              
+              
+              
+                <span class="post-meta">
+  
+  
+  <i class="fas fa-calendar"></i>&nbsp;Posted on February 18, 2019
+  
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;5&nbsp;minutes
+  
+  
+  
+    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tom
+  
+  
+</span>
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Working</p>
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<ul>
+<li><a href="#the-product">The Product</a></li>
+<li><a href="#the-columnstore">The ColumnStore</a></li>
+<li><a href="#the-solution">The Solution</a></li>
+<li><a href="#related-links">Related links</a></li>
+<li><a href="#thanks">Thanks</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<p>A recent project I worked on provided an oportunity to work with MariaDB ColumnStore.</p>
+<h2 id="the-product">The Product</h2>
+<p>The product is a business intelligence application. Its main view, an neat comprehensive dashboard with an abundance of counters,
+everything from server status, database backups, support tickets and SLA to even the datacenter atmospheric conditions was shown.</p>
+<p>The data is fed into several MariaDB databases through multiple ETL jobs.</p>
+<p>As time passes the dashboard got increasingly more intricate. The tables got bigger and the queries slower.
+To cope with the higher load, aggregate tables were in use. These tables contained precomputed subtotals for various predefined filters.</p>
+<h3 id="the-issue">The Issue</h3>
+<p>The aggregate tables worked really well for a very long time.
+However, it still had its downsides, all of which got worse as data ingestion rate increased:</p>
+<ul>
+<li>db schema and operation gets more complex</li>
+<li>tables need to be updated frequently as new data is added</li>
+<li>higher resource utilization, locks and timeouts during update jobs</li>
+<li>even on the best cases, some lag between precomputed and actual data is always present</li>
+</ul>
+<p>That last one was causing the big trouble. Dashboards where increasingly getting out of date, new data was being added faster than it could be processed.
+As a result, users where more frequently seeing stale data.
+This undermined their confidence in the trustworthiness of the data.</p>
+<h3 id="the-requirements">The Requirements</h3>
+<p>The main requirement is to have the dashboards to be as close as possible to real time, while keeping page load times within reason.</p>
+<p>Several solutions were proposed, including partitioning, sharding and adding more replication slaves.
+After talking and discussing options, we settled trying out MariaDB ColumnStore.</p>
+<p>Some reasons we thought it would be a good solution:</p>
+<ul>
+<li>Familiarity: They were already running MySQL and MariaDB.</li>
+<li>Simplicity: We could get rid of the aggregate tables and their update processes.</li>
+<li>Integration: No need to overhaul the whole setup, we could copy the tables at our convenience.</li>
+</ul>
+<h2 id="the-columnstore">The ColumnStore</h2>
+<p>MariaDB ColumnStore (CS) is a special version of MariaDB,
+it supports all the traditional MariaDB features while providing an additional storage engine: ColumnStore.</p>
+<p>But while MariaDB has a 1 query = 1 CPU restriction, CS is all about parallelism.
+Not only a single query can be processed by multiple CPUs: queries can be distributed among multiple CS servers,
+giving the big bonus of horizontal scalability.</p>
+<h3 id="the-test">The Test</h3>
+<p>For the test I was given a modest VM with 8 CPUs and 15 GB of RAM.
+We picked a pilot table, extracted one month worth of data from the table (about 5M rows) and proceded to run the tests.</p>
+<p>As a &ldquo;control group&rdquo;, a vanilla MariaDB server was installed and the usual production queries were benchmarked.</p>
+<p>Then the second phase began: after removing MariaDB, a CS server was installed and data imported in a ColumnStore table.
+Again, bechmarks were run.</p>
+<p>Here are the times to compute an aggregate table:</p>
+
+<link rel="stylesheet" href="https://tomfern.com/css/hugo-easy-gallery.css" />
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/plots/spartans/query_load.png" alt="Figure 1: Computing the aggregate table"/>
+    </div>
+    <a href="/plots/spartans/query_load.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Figure 1: Computing the aggregate table</p>
+      </figcaption>
+  </figure>
+</div>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>InnoDB</th>
+<th>ColumnStore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query Time</td>
+<td>7.549 s</td>
+<td>0.169 s</td>
+</tr>
+</tbody>
+</table>
+<p>Quite impressive: about 44 times faster.</p>
+<p>We can't claim victory yet. This does not reflect the actual user experience.
+Remember the app is fed from the precomputed aggregate table.</p>
+<p>The real test is how does calculating the aggregates on realtime compare against querying the precomputed table, which is much tougher:</p>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/plots/spartans/opmode2.png" alt="/plots/spartans/opmode2.png"/>
+    </div>
+    <a href="/plots/spartans/opmode2.png" itemprop="contentUrl"></a>
+  </figure>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Query Time</th>
+<th>1 thread</th>
+<th>2 threads</th>
+<th>4 threads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InnoDB</td>
+<td>0.005 s</td>
+<td>0.006 s</td>
+<td>0.010 s</td>
+</tr>
+<tr>
+<td>ColumnStore</td>
+<td>0.169 s</td>
+<td>0.242 s</td>
+<td>0.443 s</td>
+</tr>
+</tbody>
+</table>
+<p>From the user perspective, performance with CS is <em>worse</em>, the page load time increases in about 2 orders of magnitude.
+True, the data show is as realtime as possible. But can we do better?</p>
+<p>Yes, of course. So far we only scratched the surface.</p>
+<p>MariaDB ColumnStore has 3 modes of operation, these can be set at global level or session level:</p>
+<ul>
+<li>Mode 0: generic row-by-row mode, highly compatible but much slower.</li>
+<li>Mode 1: distributed, very fast but non-parallelizable queries are rejected.</li>
+<li>Mode 2: automatic, switches between mode 0 and 1 depending on query.</li>
+</ul>
+<p>Mode 1 is the default, which means it wants to be fed good queries.
+To make the previous tests work, I had to switch to mode 0, so we're not
+getting the best possible performance.</p>
+<p>With a surprisingly little bit of rewriting, the same queries were running on mode 1.</p>
+<p>Let's see how well it does:</p>
+
+
+<div class="box" >
+  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+    <div class="img">
+      <img itemprop="thumbnail" src="/plots/spartans/opmodes_vs_innodb.png" alt="Figure 2: Aggregate table vs ColumnStore (optimized)"/>
+    </div>
+    <a href="/plots/spartans/opmodes_vs_innodb.png" itemprop="contentUrl"></a>
+      <figcaption>
+          <p>Figure 2: Aggregate table vs ColumnStore (optimized)</p>
+      </figcaption>
+  </figure>
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Query Time</th>
+<th>1 thread</th>
+<th>2 threads</th>
+<th>4 threads</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InnoDB (aggregate)</td>
+<td>0.005 s</td>
+<td>0.006 s</td>
+<td>0.010 s</td>
+</tr>
+<tr>
+<td>ColumnStore (mode 1)</td>
+<td>0.048 s</td>
+<td>0.068 s</td>
+<td>0.117 s</td>
+</tr>
+<tr>
+<td>ColumnStore (mode 0)</td>
+<td>0.169 s</td>
+<td>0.242 s</td>
+<td>0.443 s</td>
+</tr>
+</tbody>
+</table>
+<p>Query times improved a lot, realtime <em>mode 1</em> takes only 1 order of magnitude more than getting the precomputed data, that's quite a feat.</p>
+<h2 id="the-solution">The Solution</h2>
+<p>Once the plan was greenlighted, I proceeded to install a proper CS server (only one node for now, but we can add more later).</p>
+<p>To provide load-balancing a MariaDB MaxScale proxy was added.
+This proved a key component as it also allows to capture changes on the
+main db, which are then sent to CS without needing to modify any ETL process.</p>
+<p>With proper load balancing in place, we took to oportunity to add more slave replicas to increase the performance of the general queries.</p>
+<h3 id="caveats">Caveats</h3>
+<p>Some problems we encountered along the way:</p>
+<ul>
+<li>Not all queries were as easy to optimize for mode 1. The main difference is that CS does not support all the aggregation functions.
+Things like SUM(FIND_IN_SET(code,&lsquo;0,1&rsquo;)) don't work. In some cases, we had to add additional columns to work around it.</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>Datatypes in CS are more strict than in MariaDB, JOINS require types to match much more closely.</li>
+<li>Some queries where trying to aggregate too many columns at a time, which probably made sense of a Row based database. But for CS we found</li>
+</ul>
+<p>that sensibly splitting queries improved performance considerably.</p>
+<ul>
+<li>Big joins can fail due to lack of memory, disk-based joins are disabled by default. Enabling the feature fixes the issue, but query times performance</li>
+</ul>
+<p>is hit considerably. As a result, we had to tweak joins and where conditions on some queries.</p>
+<h2 id="related-links">Related links</h2>
+<ul>
+<li>MariaDB ColumnStore: <a href="https://mariadb.com/kb/en/library/mariadb-columnstore/">https://mariadb.com/kb/en/library/mariadb-columnstore/</a></li>
+<li>Operating modes: <a href="https://mariadb.com/kb/en/library/columnstore-operating-mode/">https://mariadb.com/kb/en/library/columnstore-operating-mode/</a></li>
+<li>Aggregate functions: <a href="https://mariadb.com/kb/en/library/columnstore-distributed-aggregate-functions/">https://mariadb.com/kb/en/library/columnstore-distributed-aggregate-functions/</a></li>
+<li>MariaDB MaxScale: <a href="https://mariadb.com/kb/en/maxscale/">https://mariadb.com/kb/en/maxscale/</a></li>
+<li>Change Data Capture: <a href="https://mariadb.com/kb/en/mariadb-maxscale-22-change-data-capture-cdc-protocol/">https://mariadb.com/kb/en/mariadb-maxscale-22-change-data-capture-cdc-protocol/</a></li>
+</ul>
+<h2 id="thanks">Thanks</h2>
+<p>I'd like to thank the customer who very graciously allowed me to publish this entry and share the experience.</p>
+<p>Later</p>
+<p>Tomas</p>
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2fspartans%2f&amp;text=Case%20study%3a%20MariaDB%20ColumnStore%20%3amariadb-columnstore%3amysql%3acase-study%3a&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2fspartans%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fspartans%2f&amp;title=Case%20study%3a%20MariaDB%20ColumnStore%20%3amariadb-columnstore%3amysql%3acase-study%3a" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2fspartans%2f&amp;title=Case%20study%3a%20MariaDB%20ColumnStore%20%3amariadb-columnstore%3amysql%3acase-study%3a" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2fspartans%2f&amp;title=Case%20study%3a%20MariaDB%20ColumnStore%20%3amariadb-columnstore%3amysql%3acase-study%3a" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2fspartans%2f&amp;description=Case%20study%3a%20MariaDB%20ColumnStore%20%3amariadb-columnstore%3amysql%3acase-study%3a" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://tomfern.com/post/docker-perf-tips/" data-toggle="tooltip" data-placement="top" title="Making the most out of Docker">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://tomfern.com/post/case-mariadb-columnstore/" data-toggle="tooltip" data-placement="top" title="Case study: MariaDB ColumnStore">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="https://twitter.com/TomFernBlog" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            
+            <a href="https://tomfern.com/index.xml" title="RSS">
+            
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              Tom
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2019
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://tomfern.com">tomfern.com</a>
+          
+
+    
+    
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0"
+    src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" />
+</a>
+
+        </p>
+        
+        <p class="credits theme-by text-muted"> O caos é uma ordem por descifrar</p>
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.61.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://tomfern.com/js/main.js"></script>
+<script src="https://tomfern.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script>
+<script src="https://tomfern.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

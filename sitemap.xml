@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -8,12 +8,62 @@
   </url>
   
   <url>
+    <loc>https://tomfern.com/tags/casestudy/</loc>
+    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/columnardatabases/</loc>
+    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/mariadb/</loc>
+    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/post/</loc>
+    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/</loc>
+    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/</loc>
+    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/benchmarks/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/docker/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/linux/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tomfern.com/post/docker-perf-tips/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tomfern.com/post/a-container-for-my-dbs/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/mysql/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
   
@@ -28,6 +78,21 @@
   </url>
   
   <url>
+    <loc>https://tomfern.com/tags/tuning/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/guides/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/pgsql/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tomfern.com/post/sysbench-guide-2/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
@@ -38,12 +103,22 @@
   </url>
   
   <url>
+    <loc>https://tomfern.com/tags/unix/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tomfern.com/post/mysqlslap-guide-2/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
   
   <url>
     <loc>https://tomfern.com/post/mysqlslap-guide-1/</loc>
+    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/monitoring/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
   </url>
   
@@ -68,104 +143,12 @@
   </url>
   
   <url>
-    <loc>https://tomfern.com/tags/benchmarks/</loc>
+    <loc>https://tomfern.com/page/</loc>
     <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/casestudy/</loc>
-    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
     <loc>https://tomfern.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/columnardatabases/</loc>
-    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/docker/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/guides/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/linux/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/mariadb/</loc>
-    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/monitoring/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/mysql/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/page/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/pgsql/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/post/</loc>
-    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/tuning/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/unix/</loc>
-    <lastmod>2019-01-06T00:00:00-03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/</loc>
-    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

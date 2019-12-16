@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on tomfern.com</title>
@@ -17,7 +17,7 @@
       
       <guid>https://tomfern.com/page/about/</guid>
       <description>My name is Tomas Fernandez, I live in Argentina. I work mostly as a DBA and I love it. I also love programming languages in general.
-After getting my a degree on Electronic Engineering, 15 years ago, I&amp;rsquo;ve been working in the IT sector. During this time I wore various hats, working on a network operation centers on a big Telcos, as an developer, as sysadmin and lastly as a DBA.</description>
+After getting my a degree on Electronic Engineering, 15 years ago, I&#39;ve been working in the IT sector. During this time I wore various hats, working on a network operation centers on a big Telcos, as an developer, as sysadmin and lastly as a DBA.</description>
     </item>
     
   </channel>
