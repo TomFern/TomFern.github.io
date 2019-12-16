@@ -19,14 +19,14 @@
     "@type": "WebSite",
     "name": "tomfern.com",
     
-    "url": "https://tomfern.com"
+    "url": "https:\/\/tomfern.com"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https://tomfern.com"
+  "url": "https:\/\/tomfern.com"
   
   
   
@@ -41,14 +41,14 @@
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@id": "https://tomfern.com",
+          "@id": "https:\/\/tomfern.com",
           "name": "home"
         }
     },{
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https://tomfern.com/post/a-container-for-my-dbs/",
+          "@id": "https:\/\/tomfern.com\/post\/a-container-for-my-dbs\/",
           "name": "A container for my databases"
         }
     }]
@@ -61,21 +61,20 @@
     "name" : "Tom"
   },
   "headline": "A container for my databases",
-  "description" : "Playing with databases in containers.
-",
+  "description" : "Playing with databases in containers.\n",
   "inLanguage" : "en",
-  "wordCount": 464,
+  "wordCount":  461 ,
   "datePublished" : "2019-01-18T17:59:00",
   "dateModified" : "2019-01-18T17:59:00",
-  "image" : "https://tomfern.com",
+  "image" : "https:\/\/tomfern.com",
   "keywords" : [ "docker, mysql, benchmarks" ],
-  "mainEntityOfPage" : "https://tomfern.com/post/a-container-for-my-dbs/",
+  "mainEntityOfPage" : "https:\/\/tomfern.com\/post\/a-container-for-my-dbs\/",
   "publisher" : {
     "@type": "Organization",
-    "name" : "https://tomfern.com",
+    "name" : "https:\/\/tomfern.com",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https://tomfern.com",
+        "url" : "https:\/\/tomfern.com",
         "height" :  60 ,
         "width" :  60
     }
@@ -101,7 +100,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="tomfern.com" />
 
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.61.0" />
   <link rel="alternate" href="https://tomfern.com/index.xml" type="application/rss+xml" title="tomfern.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -337,83 +336,54 @@ div.alert a:hover {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>Playing with databases in containers.</p>
-
-<hr />
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#containers-tested">Containers tested</a>
-
 <ul>
 <li><a href="#docker">Docker</a></li>
 <li><a href="#rkt">rkt</a></li>
 <li><a href="#lxc">LXC</a></li>
 <li><a href="#systemd-spawn">systemd-spawn</a></li>
-</ul></li>
+</ul>
+</li>
 <li><a href="#benchmarks">Benchmarks</a>
-
 <ul>
 <li><a href="#single-thread">Single thread</a></li>
 <li><a href="#10-threads">10 Threads</a></li>
-</ul></li>
-<li><a href="#related-links">Related links</a></li>
-<li><a href="#that-s-it">That&rsquo;s it</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
-<p>Who doesn&rsquo;t like containers? Anyone doesn&rsquo;t like to have most of the benefits of virtual machines with much, much less overhead?</p>
-
-<p>They&rsquo;ve been around since forever (anyone still remember chroot?)
-but only in recent years their popularity boomed, mainly due to cloud computing, I&rsquo;m sure.</p>
-
-<p>I&rsquo;ve been running databases in docker for a while now. I was curious about other alternatives, so I did a bit of benchmarking.</p>
-
+</li>
+<li><a href="#related-links">Related links</a></li>
+<li><a href="#that-s-it">That's it</a></li>
+</ul>
+<!-- raw HTML omitted -->
+<p>Who doesn't like containers? Anyone doesn't like to have most of the benefits of virtual machines with much, much less overhead?</p>
+<p>They've been around since forever (anyone still remember chroot?)
+but only in recent years their popularity boomed, mainly due to cloud computing, I'm sure.</p>
+<p>I've been running databases in docker for a while now. I was curious about other alternatives, so I did a bit of benchmarking.</p>
 <h2 id="containers-tested">Containers tested</h2>
-
 <h3 id="docker">Docker</h3>
-
-<p>It&rsquo;s not a coincidence that Docker appeared around the same time container technology began its popularity rise.</p>
-
-<p>It&rsquo;s main selling point is its easy of use and an enormous ecosystem of ready to use images.</p>
-
+<p>It's not a coincidence that Docker appeared around the same time container technology began its popularity rise.</p>
+<p>It's main selling point is its easy of use and an enormous ecosystem of ready to use images.</p>
 <h3 id="rkt">rkt</h3>
-
 <p>rkt is an interesting alternative to Docker. rkt has the same features and can even download and run Docker images.</p>
-
 <p>rkt takes security-minded approach to containers. It supports signed images, a feature sorely needed in Docker.</p>
-
 <h3 id="lxc">LXC</h3>
-
 <p>LXC (linux containers) is the technology that was originally behind docker.</p>
-
-<p>LXC just runs containers, that&rsquo;s it. We can regain some of Docker-like features if we mix in some additional
+<p>LXC just runs containers, that's it. We can regain some of Docker-like features if we mix in some additional
 components like LXD (hypervisor and management) and LXCFS (an overlay filesystem).
 For snapshots we can use LVM or an snapshot-capable filesystem.</p>
-
 <h3 id="systemd-spawn">systemd-spawn</h3>
-
 <p>systemd-nspawn is &ldquo;chroot on steroids&rdquo;.
-A much simpler tool, it doesn&rsquo;t provide any form of image management. It requires a more DIY approach, we need to set up everything by ourselves.</p>
-
-<p>nspawn, unlike chroot, does provide a network virtualization and it&rsquo;s capable of fully booting a linux container.</p>
-
-<p>It&rsquo;s a lightweight alternative worth considering if your linux distribution uses systemd.</p>
-
+A much simpler tool, it doesn't provide any form of image management. It requires a more DIY approach, we need to set up everything by ourselves.</p>
+<p>nspawn, unlike chroot, does provide a network virtualization and it's capable of fully booting a linux container.</p>
+<p>It's a lightweight alternative worth considering if your linux distribution uses systemd.</p>
 <h2 id="benchmarks">Benchmarks</h2>
-
 <p>The databases tested are MariaDB 10.3.12 and Postgres 11.1.</p>
-
-<p>I&rsquo;m using <a href="../sysbench-guide-2">sysbench</a>&rsquo;s OLTP read+write test, using 1 and 10 threads.
-I&rsquo;ve run each test 3 times, 20 minutes each test. The graph consists of the max, median and min <em>average</em> TPS values.</p>
-
+<p>I'm using <a href="../sysbench-guide-2">sysbench</a>&lsquo;s OLTP read+write test, using 1 and 10 threads.
+I've run each test 3 times, 20 minutes each test. The graph consists of the max, median and min <em>average</em> TPS values.</p>
 <h3 id="single-thread">Single thread</h3>
-
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box" >
@@ -430,7 +400,6 @@ I&rsquo;ve run each test 3 times, 20 minutes each test. The graph consists of th
 
 
 
-
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
@@ -443,13 +412,9 @@ I&rsquo;ve run each test 3 times, 20 minutes each test. The graph consists of th
   </figure>
 </div>
 
-
-<p>I was surprised that docker did so well, I wouldn&rsquo;t have been shocked if it were the worst, but it performed best.</p>
-
+<p>I was surprised that docker did so well, I wouldn't have been shocked if it were the worst, but it performed best.</p>
 <h3 id="10-threads">10 Threads</h3>
-
 <p>How does performance change with a higher thread count?</p>
-
 
 
 <div class="box" >
@@ -466,7 +431,6 @@ I&rsquo;ve run each test 3 times, 20 minutes each test. The graph consists of th
 
 
 
-
 <div class="box" >
   <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
     <div class="img">
@@ -479,12 +443,9 @@ I&rsquo;ve run each test 3 times, 20 minutes each test. The graph consists of th
   </figure>
 </div>
 
-
 <p>A higher load tends to even out things. Docker suffers a bit more with MariaDB.
-All in all it doesn&rsquo;t look like there is much of a speed difference between container types.</p>
-
+All in all it doesn't look like there is much of a speed difference between container types.</p>
 <h2 id="related-links">Related links</h2>
-
 <ul>
 <li>benchmark data:  <a href="https://github.com/TomFern/benchmark-data/tree/master/a-container-for-my-dbs">https://github.com/TomFern/benchmark-data/tree/master/a-container-for-my-dbs</a></li>
 <li>docker: <a href="https://docs.docker.com/">https://docs.docker.com/</a></li>
@@ -492,15 +453,10 @@ All in all it doesn&rsquo;t look like there is much of a speed difference betwee
 <li>rkt: <a href="https://coreos.com/rkt/">https://coreos.com/rkt/</a></li>
 <li>systemd-nspawn: <a href="https://wiki.archlinux.org/index.php/systemd-nspawn">https://wiki.archlinux.org/index.php/systemd-nspawn</a></li>
 </ul>
-
-<h2 id="that-s-it">That&rsquo;s it</h2>
-
+<h2 id="that-s-it">That's it</h2>
 <p>Hope you enjoyed this post. It was fun for me playing around with containers.</p>
-
-<p>Given that there is not a clear winner yet, I think I&rsquo;ll stick with Docker for now.</p>
-
+<p>Given that there is not a clear winner yet, I think I'll stick with Docker for now.</p>
 <p>Have a good one.</p>
-
 <p>Tomas</p>
 
         
@@ -627,6 +583,14 @@ All in all it doesn&rsquo;t look like there is much of a speed difference betwee
         <ul class="list-inline text-center footer-links">
           
               <li>
+                <a href="mailto:blog@tomfern.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
                 <a href="https://twitter.com/TomFernBlog" title="Twitter">
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
@@ -674,7 +638,7 @@ All in all it doesn&rsquo;t look like there is much of a speed difference betwee
         
         <p class="credits theme-by text-muted"> O caos é uma ordem por descifrar</p>
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.61.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

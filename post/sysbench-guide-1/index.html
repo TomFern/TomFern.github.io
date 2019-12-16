@@ -19,14 +19,14 @@
     "@type": "WebSite",
     "name": "tomfern.com",
     
-    "url": "https://tomfern.com"
+    "url": "https:\/\/tomfern.com"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https://tomfern.com"
+  "url": "https:\/\/tomfern.com"
   
   
   
@@ -41,14 +41,14 @@
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@id": "https://tomfern.com",
+          "@id": "https:\/\/tomfern.com",
           "name": "home"
         }
     },{
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https://tomfern.com/post/sysbench-guide-1/",
+          "@id": "https:\/\/tomfern.com\/post\/sysbench-guide-1\/",
           "name": "Benchmarking with sysbench"
         }
     }]
@@ -61,21 +61,20 @@
     "name" : "Tom"
   },
   "headline": "Benchmarking with sysbench",
-  "description" : "A getting started guide to benchmarking with sysbench
-",
+  "description" : "A getting started guide to benchmarking with sysbench\n",
   "inLanguage" : "en",
-  "wordCount": 2083,
+  "wordCount":  2080 ,
   "datePublished" : "2019-01-09T00:05:00",
   "dateModified" : "2019-01-09T00:05:00",
-  "image" : "https://tomfern.com",
+  "image" : "https:\/\/tomfern.com",
   "keywords" : [ "linux, unix, guides" ],
-  "mainEntityOfPage" : "https://tomfern.com/post/sysbench-guide-1/",
+  "mainEntityOfPage" : "https:\/\/tomfern.com\/post\/sysbench-guide-1\/",
   "publisher" : {
     "@type": "Organization",
-    "name" : "https://tomfern.com",
+    "name" : "https:\/\/tomfern.com",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https://tomfern.com",
+        "url" : "https:\/\/tomfern.com",
         "height" :  60 ,
         "width" :  60
     }
@@ -101,7 +100,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="tomfern.com" />
 
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.61.0" />
   <link rel="alternate" href="https://tomfern.com/index.xml" type="application/rss+xml" title="tomfern.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -337,14 +336,9 @@ div.alert a:hover {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>A getting started guide to benchmarking with sysbench</p>
-
-<hr />
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#why-when-how">Why, When, How?</a></li>
 <li><a href="#introducing-sysbench">Introducing sysbench</a></li>
@@ -356,49 +350,35 @@ div.alert a:hover {
 <li><a href="#testing-mutexes">Testing mutexes</a></li>
 <li><a href="#testing-threads">Testing threads</a></li>
 <li><a href="#related-links">Related links</a></li>
-<li><a href="#what-s-next">What&rsquo;s next?</a></li>
+<li><a href="#what-s-next">What's next?</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
+<!-- raw HTML omitted -->
 <h2 id="why-when-how">Why, When, How?</h2>
-
-<p>Benchmark shows the difference between should and does. Coupled with <a href="../../tags/monitoring">monitoring</a> it&rsquo;s a great tool to identify bottlenecks.</p>
-
-<p>As to when: whenever we can, as long as the system is production. A good benchmark will stress the server so we don&rsquo;t want users affected.
+<p>Benchmark shows the difference between should and does. Coupled with <a href="../../tags/monitoring">monitoring</a> it's a great tool to identify bottlenecks.</p>
+<p>As to when: whenever we can, as long as the system is production. A good benchmark will stress the server so we don't want users affected.
 Right after provisioning a server, during a maintenance window, before and after any major changes, these are all good opportunities to take advantage of a few precious
 minutes of calm to run some tests.</p>
-
 <p>We should try to mimic as best as possible the behaviour of the software we have.
 Is it single or multithreaded? Is it on more CPU bound or disk IO bound. Does it access data randomly or sequentially?
 Does it manage data on fixed-size blocks?</p>
-
 <h2 id="introducing-sysbench">Introducing sysbench</h2>
-
-<p>Sysbench is a popular benchmark tool that is available for linux, mac and can even run on windows (with it&rsquo;s subsystem for linux).
+<p>Sysbench is a popular benchmark tool that is available for linux, mac and can even run on windows (with it's subsystem for linux).
 It ships with tests for the OS and databases. It is extensible and scriptable, so writing our own tests is possible.</p>
-
-<p>If you are running linux, it&rsquo;s most likely available in your distribution repository. Otherwise head to sysbench&rsquo;s <a href="https://github.com/akopytov/sysbench">github</a> for instructions.</p>
-
+<p>If you are running linux, it's most likely available in your distribution repository. Otherwise head to sysbench's <a href="https://github.com/akopytov/sysbench">github</a> for instructions.</p>
 <h2 id="getting-started">Getting started</h2>
-
 <p>The general syntax is:</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sysbench &lt;testname&gt; &lt;action&gt; <span class="o">[</span>test-specific options<span class="o">]</span></code></pre></div>
-<p>Sysbench has quite a few options, but help a few keystrokes away. To get to the general help:</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sysbench --help</code></pre></div>
-<p>And for the specific test use:</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sysbench &lt;testname&gt; help</code></pre></div>
-<p>Some tests have a <em>prepare</em> and <em>cleanup</em> action, some also have an optional <em>warmup</em> action, others can be <em>run</em> directly.</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sysbench &lt;testname&gt; &lt;action&gt; <span class="o">[</span>test-specific options<span class="o">]</span>
+</code></pre></div><p>Sysbench has quite a few options, but help a few keystrokes away. To get to the general help:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sysbench --help
+</code></pre></div><p>And for the specific test use:</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">sysbench &lt;testname&gt; <span class="nb">help</span>
+</code></pre></div><p>Some tests have a <em>prepare</em> and <em>cleanup</em> action, some also have an optional <em>warmup</em> action, others can be <em>run</em> directly.</p>
 <h2 id="the-test-loop">The test loop</h2>
-
 <p>All tests have a common structure, the requested number of worker threads are created, each one will run its own test loop,
 each iteration of the loop is called an <em>event</em> and can have any number of operations. Sysbench keeps counters on all events across all threads.</p>
-
-<p>When it&rsquo;s done, we get the statistics for all events. Under <em>latency</em> we can see the average event duration.
+<p>When it's done, we get the statistics for all events. Under <em>latency</em> we can see the average event duration.
 These values are common to all tests.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">...
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">...
 General statistics:
     total time:                          10.0014s
     total number of events:              32479
@@ -412,21 +392,17 @@ Latency (ms):
 
 Threads fairness:
     events (avg/stddev):           4059.8750/59.44
-    execution time (avg/stddev):   9.9918/0.01</code></pre></div>
-<p>On multithreaded tests we want that events are distributed fairly among all threads, i.e. all threads should execute approximately the same number of events.
+    execution time (avg/stddev):   9.9918/0.01
+</code></pre></div><p>On multithreaded tests we want that events are distributed fairly among all threads, i.e. all threads should execute approximately the same number of events.
 This is shown under <em>fairness</em>, the <em>stddev</em> (standard deviation) should be small in relation to the <em>average</em>.</p>
-
 <p>Most of the benchmarks will run for a specified time or until a certain condition is met. The default time limit is 10 seconds, but we can
 change that using <code>--time</code>. Alternatively we can set a limit number of <code>--events</code>.</p>
-
 <h2 id="testing-your-cpus">Testing your CPUs</h2>
-
-<p>In this first test we&rsquo;ll torture the CPUs by computing prime numbers.
+<p>In this first test we'll torture the CPUs by computing prime numbers.
 Each single event will check prime numbers up to the provided <code>--cpu-max-prime</code>.
 The higher this value is, the longer it takes an event to end.</p>
-
 <p>I usually like to start with single threadetest. I try to find a <code>--cpu-max-prime</code> that will take at least a few seconds to complete.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># sysbench cpu test, single event
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># sysbench cpu test, single event
 -&gt; sysbench cpu run --threads=1 --events=1 --cpu-max-prime=8000000
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
 
@@ -457,9 +433,9 @@ Latency (ms):
 
 Threads fairness:
     events (avg/stddev):           1.0000/0.00
-    execution time (avg/stddev):   11.2314/0.00</code></pre></div>
-<p>With a suitable max prime number found, the next step is to run a longer test.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># sysbench cpu, single thread
+    execution time (avg/stddev):   11.2314/0.00
+</code></pre></div><p>With a suitable max prime number found, the next step is to run a longer test.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># sysbench cpu, single thread
 -&gt; sysbench cpu run --threads=1 --time=60 --cpu-max-prime=8000000
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
 
@@ -490,13 +466,12 @@ Latency (ms):
 
 Threads fairness:
     events (avg/stddev):           6.0000/0.00
-    execution time (avg/stddev):   67.5689/0.00</code></pre></div>
-<p>On <em>average</em>, it took 11.261 seconds to calculate primes up to our limit.
+    execution time (avg/stddev):   67.5689/0.00
+</code></pre></div><p>On <em>average</em>, it took 11.261 seconds to calculate primes up to our limit.
 A lower average is better, since it means the CPU takes less time to reach the same point. For the same reason, a higher value in <em>events per second</em> is better.</p>
-
 <p>If we are going to run multithreaded applications we need to run another test with an appropiate number <code>--threads</code>.
 For example in a system with 4 cores with hyperthreading this is a good starting point.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># cpu test, 8 threads
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># cpu test, 8 threads
 -&gt; sysbench cpu run --threads=8 --time=60 --cpu-max-prime=8000000
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
 
@@ -527,14 +502,12 @@ Latency (ms):
 
 Threads fairness:
     events (avg/stddev):           3.0000/0.00
-    execution time (avg/stddev):   81.6377/0.36</code></pre></div>
-<h2 id="testing-your-memory">Testing your memory</h2>
-
+    execution time (avg/stddev):   81.6377/0.36
+</code></pre></div><h2 id="testing-your-memory">Testing your memory</h2>
 <p>For memory we can test either <em>write</em> or <em>read</em> speeds, the mode is selected with <code>--memory-open</code>.
 We can choose between sequential (<em>seq</em>) and random (<em>rnd</em>) access modes with <code>--memory-access-mode</code>.</p>
-
-<p>This benchmark has a special stop condition: <code>--memory-total-size</code>. Bear in mind, this isn&rsquo;t the total size allocated in RAM.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># memory, no time limit, stop on 100GB written
+<p>This benchmark has a special stop condition: <code>--memory-total-size</code>. Bear in mind, this isn't the total size allocated in RAM.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># memory, no time limit, stop on 100GB written
 -&gt; sysbench memory run --memory-total-size=100G --memory-open=write --memory-access-mode=rnd --time=0
 WARNING: Both event and time limits are disabled, running an endless test
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
@@ -572,25 +545,21 @@ Latency (ms):
 
 Threads fairness:
     events (avg/stddev):           104857600.0000/0.00
-    execution time (avg/stddev):   10.8168/0.00</code></pre></div>
-<p>The latency is measured in milliseconds, it&rsquo;s just to big of a unit for memory speeds so it&rsquo;s not very useful here.
+    execution time (avg/stddev):   10.8168/0.00
+</code></pre></div><p>The latency is measured in milliseconds, it's just to big of a unit for memory speeds so it's not very useful here.
 But we can think of the <em>MiB per seconds</em> as the average speed.</p>
-
 <p>If we have a service that work with fixed-size blocks, for example if plan to have a database,
 we should set <code>--memory-block-size</code> to match it.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># some memory tests for MySQL (page size is 16K)
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># some memory tests for MySQL (page size is 16K)
 sysbench memory run --threads=8 --memory-block-size=16K --memory-total-size=100G --memory-oper=write
-sysbench memory run --threads=8 --memory-block-size=16K --memory-total-size=100G --memory-oper=read</code></pre></div>
-<h2 id="testing-your-disk-i-o-speed">Testing your disk I/O speed</h2>
-
+sysbench memory run --threads=8 --memory-block-size=16K --memory-total-size=100G --memory-oper=read
+</code></pre></div><h2 id="testing-your-disk-i-o-speed">Testing your disk I/O speed</h2>
 <p>Before starting, we need to <em>prepare</em> a file or set of files to work on. We set the <strong>total</strong> space to allocate with <code>--file-total-size</code> (which must be at least 2GB)
 and how many files there will be in the set, the space will be split into even sized files.</p>
-
-<p>We probably want to avoid caching the files in memory because we wouldn&rsquo;t be measuring the true disk spee,
- so it might me a good idea to include <code>--file-extra-flags=direct</code> to bypass it.</p>
-
-<p>It&rsquo;s generally recommended, whenever possible, that allocated space is larger than the installed RAM, just in case caching is taking place in spite of our best efforts.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench fileio prepare --file-num=10 --file-total-size=10G --file-extra-flags=direct
+<p>We probably want to avoid caching the files in memory because we wouldn't be measuring the true disk spee,
+so it might me a good idea to include <code>--file-extra-flags=direct</code> to bypass it.</p>
+<p>It's generally recommended, whenever possible, that allocated space is larger than the installed RAM, just in case caching is taking place in spite of our best efforts.</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-&gt; sysbench fileio prepare --file-num=10 --file-total-size=10G --file-extra-flags=direct
 
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
 
@@ -607,17 +576,12 @@ Creating file test_file.6
 Creating file test_file.7
 Creating file test_file.8
 Creating file test_file.9
-10737418240 bytes written in 45.15 seconds (226.78 MiB/sec).</code></pre></div>
-<div class="tip-box">
-  <div></div>
-
+10737418240 bytes written in 45.15 seconds (226.78 MiB/sec).
+</code></pre></div><!-- raw HTML omitted -->
 <p><em>prepare</em> can reutilize previous test files, but it only can <strong>grow</strong> them, so we can only reuse test files if they are bigger or equal than before.
 Otherwise we must <em>cleanup</em> and <em>prepare</em> again.</p>
-
-<p></div></p>
-
+<!-- raw HTML omitted -->
 <p>Now we need to choose a <code>--file-test-mode</code>:</p>
-
 <ul>
 <li>seqwr: sequential write</li>
 <li>seqrewr: sequential read+write</li>
@@ -626,7 +590,7 @@ Otherwise we must <em>cleanup</em> and <em>prepare</em> again.</p>
 <li>rndwr: random write</li>
 <li>rndrw: random read write</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># file read-write test
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># file read-write test
 -&gt; sysbench fileio run --file-num=10 --file-total-size=10G --file-test-mode=rndrw --file-extra-flags=direct --time=60
 
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
@@ -673,10 +637,9 @@ Latency (ms):
 
 Threads fairness:
     events (avg/stddev):           262756.0000/0.00
-    execution time (avg/stddev):   59.7967/0.00</code></pre></div>
-<p>As always, it&rsquo;s a good idea to try to match as best as possible the disk IO activity for our application. We have some flexibility here
+    execution time (avg/stddev):   59.7967/0.00
+</code></pre></div><p>As always, it's a good idea to try to match as best as possible the disk IO activity for our application. We have some flexibility here
 with additional options:</p>
-
 <ul>
 <li><code>--file-num</code> number of files [128]</li>
 <li><code>--file-block-size</code> block size [16384]</li>
@@ -692,26 +655,22 @@ with additional options:</p>
 <li><code>--file-merged-requests</code> max I/O request to merge [0]</li>
 <li><code>--file-rw-ratio</code> reads/writes ratio for combined test [1.5]</li>
 </ul>
-
 <p>As an example, for a system destined to run a MySQL server we could try something like this.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil"># a test simulating MySQL file activity
-sysbench fileio run --threads=8 --file-extra-flags=direct --file-test-mode=rndrw --file-num=10 --file-block-size=1M --file-block-size=16K</code></pre></div>
-<p>After running our tests, we need only to remove the work files with <em>cleanup</em></p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench fileio cleanup --file-num=10
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"># a test simulating MySQL file activity
+sysbench fileio run --threads=8 --file-extra-flags=direct --file-test-mode=rndrw --file-num=10 --file-block-size=1M --file-block-size=16K
+</code></pre></div><p>After running our tests, we need only to remove the work files with <em>cleanup</em></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-&gt; sysbench fileio cleanup --file-num=10
 
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
 
-Removing test files...</code></pre></div>
-<h2 id="testing-mutexes">Testing mutexes</h2>
-
+Removing test files...
+</code></pre></div><h2 id="testing-mutexes">Testing mutexes</h2>
 <p>This benchmark is intended to test the speed for mutex locks (mutex stands for &ldquo;mutual exclusion&rdquo;).
 Which play an important role in multithreading. It simulates high concurrency, with threads acquiring and releasing locks all the time.</p>
-
 <p>Sysbench creates an initial pool of <code>--mutex-num</code> mutexes, then it starts the threads, which iterate over an empty loop, every <code>--mutex-loops</code> the thread will
 grab one random mutex from the pool, modify a global variable, and release it. Each event will acquire and release the mutexes until the <code>--mutex-locks</code> value is reached.</p>
-
 <p>Here <code>--time</code> or <code>--events</code> are completely ignored. Sysbench always runs one event per thread.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench mutex run --threads=10
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-&gt; sysbench mutex run --threads=10
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
 
 Running the test with following options:
@@ -737,18 +696,15 @@ Latency (ms):
 
 Threads fairness:
     events (avg/stddev):           1.0000/0.00
-    execution time (avg/stddev):   0.8556/0.02</code></pre></div>
-<h2 id="testing-threads">Testing threads</h2>
-
+    execution time (avg/stddev):   0.8556/0.02
+</code></pre></div><h2 id="testing-threads">Testing threads</h2>
 <p>Here we have a test for the CPU scheduler. It can simulate high concurrency conditions, where multiple threads
 compete for mutexes.</p>
-
 <p>Each thread will take <code>--thread-locks</code> mutexes and yield the CPU. This causes the thread to stop running and is placed on the run queue by the scheduler.
 Once the thread is again scheduled to run, the mutexes are released.</p>
-
 <p>A single event will perform these actions <code>--thread-yields</code> times, so the higher this number, the higher the concurrency placed on each mutex,
 and the lower the number of events per second.</p>
-<div class="highlight"><pre class="chroma"><code class="language-nil" data-lang="nil">-&gt; sysbench threads run --threads=4 --thread-yields=1000 --thread-locks=10
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-&gt; sysbench threads run --threads=4 --thread-yields=1000 --thread-locks=10
 sysbench 1.0.15 (using system LuaJIT 2.0.5)
 
 Running the test with following options:
@@ -774,21 +730,15 @@ Latency (ms):
 
 Threads fairness:
     events (avg/stddev):           12688.5000/54.38
-    execution time (avg/stddev):   9.9951/0.00</code></pre></div>
-<h2 id="related-links">Related links</h2>
-
+    execution time (avg/stddev):   9.9951/0.00
+</code></pre></div><h2 id="related-links">Related links</h2>
 <ul>
-<li>sysbench&rsquo;s github: <a href="https://github.com/akopytov/sysbench">https://github.com/akopytov/sysbench</a></li>
+<li>sysbench's github: <a href="https://github.com/akopytov/sysbench">https://github.com/akopytov/sysbench</a></li>
 </ul>
-
-<h2 id="what-s-next">What&rsquo;s next?</h2>
-
+<h2 id="what-s-next">What's next?</h2>
 <p>Whew, that was a longer post than I intended and to think I only covered a part of it all.</p>
-
 <p>There is still more to say about sysbench, check the <a href="../sysbench-guide-2">second part</a> where I deal with databases, so the fun is just starting.</p>
-
 <p>So long.</p>
-
 <p>Tomas</p>
 
         
@@ -915,6 +865,14 @@ Threads fairness:
         <ul class="list-inline text-center footer-links">
           
               <li>
+                <a href="mailto:blog@tomfern.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
                 <a href="https://twitter.com/TomFernBlog" title="Twitter">
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
@@ -962,7 +920,7 @@ Threads fairness:
         
         <p class="credits theme-by text-muted"> O caos é uma ordem por descifrar</p>
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.61.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

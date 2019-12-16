@@ -19,14 +19,14 @@
     "@type": "WebSite",
     "name": "tomfern.com",
     
-    "url": "https://tomfern.com"
+    "url": "https:\/\/tomfern.com"
 }
 </script><script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Organization",
   "name": "",
-  "url": "https://tomfern.com"
+  "url": "https:\/\/tomfern.com"
   
   
   
@@ -41,14 +41,14 @@
         "@type": "ListItem",
         "position": 1,
         "item": {
-          "@id": "https://tomfern.com",
+          "@id": "https:\/\/tomfern.com",
           "name": "home"
         }
     },{
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https://tomfern.com/post/cost-of-idle-indexes/",
+          "@id": "https:\/\/tomfern.com\/post\/cost-of-idle-indexes\/",
           "name": "The cost of idle indexes"
         }
     }]
@@ -61,21 +61,20 @@
     "name" : "Tom"
   },
   "headline": "The cost of idle indexes",
-  "description" : "A simple benchmark to assess the cost of unused indexes on MariaDB.
-",
+  "description" : "A simple benchmark to assess the cost of unused indexes on MariaDB.\n",
   "inLanguage" : "en",
-  "wordCount": 478,
+  "wordCount":  475 ,
   "datePublished" : "2019-01-16T12:36:00",
   "dateModified" : "2019-01-16T12:36:00",
-  "image" : "https://tomfern.com",
+  "image" : "https:\/\/tomfern.com",
   "keywords" : [ "mysql, benchmarks" ],
-  "mainEntityOfPage" : "https://tomfern.com/post/cost-of-idle-indexes/",
+  "mainEntityOfPage" : "https:\/\/tomfern.com\/post\/cost-of-idle-indexes\/",
   "publisher" : {
     "@type": "Organization",
-    "name" : "https://tomfern.com",
+    "name" : "https:\/\/tomfern.com",
     "logo" : {
         "@type" : "ImageObject",
-        "url" : "https://tomfern.com",
+        "url" : "https:\/\/tomfern.com",
         "height" :  60 ,
         "width" :  60
     }
@@ -101,7 +100,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="tomfern.com" />
 
-  <meta name="generator" content="Hugo 0.54.0" />
+  <meta name="generator" content="Hugo 0.61.0" />
   <link rel="alternate" href="https://tomfern.com/index.xml" type="application/rss+xml" title="tomfern.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -337,14 +336,9 @@ div.alert a:hover {
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         <p>A simple benchmark to assess the cost of unused indexes on MariaDB.</p>
-
-<hr />
-
-<div class="ox-hugo-toc toc">
-<div></div>
-
-<div class="heading">Table of Contents</div>
-
+<hr>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <ul>
 <li><a href="#the-test">The test</a></li>
 <li><a href="#bulk-insert">Bulk insert</a></li>
@@ -354,42 +348,28 @@ div.alert a:hover {
 <li><a href="#related-links">Related links</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ul>
-
-<p></div>
-<!--endtoc--></p>
-
-<p>The last few days I&rsquo;ve been <a href="../unused-index-cleanup">cleaning up indexes</a>. This entails removing duplicate, unused or redundant indexes.</p>
-
+<!-- raw HTML omitted -->
+<p>The last few days I've been <a href="../unused-index-cleanup">cleaning up indexes</a>. This entails removing duplicate, unused or redundant indexes.</p>
 <p>There were quite a lot of indexes, so it was hard work. I knew why this was important to do:
 as the table changes, indexes need to be kept updated,
 less indexes means less updates and less wasted resources.</p>
-
 <p>But I wanted to have a real number to attach to the theory. How much benefit is there <em>really</em>? So I decided to run some simple benchmarks
- with <a href="../sysbench-guide-2">sysbench</a>.</p>
-
+with <a href="../sysbench-guide-2">sysbench</a>.</p>
 <h2 id="the-test">The test</h2>
-
 <p>The test procedure is really simple:</p>
-
 <ol>
 <li>create a test table</li>
 <li>run the desired benchmark</li>
 <li>add an index</li>
 <li>repeat benchmark</li>
 </ol>
-
 <p>I started with 1 index (the primary key) and went up in 10 index increments. InnoDB supports up to 64 indexes per table.</p>
-
 <p>Each particular combination of test + number of indexes was run 3 times. On the plots
-we&rsquo;ll see the median, maximum and minimum values.</p>
-
+we'll see the median, maximum and minimum values.</p>
 <p>Testing was done on MariaDB 10.3.12 running in a docker container.</p>
-
 <h2 id="bulk-insert">Bulk insert</h2>
-
-<p>Let&rsquo;s start with multi-row inserts.
+<p>Let's start with multi-row inserts.
 This test is entirely focused on writes, so the number of indexes should have a high impact.</p>
-
 
 <link rel="stylesheet" href="/css/hugo-easy-gallery.css" />
 <div class="box" >
@@ -404,13 +384,9 @@ This test is entirely focused on writes, so the number of indexes should have a 
   </figure>
 </div>
 
-
-<p>RPS with 11 indexes is about 3 times slower. That&rsquo;s a lot. 61 indexes perform the worst, almost 13 times worse.</p>
-
+<p>RPS with 11 indexes is about 3 times slower. That's a lot. 61 indexes perform the worst, almost 13 times worse.</p>
 <h2 id="oltp-write-only">OLTP write only</h2>
-
 <p>This being a write only test, the number of indexes should still matter a lot.</p>
-
 
 
 <div class="box" >
@@ -425,13 +401,9 @@ This test is entirely focused on writes, so the number of indexes should have a 
   </figure>
 </div>
 
-
 <p>11 indexes make transactions 40% slower. A considerable fall in performance. Worse case is a little bit less than 5 times slower.</p>
-
 <h2 id="oltp-read-write">OLTP read+write</h2>
-
 <p>A mix of reads and writes.</p>
-
 
 
 <div class="box" >
@@ -446,18 +418,13 @@ This test is entirely focused on writes, so the number of indexes should have a 
   </figure>
 </div>
 
-
 <p>With 11 indexes there is only about a 10% reduction in TPS. This should be due the fact that read speed is less affected
 by extra indexes.</p>
-
 <h2 id="oltp-read-only">OLTP read only</h2>
-
 <p>Why does the number of indexes affect read speed?
 Well, for one thing the query optimizer needs to check all the indexes on a table (even if they are duplicate),
-also there&rsquo;s some additional I/O required. So there is a cost, but it should be minimal.</p>
-
-<p>Let&rsquo;s see if it shows in the test.</p>
-
+also there's some additional I/O required. So there is a cost, but it should be minimal.</p>
+<p>Let's see if it shows in the test.</p>
 
 
 <div class="box" >
@@ -472,24 +439,17 @@ also there&rsquo;s some additional I/O required. So there is a cost, but it shou
   </figure>
 </div>
 
-
 <p>As expected, TPS does depend on the number of indexes. Compared with previous tests, however, the impact is low:
 the worst case, having 61 indexes means a 7% reduction in transaction speed.</p>
-
 <h2 id="related-links">Related links</h2>
-
 <ul>
 <li>benchmark data: <a href="https://github.com/TomFern/benchmark-data/tree/master/cost-of-idle-indexes">https://github.com/TomFern/benchmark-data/tree/master/cost-of-idle-indexes</a></li>
 </ul>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>No major discoveries here. Everything lines up with what we could have expected. It would be interesting
 to repeat the tests with higher a resolution between the first 15 or so indexes. Which, frankly,
 is much more common than having 60+.</p>
-
 <p>Bye.</p>
-
 <p>Tomas</p>
 
         
@@ -614,6 +574,14 @@ is much more common than having 60+.</p>
         <ul class="list-inline text-center footer-links">
           
               <li>
+                <a href="mailto:blog@tomfern.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
                 <a href="https://twitter.com/TomFernBlog" title="Twitter">
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
@@ -661,7 +629,7 @@ is much more common than having 60+.</p>
         
         <p class="credits theme-by text-muted"> O caos é uma ordem por descifrar</p>
         <p class="credits theme-by text-muted">
-          <a href="http://gohugo.io">Hugo v0.54.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
+          <a href="http://gohugo.io">Hugo v0.61.0</a> powered &nbsp;&bull;&nbsp; Theme by <a href="http://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> adapted to <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a>
           
         </p>
       </div>

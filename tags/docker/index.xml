@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on tomfern.com</title>
+    <title>docker on tomfern.com</title>
     <link>https://tomfern.com/tags/docker/</link>
-    <description>Recent content in Docker on tomfern.com</description>
+    <description>Recent content in docker on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>blog@tomfern.com (Tom)</managingEditor>
+    <webMaster>blog@tomfern.com (Tom)</webMaster>
     <lastBuildDate>Sat, 02 Feb 2019 11:21:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +16,7 @@
       <title>Making the most out of Docker</title>
       <link>https://tomfern.com/post/docker-perf-tips/</link>
       <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/docker-perf-tips/</guid>
       <description>&lt;p&gt;A few tips to make the most of a Docker.&lt;/p&gt;</description>
     </item>
@@ -23,7 +25,7 @@
       <title>A container for my databases</title>
       <link>https://tomfern.com/post/a-container-for-my-dbs/</link>
       <pubDate>Fri, 18 Jan 2019 17:59:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/a-container-for-my-dbs/</guid>
       <description>&lt;p&gt;Playing with databases in containers.&lt;/p&gt;</description>
     </item>
