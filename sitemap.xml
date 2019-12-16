@@ -3,6 +3,41 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://tomfern.com/post/vim-for-writers/</loc>
+    <lastmod>2019-12-15T14:04:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/post/</loc>
+    <lastmod>2019-12-15T14:04:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/productivity/</loc>
+    <lastmod>2019-12-15T14:04:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/</loc>
+    <lastmod>2019-12-15T14:04:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/</loc>
+    <lastmod>2019-12-15T14:04:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/vim/</loc>
+    <lastmod>2019-12-15T14:04:00-03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://tomfern.com/tags/writing/</loc>
+    <lastmod>2019-12-15T14:04:00-03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://tomfern.com/post/case-mariadb-columnstore/</loc>
     <lastmod>2019-02-18T00:00:00-03:00</lastmod>
   </url>
@@ -19,21 +54,6 @@
   
   <url>
     <loc>https://tomfern.com/tags/mariadb/</loc>
-    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/post/</loc>
-    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/tags/</loc>
-    <lastmod>2019-02-18T00:00:00-03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tomfern.com/</loc>
     <lastmod>2019-02-18T00:00:00-03:00</lastmod>
   </url>
   

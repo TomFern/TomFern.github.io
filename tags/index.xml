@@ -5,10 +5,37 @@
     <link>https://tomfern.com/tags/</link>
     <description>Recent content in Tags on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 04 Mar 2019 15:29:00 -0300</lastBuildDate>
+    <lastBuildDate>Sun, 15 Dec 2019 14:04:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>productivity</title>
+      <link>https://tomfern.com/tags/productivity/</link>
+      <pubDate>Sun, 15 Dec 2019 14:04:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>vim</title>
+      <link>https://tomfern.com/tags/vim/</link>
+      <pubDate>Sun, 15 Dec 2019 14:04:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>writing</title>
+      <link>https://tomfern.com/tags/writing/</link>
+      <pubDate>Sun, 15 Dec 2019 14:04:00 -0300</pubDate>
+      
+      <guid>https://tomfern.com/tags/writing/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>CaseStudy</title>
@@ -29,7 +56,7 @@
     </item>
     
     <item>
-      <title>MariaDB</title>
+      <title>mariadb</title>
       <link>https://tomfern.com/tags/mariadb/</link>
       <pubDate>Mon, 04 Mar 2019 15:29:00 -0300</pubDate>
       
