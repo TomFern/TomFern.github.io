@@ -168,6 +168,11 @@
   </url>
   
   <url>
+    <loc>https://tomfern.com/post/react-native-expo/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://tomfern.com/categories/</loc>
   </url>
   

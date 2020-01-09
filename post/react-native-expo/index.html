@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>tomfern.com - tomfern.com</title>
+  <meta name="description" content="Mobile development on the console with React Native I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.
+Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.">
   <meta name="author" content="Tom"/><script type="application/ld+json">
 {
     "@context": "http://schema.org",
@@ -28,13 +30,64 @@
   
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/tomfern.com",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/tomfern.com\/post\/react-native-expo\/",
+          "name": ""
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Tom"
+  },
+  "headline": "",
+  "description" : "Mobile development on the console with React Native I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.\nImagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.",
+  "inLanguage" : "en",
+  "wordCount":  525 ,
+  "datePublished" : "0001-01-01T00:00:00",
+  "dateModified" : "0001-01-01T00:00:00",
+  "image" : "https:\/\/tomfern.com",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/tomfern.com\/post\/react-native-expo\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/tomfern.com",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/tomfern.com",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
 
 <meta property="og:title" content="tomfern.com" />
-<meta property="og:url" content="https://tomfern.com/" />
+<meta property="og:description" content="Mobile development on the console with React Native I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.
+Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.">
+<meta property="og:url" content="https://tomfern.com/post/react-native-expo/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="tomfern.com" />
 
   <meta name="twitter:title" content="tomfern.com" />
+  <meta name="twitter:description" content="Mobile development on the console with React Native I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a …">
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@TomFernBlog" />
   <meta name="twitter:creator" content="@TomFernBlog" />
@@ -228,248 +281,151 @@ div.alert a:hover {
 
 
 
-  
-    <div id="header-big-imgs" data-num-img=1 
+  <div class="intro-header"></div>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <h1 id="mobile-development-on-the-console-with-react-native">Mobile development on the console with React Native</h1>
+<p>I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.</p>
+<p>Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.</p>
+<h2 id="react-native-and-expo">React Native and Expo</h2>
+<p>React Native is a Facebook project that converts Javascript into native Android and iOS code. Using one language for both platforms is definetly enticing and conventient.</p>
+<p>Expo is an official React Native project that lets you do without full featured IDEs like Android Studio.</p>
+<p><a href="https://expo.io/">https://expo.io/</a></p>
+<p>Curious about how it worked, I tried it for a few days and here’s the result.</p>
+<h2 id="setting-up">Setting Up</h2>
+<p>We only need Node.js to get started:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ npm install -g expo-cli
+$ expo init
+? Choose a template: <span class="o">(</span>Use arrow keys<span class="o">)</span>
+----- Managed workflow -----
+❯ blank                 a minimal app as clean as an empty canvas
+blank <span class="o">(</span>TypeScript<span class="o">)</span>    same as blank but with TypeScript configuration
+tabs                  several example screens and tabs using react-navigation
+----- Bare workflow -----
+minimal               bare and minimal, just the essentials to get you started
+minimal <span class="o">(</span>TypeScript<span class="o">)</span>  same as minimal but with TypeScript configuration
+$ npm install
+</code></pre></div><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="running">Running</h2>
+<p>Running the application is as easy as:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ npm run start
+</code></pre></div><p>The command starts a bunch of processes, including a local dashboard running on <code>localhost:19002</code>.</p>
+<p>The quickest way of viewing the application is by scanning the QR code with your phone and running it on the physical device.</p>
+<p>Additionally, you can run the application in a virtual device if you have installed the emulator (Android Studio and avd)</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="building">Building</h2>
+<p>The Expo platform offers a cloud build service. Compiling an Android package is as easy as:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ expo build:android
+</code></pre></div><p>After a few minutes, you’ll find the signed APK from the website, ready to upload to the Play Store.</p>
+<h2 id="ejecting">Ejecting</h2>
+<p>The Expo build service is nice but it can get inflexible. I’d like to be able to do End-to-End testing, and manage the project entirely in my CI/CD workflow instead of depending on 3rd parties.</p>
+<p>Fortunately, Expo can create native Android and iOS projects that are will feel familiar to mobile developers.</p>
+<p>To get these files, we must eject the project. The price we pay is that we no longer can build it from the Expo service:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ expo eject
+? How would you like to eject your app?
+Read more: https://docs.expo.io/versions/latest/expokit/eject/ <span class="o">(</span>Use arrow keys<span class="o">)</span>
+❯ Bare: I<span class="s1">&#39;d like a bare React Native project.
+</span><span class="s1">ExpoKit: I&#39;</span>ll create or log in with an Expo account to use React Native and the Expo SDK.
+Cancel: I<span class="err">&#39;</span>ll <span class="k">continue</span> with my current project structure.
+</code></pre></div><p><a href="https://docs.expo.io/versions/latest/introduction/why-not-expo/">https://docs.expo.io/versions/latest/introduction/why-not-expo/</a></p>
+<p>The <code>android</code> directory can be opened by Android Studio. We can compile an APK with gradle and run the project in an emulator as usual.</p>
+<h2 id="summary">Summary</h2>
+<p>Expo is a nice alternative to full-featured IDEs. We can prototype pretty quickly a mobile project and when it’s time for more serious work. We can get a good Android project.</p>
+
+
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
       
-         
-          data-img-src-1="img/fern-medium.jpg" 
-         
-         
-      ></div>
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2ftomfern.com%2fpost%2freact-native-expo%2f&amp;text=&amp;via=TomFernBlog" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2ftomfern.com%2fpost%2freact-native-expo%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2freact-native-expo%2f&amp;title=" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2ftomfern.com%2fpost%2freact-native-expo%2f&amp;title=" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2ftomfern.com%2fpost%2freact-native-expo%2f&amp;title=" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2ftomfern.com%2fpost%2freact-native-expo%2f&amp;description=" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
   
 
-  <header class="header-section has-img">
-    
-      <div class="intro-header big-img">
-        
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-              <div class="page-heading">
-                <h1>Tom&#39;s Corner</h1>
-                  
-                  
               </div>
-            </div>
-          </div>
-        </div>
-        <span class="img-desc" style="display: inline;"></span>
-      </div>
-    
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              
-                <h1>Tom&#39;s Corner</h1>
-              
-              
-                <hr class="small">
-              
-              
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-
-    
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            </section>
         
 
-        <div class="posts-list">
+        
+          
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
           
           
-            <article class="post-preview">
-    <a href="https://tomfern.com/post/sar-guide/">
-        <h2 class="post-title">System monitoring with sar</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 7, 2019
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;6&nbsp;minutes
-  
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tom
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>A guide to system monitoring with sar</p>
-        <a href="https://tomfern.com/post/sar-guide/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-    <div class="blog-tags">
-        
-        <a href="https://tomfern.com/tags/guides/">guides</a>&nbsp;
-        
-        <a href="https://tomfern.com/tags/monitoring/">monitoring</a>&nbsp;
-        
-        <a href="https://tomfern.com/tags/linux/">linux</a>&nbsp;
-        
-        <a href="https://tomfern.com/tags/unix/">unix</a>&nbsp;
-        
-    </div>
-    
-
-</article>
+            <li class="next">
+              <a href="https://tomfern.com/post/welcome/" data-toggle="tooltip" data-placement="top" title="Welcome, welcome &amp; welcome">Next Post &rarr;</a>
+            </li>
           
-            <article class="post-preview">
-    <a href="https://tomfern.com/post/vmstat-guide/">
-        <h2 class="post-title">A guide to vmstat and friends</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 6, 2019
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;11&nbsp;minutes
-  
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tom
-  
-  
-</span>
+        </ul>
+      
 
 
-    </p>
-    <div class="post-entry">
+      
         
-        <p>A getting started guide for vmstat, iostat, mpstat and pidstat.</p>
-        <a href="https://tomfern.com/post/vmstat-guide/" class="post-read-more">[Read More]</a>
         
-    </div>
+      
 
-    
-    <div class="blog-tags">
-        
-        <a href="https://tomfern.com/tags/guides/">guides</a>&nbsp;
-        
-        <a href="https://tomfern.com/tags/monitoring/">monitoring</a>&nbsp;
-        
-        <a href="https://tomfern.com/tags/linux/">linux</a>&nbsp;
-        
-        <a href="https://tomfern.com/tags/unix/">unix</a>&nbsp;
-        
-    </div>
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://tomfern.com/post/welcome/">
-        <h2 class="post-title">Welcome, welcome &amp; welcome</h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 6, 2019
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;1&nbsp;minutes
-  
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tom
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        <p>Hello</p>
-        <a href="https://tomfern.com/post/welcome/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-            <article class="post-preview">
-    <a href="https://tomfern.com/post/react-native-expo/">
-        <h2 class="post-title"></h2>
-        
-        
-        
-    </a>
-
-    <p class="post-meta">
-        <span class="post-meta">
-  
-  
-  <i class="fas fa-calendar"></i>&nbsp;Posted on January 1, 0001
-  
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;3&nbsp;minutes
-  
-  
-  
-    &nbsp;|&nbsp;<i class="fas fa-user"></i>&nbsp;Tom
-  
-  
-</span>
-
-
-    </p>
-    <div class="post-entry">
-        
-        Mobile development on the console with React Native I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.
-Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.
-        <a href="https://tomfern.com/post/react-native-expo/" class="post-read-more">[Read More]</a>
-        
-    </div>
-
-    
-
-</article>
-          
-        </div>
-
-        
-          <ul class="pager main-pager">
-            
-              <li class="previous">
-                <a href="https://tomfern.com/page/1/">&larr; Newer Posts</a>
-              </li>
-            
-            
-          </ul>
-        
-      </div>
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
