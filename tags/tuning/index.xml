@@ -5,6 +5,8 @@
     <link>https://tomfern.com/tags/tuning/</link>
     <description>Recent content in tuning on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>blog@tomfern.com (Tom)</managingEditor>
+    <webMaster>blog@tomfern.com (Tom)</webMaster>
     <lastBuildDate>Wed, 09 Jan 2019 16:15:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/tuning/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +16,7 @@
       <title>MySQL index cleanup</title>
       <link>https://tomfern.com/post/unused-index-cleanup/</link>
       <pubDate>Wed, 09 Jan 2019 16:15:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/unused-index-cleanup/</guid>
       <description>&lt;p&gt;Removing unused indexes for improved performance.&lt;/p&gt;</description>
     </item>

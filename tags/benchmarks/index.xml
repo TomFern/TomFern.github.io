@@ -5,6 +5,8 @@
     <link>https://tomfern.com/tags/benchmarks/</link>
     <description>Recent content in benchmarks on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>blog@tomfern.com (Tom)</managingEditor>
+    <webMaster>blog@tomfern.com (Tom)</webMaster>
     <lastBuildDate>Sat, 02 Feb 2019 11:21:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/benchmarks/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +16,7 @@
       <title>Making the most out of Docker</title>
       <link>https://tomfern.com/post/docker-perf-tips/</link>
       <pubDate>Sat, 02 Feb 2019 11:21:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/docker-perf-tips/</guid>
       <description>&lt;p&gt;A few tips to make the most of a Docker.&lt;/p&gt;</description>
     </item>
@@ -23,7 +25,7 @@
       <title>A container for my databases</title>
       <link>https://tomfern.com/post/a-container-for-my-dbs/</link>
       <pubDate>Fri, 18 Jan 2019 17:59:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/a-container-for-my-dbs/</guid>
       <description>&lt;p&gt;Playing with databases in containers.&lt;/p&gt;</description>
     </item>
@@ -32,7 +34,7 @@
       <title>The cost of idle indexes</title>
       <link>https://tomfern.com/post/cost-of-idle-indexes/</link>
       <pubDate>Wed, 16 Jan 2019 12:36:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/cost-of-idle-indexes/</guid>
       <description>&lt;p&gt;A simple benchmark to assess the cost of unused indexes on MariaDB.&lt;/p&gt;</description>
     </item>

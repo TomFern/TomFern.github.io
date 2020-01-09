@@ -5,6 +5,8 @@
     <link>https://tomfern.com/tags/unix/</link>
     <description>Recent content in unix on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>blog@tomfern.com (Tom)</managingEditor>
+    <webMaster>blog@tomfern.com (Tom)</webMaster>
     <lastBuildDate>Wed, 09 Jan 2019 00:05:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/unix/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +16,7 @@
       <title>Benchmarking with sysbench</title>
       <link>https://tomfern.com/post/sysbench-guide-1/</link>
       <pubDate>Wed, 09 Jan 2019 00:05:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/sysbench-guide-1/</guid>
       <description>&lt;p&gt;A getting started guide to benchmarking with sysbench&lt;/p&gt;</description>
     </item>
@@ -23,7 +25,7 @@
       <title>System monitoring with sar</title>
       <link>https://tomfern.com/post/sar-guide/</link>
       <pubDate>Mon, 07 Jan 2019 01:40:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/sar-guide/</guid>
       <description>&lt;p&gt;A guide to system monitoring with sar&lt;/p&gt;</description>
     </item>
@@ -32,7 +34,7 @@
       <title>A guide to vmstat and friends</title>
       <link>https://tomfern.com/post/vmstat-guide/</link>
       <pubDate>Sun, 06 Jan 2019 21:12:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/vmstat-guide/</guid>
       <description>&lt;p&gt;A getting started guide for vmstat, iostat, mpstat and pidstat.&lt;/p&gt;</description>
     </item>

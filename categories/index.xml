@@ -5,6 +5,8 @@
     <link>https://tomfern.com/categories/</link>
     <description>Recent content in Categories on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>blog@tomfern.com (Tom)</managingEditor>
+    <webMaster>blog@tomfern.com (Tom)</webMaster>
     
 	<atom:link href="https://tomfern.com/categories/index.xml" rel="self" type="application/rss+xml" />
     

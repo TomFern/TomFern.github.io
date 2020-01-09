@@ -5,6 +5,8 @@
     <link>https://tomfern.com/tags/columnardatabases/</link>
     <description>Recent content in ColumnarDatabases on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>blog@tomfern.com (Tom)</managingEditor>
+    <webMaster>blog@tomfern.com (Tom)</webMaster>
     <lastBuildDate>Mon, 04 Mar 2019 15:29:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/columnardatabases/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +16,7 @@
       <title>Case study: MariaDB ColumnStore</title>
       <link>https://tomfern.com/post/case-mariadb-columnstore/</link>
       <pubDate>Mon, 04 Mar 2019 15:29:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/case-mariadb-columnstore/</guid>
       <description>&lt;p&gt;Taking advantage of column-based databases.&lt;/p&gt;</description>
     </item>

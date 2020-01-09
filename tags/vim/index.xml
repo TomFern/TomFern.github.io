@@ -5,6 +5,8 @@
     <link>https://tomfern.com/tags/vim/</link>
     <description>Recent content in vim on tomfern.com</description>
     <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>blog@tomfern.com (Tom)</managingEditor>
+    <webMaster>blog@tomfern.com (Tom)</webMaster>
     <lastBuildDate>Sun, 15 Dec 2019 14:04:00 -0300</lastBuildDate>
     
 	<atom:link href="https://tomfern.com/tags/vim/index.xml" rel="self" type="application/rss+xml" />
@@ -14,7 +16,7 @@
       <title>10 Vim Plugins for Writers</title>
       <link>https://tomfern.com/post/vim-for-writers/</link>
       <pubDate>Sun, 15 Dec 2019 14:04:00 -0300</pubDate>
-      
+      <author>blog@tomfern.com (Tom)</author>
       <guid>https://tomfern.com/post/vim-for-writers/</guid>
       <description>&lt;p&gt;A text editor is so much more than mere software.&lt;/p&gt;</description>
     </item>
