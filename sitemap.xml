@@ -18,7 +18,9 @@
 <url> <loc>https://tomfern.com/posts/docker-perf-tips</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/posts/case-mariadb-columnstore</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/posts/vim-for-writers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://tomfern.com/posts/blog-revamp</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/benchmarks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://tomfern.com/tag/blog</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/case-study</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/column-databases</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/databases</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -34,6 +36,7 @@
 <url> <loc>https://tomfern.com/tag/unix</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/vim</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/writing</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://tomfern.com/category/blog</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/category/databases</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/category/docker</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/category/linux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
