@@ -2,8 +2,8 @@
 ## Created with gatsby-plugin-netlify
 /post/vmstat-guide  /posts/vmstat-guide  301
 /post/welcome  /posts/welcome  301
-/post/mysqlslap-guide-1  /posts/mysqlslap-guide-1  301
 /post/sar-guide  /posts/sar-guide  301
+/post/mysqlslap-guide-1  /posts/mysqlslap-guide-1  301
 /post/sysbench-guide-1  /posts/sysbench-guide-1  301
 /post/sysbench-guide-2  /posts/sysbench-guide-2  301
 /post/unused-index-cleanup  /posts/unused-index-cleanup  301
