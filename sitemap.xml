@@ -23,6 +23,7 @@
 <url> <loc>https://tomfern.com/posts/what-got-me-writing</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/posts/talk-nerdearla-2020</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/posts/programming-humans</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://tomfern.com/posts/always-use-imagepullsecrets</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/benchmarks</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/blog</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/tag/case-study</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -56,4 +57,5 @@
 <url> <loc>https://tomfern.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/page/1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://tomfern.com/page/2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://tomfern.com/page/3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 </urlset>
