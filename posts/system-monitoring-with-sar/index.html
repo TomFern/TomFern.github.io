@@ -1,0 +1,137 @@
+<!doctype html><html lang=en-us><head><title>System Monitoring with Sar | Chaos is order not yet deciphered</title><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="A guide to system monitoring with sar"><meta name=generator content="Hugo 0.98.0"><meta name=ROBOTS content="INDEX, FOLLOW"><link rel=stylesheet href=/css/style.css><link rel="shortcut icon" href=/images/favicon.ico type=image/x-icon></head><body><nav class=navigation><a href=/><span class=arrow>←</span>Home</a>
+<a href=/posts>Archive</a>
+<a href=/tags>Tags</a>
+<a href=/about>About</a>
+<a class=button href=http://tomfern.com/index.xml>Subscribe</a></nav><main class=main><section id=single><h1 class=title>System Monitoring with Sar</h1><div class=tip><time datetime="2019-01-07 01:40:00 -0300 -03">Jan 7, 2019</time>
+<span class=split>·</span>
+<span>1197 words</span>
+<span class=split>·</span>
+<span>6 minute read</span></div><div class=content><p><p class=markdown-image><img src=/images/linux.jpg alt></p>sar is part of the <a href=http://pagesperso-orange.fr/sebastien.godard target=_blank rel=noopener>sysstat</a> project, a suite of programs for system monitoring.
+With sar, we can log system activity, build performance reports and even make plots.</p><p>sar is available on Linux, Solaris, AIX and HP-UX.</p><p>We can choose to run sar automatically, as an unattended script. Or interactively and get system metrics on the spot.</p><h2 id=unattended-mode>Unattended Mode <a href=#unattended-mode class=anchor>🔗</a></h2><p>With a simple cron entry we can log system activity. If possible, as root, otherwise some data may be missing.</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># cron entries, take a sample every 10 minutes
+</span></span><span style=display:flex><span>@reboot /usr/lib/sa/sa1 --boot
+</span></span><span style=display:flex><span>*/10 * * * * /usr/lib/sa/sa1 1 1 -S DISK
+</span></span></code></pre></div><p>The <code>@reboot</code> line is kind of optional, but if the cron supports it&rsquo;s good to have since it ensures the counters are reset
+on boot.</p><p><code>sa1</code> is script that calls <code>sadc</code>, which does the actual collection.
+To prevent the files from growing too large not everything is stored, however
+additional counters can be enabled with <code>-S</code>.</p><p>Optional collection options for sadc:</p><ul><li>DISK block devices</li><li>XDISK block devices and partitions</li><li>INT system interrupts</li><li>IPV6 network IPV6 statistics</li><li>POWER power management</li><li>SNMP is for the SNMP statistics</li><li>ALL everything except XDISK</li><li>XALL everthing including XDISK</li></ul><blockquote><p>Also check sysstat&rsquo;s config for compression and retention options. /etc/conf.d/sysstat or /etc/default/sysstat</p></blockquote><p>To access the stored data we have two alternatives:</p><p><code>sa2</code> is a script that generates an activity report for the previous day (/var/log/sarNN). This can be croned easily:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># generate daily activity report
+</span></span><span style=display:flex><span>00 18 * * * /usr/lib/sa/sa2 -A
+</span></span></code></pre></div><p>The other way is calling <code>sar</code> directly, this lets us choose the view:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span># sar views with extended options
+</span></span><span style=display:flex><span>-u [ALL]  CPU utilization (default view)
+</span></span><span style=display:flex><span>-b        I/O rates
+</span></span><span style=display:flex><span>-d        block device activity
+</span></span><span style=display:flex><span>-F        mounted filesystem statistics
+</span></span><span style=display:flex><span>-n ALL    network statistics
+</span></span><span style=display:flex><span>-P ALL    per processor statistics
+</span></span><span style=display:flex><span>-q        queue and load average
+</span></span><span style=display:flex><span>-r [ALL]  memory utilization
+</span></span><span style=display:flex><span>-H        hugepages utilization
+</span></span><span style=display:flex><span>-S        swap space utilization
+</span></span><span style=display:flex><span>-B        paging statistics
+</span></span><span style=display:flex><span>-W        swapping activity
+</span></span><span style=display:flex><span>-v        inode and kernel tables
+</span></span><span style=display:flex><span>-w        task/process creation
+</span></span><span style=display:flex><span>-y        TTY device activity
+</span></span><span style=display:flex><span>-m ALL    power management statistics
+</span></span><span style=display:flex><span>-I ALL    interrupts
+</span></span><span style=display:flex><span>-A        Everything
+</span></span></code></pre></div><p>Some views have additional options, for example <code>-n ALL</code> shows all network activity (including protocols) while <code>-n DEV</code>
+only shows network devices.</p><p>sar by default shows today&rsquo;s logs, <code>-1</code> brings yesterday&rsquo;s, <code>-2</code> the day before yesterday and so on.
+We can specify the day&rsquo;s starting <code>-s</code> and end times <code>-e</code> in HH:MM:SS format</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># yesterday&#39;s cpu report, with start and end time
+</span></span><span style=display:flex><span>sar -1 -s 2:58:05 -e 2:58:55
+</span></span><span style=display:flex><span>Linux 4.19.8-arch1-1-ARCH (ix) 	12/26/2018 	_x86_64_	(4 CPU)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>02:58:05 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+</span></span><span style=display:flex><span>02:58:10 PM     all     10.89      0.00      7.82      0.00      0.00     81.29
+</span></span><span style=display:flex><span>02:58:15 PM     all      9.82      0.00      7.35      0.00      0.00     82.83
+</span></span><span style=display:flex><span>02:58:20 PM     all     11.28      0.00      6.33      0.05      0.00     82.34
+</span></span><span style=display:flex><span>02:58:25 PM     all     10.69      0.00      7.06      0.05      0.00     82.21
+</span></span><span style=display:flex><span>02:58:30 PM     all     10.27      0.00      7.02      0.00      0.00     82.71
+</span></span><span style=display:flex><span>02:58:35 PM     all     11.49      0.00      8.22      0.00      0.00     80.30
+</span></span><span style=display:flex><span>02:58:40 PM     all     11.90      0.00      6.66      0.05      0.00     81.39
+</span></span><span style=display:flex><span>02:58:45 PM     all     14.38      0.00      7.14      0.05      0.00     78.43
+</span></span><span style=display:flex><span>02:58:50 PM     all     10.66      0.00      6.63      0.00      0.00     82.71
+</span></span><span style=display:flex><span>02:58:55 PM     all     15.01      0.00      6.63      0.00      0.00     78.35
+</span></span><span style=display:flex><span>Average:        all     11.63      0.00      7.09      0.02      0.00     81.26
+</span></span></code></pre></div><h2 id=interactive-sar>Interactive Sar <a href=#interactive-sar class=anchor>🔗</a></h2><p>A quicker alternative is running sar interactively. We can log system activity while doing some other tasks.
+Perhaps while running a benchmark or doing some troubleshooting.</p><p>With the <code>-o</code> option, sar stores/appends data in a file or directory.</p><p>sar takes a sample <em>interval</em> (in seconds) and <em>count</em> that works as a stop condition.</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># collect activity in my_metrics file, 1 sample per second, 60 samples total
+</span></span><span style=display:flex><span>sar -o my_metrics 1 60
+</span></span><span style=display:flex><span>Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>07:01:06 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+</span></span><span style=display:flex><span>07:01:07 PM     all     11.08      0.00      4.79      0.00      0.00     84.13
+</span></span><span style=display:flex><span>07:01:08 PM     all     13.71      0.00      7.11      0.25      0.00     78.93
+</span></span><span style=display:flex><span>07:01:09 PM     all     13.62      0.00      6.43      0.00      0.00     79.95
+</span></span><span style=display:flex><span>07:01:10 PM     all     13.99      0.00      6.36      0.00      0.00     79.64
+</span></span><span style=display:flex><span>...
+</span></span></code></pre></div><p>If you&rsquo;ve used <a href=./vmstat-guide>mpstat</a> before, you&rsquo;ll recognize the format, it&rsquo;s exactly the same.</p><p>To retrieve the results we use <code>-f</code>.
+We can use a different <em>interval</em> or <em>count</em> and the output will be filtered appropiately.</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># print report from my_metrics file
+</span></span><span style=display:flex><span>sar -f my_metrics -s 14:00:00 1 5
+</span></span><span style=display:flex><span>Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>14:00:00 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+</span></span><span style=display:flex><span>14:00:01 PM     all      9.47      0.00      6.01      0.00      0.00     84.52
+</span></span><span style=display:flex><span>14:00:02 PM     all     11.11      0.00      5.05      0.00      0.00     83.84
+</span></span><span style=display:flex><span>14:00:03 PM     all     29.62      0.00      9.87      0.00      0.00     60.51
+</span></span><span style=display:flex><span>14:00:04 PM     all     12.85      0.00      3.27      0.00      0.00     83.88
+</span></span><span style=display:flex><span>14:00:05 PM     all     20.00      0.00      8.86      0.00      0.00     71.14
+</span></span><span style=display:flex><span>Average:        all     16.09      0.00      6.57      0.00      0.00     77.35
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># print memory activity from my_metrics file
+</span></span><span style=display:flex><span>sar -r -f my_metrics
+</span></span><span style=display:flex><span>Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>07:45:47 PM kbmemfree   kbavail kbmemused  %memused kbbuffers  kbcached  kbcommit   %commit  kbactive   kbinact   kbdirty
+</span></span><span style=display:flex><span>07:45:48 PM    755544   5216144   5525576     47.27    876804   3773928  14648100     83.48   7714540   2267792      4404
+</span></span><span style=display:flex><span>07:45:49 PM    753728   5214328   5527772     47.29    876804   3773548  14648100     83.48   7716816   2267400      4420
+</span></span><span style=display:flex><span>07:45:50 PM    734512   5195136   5546088     47.45    876804   3774448  14651412     83.49   7734560   2268308      4432
+</span></span><span style=display:flex><span>07:45:51 PM    717524   5178164   5562876     47.59    876804   3774648  14670976     83.61   7750836   2268504      4448
+</span></span><span style=display:flex><span>07:45:52 PM    711580   5172232   5568900     47.65    876804   3774568  14670976     83.61   7757748   2268428      4460
+</span></span><span style=display:flex><span>Average:       734578   5195201   5546242     47.45    876804   3774228  14657913     83.53   7734900   2268086      4433
+</span></span></code></pre></div><h2 id=exporting-sars-data>Exporting Sar&rsquo;s Data <a href=#exporting-sars-data class=anchor>🔗</a></h2><p>Wouldn&rsquo;t it be great to be able to export the collected data? Maybe to a database or a spreasheet?
+Don&rsquo;t we deserve some nice plots? No worries, <code>sadf</code> has us covered.</p><p>sadf syntax is a bit quirkier:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>sadf [options] [ &lt;interval&gt; [ &lt;count&gt; ] ] [ &lt;datafile&gt; | -[0-9]+ ] -- [sar options]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  options:
+</span></span><span style=display:flex><span>    -p table
+</span></span><span style=display:flex><span>    -d CSV
+</span></span><span style=display:flex><span>    -r raw CSV (as read from the kernel)
+</span></span><span style=display:flex><span>    -x XML
+</span></span><span style=display:flex><span>    -d JSON
+</span></span><span style=display:flex><span>    -g SVG
+</span></span></code></pre></div><p>The options to the right of the <code>--</code> are sent to sar for printing the report, here we can choose what views to export.</p><p>To select the log file we can use either <code>0</code>, <code>-1</code>, etc for daily logs (as in the unattended mode) or just
+provide the path to the datafile.</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># export yesterday&#39;s I/O activity in CSV
+</span></span><span style=display:flex><span>sadf -d -1  -- -b
+</span></span><span style=display:flex><span># hostname;interval;timestamp;tps;rtps;wtps;bread/s;bwrtn/s
+</span></span><span style=display:flex><span>ix;1;2018-12-26 17:58:06 UTC;20.00;0.00;20.00;0.00;168.00
+</span></span><span style=display:flex><span>ix;1;2018-12-26 17:58:07 UTC;0.00;0.00;0.00;0.00;0.00
+</span></span><span style=display:flex><span>ix;1;2018-12-26 17:58:08 UTC;0.00;0.00;0.00;0.00;0.00
+</span></span><span style=display:flex><span>ix;1;2018-12-26 17:58:09 UTC;71.00;0.00;71.00;0.00;624.00
+</span></span><span style=display:flex><span>...
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># export CPU activity from my_metrics file in JSON
+</span></span><span style=display:flex><span>sadf -j my_metrics -- -u
+</span></span><span style=display:flex><span>{&#34;sysstat&#34;: {
+</span></span><span style=display:flex><span>        &#34;hosts&#34;: [
+</span></span><span style=display:flex><span>                {
+</span></span><span style=display:flex><span>                        &#34;nodename&#34;: &#34;ix&#34;,
+</span></span><span style=display:flex><span>                        &#34;sysname&#34;: &#34;Linux&#34;,
+</span></span><span style=display:flex><span>                        &#34;release&#34;: &#34;4.19.8-arch1-1-ARCH&#34;,
+</span></span><span style=display:flex><span>                        &#34;machine&#34;: &#34;x86_64&#34;,
+</span></span><span style=display:flex><span>                        &#34;number-of-cpus&#34;: 4,
+</span></span><span style=display:flex><span>                        &#34;file-date&#34;: &#34;2018-12-26&#34;,
+</span></span><span style=display:flex><span>                        &#34;file-utc-time&#34;: &#34;17:58:05&#34;,
+</span></span><span style=display:flex><span>                        &#34;statistics&#34;: [
+</span></span><span style=display:flex><span>                                {
+</span></span><span style=display:flex><span>                                        &#34;timestamp&#34;: {&#34;date&#34;: &#34;2018-12-26&#34;, &#34;time&#34;: &#34;17:58:06&#34;, &#34;utc&#34;: 1, &#34;interval&#34;: 1},
+</span></span><span style=display:flex><span>                                        &#34;cpu-load&#34;: [
+</span></span><span style=display:flex><span>                                                {&#34;cpu&#34;: &#34;all&#34;, &#34;user&#34;: 16.11, &#34;nice&#34;: 0.00, &#34;system&#34;: 10.58, &#34;iowait&#34;: 0.00, &#34;steal&#34;: 0.00, &#34;idle&#34;: 73.32}
+</span></span><span style=display:flex><span>                                        ]
+</span></span><span style=display:flex><span>                                },
+</span></span><span style=display:flex><span>...
+</span></span></code></pre></div><p>With <code>-g</code> we get SVG output that we can redirect into a file.</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># export CPU activity as SVG plot
+</span></span><span style=display:flex><span>sadf -g -- -u &gt; cpu.svg
+</span></span></code></pre></div><p><p class=markdown-image><img src=/images/sadf-cpu-example.png alt="CPU Utilization"></p></p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># export network activity for device eth0 as SVG plot
+</span></span><span style=display:flex><span>sadf -g  -- -n DEV --iface=eth0 &gt; a.svg
+</span></span></code></pre></div><p><p class=markdown-image><img src=/images/sadf-network-example.png alt="Network Usage"></p></p><h2 id=related-links>Related Links <a href=#related-links class=anchor>🔗</a></h2><ul><li>sysstat website: <a href=http://pagesperso-orange.fr/sebastien.godard target=_blank rel=noopener>http://pagesperso-orange.fr/sebastien.godard</a></li><li>sysstat github: <a href=https://github.com/sysstat/sysstat target=_blank rel=noopener>https://github.com/sysstat/sysstat</a></li><li>manpages<ul><li>sar: <a href=https://linux.die.net/man/1/sar target=_blank rel=noopener>https://linux.die.net/man/1/sar</a></li><li>sa1: <a href=https://linux.die.net/man/8/sa1 target=_blank rel=noopener>https://linux.die.net/man/8/sa1</a></li><li>sa2: <a href=https://linux.die.net/man/8/sa2 target=_blank rel=noopener>https://linux.die.net/man/8/sa2</a></li><li>sadc: <a href=https://linux.die.net/man/8/sadc target=_blank rel=noopener>https://linux.die.net/man/8/sadc</a></li><li>sadf: <a href=https://linux.die.net/man/1/sadf target=_blank rel=noopener>https://linux.die.net/man/1/sadf</a></li></ul></li></ul><h2 id=wrapping-up>Wrapping Up <a href=#wrapping-up class=anchor>🔗</a></h2><p>For sure, there are a lot of more options available, I just can&rsquo;t cover them all, but I think the basics were covered.</p><p>That&rsquo;s all for now. If interested on system monitoring, sure to check my previous article about <a href=./vmstat-guide>vmstat</a>.</p><p>Have a good one.</p><p>Tomas</p></div><div class=tags><a href=http://tomfern.com/tags/guides>guides</a>
+<a href=http://tomfern.com/tags/monitoring>monitoring</a>
+<a href=http://tomfern.com/tags/linux>linux</a>
+<a href=http://tomfern.com/tags/unix>unix</a></div></section></main><footer id=footer><div id=social><a class=symbol href=https://github.com/TomFern rel=me target=_blank><svg fill="#bbb" width="28" height="28" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title>Github</title><desc>Created with Sketch.</desc><defs/><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="Social-Icons---Rounded-Black" transform="translate(-264.000000, -939.000000)"><g id="Github" transform="translate(264.000000, 939.000000)"><path d="M8 72H64c4.418278.0 8-3.581722 8-8V8c0-4.418278-3.581722-8-8-8H8c-4.418278 811624501e-24-8 3.581722-8 8V64c541083001e-24 4.418278 3.581722 8 8 8z" id="Rounded" fill="#bbb"/><path d="M35.9985 13C22.746 13 12 23.7870921 12 37.096644c0 10.6440272 6.876 19.6751861 16.4145 22.8617681C29.6145 60.1797862 30.0525 59.4358488 30.0525 58.7973276 30.0525 58.2250681 30.0315 56.7100863 30.0195 54.6996482c-6.6765 1.4562499-8.085-3.2302544-8.085-3.2302544-1.0905-2.7829884-2.664-3.5239139-2.664-3.5239139C17.091 46.4500754 19.4355 46.4801943 19.4355 46.4801943c2.4075.1701719 3.675 2.4833051 3.675 2.4833051 2.142 3.6820383 5.6175 2.6188404 6.9855 2.0014024C30.3135 49.4077535 30.9345 48.3460615 31.62 47.7436831 26.2905 47.1352808 20.688 45.0691228 20.688 35.8361671c0-2.6308879.9345-4.781379 2.4705-6.4665327C22.911 28.7597262 22.0875 26.3110578 23.3925 22.9934585c0 0 2.016-.6475568 6.6 2.4697516C31.908 24.9285993 33.96 24.6620468 36.0015 24.6515052 38.04 24.6620468 40.0935 24.9285993 42.0105 25.4632101c4.581-3.1173084 6.5925-2.4697516 6.5925-2.4697516C49.9125 26.3110578 49.089 28.7597262 48.8415 29.3696344 50.3805 31.0547881 51.309 33.2052792 51.309 35.8361671c0 9.2555448-5.6115 11.29309-10.9575 11.8894446.860999999999997.7439374 1.629 2.2137408 1.629 4.4621184C41.9805 55.4089489 41.9505 58.0067059 41.9505 58.7973276 41.9505 59.4418726 42.3825 60.1918338 43.6005 59.9554002 53.13 56.7627944 60 47.7376593 60 37.096644 60 23.7870921 49.254 13 35.9985 13" fill="#fff"/></g></g></g></svg></a><a class=symbol href=https://github.com/TomFernBlog rel=me target=_blank><svg fill="#bbb" width="28" height="28" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="438.536" height="438.536" viewBox="0 0 438.536 438.536" style="enable-background:new 0 0 438.536 438.536"><g><path d="M414.41 24.123C398.333 8.042 378.963.0 356.315.0H82.228C59.58.0 40.21 8.042 24.126 24.123 8.045 40.207.003 59.576.003 82.225v274.084c0 22.647 8.042 42.018 24.123 58.102 16.084 16.084 35.454 24.126 58.102 24.126h274.084c22.648.0 42.018-8.042 58.095-24.126 16.084-16.084 24.126-35.454 24.126-58.102V82.225C438.532 59.576 430.49 40.204 414.41 24.123zM335.471 168.735c.191 1.713.288 4.278.288 7.71.0 15.989-2.334 32.025-6.995 48.104-4.661 16.087-11.8 31.504-21.416 46.254-9.606 14.749-21.074 27.791-34.396 39.115-13.325 11.32-29.311 20.365-47.968 27.117-18.648 6.762-38.637 10.143-59.953 10.143-33.116.0-63.76-8.952-91.931-26.836 4.568.568 9.329.855 14.275.855 27.6.0 52.439-8.565 74.519-25.7-12.941-.185-24.506-4.179-34.688-11.991-10.185-7.803-17.273-17.699-21.271-29.691 4.947.76 8.658 1.137 11.132 1.137 4.187.0 9.042-.76 14.56-2.279-13.894-2.669-25.598-9.562-35.115-20.697-9.519-11.136-14.277-23.84-14.277-38.114v-.571c10.085 4.755 19.602 7.229 28.549 7.422-17.321-11.613-25.981-28.265-25.981-49.963.0-10.66 2.758-20.747 8.278-30.264 15.035 18.464 33.311 33.213 54.816 44.252 21.507 11.038 44.54 17.227 69.092 18.558-.95-3.616-1.427-8.186-1.427-13.704.0-16.562 5.853-30.692 17.56-42.399 11.703-11.706 25.837-17.561 42.394-17.561 17.515.0 32.079 6.283 43.688 18.846 13.134-2.474 25.892-7.33 38.26-14.56-4.757 14.652-13.613 25.788-26.55 33.402 12.368-1.716 23.88-4.95 34.537-9.708C357.458 149.793 347.462 160.166 335.471 168.735z"/></g></svg></a></div><div class=copyright>© Copyright
+2022
+<span class=split><svg fill="#bbb" width="15" height="15" id="heart-15" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"><path d="M13.91 6.75c-1.17 2.25-4.3 5.31-6.07 6.94-.1903.1718-.4797.1718-.67.0C5.39 12.06 2.26 9 1.09 6.75-1.48 1.8 5-1.5 7.5 3.45 10-1.5 16.48 1.8 13.91 6.75z"/></svg></span>Tommy — Technical Writer at Semaphore</div><div class=powerby>Powered by <a href=http://www.gohugo.io/>Hugo</a> Theme By <a href=https://https://github.com/nodejh/hugo-theme-mini>nodejh</a></div></footer></body></html>
