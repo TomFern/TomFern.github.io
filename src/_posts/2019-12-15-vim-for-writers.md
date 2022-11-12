@@ -8,7 +8,7 @@ excerpt: "A text editor is so much more than mere software."
 image: /images//writing.jpg
 ---
 
-![](/images//writing.jpg)
+![](/images/writing.jpg)
 
 I still remember the first time I came in contact with Vim; it was during my very first job. It was a part-time gig in a government office. A few months in, they decided to go open-source full in. Out the window went Windows and in came Linux. At the time, I was doing PHP development, and I was sorry to have to let go of my dear Dreamweaver.
 
