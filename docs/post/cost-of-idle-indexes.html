@@ -344,7 +344,7 @@ we’ll see the median, maximum and minimum values.</p>
 <p>Let’s start with multi-row inserts.
 This test is entirely focused on writes, so the number of indexes should have a high impact.</p>
 
-<p><img src="/media/plots/cost-of-indexes/bulk_insert.png" alt="Bulk insert. 1 thread" /></p>
+<p><img src="/images/plots/cost-of-indexes/bulk_insert.png" alt="Bulk insert. 1 thread" /></p>
 
 <p>RPS with 11 indexes is about 3 times slower. That’s a lot. 61 indexes perform the worst, almost 13 times worse.</p>
 
@@ -352,7 +352,7 @@ This test is entirely focused on writes, so the number of indexes should have a 
 
 <p>This being a write only test, the number of indexes should still matter a lot.</p>
 
-<p><img src="/media/plots/cost-of-indexes/oltp_wo.png" alt="OLTP Write Only. 1 thread" /></p>
+<p><img src="/images/plots/cost-of-indexes/oltp_wo.png" alt="OLTP Write Only. 1 thread" /></p>
 
 <p>11 indexes make transactions 40% slower. A considerable fall in performance. Worse case is a little bit less than 5 times slower.</p>
 
@@ -360,7 +360,7 @@ This test is entirely focused on writes, so the number of indexes should have a 
 
 <p>A mix of reads and writes.</p>
 
-<p><img src="/media/plots/cost-of-indexes/oltp_rw.png" alt="OTLP Read+Write. 1 thread" /></p>
+<p><img src="/images/plots/cost-of-indexes/oltp_rw.png" alt="OTLP Read+Write. 1 thread" /></p>
 
 <p>With 11 indexes there is only about a 10% reduction in TPS. This should be due the fact that read speed is less affected
 by extra indexes.</p>
@@ -372,7 +372,7 @@ Well, for one thing the query optimizer needs to check all the indexes on a tabl
 also there’s some additional I/O required. So there is a cost, but it should be minimal.</p>
 
 <p>Let’s see if it shows in the test.
-<img src="/media/plots/cost-of-indexes/oltp_ro.png" alt="OTLP Read Only. 1 thread" /></p>
+<img src="/images/plots/cost-of-indexes/oltp_ro.png" alt="OTLP Read Only. 1 thread" /></p>
 
 <p>As expected, TPS does depend on the number of indexes. Compared with previous tests, however, the impact is low:
 the worst case, having 61 indexes means a 7% reduction in transaction speed.</p>

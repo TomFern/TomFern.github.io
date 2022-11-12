@@ -60,8 +60,8 @@ I've run each test 3 times, 20 minutes each test. The graph consists of the max,
 
 ### Single thread
 
-![MariaDB 1 Thread](/media/plots/a-container-for-my-dbs/mariadb-rw-1.png)
-![PostgreSQL - 1 thread](/media/plots/a-container-for-my-dbs/postgres-rw-1.png)
+![MariaDB 1 Thread](/images/plots/a-container-for-my-dbs/mariadb-rw-1.png)
+![PostgreSQL - 1 thread](/images/plots/a-container-for-my-dbs/postgres-rw-1.png)
 
 I was surprised that docker did so well, I wouldn't have been shocked if it were the worst, but it performed best.
 
@@ -70,8 +70,8 @@ I was surprised that docker did so well, I wouldn't have been shocked if it were
 
 How does performance change with a higher thread count?
 
-![MariaDB - 10 threads](/media/plots/a-container-for-my-dbs/mariadb-rw-10.png)
-![PostgreSQL - 10 threads](/media/plots/a-container-for-my-dbs/postgres-rw-10.png)
+![MariaDB - 10 threads](/images/plots/a-container-for-my-dbs/mariadb-rw-10.png)
+![PostgreSQL - 10 threads](/images/plots/a-container-for-my-dbs/postgres-rw-10.png)
 
 A higher load tends to even out things. Docker suffers a bit more with MariaDB.
 All in all it doesn't look like there is much of a speed difference between container types.
