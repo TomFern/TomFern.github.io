@@ -8,7 +8,6 @@ description: "The process I use from research to publication in my work as a ful
 
 ---
 
-# My Technical Writing Process
 
 I tend to have a more *suis generis* process for writing technical documents. With this I mean I don’t have too much of a structure when it’s time to type. I usually do an outline first (but not always) and then write, edit, cut, redit, recut until I have something that’s, at the very least, decent.
 

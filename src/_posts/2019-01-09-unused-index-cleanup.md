@@ -7,6 +7,7 @@ layout: "post"
 description: "Removing unused indexes for improved performance."
 image: /images/database.jpg
 ---
+
 ![](/images/database.jpg)
 
 Fixing a query by finding the right index feels great, as if by magic, things are blazing fast again.

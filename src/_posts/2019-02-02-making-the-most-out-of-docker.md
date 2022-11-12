@@ -9,6 +9,7 @@ image: /images/docker.jpg
 ---
 
 ![](/images/docker.jpg)
+
 Some options that might increase performance, some that don't.
 
 ## Network 

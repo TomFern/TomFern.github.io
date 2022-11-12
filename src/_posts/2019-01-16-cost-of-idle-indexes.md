@@ -8,6 +8,7 @@ description: "A simple benchmark to assess the cost of unused indexes on MariaDB
 image: /images/database.jpg
 ---
 ![](/images/database.jpg)
+
 The last few days I've been [cleaning up indexes](./unused-index-cleanup). This entails removing duplicate, unused or redundant indexes.
 
 There were quite a lot of indexes, so it was hard work. I knew why this was important to do:

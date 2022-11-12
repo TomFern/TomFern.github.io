@@ -9,10 +9,10 @@ description: "Taking advantage of column-based databases."
 # aliases: ["/post/case-mariadb-columnstore"]
 image: /images/database.jpg
 ---
+
 ![](/images/database.jpg)
 
 A recent project I worked on provided an opportunity to work with MariaDB ColumnStore.
-
 
 ## The Product
 

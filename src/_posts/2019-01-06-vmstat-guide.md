@@ -7,7 +7,9 @@ layout: post
 image: /images/linux.jpg
 description: "A getting started guide for vmstat, iostat, mpstat and pidstat."
 ---
+
 ![](/images/linux.jpg)
+
 A getting started guide for vmstat, iostat, mpstat and pidstat.
 
 ## vmstat

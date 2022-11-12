@@ -9,6 +9,7 @@ image: /images/image-4.jpg
 ---
 
 ![](/images/image-4.jpg)
+
 While working on the slides for the [talk I gave](./talk-nerdearla-2020) a few weeks ago, it occurred to me that writing and coding have more than a few things in common. I originally planned to speak a bit about that but had to take it out for lack of space. I'll make a post instead, this one.
 
 ## Thinks in common

@@ -7,6 +7,7 @@ layout: "post"
 description: "A getting started guide to benchmarking with sysbench"
 image: /images/database.jpg
 ---
+
 ![](/images/database.jpg)
 
 ## Why, When, How?

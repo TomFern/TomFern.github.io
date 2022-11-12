@@ -6,8 +6,6 @@ permalink: "/post/react-native-and-expo"
 tags: "development"
 ---
 
-# Mobile development on the console with React Native
-
 I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.
 
 Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.

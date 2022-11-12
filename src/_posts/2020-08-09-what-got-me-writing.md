@@ -9,6 +9,7 @@ image: /images/writing.jpg
 ---
 
 ![](/images/writing.jpg)
+
 When I started freelancing, I never imagined I would end up writing for a living. Never in a hundred years. Yet, I've been doing it full-time for almost a year now.
 
 I got interested in freelancing because I wanted to try something different. I needed a break from the office routine. The job was OK. I had excellent colleagues and was friends with everyone. And while it wasn't making me rich by any means, I never lacked for anything. It was a comfortable job—perhaps too much. 

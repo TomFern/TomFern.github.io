@@ -9,6 +9,7 @@ image: /images/speed-limit.jpg
 ---
 
 ![Speed Limit](/images/speed-limit.jpg)
+
 Docker Hub [introduced rate limits](https://www.docker.com/increase-rate-limits) for image pulls earlier this month. Being the default registry for Docker images, this is one of the biggest in the ecosystem in the last few years, and it will affect not only Docker users but also Kubernetes setups.
 
 ## The limits

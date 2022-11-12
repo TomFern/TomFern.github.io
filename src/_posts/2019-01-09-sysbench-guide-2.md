@@ -7,7 +7,9 @@ tags: databases mysql psql guides
 description: "Testing database with sysbench"
 image: /images/database.jpg
 ---
+
 ![](/images/database.jpg)
+
 This is my second part of the sysbench guide, I'll cover here some basic benchmarks for databases. Feel free to check my [first part](./sysbench-guide-1) for an introduction.
 
 ## Connecting to the DB
