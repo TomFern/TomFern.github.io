@@ -3,7 +3,7 @@ title: "Talk: Technical writing in English"
 date: "2020-10-21T07:00:00-03:00"
 permalink: "/post/talk-nerdearla-2020"
 
-tags: talks nerdearla slides
+tags: talks
 draft: false
 excerpt: "View my talk 'Escritura técnica en inglés'"
 image: /images/nerdearla.png

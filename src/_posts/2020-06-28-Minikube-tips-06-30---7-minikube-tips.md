@@ -2,8 +2,7 @@
 title: "7 Minikube Tips"
 date: "2020-06-28T14:04:00-03:00"
 permalink: "/post/7-minikube-tips"
-
-tags: kubernetes minikube kubernetes
+tags: kubernetes
 # draft: false
 excerpt: "A mix of tips and less know features."
 

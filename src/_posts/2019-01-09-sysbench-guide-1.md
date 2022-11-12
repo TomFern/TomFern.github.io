@@ -2,7 +2,7 @@
 title: "Benchmarking with sysbench"
 date: "2019-01-09T00:05:00-03:00"
 permalink: "/post/sysbench-guide-1"
-tags: linux unix guides
+tags: linux-tools
 
 excerpt: "A getting started guide to benchmarking with sysbench"
 image: /images/database.jpg

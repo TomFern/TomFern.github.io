@@ -2,8 +2,7 @@
 title: A Container for My Databases
 date: "2019-01-18T17:59:00-03:00"
 permalink: "/post/a-container-for-my-dbs"
-
-tags: docker mysql databases benchmarks
+tags: docker mysql benchmarks
 excerpt: "Benchmarking databases and containers."
 image: /images/database.jpg
 ---

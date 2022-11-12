@@ -3,7 +3,7 @@ title: "Case study: MariaDB ColumnStore"
 date: "2019-03-04T15:29:00-03:00"
 permalink: "/post/case-mariadb-columnstore"
 
-tags: column-databases mariadb case-study
+tags: mariadb
 draft: false
 excerpt: "Taking advantage of column-based databases."
 # aliases: ["/post/case-mariadb-columnstore"]

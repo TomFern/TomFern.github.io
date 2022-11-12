@@ -1,9 +1,8 @@
 ---
 title: "Making the most out of Docker"
 date: "2019-02-02T11:21:00-03:00"
-
 permalink: "/post/docker-perf-tips"
-tags: docker mariadb linux benchmarks
+tags: docker mariadb benchmarks
 excerpt: "A few tips to make the most of a Docker."
 image: /images/docker.jpg
 ---
