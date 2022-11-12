@@ -1,10 +1,13 @@
-# tomfern.com Blog
+# GitHub Page and source for tomfern.com
 
-## Posting
+## Adding content
 
-1. Add your post to tomfern.com/_posts
-2. `make build`
-3. Push changes
+1. Add your post to src/_posts
+2. Test with `make serve`
+3. Build with `make build`
+4. Push changes
+
+Static site is located in the `/docs` folder.
 
 ### Info
 
