@@ -1,807 +1,807 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.2">Jekyll</generator><link href="https://tomfern.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tomfern.com/" rel="alternate" type="text/html" /><updated>2022-11-12T12:53:03-03:00</updated><id>https://tomfern.com/feed.xml</id><title type="html">Chaos is order undeciphered</title><subtitle>Technical writer at Semaphore CI/CD</subtitle><entry><title type="html">My Writing Process</title><link href="https://tomfern.com/post/my-writing-process" rel="alternate" type="text/html" title="My Writing Process" /><published>2022-07-09T07:00:00-03:00</published><updated>2022-07-09T07:00:00-03:00</updated><id>https://tomfern.com/post/writing-process</id><content type="html" xml:base="https://tomfern.com/post/my-writing-process">&lt;p&gt;I tend to have a more &lt;em&gt;suis generis&lt;/em&gt; process for writing technical documents. With this I mean I don’t have too much of a structure when it’s time to type. I usually do an outline first (but not always) and then write, edit, cut, redit, recut until I have something that’s, at the very least, decent.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tomfern.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tomfern.com/" rel="alternate" type="text/html" /><updated>2022-11-12T15:10:36-03:00</updated><id>https://tomfern.com/feed.xml</id><title type="html">Chaos is order undeciphered</title><author><name>Tommy Fernandez</name></author><entry><title type="html">My Writing Process</title><link href="https://tomfern.com/post/my-writing-process" rel="alternate" type="text/html" title="My Writing Process" /><published>2022-07-09T07:00:00-03:00</published><updated>2022-07-09T07:00:00-03:00</updated><id>https://tomfern.com/post/writing-process</id><content type="html" xml:base="https://tomfern.com/post/my-writing-process"><![CDATA[<p>I tend to have a more <em>suis generis</em> process for writing technical documents. With this I mean I don’t have too much of a structure when it’s time to type. I usually do an outline first (but not always) and then write, edit, cut, redit, recut until I have something that’s, at the very least, decent.</p>
 
-&lt;p&gt;But lately I’ve been paying more attention to how I write and I’ve noted that I’m kind of following a process after all. After some though, I think I’m ready to formalize it a bit. For now, I’ll only name the steps:&lt;/p&gt;
+<p>But lately I’ve been paying more attention to how I write and I’ve noted that I’m kind of following a process after all. After some though, I think I’m ready to formalize it a bit. For now, I’ll only name the steps:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Research&lt;/li&gt;
-  &lt;li&gt;Sketch&lt;/li&gt;
-  &lt;li&gt;1st draft&lt;/li&gt;
-  &lt;li&gt;2nd draft&lt;/li&gt;
-  &lt;li&gt;3rd draft&lt;/li&gt;
-  &lt;li&gt;Review&lt;/li&gt;
-  &lt;li&gt;Publish&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Research</li>
+  <li>Sketch</li>
+  <li>1st draft</li>
+  <li>2nd draft</li>
+  <li>3rd draft</li>
+  <li>Review</li>
+  <li>Publish</li>
+</ul>
 
-&lt;p&gt;Let me explain what happens in each one.&lt;/p&gt;
+<p>Let me explain what happens in each one.</p>
 
-&lt;h2 id=&quot;research&quot;&gt;Research&lt;/h2&gt;
+<h2 id="research">Research</h2>
 
-&lt;p&gt;Any good article starts from good knowledge. This is probably my favorite part of the process as I don’t really need to worry about the writing. I just can learn interesting.&lt;/p&gt;
+<p>Any good article starts from good knowledge. This is probably my favorite part of the process as I don’t really need to worry about the writing. I just can learn interesting.</p>
 
-&lt;p&gt;During this process I take notes, collect links, grab interesting paragraphs, see videos and presentations, save screenshots and try to learn a little bit of the people behind the tech (an often forgotten part of technical writing).&lt;/p&gt;
+<p>During this process I take notes, collect links, grab interesting paragraphs, see videos and presentations, save screenshots and try to learn a little bit of the people behind the tech (an often forgotten part of technical writing).</p>
 
-&lt;p&gt;I keep track of everything with &lt;a href=&quot;https://www.notion.so/&quot;&gt;Notion&lt;/a&gt;.&lt;/p&gt;
+<p>I keep track of everything with <a href="https://www.notion.so/">Notion</a>.</p>
 
-&lt;p&gt;Once I think I know enough get started with the article is sketching time.&lt;/p&gt;
+<p>Once I think I know enough get started with the article is sketching time.</p>
 
-&lt;h2 id=&quot;sketch&quot;&gt;Sketch&lt;/h2&gt;
+<h2 id="sketch">Sketch</h2>
 
-&lt;p&gt;During this phase I create a tentative outline: write headers, describe the contents of each section, make notes of there diagrams will be needed and plan the ideas. I write all my articles in Markdown and use &lt;a href=&quot;https://pandoc.org/&quot;&gt;pandoc&lt;/a&gt; if I need to switch formats.&lt;/p&gt;
+<p>During this phase I create a tentative outline: write headers, describe the contents of each section, make notes of there diagrams will be needed and plan the ideas. I write all my articles in Markdown and use <a href="https://pandoc.org/">pandoc</a> if I need to switch formats.</p>
 
-&lt;p&gt;Before I start writing paragraphs I like to place a single sentence descring its main idea. It helps me keep focused and form an idea of how the article will flow from paragraph to paragran and section to section.&lt;/p&gt;
+<p>Before I start writing paragraphs I like to place a single sentence descring its main idea. It helps me keep focused and form an idea of how the article will flow from paragraph to paragran and section to section.</p>
 
-&lt;p&gt;For most of the first phases of the writing &lt;a href=&quot;https://tomfern.com/posts/10-vim-plugins-for-writers/&quot;&gt;I use Vim as my primary text editor&lt;/a&gt;, because it’s so easy to move large chunks of text around.&lt;/p&gt;
+<p>For most of the first phases of the writing <a href="https://tomfern.com/posts/10-vim-plugins-for-writers/">I use Vim as my primary text editor</a>, because it’s so easy to move large chunks of text around.</p>
 
-&lt;h2 id=&quot;1st-draft&quot;&gt;1st draft&lt;/h2&gt;
+<h2 id="1st-draft">1st draft</h2>
 
-&lt;p&gt;The first draft is usually the hardest. If I’m lucky the work I did on the sketch will help me get over the first draft soon.&lt;/p&gt;
+<p>The first draft is usually the hardest. If I’m lucky the work I did on the sketch will help me get over the first draft soon.</p>
 
-&lt;p&gt;In this phase, guided by the ideas/paragraph flow, I flesh out each paragragh. I also design most diagrams, write their alt and caption texts. I do this here because a diagram with a good caption can save a lot of writing.&lt;/p&gt;
+<p>In this phase, guided by the ideas/paragraph flow, I flesh out each paragragh. I also design most diagrams, write their alt and caption texts. I do this here because a diagram with a good caption can save a lot of writing.</p>
 
-&lt;p&gt;The first draft doesn’t have to be perfect, it rarely is any good in fact. The important part is fill the empty space with something to work with.&lt;/p&gt;
+<p>The first draft doesn’t have to be perfect, it rarely is any good in fact. The important part is fill the empty space with something to work with.</p>
 
-&lt;h2 id=&quot;2nd-draft&quot;&gt;2nd draft&lt;/h2&gt;
+<h2 id="2nd-draft">2nd draft</h2>
 
-&lt;p&gt;On the second draft I want to make sure:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;I haven’t missed something important.&lt;/li&gt;
-  &lt;li&gt;I’m writing accurately.&lt;/li&gt;
-  &lt;li&gt;I haven’t gone any rabbit holes.&lt;/li&gt;
-&lt;/ul&gt;
+<p>On the second draft I want to make sure:</p>
+<ul>
+  <li>I haven’t missed something important.</li>
+  <li>I’m writing accurately.</li>
+  <li>I haven’t gone any rabbit holes.</li>
+</ul>
 
-&lt;p&gt;So I go back to my reseach notes and compare what I’ve written with the facts. Having written about the topic I can understand my notes more deeply.&lt;/p&gt;
+<p>So I go back to my reseach notes and compare what I’ve written with the facts. Having written about the topic I can understand my notes more deeply.</p>
 
-&lt;p&gt;I add any missing details, do a little fact checking (usually do a more research), take out parts that aren’t needed.&lt;/p&gt;
+<p>I add any missing details, do a little fact checking (usually do a more research), take out parts that aren’t needed.</p>
 
-&lt;p&gt;By the second draft, I expect to have a more coherent article. So I go streamlining the text paragraph by paragraph section by section. I use &lt;a href=&quot;https://grammarly.com/&quot;&gt;Grammarly&lt;/a&gt; heavily at this point to correct and consolidate. I love Grammarly, its suggestions are usually spot on. Although, it’s a bit stubborn at times regarding word choices. There’s a lot of “this word is overused, use this one instead” that really makes no sense. But overall is a great tool.&lt;/p&gt;
+<p>By the second draft, I expect to have a more coherent article. So I go streamlining the text paragraph by paragraph section by section. I use <a href="https://grammarly.com/">Grammarly</a> heavily at this point to correct and consolidate. I love Grammarly, its suggestions are usually spot on. Although, it’s a bit stubborn at times regarding word choices. There’s a lot of “this word is overused, use this one instead” that really makes no sense. But overall is a great tool.</p>
 
-&lt;h2 id=&quot;3rd-draft&quot;&gt;3rd draft&lt;/h2&gt;
+<h2 id="3rd-draft">3rd draft</h2>
 
-&lt;p&gt;By the third draft I can take a more panoramic view of the draft. I check if it flows well and make little adjustments. For that, I switch to &lt;a href=&quot;https://typora.io/&quot;&gt;Typora&lt;/a&gt; as it gives me the full rendering of the page with graphics.&lt;/p&gt;
+<p>By the third draft I can take a more panoramic view of the draft. I check if it flows well and make little adjustments. For that, I switch to <a href="https://typora.io/">Typora</a> as it gives me the full rendering of the page with graphics.</p>
 
-&lt;p&gt;I’m a strong believer of simple language so during this phase I use &lt;a href=&quot;https://hemingwayapp.com/&quot;&gt;Hemingway Editor&lt;/a&gt; to simplify complex sentences. In all honesty I wish I could write simple sentences from the get go. It would simplify things so much. Regardless, the Hemingway editor is great. It highlights complex sentences, and offers a few simpler alternative words.&lt;/p&gt;
+<p>I’m a strong believer of simple language so during this phase I use <a href="https://hemingwayapp.com/">Hemingway Editor</a> to simplify complex sentences. In all honesty I wish I could write simple sentences from the get go. It would simplify things so much. Regardless, the Hemingway editor is great. It highlights complex sentences, and offers a few simpler alternative words.</p>
 
-&lt;p&gt;I tend to rewrite a lot of paragraphs during this last draft. When I’m out of ideas or have difficulty finding different ways of expressing a though I use &lt;a href=&quot;https://quillbot.com/&quot;&gt;Quillbot&lt;/a&gt;, a rephrasing engine, to get altenate versions and inspiration.&lt;/p&gt;
+<p>I tend to rewrite a lot of paragraphs during this last draft. When I’m out of ideas or have difficulty finding different ways of expressing a though I use <a href="https://quillbot.com/">Quillbot</a>, a rephrasing engine, to get altenate versions and inspiration.</p>
 
-&lt;p&gt;Before sending the draft to review do a pass with Google Docs. It’s surprising how good this humble word editor is at picking errors no other tool had.&lt;/p&gt;
+<p>Before sending the draft to review do a pass with Google Docs. It’s surprising how good this humble word editor is at picking errors no other tool had.</p>
 
-&lt;h2 id=&quot;review&quot;&gt;Review&lt;/h2&gt;
+<h2 id="review">Review</h2>
 
-&lt;p&gt;I’m blesseed with having people who can review my draft. Doubly blessed with a technical reviewer that fact checks and offers insightful suggestions, and a proofreader that doesn’t let me get away with lazy writing. After the review process, the draft has reached a new level in quality.&lt;/p&gt;
+<p>I’m blesseed with having people who can review my draft. Doubly blessed with a technical reviewer that fact checks and offers insightful suggestions, and a proofreader that doesn’t let me get away with lazy writing. After the review process, the draft has reached a new level in quality.</p>
 
-&lt;h2 id=&quot;publish&quot;&gt;Publish&lt;/h2&gt;
+<h2 id="publish">Publish</h2>
 
-&lt;p&gt;The last stretch involves preparing the draft for publication. I check that graphics all looking good, code is lined up, links are broken and everything is ready for publication.&lt;/p&gt;
+<p>The last stretch involves preparing the draft for publication. I check that graphics all looking good, code is lined up, links are broken and everything is ready for publication.</p>
 
-&lt;p&gt;Once published, it’s rinse and repeat with the next draft.&lt;/p&gt;
+<p>Once published, it’s rinse and repeat with the next draft.</p>
 
-&lt;h2 id=&quot;recap&quot;&gt;Recap&lt;/h2&gt;
+<h2 id="recap">Recap</h2>
 
-&lt;p&gt;Here’s how the process looks visually.&lt;/p&gt;
+<p>Here’s how the process looks visually.</p>
 
-&lt;p&gt;&lt;img src=&quot;/images/writing-process.jpg&quot; alt=&quot;The phases with a circular arrow mean the steps inside are to be repeated until ready to move on.&quot; /&gt;&lt;/p&gt;
+<p><img src="/images/writing-process.jpg" alt="The phases with a circular arrow mean the steps inside are to be repeated until ready to move on." /></p>
 
-&lt;p&gt;Happy writing&lt;/p&gt;
+<p>Happy writing</p>
 
-&lt;p&gt;-Tommy&lt;/p&gt;</content><author><name></name></author><category term="writing" /><summary type="html">The process I use from research to publication in my work as a full-time technical writer</summary></entry><entry><title type="html">Always use ImagePullSecrets</title><link href="https://tomfern.com/post/always-use-imagepullsecrets" rel="alternate" type="text/html" title="Always use ImagePullSecrets" /><published>2020-11-14T07:00:00-03:00</published><updated>2020-11-14T07:00:00-03:00</updated><id>https://tomfern.com/post/always-use-imagepullsecrets</id><content type="html" xml:base="https://tomfern.com/post/always-use-imagepullsecrets">&lt;p&gt;&lt;img src=&quot;/images/speed-limit.jpg&quot; alt=&quot;Speed Limit&quot; /&gt;&lt;/p&gt;
+<p>-Tommy</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[The process I use from research to publication in my work as a full-time technical writer]]></summary></entry><entry><title type="html">Always use ImagePullSecrets</title><link href="https://tomfern.com/post/always-use-imagepullsecrets" rel="alternate" type="text/html" title="Always use ImagePullSecrets" /><published>2020-11-14T07:00:00-03:00</published><updated>2020-11-14T07:00:00-03:00</updated><id>https://tomfern.com/post/always-use-imagepullsecrets</id><content type="html" xml:base="https://tomfern.com/post/always-use-imagepullsecrets"><![CDATA[<p><img src="/images/speed-limit.jpg" alt="Speed Limit" /></p>
 
-&lt;p&gt;Docker Hub &lt;a href=&quot;https://www.docker.com/increase-rate-limits&quot;&gt;introduced rate limits&lt;/a&gt; for image pulls earlier this month. Being the default registry for Docker images, this is one of the biggest in the ecosystem in the last few years, and it will affect not only Docker users but also Kubernetes setups.&lt;/p&gt;
+<p>Docker Hub <a href="https://www.docker.com/increase-rate-limits">introduced rate limits</a> for image pulls earlier this month. Being the default registry for Docker images, this is one of the biggest in the ecosystem in the last few years, and it will affect not only Docker users but also Kubernetes setups.</p>
 
-&lt;h2 id=&quot;the-limits&quot;&gt;The limits&lt;/h2&gt;
+<h2 id="the-limits">The limits</h2>
 
-&lt;p&gt;The new limits affect free users. No more unlimited free pulls, the party is over.&lt;/p&gt;
+<p>The new limits affect free users. No more unlimited free pulls, the party is over.</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Anonymous free users&lt;/strong&gt;: 100 container pulls every 6 hours.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Authenticated free users&lt;/strong&gt;: 200 container pulls every 6 hours.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Paid accounts&lt;/strong&gt;: unlimited.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><strong>Anonymous free users</strong>: 100 container pulls every 6 hours.</li>
+  <li><strong>Authenticated free users</strong>: 200 container pulls every 6 hours.</li>
+  <li><strong>Paid accounts</strong>: unlimited.</li>
+</ul>
 
-&lt;p&gt;At first, 100 pulls may sound like a lot. But think what happens when you start a Kubernetes deployment. Each pod pulls independently: if you spin up a ReplicaSet with 100 replicas, that’s 100 pulls at once.&lt;/p&gt;
+<p>At first, 100 pulls may sound like a lot. But think what happens when you start a Kubernetes deployment. Each pod pulls independently: if you spin up a ReplicaSet with 100 replicas, that’s 100 pulls at once.</p>
 
-&lt;p&gt;The same thing happens when we’re doing a rolling update, a rollback, a canary release, or a blue-green deployment. As pods keep spawning, the chance of hitting the limit increases, and we face the most annoying of problems: random, unexpected, avoidable failures.&lt;/p&gt;
+<p>The same thing happens when we’re doing a rolling update, a rollback, a canary release, or a blue-green deployment. As pods keep spawning, the chance of hitting the limit increases, and we face the most annoying of problems: random, unexpected, avoidable failures.</p>
 
-&lt;h2 id=&quot;what-to-do&quot;&gt;What to do?&lt;/h2&gt;
+<h2 id="what-to-do">What to do?</h2>
 
-&lt;p&gt;What can you do? To see if you’re affected, check if you’re pulling images from Docker Hub with the following command:&lt;/p&gt;
+<p>What can you do? To see if you’re affected, check if you’re pulling images from Docker Hub with the following command:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl get pods &lt;span class=&quot;nt&quot;&gt;--all-namespaces&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-ojson&lt;/span&gt; | jq &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'.items[].spec | .containers[] // [] += .initContainers[] // [] | .image'&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sort&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods <span class="nt">--all-namespaces</span> <span class="nt">-ojson</span> | jq <span class="nt">-r</span> <span class="s1">'.items[].spec | .containers[] // [] += .initContainers[] // [] | .image'</span> | <span class="nb">sort</span> <span class="nt">-u</span>
+</code></pre></div></div>
 
-&lt;p&gt;If you see images with no registry (just the image name) or where the registry is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker.io&lt;/code&gt;, you’re pulling from Docker Hub, so keep reading.&lt;/p&gt;
+<p>If you see images with no registry (just the image name) or where the registry is <code class="language-plaintext highlighter-rouge">docker.io</code>, you’re pulling from Docker Hub, so keep reading.</p>
 
-&lt;p&gt;Next, check if you’re using authentication. All images should be pulled with authentication. Anonymous pulls are rate limited by IP. Even if you don’t need a lot of pulls, you may still be affected by other users sharing the network.&lt;/p&gt;
+<p>Next, check if you’re using authentication. All images should be pulled with authentication. Anonymous pulls are rate limited by IP. Even if you don’t need a lot of pulls, you may still be affected by other users sharing the network.</p>
 
-&lt;p&gt;The bright side is that adding authentication is really easy. It only takes two steps. Here’s how to do it.&lt;/p&gt;
+<p>The bright side is that adding authentication is really easy. It only takes two steps. Here’s how to do it.</p>
 
-&lt;h3 id=&quot;step-1-tell-kubernetes-how-to-authenticate&quot;&gt;Step 1: tell Kubernetes how to authenticate&lt;/h3&gt;
+<h3 id="step-1-tell-kubernetes-how-to-authenticate">Step 1: tell Kubernetes how to authenticate</h3>
 
-&lt;p&gt;The first step is to add your Docker Hub username and password to the cluster. We can do this with kubectl. You only have to do this once per cluster.&lt;/p&gt;
+<p>The first step is to add your Docker Hub username and password to the cluster. We can do this with kubectl. You only have to do this once per cluster.</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;kubectl create secret docker-registry my-dockerhub-account &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--docker-server&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;docker.io &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--docker-username&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;DOCKER_HUB_USERNAME &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;--docker-password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;DOCKER_HUB_PASSWORD
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl create secret docker-registry my-dockerhub-account <span class="se">\</span>
+    <span class="nt">--docker-server</span><span class="o">=</span>docker.io <span class="se">\</span>
+    <span class="nt">--docker-username</span><span class="o">=</span>DOCKER_HUB_USERNAME <span class="se">\</span>
+    <span class="nt">--docker-password</span><span class="o">=</span>DOCKER_HUB_PASSWORD
+</code></pre></div></div>
 
-&lt;h3 id=&quot;step-2-add-imagepullsecrets-in-the-deployment&quot;&gt;Step 2: add ImagePullSecrets in the deployment&lt;/h3&gt;
+<h3 id="step-2-add-imagepullsecrets-in-the-deployment">Step 2: add ImagePullSecrets in the deployment</h3>
 
-&lt;p&gt;Once the secret is safely stored in Kubernetes, we only need to mention it on the deployment manifest. For this, add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;imagePullSecrets&lt;/code&gt; in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;spec.template.spec&lt;/code&gt; tree:&lt;/p&gt;
+<p>Once the secret is safely stored in Kubernetes, we only need to mention it on the deployment manifest. For this, add <code class="language-plaintext highlighter-rouge">imagePullSecrets</code> in the <code class="language-plaintext highlighter-rouge">spec.template.spec</code> tree:</p>
 
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      &lt;span class=&quot;na&quot;&gt;imagePullSecrets&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my-dockerhub-account&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="na">imagePullSecrets</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">my-dockerhub-account</span>
+</code></pre></div></div>
 
-&lt;p&gt;For example, if I want to run a deployment with three &lt;a href=&quot;https://www.nginx.com/&quot;&gt;nginx&lt;/a&gt; pods, the end result would be:&lt;/p&gt;
+<p>For example, if I want to run a deployment with three <a href="https://www.nginx.com/">nginx</a> pods, the end result would be:</p>
 
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;apiVersion&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;apps/v1&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;kind&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;Deployment&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx-deployment&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;replicas&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;selector&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;matchLabels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;template&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;metadata&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-    &lt;span class=&quot;na&quot;&gt;spec&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;imagePullSecrets&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;my-dockerhub-secret&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;containers&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;nginx:1.14.2&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;ports&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;containerPort&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">nginx-deployment</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">3</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">nginx</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">imagePullSecrets</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">my-dockerhub-secret</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">nginx</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">nginx:1.14.2</span>
+        <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">80</span>
+</code></pre></div></div>
 
-&lt;p&gt;That’s all you need. When you have the chance, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kubectl apply&lt;/code&gt; the new manifest to start using authentication.&lt;/p&gt;
+<p>That’s all you need. When you have the chance, <code class="language-plaintext highlighter-rouge">kubectl apply</code> the new manifest to start using authentication.</p>
 
-&lt;h2 id=&quot;better-safe-than-sorry&quot;&gt;Better safe than sorry&lt;/h2&gt;
+<h2 id="better-safe-than-sorry">Better safe than sorry</h2>
 
-&lt;p&gt;I hope this helps you to prevent avoidable errors. Once authenticated, you should have a more consistent experience and a higher limit.&lt;/p&gt;
+<p>I hope this helps you to prevent avoidable errors. Once authenticated, you should have a more consistent experience and a higher limit.</p>
 
-&lt;p&gt;I’ve not heard of anyone hitting the limit yet. Docker Hub said they’ll enforce them gradually, so I’m sure it’s a matter of time until someone gets bitten by the new caps.&lt;/p&gt;</content><author><name></name></author><category term="kubernetes" /><category term="docker" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/speed-limit.jpg" /><media:content medium="image" url="https://tomfern.com/images/speed-limit.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Programming humans</title><link href="https://tomfern.com/post/programming-humans" rel="alternate" type="text/html" title="Programming humans" /><published>2020-11-03T07:00:00-03:00</published><updated>2020-11-03T07:00:00-03:00</updated><id>https://tomfern.com/post/programming-humans</id><content type="html" xml:base="https://tomfern.com/post/programming-humans">&lt;p&gt;&lt;img src=&quot;/images/image-4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<p>I’ve not heard of anyone hitting the limit yet. Docker Hub said they’ll enforce them gradually, so I’m sure it’s a matter of time until someone gets bitten by the new caps.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="kubernetes" /><category term="docker" /><summary type="html"><![CDATA[Kubernetes users: don't get bitten by rate limits.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/speed-limit.jpg" /><media:content medium="image" url="https://tomfern.com/images/speed-limit.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Programming humans</title><link href="https://tomfern.com/post/programming-humans" rel="alternate" type="text/html" title="Programming humans" /><published>2020-11-03T07:00:00-03:00</published><updated>2020-11-03T07:00:00-03:00</updated><id>https://tomfern.com/post/programming-humans</id><content type="html" xml:base="https://tomfern.com/post/programming-humans"><![CDATA[<p><img src="/images/image-4.jpg" alt="" /></p>
 
-&lt;p&gt;While working on the slides for the &lt;a href=&quot;./talk-nerdearla-2020&quot;&gt;talk I gave&lt;/a&gt; a few weeks ago, it occurred to me that writing and coding have more than a few things in common. I originally planned to speak a bit about that but had to take it out for lack of space. I’ll make a post instead, this one.&lt;/p&gt;
+<p>While working on the slides for the <a href="./talk-nerdearla-2020">talk I gave</a> a few weeks ago, it occurred to me that writing and coding have more than a few things in common. I originally planned to speak a bit about that but had to take it out for lack of space. I’ll make a post instead, this one.</p>
 
-&lt;h2 id=&quot;thinks-in-common&quot;&gt;Thinks in common&lt;/h2&gt;
+<h2 id="thinks-in-common">Thinks in common</h2>
 
-&lt;p&gt;&lt;strong&gt;Language&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Language</strong></p>
 
-&lt;p&gt;Both writing and coding use a language. Writing happens in any of the hundreds of languages people speak all over the world. Coding is done in synthetic languages that are mostly inspired by English.&lt;/p&gt;
+<p>Both writing and coding use a language. Writing happens in any of the hundreds of languages people speak all over the world. Coding is done in synthetic languages that are mostly inspired by English.</p>
 
-&lt;p&gt;&lt;strong&gt;Rules&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Rules</strong></p>
 
-&lt;p&gt;Both have rules. Speaking on general terms, coding has strict rules because the computer needs to parse it unequivocally—the developer’s intention must be defined with mathematical accuracy. Human languages also have rules, but they are looser, ever-changing, and don’t always make logical sense. Rules are lax because humans can interpret and make assumptions. We can use this extra bandwidth to communicate on a deeper level.&lt;/p&gt;
+<p>Both have rules. Speaking on general terms, coding has strict rules because the computer needs to parse it unequivocally—the developer’s intention must be defined with mathematical accuracy. Human languages also have rules, but they are looser, ever-changing, and don’t always make logical sense. Rules are lax because humans can interpret and make assumptions. We can use this extra bandwidth to communicate on a deeper level.</p>
 
-&lt;p&gt;&lt;strong&gt;Movement&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Movement</strong></p>
 
-&lt;p&gt;With this I say that both do something. Writing tells a story, shares an idea (like I’m doing now), or argues about an opinion. After reading, the reader may have a new thing to consider (even if they don’t agree) or know how to do something they didn’t know before. Whether as a book, as a script for a movie, or a screenplay, writing moves people.&lt;/p&gt;
+<p>With this I say that both do something. Writing tells a story, shares an idea (like I’m doing now), or argues about an opinion. After reading, the reader may have a new thing to consider (even if they don’t agree) or know how to do something they didn’t know before. Whether as a book, as a script for a movie, or a screenplay, writing moves people.</p>
 
-&lt;p&gt;The same goes for code. Programs move the world, and we wouldn’t be able to live here without them.&lt;/p&gt;
+<p>The same goes for code. Programs move the world, and we wouldn’t be able to live here without them.</p>
 
-&lt;p&gt;&lt;strong&gt;Virtues&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Virtues</strong></p>
 
-&lt;p&gt;Coding and writing also share some virtues. Simplicity and clarity come to mind—simple trumps complex in both writing and coding. Style and elegance are harder to define, but we know it when they see it.&lt;/p&gt;
+<p>Coding and writing also share some virtues. Simplicity and clarity come to mind—simple trumps complex in both writing and coding. Style and elegance are harder to define, but we know it when they see it.</p>
 
-&lt;h2 id=&quot;humans-have-minds&quot;&gt;Humans have minds&lt;/h2&gt;
+<h2 id="humans-have-minds">Humans have minds</h2>
 
-&lt;p&gt;Coding is one of the most complicated fields anyone can get in these days. But at least computers don’t have their own minds (although, sometimes they seem to do).&lt;/p&gt;
+<p>Coding is one of the most complicated fields anyone can get in these days. But at least computers don’t have their own minds (although, sometimes they seem to do).</p>
 
-&lt;p&gt;Humans will pick and choose. They won’t read boring things. So not only do writers must be clear, but they also must pique the reader’s interest and give them something of value.&lt;/p&gt;
+<p>Humans will pick and choose. They won’t read boring things. So not only do writers must be clear, but they also must pique the reader’s interest and give them something of value.</p>
 
-&lt;h2 id=&quot;language-the-io-of-the-mind&quot;&gt;Language: the I/O of the mind&lt;/h2&gt;
+<h2 id="language-the-io-of-the-mind">Language: the I/O of the mind</h2>
 
-&lt;p&gt;Even though writing and coding touch on many points. Both activities need very different skillsets. Otherwise, playwrights would be the best software engineers, and all developers would be bestsellers authors (many are).&lt;/p&gt;
+<p>Even though writing and coding touch on many points. Both activities need very different skillsets. Otherwise, playwrights would be the best software engineers, and all developers would be bestsellers authors (many are).</p>
 
-&lt;p&gt;Like a clockmaker quietly putting together a watch, developers’ primary skills are knowledge and logic. Every piece of code must work in a very definite way, and there is no room for mistakes.&lt;/p&gt;
+<p>Like a clockmaker quietly putting together a watch, developers’ primary skills are knowledge and logic. Every piece of code must work in a very definite way, and there is no room for mistakes.</p>
 
-&lt;p&gt;To me, a writer is a bit closer to a musician. They have more freedom, they have more options, but their prose must still be ruled by logic. It also—like a composer—must be guided by a kind of metric. One reads with the ear.&lt;/p&gt;
+<p>To me, a writer is a bit closer to a musician. They have more freedom, they have more options, but their prose must still be ruled by logic. It also—like a composer—must be guided by a kind of metric. One reads with the ear.</p>
 
-&lt;h2 id=&quot;salute-your-fellow-writer&quot;&gt;Salute your fellow writer&lt;/h2&gt;
+<h2 id="salute-your-fellow-writer">Salute your fellow writer</h2>
 
-&lt;p&gt;If you’re a dev, the next time you see a writer, give them a nod and a hat tip. You have more in common with them than you think.&lt;/p&gt;
+<p>If you’re a dev, the next time you see a writer, give them a nod and a hat tip. You have more in common with them than you think.</p>
 
-&lt;p&gt;-Tomas&lt;/p&gt;</content><author><name></name></author><category term="writing" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/image-4.jpg" /><media:content medium="image" url="https://tomfern.com/images/image-4.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Talk: Technical writing in English</title><link href="https://tomfern.com/post/talk-nerdearla-2020" rel="alternate" type="text/html" title="Talk: Technical writing in English" /><published>2020-10-21T07:00:00-03:00</published><updated>2020-10-21T07:00:00-03:00</updated><id>https://tomfern.com/post/nerdearla-2020-talk</id><content type="html" xml:base="https://tomfern.com/post/talk-nerdearla-2020">&lt;p&gt;&lt;img src=&quot;/images/nerdearla.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<p>-Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[Language is I/O of the mind]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/image-4.jpg" /><media:content medium="image" url="https://tomfern.com/images/image-4.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Talk: Technical writing in English</title><link href="https://tomfern.com/post/talk-nerdearla-2020" rel="alternate" type="text/html" title="Talk: Technical writing in English" /><published>2020-10-21T07:00:00-03:00</published><updated>2020-10-21T07:00:00-03:00</updated><id>https://tomfern.com/post/nerdearla-2020-talk</id><content type="html" xml:base="https://tomfern.com/post/talk-nerdearla-2020"><![CDATA[<p><img src="/images/nerdearla.png" alt="" /></p>
 
-&lt;p&gt;I gave a talk about technical writing at &lt;a href=&quot;https://nerdear.la/&quot;&gt;nerdear.la&lt;/a&gt;, a bilingual convention about technology and people that took place October 2020 in Argentina.&lt;/p&gt;
+<p>I gave a talk about technical writing at <a href="https://nerdear.la/">nerdear.la</a>, a bilingual convention about technology and people that took place October 2020 in Argentina.</p>
 
-&lt;h2 id=&quot;the-talk&quot;&gt;The Talk&lt;/h2&gt;
+<h2 id="the-talk">The Talk</h2>
 
-&lt;p&gt;The slides are in English, the talk is in Spanish. At the end of the talk, I’ll be answering questions.&lt;/p&gt;
+<p>The slides are in English, the talk is in Spanish. At the end of the talk, I’ll be answering questions.</p>
 
-&lt;iframe width=&quot;420&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/1VKy65zqQ9E&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+<iframe width="420" height="315" src="http://www.youtube.com/embed/1VKy65zqQ9E" frameborder="0" allowfullscreen=""></iframe>
 
-&lt;h2 id=&quot;slides&quot;&gt;Slides&lt;/h2&gt;
+<h2 id="slides">Slides</h2>
 
-&lt;p&gt;You may download the slides &lt;a href=&quot;https://drive.google.com/file/d/14Qo54DON9l2xhd1X6XyUl5_WGbImdmdl/view?usp=sharing&quot;&gt;here&lt;/a&gt;. You may use them or modify them, but if you do, please make the appropiate attribution.&lt;/p&gt;
+<p>You may download the slides <a href="https://drive.google.com/file/d/14Qo54DON9l2xhd1X6XyUl5_WGbImdmdl/view?usp=sharing">here</a>. You may use them or modify them, but if you do, please make the appropiate attribution.</p>
 
-&lt;p&gt;-Tommy&lt;/p&gt;</content><author><name></name></author><category term="talks" /><category term="nerdearla" /><category term="slides" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/nerdearla.png" /><media:content medium="image" url="https://tomfern.com/images/nerdearla.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">React Native and Expo</title><link href="https://tomfern.com/post/react-native-and-expo" rel="alternate" type="text/html" title="React Native and Expo" /><published>2020-09-01T20:46:37-03:00</published><updated>2020-09-01T20:46:37-03:00</updated><id>https://tomfern.com/post/react-native-expo</id><content type="html" xml:base="https://tomfern.com/post/react-native-and-expo">&lt;p&gt;I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.&lt;/p&gt;
+<p>-Tommy</p>]]></content><author><name>Tommy Fernandez</name></author><category term="talks" /><category term="nerdearla" /><category term="slides" /><summary type="html"><![CDATA[View my talk 'Escritura técnica en inglés']]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/nerdearla.png" /><media:content medium="image" url="https://tomfern.com/images/nerdearla.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">React Native and Expo</title><link href="https://tomfern.com/post/react-native-and-expo" rel="alternate" type="text/html" title="React Native and Expo" /><published>2020-09-01T20:46:37-03:00</published><updated>2020-09-01T20:46:37-03:00</updated><id>https://tomfern.com/post/react-native-expo</id><content type="html" xml:base="https://tomfern.com/post/react-native-and-expo"><![CDATA[<p>I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.</p>
 
-&lt;p&gt;Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.&lt;/p&gt;
+<p>Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.</p>
 
-&lt;h2 id=&quot;react-native-and-expo&quot;&gt;React Native and Expo&lt;/h2&gt;
+<h2 id="react-native-and-expo">React Native and Expo</h2>
 
-&lt;p&gt;React Native is a Facebook project that converts Javascript into native Android and iOS code. Using one language for both platforms is definetly enticing and conventient.&lt;/p&gt;
+<p>React Native is a Facebook project that converts Javascript into native Android and iOS code. Using one language for both platforms is definetly enticing and conventient.</p>
 
-&lt;p&gt;Expo is an official React Native project that lets you do without full featured IDEs like Android Studio.&lt;/p&gt;
+<p>Expo is an official React Native project that lets you do without full featured IDEs like Android Studio.</p>
 
-&lt;p&gt;https://expo.io/&lt;/p&gt;
+<p>https://expo.io/</p>
 
-&lt;p&gt;Curious about how it worked, I tried it for a few days and here’s the result.&lt;/p&gt;
+<p>Curious about how it worked, I tried it for a few days and here’s the result.</p>
 
-&lt;h2 id=&quot;setting-up&quot;&gt;Setting Up&lt;/h2&gt;
+<h2 id="setting-up">Setting Up</h2>
 
-&lt;p&gt;We only need Node.js to get started:&lt;/p&gt;
+<p>We only need Node.js to get started:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-g&lt;/span&gt; expo-cli
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;expo init
-? Choose a template: &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Use arrow keys&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt; Managed workflow &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm <span class="nb">install</span> <span class="nt">-g</span> expo-cli
+<span class="nv">$ </span>expo init
+? Choose a template: <span class="o">(</span>Use arrow keys<span class="o">)</span>
+<span class="nt">-----</span> Managed workflow <span class="nt">-----</span>
 ❯ blank                 a minimal app as clean as an empty canvas
-blank &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TypeScript&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;    same as blank but with TypeScript configuration
+blank <span class="o">(</span>TypeScript<span class="o">)</span>    same as blank but with TypeScript configuration
 tabs                  several example screens and tabs using react-navigation
-&lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt; Bare workflow &lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;
+<span class="nt">-----</span> Bare workflow <span class="nt">-----</span>
 minimal               bare and minimal, just the essentials to get you started
-minimal &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;TypeScript&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;  same as minimal but with TypeScript configuration
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+minimal <span class="o">(</span>TypeScript<span class="o">)</span>  same as minimal but with TypeScript configuration
+<span class="nv">$ </span>npm <span class="nb">install</span>
+</code></pre></div></div>
 
-&lt;!--
+<!--
 $ npm install --save-dev
 
 $ npm install --save-dev jest
---&gt;
+-->
 
-&lt;h2 id=&quot;running&quot;&gt;Running&lt;/h2&gt;
+<h2 id="running">Running</h2>
 
-&lt;p&gt;Running the application is as easy as:&lt;/p&gt;
+<p>Running the application is as easy as:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;npm run start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>npm run start
+</code></pre></div></div>
 
-&lt;p&gt;The command starts a bunch of processes, including a local dashboard running on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;localhost:19002&lt;/code&gt;.&lt;/p&gt;
+<p>The command starts a bunch of processes, including a local dashboard running on <code class="language-plaintext highlighter-rouge">localhost:19002</code>.</p>
 
-&lt;p&gt;The quickest way of viewing the application is by scanning the QR code with your phone and running it on the physical device.&lt;/p&gt;
+<p>The quickest way of viewing the application is by scanning the QR code with your phone and running it on the physical device.</p>
 
-&lt;p&gt;Additionally, you can run the application in a virtual device if you have installed the emulator (Android Studio and avd)&lt;/p&gt;
+<p>Additionally, you can run the application in a virtual device if you have installed the emulator (Android Studio and avd)</p>
 
-&lt;!-- - Web?
---&gt;
+<!-- - Web?
+-->
 
-&lt;h2 id=&quot;building&quot;&gt;Building&lt;/h2&gt;
+<h2 id="building">Building</h2>
 
-&lt;p&gt;The Expo platform offers a cloud build service. Compiling an Android package is as easy as:&lt;/p&gt;
+<p>The Expo platform offers a cloud build service. Compiling an Android package is as easy as:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;expo build:android
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>expo build:android
+</code></pre></div></div>
 
-&lt;p&gt;After a few minutes, you’ll find the signed APK from the website, ready to upload to the Play Store.&lt;/p&gt;
+<p>After a few minutes, you’ll find the signed APK from the website, ready to upload to the Play Store.</p>
 
-&lt;h2 id=&quot;ejecting&quot;&gt;Ejecting&lt;/h2&gt;
+<h2 id="ejecting">Ejecting</h2>
 
-&lt;p&gt;The Expo build service is nice but it can get inflexible. I’d like to be able to do End-to-End testing, and manage the project entirely in my CI/CD workflow instead of depending on 3rd parties.&lt;/p&gt;
+<p>The Expo build service is nice but it can get inflexible. I’d like to be able to do End-to-End testing, and manage the project entirely in my CI/CD workflow instead of depending on 3rd parties.</p>
 
-&lt;p&gt;Fortunately, Expo can create native Android and iOS projects that are will feel familiar to mobile developers.&lt;/p&gt;
+<p>Fortunately, Expo can create native Android and iOS projects that are will feel familiar to mobile developers.</p>
 
-&lt;p&gt;To get these files, we must eject the project. The price we pay is that we no longer can build it from the Expo service:&lt;/p&gt;
+<p>To get these files, we must eject the project. The price we pay is that we no longer can build it from the Expo service:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;expo eject
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>expo eject
 ? How would you like to eject your app?
-Read more: https://docs.expo.io/versions/latest/expokit/eject/ &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Use arrow keys&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-❯ Bare: I&lt;span class=&quot;s1&quot;&gt;'d like a bare React Native project.
-ExpoKit: I'&lt;/span&gt;ll create or log &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;with an Expo account to use React Native and the Expo SDK.
-Cancel: I&lt;span class=&quot;s1&quot;&gt;'ll continue with my current project structure.
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+Read more: https://docs.expo.io/versions/latest/expokit/eject/ <span class="o">(</span>Use arrow keys<span class="o">)</span>
+❯ Bare: I<span class="s1">'d like a bare React Native project.
+ExpoKit: I'</span>ll create or log <span class="k">in </span>with an Expo account to use React Native and the Expo SDK.
+Cancel: I<span class="s1">'ll continue with my current project structure.
+</span></code></pre></div></div>
 
-&lt;p&gt;Of course, Expo may not be the best alternative for every case: https://docs.expo.io/versions/latest/introduction/why-not-expo/&lt;/p&gt;
+<p>Of course, Expo may not be the best alternative for every case: https://docs.expo.io/versions/latest/introduction/why-not-expo/</p>
 
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;android&lt;/code&gt; directory can be opened by Android Studio. We can compile an APK with gradle and run the project in an emulator as usual.&lt;/p&gt;
+<p>The <code class="language-plaintext highlighter-rouge">android</code> directory can be opened by Android Studio. We can compile an APK with gradle and run the project in an emulator as usual.</p>
 
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+<h2 id="summary">Summary</h2>
 
-&lt;p&gt;Expo is a nice alternative to full-featured IDEs. We can prototype pretty quickly a mobile project and when it’s time for more serious work. We can get a good Android project.&lt;/p&gt;</content><author><name></name></author><category term="development" /><summary type="html">I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.</summary></entry><entry><title type="html">What Got Me Writing</title><link href="https://tomfern.com/post/what-got-me-writing" rel="alternate" type="text/html" title="What Got Me Writing" /><published>2020-08-08T07:00:00-03:00</published><updated>2020-08-08T07:00:00-03:00</updated><id>https://tomfern.com/post/what-got-me-writing</id><content type="html" xml:base="https://tomfern.com/post/what-got-me-writing">&lt;p&gt;&lt;img src=&quot;/images/writing.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<p>Expo is a nice alternative to full-featured IDEs. We can prototype pretty quickly a mobile project and when it’s time for more serious work. We can get a good Android project.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="development" /><summary type="html"><![CDATA[I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.]]></summary></entry><entry><title type="html">What Got Me Writing</title><link href="https://tomfern.com/post/what-got-me-writing" rel="alternate" type="text/html" title="What Got Me Writing" /><published>2020-08-08T07:00:00-03:00</published><updated>2020-08-08T07:00:00-03:00</updated><id>https://tomfern.com/post/what-got-me-writing</id><content type="html" xml:base="https://tomfern.com/post/what-got-me-writing"><![CDATA[<p><img src="/images/writing.jpg" alt="" /></p>
 
-&lt;p&gt;When I started freelancing, I never imagined I would end up writing for a living. Never in a hundred years. Yet, I’ve been doing it full-time for almost a year now.&lt;/p&gt;
+<p>When I started freelancing, I never imagined I would end up writing for a living. Never in a hundred years. Yet, I’ve been doing it full-time for almost a year now.</p>
 
-&lt;p&gt;I got interested in freelancing because I wanted to try something different. I needed a break from the office routine. The job was OK. I had excellent colleagues and was friends with everyone. And while it wasn’t making me rich by any means, I never lacked for anything. It was a comfortable job—perhaps too much.&lt;/p&gt;
+<p>I got interested in freelancing because I wanted to try something different. I needed a break from the office routine. The job was OK. I had excellent colleagues and was friends with everyone. And while it wasn’t making me rich by any means, I never lacked for anything. It was a comfortable job—perhaps too much.</p>
 
-&lt;p&gt;The trouble was that going to the office got harder and harder as time passed. It got to the point that I started sensing that the whole thing was a terrible waste of time. Meetings and busywork consumed most of my and everyone else’s workday. Going back and forth to the office four days a week (+1 home office day) took too long and squandered too much energy. At least that’s how I perceived it.&lt;/p&gt;
+<p>The trouble was that going to the office got harder and harder as time passed. It got to the point that I started sensing that the whole thing was a terrible waste of time. Meetings and busywork consumed most of my and everyone else’s workday. Going back and forth to the office four days a week (+1 home office day) took too long and squandered too much energy. At least that’s how I perceived it.</p>
 
-&lt;p&gt;Now, don’t get me wrong, I know meetings and some degree of paperwork is unavoidable. I do. I’m fine with that. I made my peace with that; it’s just how companies work. But there is a point where bureaucracy takes over, and I felt we had long gone past it.&lt;/p&gt;
+<p>Now, don’t get me wrong, I know meetings and some degree of paperwork is unavoidable. I do. I’m fine with that. I made my peace with that; it’s just how companies work. But there is a point where bureaucracy takes over, and I felt we had long gone past it.</p>
 
-&lt;p&gt;At first I thought that maybe I needed to change jobs. So I updated my resume, went to a few interviews, and even landed an offer that would have meant a substantial pay bump. In all honesty, when it was time to make the decision, I realized that I wasn’t too excited about the change—it felt like swapping one office for another. I realized that more money just wouldn’t cut it.&lt;/p&gt;
+<p>At first I thought that maybe I needed to change jobs. So I updated my resume, went to a few interviews, and even landed an offer that would have meant a substantial pay bump. In all honesty, when it was time to make the decision, I realized that I wasn’t too excited about the change—it felt like swapping one office for another. I realized that more money just wouldn’t cut it.</p>
 
-&lt;p&gt;One friend who was already a freelancer recommended me to try Upwork. The way he described it sounded great, just what I needed. So I created a profile and started sending proposals for jobs I thought I could do.&lt;/p&gt;
+<p>One friend who was already a freelancer recommended me to try Upwork. The way he described it sounded great, just what I needed. So I created a profile and started sending proposals for jobs I thought I could do.</p>
 
-&lt;p&gt;Freelancing was a whole new and intimidating universe. It was exciting and scary. I did a few programming jobs here and there, I coded a chatbot, I did some database migrations.&lt;/p&gt;
+<p>Freelancing was a whole new and intimidating universe. It was exciting and scary. I did a few programming jobs here and there, I coded a chatbot, I did some database migrations.</p>
 
-&lt;p&gt;One day I saw a job post asking for a 2000-word PHP installation tutorial. I knew PHP and MySQL pretty well, so I figured that it was easy money. By that time, I already had a personal blog with a few posts, and I thought that alone qualified me. So, without thinking too much about it, I sent my proposal. After all, how long could it take? Two thousand words… easy peasy, piece of cake… easy as falling off a log.&lt;/p&gt;
+<p>One day I saw a job post asking for a 2000-word PHP installation tutorial. I knew PHP and MySQL pretty well, so I figured that it was easy money. By that time, I already had a personal blog with a few posts, and I thought that alone qualified me. So, without thinking too much about it, I sent my proposal. After all, how long could it take? Two thousand words… easy peasy, piece of cake… easy as falling off a log.</p>
 
-&lt;p&gt;I landed the job and said I would have it in 2 days, 3 tops.&lt;/p&gt;
+<p>I landed the job and said I would have it in 2 days, 3 tops.</p>
 
-&lt;p&gt;Boy, did I planning-fallacy-ed the thing…&lt;/p&gt;
+<p>Boy, did I planning-fallacy-ed the thing…</p>
 
-&lt;p&gt;I spend 2 entire days just writing down the steps and taking screenshots. Then 3 more writing the damn thing (all this while I did my daytime job). It dawned on me that proper writing is much harder than blogging for fun. It was exhausting, fun, and sleep-depriving. And when the draft got accepted, I was incredibly proud.&lt;/p&gt;
+<p>I spend 2 entire days just writing down the steps and taking screenshots. Then 3 more writing the damn thing (all this while I did my daytime job). It dawned on me that proper writing is much harder than blogging for fun. It was exhausting, fun, and sleep-depriving. And when the draft got accepted, I was incredibly proud.</p>
 
-&lt;p&gt;That was the point I started considering writing as a job.&lt;/p&gt;
+<p>That was the point I started considering writing as a job.</p>
 
-&lt;p&gt;In the following months, a lot of people were very kind and let me write for them. One person took a big chance and gave me enough work to take the plunge and try writing as a full-time job, for which I’ll be eternally grateful.&lt;/p&gt;
+<p>In the following months, a lot of people were very kind and let me write for them. One person took a big chance and gave me enough work to take the plunge and try writing as a full-time job, for which I’ll be eternally grateful.</p>
 
-&lt;h1 id=&quot;so-what-i-like-about-writing&quot;&gt;So, what I like about writing&lt;/h1&gt;
+<h1 id="so-what-i-like-about-writing">So, what I like about writing</h1>
 
-&lt;p&gt;&lt;strong&gt;It’s different&lt;/strong&gt;&lt;/p&gt;
+<p><strong>It’s different</strong></p>
 
-&lt;p&gt;Professional writing is different than any other job I had. For me, it’s the perfect mix of learning, playing, and working.&lt;/p&gt;
+<p>Professional writing is different than any other job I had. For me, it’s the perfect mix of learning, playing, and working.</p>
 
-&lt;p&gt;&lt;strong&gt;It’s challenging&lt;/strong&gt;&lt;/p&gt;
+<p><strong>It’s challenging</strong></p>
 
-&lt;p&gt;Putting words on paper is easy. Making them make sense and tell a story, not so much. Finding the correct tone, showing just the right amount of information, and figuring out how best to deliver is a balancing act. It’s the kind of challenge that makes me want to keep trying harder.&lt;/p&gt;
+<p>Putting words on paper is easy. Making them make sense and tell a story, not so much. Finding the correct tone, showing just the right amount of information, and figuring out how best to deliver is a balancing act. It’s the kind of challenge that makes me want to keep trying harder.</p>
 
-&lt;p&gt;&lt;strong&gt;Give something back&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Give something back</strong></p>
 
-&lt;p&gt;It feels good to contribute, even if it is only a grain of sand in the infinite expanse that is the Internet.&lt;/p&gt;
+<p>It feels good to contribute, even if it is only a grain of sand in the infinite expanse that is the Internet.</p>
 
-&lt;p&gt;&lt;strong&gt;View things in a different light&lt;/strong&gt;&lt;/p&gt;
+<p><strong>View things in a different light</strong></p>
 
-&lt;p&gt;Any text that doesn’t consider the audience is destined to fail. Writing forces me to put myself in other people’s shoes.&lt;/p&gt;
+<p>Any text that doesn’t consider the audience is destined to fail. Writing forces me to put myself in other people’s shoes.</p>
 
-&lt;p&gt;&lt;strong&gt;Has its own pace&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Has its own pace</strong></p>
 
-&lt;p&gt;There’s no on-call duty, no overtime, no meetings back to back, and (usually) no super-long hours. Within certain limits, I can choose how many hours I want to work.&lt;/p&gt;
+<p>There’s no on-call duty, no overtime, no meetings back to back, and (usually) no super-long hours. Within certain limits, I can choose how many hours I want to work.</p>
 
-&lt;p&gt;The other side of the coin is that staying productive at a consistent pace it’s a lot more difficult. Some days I’m on fire. Others, I can’t write a word to save my life. And there is no way of knowing until I sit and try.&lt;/p&gt;
+<p>The other side of the coin is that staying productive at a consistent pace it’s a lot more difficult. Some days I’m on fire. Others, I can’t write a word to save my life. And there is no way of knowing until I sit and try.</p>
 
-&lt;p&gt;&lt;strong&gt;Learn new things&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Learn new things</strong></p>
 
-&lt;p&gt;Writing is a way of learning. If you ask me, it’s one of the best ways. It has given me the chance to play with many wonderful technologies that I otherwise wouldn’t have paid attention to.&lt;/p&gt;
+<p>Writing is a way of learning. If you ask me, it’s one of the best ways. It has given me the chance to play with many wonderful technologies that I otherwise wouldn’t have paid attention to.</p>
 
-&lt;p&gt;&lt;strong&gt;Defrags the noggin&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Defrags the noggin</strong></p>
 
-&lt;p&gt;Writing forces me to put things down and examine them in the critical light of the narrative. I frequently find that what made sense in the nebulous circumvolutions of the mind breaks down into a mess of disconnected sentences and repeated words as soon as I put them on the screen.&lt;/p&gt;
+<p>Writing forces me to put things down and examine them in the critical light of the narrative. I frequently find that what made sense in the nebulous circumvolutions of the mind breaks down into a mess of disconnected sentences and repeated words as soon as I put them on the screen.</p>
 
-&lt;p&gt;&lt;strong&gt;Relearn old things&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Relearn old things</strong></p>
 
-&lt;p&gt;We’ve all been tripped by an innocent question while explaining something that we thought we knew well.
-Without fail, writing reveals the flaws in our thinking and shows how well (or bad) we understand things.&lt;/p&gt;
+<p>We’ve all been tripped by an innocent question while explaining something that we thought we knew well.
+Without fail, writing reveals the flaws in our thinking and shows how well (or bad) we understand things.</p>
 
-&lt;h1 id=&quot;give-it-a-try&quot;&gt;Give it a try&lt;/h1&gt;
+<h1 id="give-it-a-try">Give it a try</h1>
 
-&lt;p&gt;Some people say that writing is art. That may be true for the likes of Poe or Bradbury. My problem with calling it art by default is that it puts it on a pedestal. For me, writing is like carpentry. It’s a skill that must be honed every day. Something that takes time and effort, sure enough, but is entirely within reach of anyone.&lt;/p&gt;
+<p>Some people say that writing is art. That may be true for the likes of Poe or Bradbury. My problem with calling it art by default is that it puts it on a pedestal. For me, writing is like carpentry. It’s a skill that must be honed every day. Something that takes time and effort, sure enough, but is entirely within reach of anyone.</p>
 
-&lt;p&gt;So give it a try.&lt;/p&gt;</content><author><name></name></author><category term="writing" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/writing.jpg" /><media:content medium="image" url="https://tomfern.com/images/writing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">7 Minikube Tips</title><link href="https://tomfern.com/post/7-minikube-tips" rel="alternate" type="text/html" title="7 Minikube Tips" /><published>2020-06-28T14:04:00-03:00</published><updated>2020-06-28T14:04:00-03:00</updated><id>https://tomfern.com/post/Minikube-tips-06-30---7-minikube-tips</id><content type="html" xml:base="https://tomfern.com/post/7-minikube-tips">&lt;p&gt;I love my Arch Linux, which I’ve been using it for years, more than I care to count. But sometimes I believe that all of us Linux users, deep in our heart of hearts, have some Windows- or Mac-only software that we covet.&lt;/p&gt;
+<p>So give it a try.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[This is why I decided work as a writer.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/writing.jpg" /><media:content medium="image" url="https://tomfern.com/images/writing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">7 Minikube Tips</title><link href="https://tomfern.com/post/7-minikube-tips" rel="alternate" type="text/html" title="7 Minikube Tips" /><published>2020-06-28T14:04:00-03:00</published><updated>2020-06-28T14:04:00-03:00</updated><id>https://tomfern.com/post/Minikube-tips-06-30---7-minikube-tips</id><content type="html" xml:base="https://tomfern.com/post/7-minikube-tips"><![CDATA[<p>I love my Arch Linux, which I’ve been using it for years, more than I care to count. But sometimes I believe that all of us Linux users, deep in our heart of hearts, have some Windows- or Mac-only software that we covet.</p>
 
-&lt;p&gt;For me, that software is Docker Desktop; not much for the sake of Docker, but mainly for the standalone Kubernetes cluster.&lt;/p&gt;
+<p>For me, that software is Docker Desktop; not much for the sake of Docker, but mainly for the standalone Kubernetes cluster.</p>
 
-&lt;p&gt;I’m afraid I can’t give you Docker Desktop for Linux, but I’ll offer the next best thing instead:&lt;/p&gt;
+<p>I’m afraid I can’t give you Docker Desktop for Linux, but I’ll offer the next best thing instead:</p>
 
-&lt;h2 id=&quot;7-tips-to-get-the-most-out-of-minikube&quot;&gt;7 tips to get the most out of Minikube&lt;/h2&gt;
+<h2 id="7-tips-to-get-the-most-out-of-minikube">7 tips to get the most out of Minikube</h2>
 
-&lt;p&gt;&lt;strong&gt;Use the Dashboard&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Use the Dashboard</strong></p>
 
-&lt;p&gt;This is one of the best features for me. Type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minikube dashboard&lt;/code&gt;, which starts the Web UI that lets you manage all your Kubernetes resources. You can even start a terminal in a pod for a quick debug.&lt;/p&gt;
+<p>This is one of the best features for me. Type <code class="language-plaintext highlighter-rouge">minikube dashboard</code>, which starts the Web UI that lets you manage all your Kubernetes resources. You can even start a terminal in a pod for a quick debug.</p>
 
-&lt;p&gt;&lt;img src=&quot;/images/minikube-dashboard.png&quot; alt=&quot;Dashboard&quot; /&gt;&lt;/p&gt;
+<p><img src="/images/minikube-dashboard.png" alt="Dashboard" /></p>
 
-&lt;p&gt;&lt;strong&gt;Periodically Reset Minikube&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Periodically Reset Minikube</strong></p>
 
-&lt;p&gt;Every now and then, delete the cluster with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minikube delete&lt;/code&gt; and start a new one with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minikube start&lt;/code&gt;. I’ve been bitten by strange networking problems in the past and they all cleared up everytime after resetting the cluster.&lt;/p&gt;
+<p>Every now and then, delete the cluster with <code class="language-plaintext highlighter-rouge">minikube delete</code> and start a new one with <code class="language-plaintext highlighter-rouge">minikube start</code>. I’ve been bitten by strange networking problems in the past and they all cleared up everytime after resetting the cluster.</p>
 
-&lt;p&gt;&lt;strong&gt;SSH to the VM&lt;/strong&gt;&lt;/p&gt;
+<p><strong>SSH to the VM</strong></p>
 
-&lt;p&gt;&lt;a href=&quot;https://kubernetes.io/docs/setup/learning-environment/minikube/&quot;&gt;Minikube&lt;/a&gt; runs a single-node Kubernetes on your laptop. Sometimes we need to log in to the VM to get a closer look. The problem is that it runs in headless mode, so we don’t have a terminal window. But Minikube has a built-in ssh command for this: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minikube ssh&lt;/code&gt;&lt;/p&gt;
+<p><a href="https://kubernetes.io/docs/setup/learning-environment/minikube/">Minikube</a> runs a single-node Kubernetes on your laptop. Sometimes we need to log in to the VM to get a closer look. The problem is that it runs in headless mode, so we don’t have a terminal window. But Minikube has a built-in ssh command for this: <code class="language-plaintext highlighter-rouge">minikube ssh</code></p>
 
-&lt;p&gt;&lt;strong&gt;File Sync&lt;/strong&gt;&lt;/p&gt;
+<p><strong>File Sync</strong></p>
 
-&lt;p&gt;If you put a file in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$HOME/.minikube/files&lt;/code&gt; it will automatically be copied into the VM when you start the cluster.&lt;/p&gt;
+<p>If you put a file in <code class="language-plaintext highlighter-rouge">$HOME/.minikube/files</code> it will automatically be copied into the VM when you start the cluster.</p>
 
-&lt;p&gt;For instance you can override the DNS servers in the VM like this:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; ~/.minikube/files/etc
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo &lt;/span&gt;nameserver 1.1.1.1 &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/.minikube/files/etc/resolv.conf
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;minikube start
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<p>For instance you can override the DNS servers in the VM like this:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">mkdir</span> <span class="nt">-p</span> ~/.minikube/files/etc
+<span class="nv">$ </span><span class="nb">echo </span>nameserver 1.1.1.1 <span class="o">&gt;</span> ~/.minikube/files/etc/resolv.conf
+<span class="nv">$ </span>minikube start
+</code></pre></div></div>
 
-&lt;p&gt;&lt;strong&gt;Automount $HOME&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Automount $HOME</strong></p>
 
-&lt;p&gt;Did you know that if you start Minikube with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minikube start --mount&lt;/code&gt; it automatically mounts &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$HOME&lt;/code&gt; in the VM? On my machine, home gets mapped to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/minikube-host&lt;/code&gt; (which is different that &lt;a href=&quot;https://minikube.sigs.k8s.io/docs/handbook/mount/&quot;&gt;documented path&lt;/a&gt;).&lt;/p&gt;
+<p>Did you know that if you start Minikube with <code class="language-plaintext highlighter-rouge">minikube start --mount</code> it automatically mounts <code class="language-plaintext highlighter-rouge">$HOME</code> in the VM? On my machine, home gets mapped to <code class="language-plaintext highlighter-rouge">/minikube-host</code> (which is different that <a href="https://minikube.sigs.k8s.io/docs/handbook/mount/">documented path</a>).</p>
 
-&lt;p&gt;You can also mount any directory in the VM with:&lt;/p&gt;
+<p>You can also mount any directory in the VM with:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;minikube mount /path/on/host:/path/on/vm &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>minikube mount /path/on/host:/path/on/vm &amp;
+</code></pre></div></div>
 
-&lt;p&gt;&lt;strong&gt;Try Different Versions&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Try Different Versions</strong></p>
 
-&lt;p&gt;It’s a good idea to always use the same Kubernetes version that you have in production. You can change the local version with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--kubernetes-version&lt;/code&gt;. For example:&lt;/p&gt;
+<p>It’s a good idea to always use the same Kubernetes version that you have in production. You can change the local version with <code class="language-plaintext highlighter-rouge">--kubernetes-version</code>. For example:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;minikube start &lt;span class=&quot;nt&quot;&gt;--kubernetes-version&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;v1.18.5&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>minikube start <span class="nt">--kubernetes-version</span><span class="o">=</span><span class="s2">"v1.18.5"</span>
+</code></pre></div></div>
 
-&lt;p&gt;&lt;strong&gt;Connect with Tunnel&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Connect with Tunnel</strong></p>
 
-&lt;p&gt;You may have noticed this when you deploy a load balancer service:&lt;/p&gt;
+<p>You may have noticed this when you deploy a load balancer service:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;kubectl get service
-NAME         TYPE           CLUSTER-IP     EXTERNAL-IP    PORT&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;S&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;        AGE
-my-service   LoadBalancer   10.97.97.121   &amp;lt;pending&amp;gt;      80:32446/TCP   88s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl get service
+NAME         TYPE           CLUSTER-IP     EXTERNAL-IP    PORT<span class="o">(</span>S<span class="o">)</span>        AGE
+my-service   LoadBalancer   10.97.97.121   &lt;pending&gt;      80:32446/TCP   88s
+</code></pre></div></div>
 
-&lt;p&gt;It never gets assigned an external IP.&lt;/p&gt;
+<p>It never gets assigned an external IP.</p>
 
-&lt;p&gt;At first, I didn’t pay much attention to that, I just went with the links provided &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minikube service --url SERVICE_NAME&lt;/code&gt;.&lt;/p&gt;
+<p>At first, I didn’t pay much attention to that, I just went with the links provided <code class="language-plaintext highlighter-rouge">minikube service --url SERVICE_NAME</code>.</p>
 
-&lt;p&gt;But see what happens when you start a tunnel (do this on a second terminal)&lt;/p&gt;
+<p>But see what happens when you start a tunnel (do this on a second terminal)</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;minikube tunnel
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>minikube tunnel
+</code></pre></div></div>
 
-&lt;p&gt;Now suddenly the LoadBalancer service has an IP:&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;kubectl get service
-NAME         TYPE           CLUSTER-IP     EXTERNAL-IP    PORT&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;S&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;        AGE
+<p>Now suddenly the LoadBalancer service has an IP:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>kubectl get service
+NAME         TYPE           CLUSTER-IP     EXTERNAL-IP    PORT<span class="o">(</span>S<span class="o">)</span>        AGE
 my-service   LoadBalancer   10.97.97.121   10.97.97.121   80:32446/TCP   88s
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;And it should be connectable:&lt;/p&gt;
+<p>And it should be connectable:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;curl 10.97.97.121:80
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>curl 10.97.97.121:80
+</code></pre></div></div>
 
-&lt;!-- The service has a valid IP now, and that's not all, you can connect to it as long as the tunnel is running. --&gt;
-&lt;!-- 
+<!-- The service has a valid IP now, and that's not all, you can connect to it as long as the tunnel is running. -->
+<!-- 
 Why I want it when I can just port forward?
 minikube tunnel
 minikube tunnel --cleanup
-kubectl port-forward POD PORT:PORT --&gt;
+kubectl port-forward POD PORT:PORT -->
 
-&lt;!-- - Addons, did you know minikube has addons? I didn't.
+<!-- - Addons, did you know minikube has addons? I didn't.
 minikube addons list
-minikube addons enable metrics-server --&gt;
+minikube addons enable metrics-server -->
 
-&lt;hr /&gt;
+<hr />
 
-&lt;p&gt;I’m glad we have Minikube; it’s an excellent way to try out and develop Kubernetes applications. I hope these tips helped you get the most out of it.&lt;/p&gt;
+<p>I’m glad we have Minikube; it’s an excellent way to try out and develop Kubernetes applications. I hope these tips helped you get the most out of it.</p>
 
-&lt;p&gt;-Tomas 👋&lt;/p&gt;</content><author><name></name></author><category term="kubernetes" /><category term="minikube" /><category term="kubernetes" /><summary type="html">I love my Arch Linux, which I’ve been using it for years, more than I care to count. But sometimes I believe that all of us Linux users, deep in our heart of hearts, have some Windows- or Mac-only software that we covet.</summary></entry><entry><title type="html">10 Vim Plugins for Writers</title><link href="https://tomfern.com/post/vim-for-writers" rel="alternate" type="text/html" title="10 Vim Plugins for Writers" /><published>2019-12-15T14:04:00-03:00</published><updated>2019-12-15T14:04:00-03:00</updated><id>https://tomfern.com/post/vim-for-writers</id><content type="html" xml:base="https://tomfern.com/post/vim-for-writers">&lt;p&gt;&lt;img src=&quot;/images//writing.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<p>-Tomas 👋</p>]]></content><author><name>Tommy Fernandez</name></author><category term="kubernetes" /><category term="minikube" /><category term="kubernetes" /><summary type="html"><![CDATA[A mix of tips and less know features.]]></summary></entry><entry><title type="html">10 Vim Plugins for Writers</title><link href="https://tomfern.com/post/vim-for-writers" rel="alternate" type="text/html" title="10 Vim Plugins for Writers" /><published>2019-12-15T14:04:00-03:00</published><updated>2019-12-15T14:04:00-03:00</updated><id>https://tomfern.com/post/vim-for-writers</id><content type="html" xml:base="https://tomfern.com/post/vim-for-writers"><![CDATA[<p><img src="/images//writing.jpg" alt="" /></p>
 
-&lt;p&gt;I still remember the first time I came in contact with Vim; it was during my very first job. It was a part-time gig in a government office. A few months in, they decided to go open-source full in. Out the window went Windows and in came Linux. At the time, I was doing PHP development, and I was sorry to have to let go of my dear Dreamweaver.&lt;/p&gt;
+<p>I still remember the first time I came in contact with Vim; it was during my very first job. It was a part-time gig in a government office. A few months in, they decided to go open-source full in. Out the window went Windows and in came Linux. At the time, I was doing PHP development, and I was sorry to have to let go of my dear Dreamweaver.</p>
 
-&lt;p&gt;I decided that if I had to work on Linux, I would go all the way, no compromises for me. That meant getting used to working on the console and learning Vim.&lt;/p&gt;
+<p>I decided that if I had to work on Linux, I would go all the way, no compromises for me. That meant getting used to working on the console and learning Vim.</p>
 
-&lt;p&gt;When one of the resident Linux gurus walked by my seat and saw my screen, he said, “Are you using Vi? Maybe you’re not so useless after all.” (Funny story, I came across him on facebook the other day. Now that he’s bald, he doesn’t look intimidating at all).&lt;/p&gt;
+<p>When one of the resident Linux gurus walked by my seat and saw my screen, he said, “Are you using Vi? Maybe you’re not so useless after all.” (Funny story, I came across him on facebook the other day. Now that he’s bald, he doesn’t look intimidating at all).</p>
 
-&lt;p&gt;Lately, I’ve been writing a lot. I found that armed with the right plugins, Vim is a great tool writing:&lt;/p&gt;
+<p>Lately, I’ve been writing a lot. I found that armed with the right plugins, Vim is a great tool writing:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;vim-pencil&lt;/strong&gt;: my favorite writing plugin. &lt;a href=&quot;https://github.com/reedes/vim-pencil&quot;&gt;Vim-pencil&lt;/a&gt; brings a ton of nice things like navigation aids, smarter undo based on punctuation, and proper soft wrapping.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;vim-ditto&lt;/strong&gt;: &lt;a href=&quot;https://github.com/dbmrq/vim-ditto&quot;&gt;ditto&lt;/a&gt; highlights repeated words in a paragraph, just what I need to avoid repeating words all the time.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;vim-goyo&lt;/strong&gt;: a Writeroom lookalike for Vim, &lt;a href=&quot;https://github.com/junegunn/goyo.vim&quot;&gt;goyo&lt;/a&gt; removes all distracting elements like modeline and line numbers.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;vim-colors-pencil&lt;/strong&gt;: an elegant, low contrast &lt;a href=&quot;https://github.com/reedes/vim-colors-pencil&quot;&gt;colorscheme&lt;/a&gt; geared towards writing.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;vim-litecorrect&lt;/strong&gt;: &lt;a href=&quot;https://github.com/reedes/vim-litecorrect&quot;&gt;litecorrect&lt;/a&gt; automatically corrects common typing errors like “teh” instead of “the”.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;vim-lexical&lt;/strong&gt;: combined spellchecker and thesaurus. &lt;a href=&quot;https://github.com/reedes/vim-lexical&quot;&gt;Vim-lexical&lt;/a&gt; lets me navigate between spell errors with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;]s&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[s&lt;/code&gt; and quickly find synonyms with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;leader&amp;gt; t&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;vim-textobj-sentence&lt;/strong&gt;: a &lt;a href=&quot;https://github.com/reedes/vim-textobj-sentence&quot;&gt;plugin&lt;/a&gt; for better sentence navigation. I can move between sentences with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;)&lt;/code&gt;, I can cut a sentence with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dis&lt;/code&gt;. Depends on &lt;a href=&quot;https://github.com/kana/vim-textobj-user&quot;&gt;vim-textobj-user&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;vim-textobj-quote&lt;/strong&gt;: this &lt;a href=&quot;https://github.com/reedes/vim-textobj-quote&quot;&gt;plugin&lt;/a&gt; smartly creates “quotes” so I don’t have to.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;ALE&lt;/strong&gt;: the &lt;a href=&quot;https://github.com/dense-analysis/ale&quot;&gt;Asynchronous Lint Engine&lt;/a&gt; is a polyglot analysis tool that is not limited to code. It supports a bunch of style checkers like &lt;a href=&quot;http://proselint.com/&quot;&gt;proselint&lt;/a&gt; and &lt;a href=&quot;https://languagetool.org/&quot;&gt;LanguageTool&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;vim-orgmode&lt;/strong&gt;: I’ll admit that, before I saw the errors of my ways, I communed with &lt;a href=&quot;https://https://www.gnu.org/software/emacs/&quot;&gt;the one that should not be named&lt;/a&gt;. During the time I used Emacs, I never fully switched away from Vim, that alone should have told me something.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><strong>vim-pencil</strong>: my favorite writing plugin. <a href="https://github.com/reedes/vim-pencil">Vim-pencil</a> brings a ton of nice things like navigation aids, smarter undo based on punctuation, and proper soft wrapping.</li>
+  <li><strong>vim-ditto</strong>: <a href="https://github.com/dbmrq/vim-ditto">ditto</a> highlights repeated words in a paragraph, just what I need to avoid repeating words all the time.</li>
+  <li><strong>vim-goyo</strong>: a Writeroom lookalike for Vim, <a href="https://github.com/junegunn/goyo.vim">goyo</a> removes all distracting elements like modeline and line numbers.</li>
+  <li><strong>vim-colors-pencil</strong>: an elegant, low contrast <a href="https://github.com/reedes/vim-colors-pencil">colorscheme</a> geared towards writing.</li>
+  <li><strong>vim-litecorrect</strong>: <a href="https://github.com/reedes/vim-litecorrect">litecorrect</a> automatically corrects common typing errors like “teh” instead of “the”.</li>
+  <li><strong>vim-lexical</strong>: combined spellchecker and thesaurus. <a href="https://github.com/reedes/vim-lexical">Vim-lexical</a> lets me navigate between spell errors with <code class="language-plaintext highlighter-rouge">]s</code>, <code class="language-plaintext highlighter-rouge">[s</code> and quickly find synonyms with <code class="language-plaintext highlighter-rouge">&lt;leader&gt; t</code></li>
+  <li><strong>vim-textobj-sentence</strong>: a <a href="https://github.com/reedes/vim-textobj-sentence">plugin</a> for better sentence navigation. I can move between sentences with <code class="language-plaintext highlighter-rouge">(</code> and <code class="language-plaintext highlighter-rouge">)</code>, I can cut a sentence with <code class="language-plaintext highlighter-rouge">dis</code>. Depends on <a href="https://github.com/kana/vim-textobj-user">vim-textobj-user</a>.</li>
+  <li><strong>vim-textobj-quote</strong>: this <a href="https://github.com/reedes/vim-textobj-quote">plugin</a> smartly creates “quotes” so I don’t have to.</li>
+  <li><strong>ALE</strong>: the <a href="https://github.com/dense-analysis/ale">Asynchronous Lint Engine</a> is a polyglot analysis tool that is not limited to code. It supports a bunch of style checkers like <a href="http://proselint.com/">proselint</a> and <a href="https://languagetool.org/">LanguageTool</a>.</li>
+  <li><strong>vim-orgmode</strong>: I’ll admit that, before I saw the errors of my ways, I communed with <a href="https://https://www.gnu.org/software/emacs/">the one that should not be named</a>. During the time I used Emacs, I never fully switched away from Vim, that alone should have told me something.</li>
+</ul>
 
-&lt;p&gt;For my labors, I gained something invaluable: I found &lt;a href=&quot;https://orgmode.org/&quot;&gt;Org mode&lt;/a&gt;. For me, Org-mode is the most intuitive and straightforward way of interacting with text. This filetype &lt;a href=&quot;https://github.com/jceb/vim-orgmode&quot;&gt;plugin&lt;/a&gt; only implements a subset of all its features, but even so, it’s good enough for my purposes.&lt;/p&gt;
+<p>For my labors, I gained something invaluable: I found <a href="https://orgmode.org/">Org mode</a>. For me, Org-mode is the most intuitive and straightforward way of interacting with text. This filetype <a href="https://github.com/jceb/vim-orgmode">plugin</a> only implements a subset of all its features, but even so, it’s good enough for my purposes.</p>
 
-&lt;p&gt;While not Vim-related, I also find these tools irreplaceable in my workflow:&lt;/p&gt;
+<p>While not Vim-related, I also find these tools irreplaceable in my workflow:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://pandoc.org/&quot;&gt;pandoc&lt;/a&gt;: a command-line markup converter. Supports dozens of formats, including Org-mode and markdown. I usually write in Org and then export to the target type.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://daringfireball.net/projects/titlecase/TitleCase.pl&quot;&gt;TitleCase.pl&lt;/a&gt;: John Gruber’s title case Perl script. I haven’t found a good native Title Case plugin for Vim, so I just use a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;!TitleCase.pl&lt;/code&gt; filter.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/joeyespo/grip&quot;&gt;grip&lt;/a&gt;: view local Markdown files with GitHub renderer. I use it to preview how my files will look before pushing them.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><a href="https://pandoc.org/">pandoc</a>: a command-line markup converter. Supports dozens of formats, including Org-mode and markdown. I usually write in Org and then export to the target type.</li>
+  <li><a href="https://daringfireball.net/projects/titlecase/TitleCase.pl">TitleCase.pl</a>: John Gruber’s title case Perl script. I haven’t found a good native Title Case plugin for Vim, so I just use a <code class="language-plaintext highlighter-rouge">!TitleCase.pl</code> filter.</li>
+  <li><a href="https://github.com/joeyespo/grip">grip</a>: view local Markdown files with GitHub renderer. I use it to preview how my files will look before pushing them.</li>
+</ul>
 
-&lt;!--
+<!--
 - Grammarly: a life saver, I love it so much I subscribed to the premium plan. Even on the free tier, it’s so good to spot common mistakes other checkers will miss. It not perfect, but works well with markdown and org-mode content.
 - [Hemingway App](http://www.hemingwayapp.com/): I’m trying this one out. It marks words and sentences that can be
---&gt;
+-->
 
-&lt;!--
+<!--
 I don’t think I’m going to move away from Vim anymore. I tried most of the other editors: Visual Studio Code, Atom, Sublime Text, Eclipse, and lots more. They just don’t feel as satisfying to work with as Vim.
---&gt;
+-->
 
-&lt;p&gt;Happy writing!&lt;/p&gt;
+<p>Happy writing!</p>
 
-&lt;p&gt;Tomas&lt;/p&gt;</content><author><name></name></author><category term="productivity" /><category term="writing" /><category term="vim" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images//writing.jpg" /><media:content medium="image" url="https://tomfern.com/images//writing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Case study: MariaDB ColumnStore</title><link href="https://tomfern.com/post/case-mariadb-columnstore" rel="alternate" type="text/html" title="Case study: MariaDB ColumnStore" /><published>2019-03-04T15:29:00-03:00</published><updated>2019-03-04T15:29:00-03:00</updated><id>https://tomfern.com/post/case-mariadb-columnstore</id><content type="html" xml:base="https://tomfern.com/post/case-mariadb-columnstore">&lt;p&gt;&lt;img src=&quot;/images/database.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<p>Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="productivity" /><category term="writing" /><category term="vim" /><summary type="html"><![CDATA[A text editor is so much more than mere software.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images//writing.jpg" /><media:content medium="image" url="https://tomfern.com/images//writing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Case study: MariaDB ColumnStore</title><link href="https://tomfern.com/post/case-mariadb-columnstore" rel="alternate" type="text/html" title="Case study: MariaDB ColumnStore" /><published>2019-03-04T15:29:00-03:00</published><updated>2019-03-04T15:29:00-03:00</updated><id>https://tomfern.com/post/case-mariadb-columnstore</id><content type="html" xml:base="https://tomfern.com/post/case-mariadb-columnstore"><![CDATA[<p><img src="/images/database.jpg" alt="" /></p>
 
-&lt;p&gt;A recent project I worked on provided an opportunity to work with MariaDB ColumnStore.&lt;/p&gt;
+<p>A recent project I worked on provided an opportunity to work with MariaDB ColumnStore.</p>
 
-&lt;h2 id=&quot;the-product&quot;&gt;The Product&lt;/h2&gt;
+<h2 id="the-product">The Product</h2>
 
-&lt;p&gt;The product is a business intelligence application. Its main view, a very comprehensive dashboard with an abundance of counters,
-showing all operational aspects: from server status, database backups, support tickets and SLA to datacenter atmospheric conditions.&lt;/p&gt;
+<p>The product is a business intelligence application. Its main view, a very comprehensive dashboard with an abundance of counters,
+showing all operational aspects: from server status, database backups, support tickets and SLA to datacenter atmospheric conditions.</p>
 
-&lt;p&gt;In the middle of all this: several MariaDB databases fed through multiple ETL jobs.&lt;/p&gt;
+<p>In the middle of all this: several MariaDB databases fed through multiple ETL jobs.</p>
 
-&lt;p&gt;As the application grew, the dashboard got increasingly more intricate. The tables got bigger and the queries slower.
-To cope with the higher load, aggregate tables were added at some point. These tables contained precomputed subtotals for various predefined filters.&lt;/p&gt;
+<p>As the application grew, the dashboard got increasingly more intricate. The tables got bigger and the queries slower.
+To cope with the higher load, aggregate tables were added at some point. These tables contained precomputed subtotals for various predefined filters.</p>
 
-&lt;h3 id=&quot;the-issue&quot;&gt;The Issue&lt;/h3&gt;
+<h3 id="the-issue">The Issue</h3>
 
-&lt;p&gt;The aggregate tables worked really well for a very long time.
-However, it still had its downsides, all of which got worse as data ingestion rate increased:&lt;/p&gt;
+<p>The aggregate tables worked really well for a very long time.
+However, it still had its downsides, all of which got worse as data ingestion rate increased:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;db schema and operation gets more complex&lt;/li&gt;
-  &lt;li&gt;tables need to be updated frequently as new data is added&lt;/li&gt;
-  &lt;li&gt;higher resource utilization, locks and timeouts during update jobs&lt;/li&gt;
-  &lt;li&gt;even on the best cases, some lag between precomputed and actual data is always present&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>db schema and operation gets more complex</li>
+  <li>tables need to be updated frequently as new data is added</li>
+  <li>higher resource utilization, locks and timeouts during update jobs</li>
+  <li>even on the best cases, some lag between precomputed and actual data is always present</li>
+</ul>
 
-&lt;p&gt;That last one was causing the big trouble. Dashboards where getting out of date fast, new data was being added faster than it could be processed.
-As a result, users where more frequently seeing stale data.&lt;/p&gt;
+<p>That last one was causing the big trouble. Dashboards where getting out of date fast, new data was being added faster than it could be processed.
+As a result, users where more frequently seeing stale data.</p>
 
-&lt;h3 id=&quot;the-requirements&quot;&gt;The Requirements&lt;/h3&gt;
+<h3 id="the-requirements">The Requirements</h3>
 
-&lt;p&gt;The main requirement is to have the dashboards to be as close as possible to real time, while keeping page load times within reason.&lt;/p&gt;
+<p>The main requirement is to have the dashboards to be as close as possible to real time, while keeping page load times within reason.</p>
 
-&lt;p&gt;Several solutions were proposed, including partitioning, sharding and adding more replication slaves.
-After talking and discussing options, we settled trying out MariaDB ColumnStore.&lt;/p&gt;
+<p>Several solutions were proposed, including partitioning, sharding and adding more replication slaves.
+After talking and discussing options, we settled trying out MariaDB ColumnStore.</p>
 
-&lt;p&gt;Some reasons we thought it would be a good solution:&lt;/p&gt;
+<p>Some reasons we thought it would be a good solution:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Familiarity: They were already running MySQL and MariaDB.&lt;/li&gt;
-  &lt;li&gt;Simplicity: We could get rid of the aggregate tables and their update processes.&lt;/li&gt;
-  &lt;li&gt;Integration: No need to overhaul the whole setup, we could copy the tables at our convenience.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Familiarity: They were already running MySQL and MariaDB.</li>
+  <li>Simplicity: We could get rid of the aggregate tables and their update processes.</li>
+  <li>Integration: No need to overhaul the whole setup, we could copy the tables at our convenience.</li>
+</ul>
 
-&lt;h2 id=&quot;the-columnstore&quot;&gt;The ColumnStore&lt;/h2&gt;
+<h2 id="the-columnstore">The ColumnStore</h2>
 
-&lt;p&gt;MariaDB ColumnStore (CS) is a special version of MariaDB,
-it supports all the traditional MariaDB features while providing an additional storage engine: ColumnStore, for columnar-based tables.&lt;/p&gt;
+<p>MariaDB ColumnStore (CS) is a special version of MariaDB,
+it supports all the traditional MariaDB features while providing an additional storage engine: ColumnStore, for columnar-based tables.</p>
 
-&lt;p&gt;But while MariaDB has a 1 query = 1 CPU restriction, CS is all about parallelism.
-Not only a single query can be processed by multiple CPUs: queries can be distributed among multiple CS servers,&lt;/p&gt;
+<p>But while MariaDB has a 1 query = 1 CPU restriction, CS is all about parallelism.
+Not only a single query can be processed by multiple CPUs: queries can be distributed among multiple CS servers,</p>
 
-&lt;h3 id=&quot;the-test&quot;&gt;The Test&lt;/h3&gt;
+<h3 id="the-test">The Test</h3>
 
-&lt;p&gt;For the test I was given a modest VM with 8 CPUs and 15 GB of RAM.
-We picked a pilot table, extracted one month worth of data from the table (about 5M rows) and proceded to run the tests.&lt;/p&gt;
+<p>For the test I was given a modest VM with 8 CPUs and 15 GB of RAM.
+We picked a pilot table, extracted one month worth of data from the table (about 5M rows) and proceded to run the tests.</p>
 
-&lt;p&gt;As a “control group”, a vanilla MariaDB server was installed and the usual production queries were benchmarked.&lt;/p&gt;
+<p>As a “control group”, a vanilla MariaDB server was installed and the usual production queries were benchmarked.</p>
 
-&lt;p&gt;Then the second phase began: after removing MariaDB, a CS server was installed and data imported in a ColumnStore table.
-Again, bechmarks were run.&lt;/p&gt;
+<p>Then the second phase began: after removing MariaDB, a CS server was installed and data imported in a ColumnStore table.
+Again, bechmarks were run.</p>
 
-&lt;p&gt;Here are the times to compute an aggregate table:
-&lt;img src=&quot;/images/plots/case-mariadb-columnstore/query_load.png&quot; alt=&quot;Computing the aggregate table&quot; /&gt;&lt;/p&gt;
+<p>Here are the times to compute an aggregate table:
+<img src="/images/plots/case-mariadb-columnstore/query_load.png" alt="Computing the aggregate table" /></p>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt; &lt;/th&gt;
-      &lt;th&gt;InnoDB&lt;/th&gt;
-      &lt;th&gt;ColumnStore&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Query Time&lt;/td&gt;
-      &lt;td&gt;7.549 s&lt;/td&gt;
-      &lt;td&gt;0.169 s&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>InnoDB</th>
+      <th>ColumnStore</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Query Time</td>
+      <td>7.549 s</td>
+      <td>0.169 s</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;p&gt;Quite impressive: about 44 times faster.&lt;/p&gt;
+<p>Quite impressive: about 44 times faster.</p>
 
-&lt;p&gt;We can’t claim victory yet, as this does not really reflect the actual user experience.
-Remember the app is fed from the precomputed aggregate table.&lt;/p&gt;
+<p>We can’t claim victory yet, as this does not really reflect the actual user experience.
+Remember the app is fed from the precomputed aggregate table.</p>
 
-&lt;p&gt;The real test is about estimating page load time. How does the realtime aggregation compares against getting the precomputed table?&lt;/p&gt;
+<p>The real test is about estimating page load time. How does the realtime aggregation compares against getting the precomputed table?</p>
 
-&lt;p&gt;&lt;img src=&quot;/images/plots/case-mariadb-columnstore/opmode2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<p><img src="/images/plots/case-mariadb-columnstore/opmode2.png" alt="" /></p>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Query Time&lt;/th&gt;
-      &lt;th&gt;1 thread&lt;/th&gt;
-      &lt;th&gt;2 threads&lt;/th&gt;
-      &lt;th&gt;4 threads&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;InnoDB&lt;/td&gt;
-      &lt;td&gt;0.005 s&lt;/td&gt;
-      &lt;td&gt;0.006 s&lt;/td&gt;
-      &lt;td&gt;0.010 s&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ColumnStore&lt;/td&gt;
-      &lt;td&gt;0.169 s&lt;/td&gt;
-      &lt;td&gt;0.242 s&lt;/td&gt;
-      &lt;td&gt;0.443 s&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <thead>
+    <tr>
+      <th>Query Time</th>
+      <th>1 thread</th>
+      <th>2 threads</th>
+      <th>4 threads</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>InnoDB</td>
+      <td>0.005 s</td>
+      <td>0.006 s</td>
+      <td>0.010 s</td>
+    </tr>
+    <tr>
+      <td>ColumnStore</td>
+      <td>0.169 s</td>
+      <td>0.242 s</td>
+      <td>0.443 s</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;p&gt;From the user perspective, performance with CS is &lt;em&gt;worse&lt;/em&gt;, the page load time increases in about 2 orders of magnitude.
-True, the data show is as realtime as possible. But can we do better?&lt;/p&gt;
+<p>From the user perspective, performance with CS is <em>worse</em>, the page load time increases in about 2 orders of magnitude.
+True, the data show is as realtime as possible. But can we do better?</p>
 
-&lt;p&gt;Yes, of course. So far we only scratched the surface.&lt;/p&gt;
+<p>Yes, of course. So far we only scratched the surface.</p>
 
-&lt;p&gt;MariaDB ColumnStore has 3 modes of operation, these can be set at global level or session level:&lt;/p&gt;
+<p>MariaDB ColumnStore has 3 modes of operation, these can be set at global level or session level:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Mode 0: generic row-by-row mode, highly compatible but much slower.&lt;/li&gt;
-  &lt;li&gt;Mode 1: distributed, very fast but non-parallelizable queries are rejected.&lt;/li&gt;
-  &lt;li&gt;Mode 2: automatic, switches between mode 0 and 1 depending on query.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Mode 0: generic row-by-row mode, highly compatible but much slower.</li>
+  <li>Mode 1: distributed, very fast but non-parallelizable queries are rejected.</li>
+  <li>Mode 2: automatic, switches between mode 0 and 1 depending on query.</li>
+</ul>
 
-&lt;p&gt;Mode 1 is the default, which means it wants to be fed good queries.
+<p>Mode 1 is the default, which means it wants to be fed good queries.
 To make the previous tests work, I had to switch to mode 0, so we’re not
-getting the best possible performance.&lt;/p&gt;
+getting the best possible performance.</p>
 
-&lt;p&gt;With a surprisingly little bit of rewriting, the same queries were running on mode 1.&lt;/p&gt;
+<p>With a surprisingly little bit of rewriting, the same queries were running on mode 1.</p>
 
-&lt;p&gt;Let’s see how well it does:
-&lt;img src=&quot;/images/plots/case-mariadb-columnstore/opmodes_vs_innodb.png&quot; alt=&quot;Aggregate table vs ColumnStore&quot; /&gt;&lt;/p&gt;
+<p>Let’s see how well it does:
+<img src="/images/plots/case-mariadb-columnstore/opmodes_vs_innodb.png" alt="Aggregate table vs ColumnStore" /></p>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Query Time&lt;/th&gt;
-      &lt;th&gt;1 thread&lt;/th&gt;
-      &lt;th&gt;2 threads&lt;/th&gt;
-      &lt;th&gt;4 threads&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;InnoDB (aggregate)&lt;/td&gt;
-      &lt;td&gt;0.005 s&lt;/td&gt;
-      &lt;td&gt;0.006 s&lt;/td&gt;
-      &lt;td&gt;0.010 s&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ColumnStore (mode 1)&lt;/td&gt;
-      &lt;td&gt;0.048 s&lt;/td&gt;
-      &lt;td&gt;0.068 s&lt;/td&gt;
-      &lt;td&gt;0.117 s&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;ColumnStore (mode 0)&lt;/td&gt;
-      &lt;td&gt;0.169 s&lt;/td&gt;
-      &lt;td&gt;0.242 s&lt;/td&gt;
-      &lt;td&gt;0.443 s&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <thead>
+    <tr>
+      <th>Query Time</th>
+      <th>1 thread</th>
+      <th>2 threads</th>
+      <th>4 threads</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>InnoDB (aggregate)</td>
+      <td>0.005 s</td>
+      <td>0.006 s</td>
+      <td>0.010 s</td>
+    </tr>
+    <tr>
+      <td>ColumnStore (mode 1)</td>
+      <td>0.048 s</td>
+      <td>0.068 s</td>
+      <td>0.117 s</td>
+    </tr>
+    <tr>
+      <td>ColumnStore (mode 0)</td>
+      <td>0.169 s</td>
+      <td>0.242 s</td>
+      <td>0.443 s</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;p&gt;Query times improved a lot, realtime &lt;em&gt;mode 1&lt;/em&gt; takes only 1 order of magnitude more than getting the precomputed data, that’s quite a feat.
-Page load times are still worse, but it’s very much within the usual latency for a web application.&lt;/p&gt;
+<p>Query times improved a lot, realtime <em>mode 1</em> takes only 1 order of magnitude more than getting the precomputed data, that’s quite a feat.
+Page load times are still worse, but it’s very much within the usual latency for a web application.</p>
 
-&lt;h2 id=&quot;the-solution&quot;&gt;The Solution&lt;/h2&gt;
+<h2 id="the-solution">The Solution</h2>
 
-&lt;p&gt;Once the plan was green-lighted, I proceeded to install a proper CS server (only one node for now, but we can add more later).&lt;/p&gt;
+<p>Once the plan was green-lighted, I proceeded to install a proper CS server (only one node for now, but we can add more later).</p>
 
-&lt;p&gt;To provide load-balancing a MariaDB MaxScale proxy was added.
+<p>To provide load-balancing a MariaDB MaxScale proxy was added.
 This proved a key component as it also allows to capture changes on the
-main db, which are then sent to CS without needing to modify any other processes.&lt;/p&gt;
+main db, which are then sent to CS without needing to modify any other processes.</p>
 
-&lt;p&gt;With proper load balancing in place, we took to opportunity to add more slave replicas to increase the performance of the general queries.&lt;/p&gt;
+<p>With proper load balancing in place, we took to opportunity to add more slave replicas to increase the performance of the general queries.</p>
 
-&lt;h3 id=&quot;caveats&quot;&gt;Caveats&lt;/h3&gt;
+<h3 id="caveats">Caveats</h3>
 
-&lt;p&gt;Some problems we encountered along the way:&lt;/p&gt;
+<p>Some problems we encountered along the way:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Not all queries were as easy to optimize for mode 1.&lt;/li&gt;
-  &lt;li&gt;Not all aggregation functions are available for CS tables:
-Things like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SUM(FIND_IN_SET(code,'0,1'))&lt;/code&gt; don’t work. In some cases, we had to add additional columns to work around this.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Not all queries were as easy to optimize for mode 1.</li>
+  <li>Not all aggregation functions are available for CS tables:
+Things like <code class="language-plaintext highlighter-rouge">SUM(FIND_IN_SET(code,'0,1'))</code> don’t work. In some cases, we had to add additional columns to work around this.</li>
+</ul>
 
-&lt;!--listend--&gt;
+<!--listend-->
 
-&lt;ul&gt;
-  &lt;li&gt;Datatypes in CS are more strict than in MariaDB, JOINS require types to match much more closely.&lt;/li&gt;
-  &lt;li&gt;Some queries where trying to aggregate too many columns at a time, which probably made sense of a Row based database. But for CS we found
-it’s better to split them in separate queries.&lt;/li&gt;
-  &lt;li&gt;Big joins can fail due to lack of memory, disk-based joins are disabled by default. Enabling the feature fixes the issue,
-but performance goes down fast. As a result, we had to tweak joins and where conditions on some queries.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Datatypes in CS are more strict than in MariaDB, JOINS require types to match much more closely.</li>
+  <li>Some queries where trying to aggregate too many columns at a time, which probably made sense of a Row based database. But for CS we found
+it’s better to split them in separate queries.</li>
+  <li>Big joins can fail due to lack of memory, disk-based joins are disabled by default. Enabling the feature fixes the issue,
+but performance goes down fast. As a result, we had to tweak joins and where conditions on some queries.</li>
+</ul>
 
-&lt;h2 id=&quot;related-links&quot;&gt;Related links&lt;/h2&gt;
+<h2 id="related-links">Related links</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;MariaDB ColumnStore: &lt;a href=&quot;https://mariadb.com/kb/en/library/mariadb-columnstore/&quot;&gt;https://mariadb.com/kb/en/library/mariadb-columnstore/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Operating modes: &lt;a href=&quot;https://mariadb.com/kb/en/library/columnstore-operating-mode/&quot;&gt;https://mariadb.com/kb/en/library/columnstore-operating-mode/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Aggregate functions: &lt;a href=&quot;https://mariadb.com/kb/en/library/columnstore-distributed-aggregate-functions/&quot;&gt;https://mariadb.com/kb/en/library/columnstore-distributed-aggregate-functions/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;MariaDB MaxScale: &lt;a href=&quot;https://mariadb.com/kb/en/maxscale/&quot;&gt;https://mariadb.com/kb/en/maxscale/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Change Data Capture: &lt;a href=&quot;https://mariadb.com/kb/en/mariadb-maxscale-22-change-data-capture-cdc-protocol/&quot;&gt;https://mariadb.com/kb/en/mariadb-maxscale-22-change-data-capture-cdc-protocol/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>MariaDB ColumnStore: <a href="https://mariadb.com/kb/en/library/mariadb-columnstore/">https://mariadb.com/kb/en/library/mariadb-columnstore/</a></li>
+  <li>Operating modes: <a href="https://mariadb.com/kb/en/library/columnstore-operating-mode/">https://mariadb.com/kb/en/library/columnstore-operating-mode/</a></li>
+  <li>Aggregate functions: <a href="https://mariadb.com/kb/en/library/columnstore-distributed-aggregate-functions/">https://mariadb.com/kb/en/library/columnstore-distributed-aggregate-functions/</a></li>
+  <li>MariaDB MaxScale: <a href="https://mariadb.com/kb/en/maxscale/">https://mariadb.com/kb/en/maxscale/</a></li>
+  <li>Change Data Capture: <a href="https://mariadb.com/kb/en/mariadb-maxscale-22-change-data-capture-cdc-protocol/">https://mariadb.com/kb/en/mariadb-maxscale-22-change-data-capture-cdc-protocol/</a></li>
+</ul>
 
-&lt;h2 id=&quot;thanks&quot;&gt;Thanks&lt;/h2&gt;
+<h2 id="thanks">Thanks</h2>
 
-&lt;p&gt;I’d like to thank the customer who very graciously allowed me to publish this entry and share the experience.&lt;/p&gt;
+<p>I’d like to thank the customer who very graciously allowed me to publish this entry and share the experience.</p>
 
-&lt;p&gt;Later&lt;/p&gt;
+<p>Later</p>
 
-&lt;p&gt;Tomas&lt;/p&gt;</content><author><name></name></author><category term="column-databases" /><category term="mariadb" /><category term="case-study" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/database.jpg" /><media:content medium="image" url="https://tomfern.com/images/database.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Making the most out of Docker</title><link href="https://tomfern.com/post/docker-perf-tips" rel="alternate" type="text/html" title="Making the most out of Docker" /><published>2019-02-02T11:21:00-03:00</published><updated>2019-02-02T11:21:00-03:00</updated><id>https://tomfern.com/post/making-the-most-out-of-docker</id><content type="html" xml:base="https://tomfern.com/post/docker-perf-tips">&lt;p&gt;&lt;img src=&quot;/images/docker.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+<p>Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="column-databases" /><category term="mariadb" /><category term="case-study" /><summary type="html"><![CDATA[Taking advantage of column-based databases.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/database.jpg" /><media:content medium="image" url="https://tomfern.com/images/database.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Making the most out of Docker</title><link href="https://tomfern.com/post/docker-perf-tips" rel="alternate" type="text/html" title="Making the most out of Docker" /><published>2019-02-02T11:21:00-03:00</published><updated>2019-02-02T11:21:00-03:00</updated><id>https://tomfern.com/post/making-the-most-out-of-docker</id><content type="html" xml:base="https://tomfern.com/post/docker-perf-tips"><![CDATA[<p><img src="/images/docker.jpg" alt="" /></p>
 
-&lt;p&gt;Some options that might increase performance, some that don’t.&lt;/p&gt;
+<p>Some options that might increase performance, some that don’t.</p>
 
-&lt;h2 id=&quot;network&quot;&gt;Network&lt;/h2&gt;
+<h2 id="network">Network</h2>
 
-&lt;p&gt;Containers get connected to a bridge network by default.
-A software bridge that allows communication between containers running on the same host &amp;amp; bridge.
+<p>Containers get connected to a bridge network by default.
+A software bridge that allows communication between containers running on the same host &amp; bridge.
 We can also create and use custom bridges, to create isolated groups of containers.
-To allow connections from outside, we must map the host’s ports to a container’s with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-p&lt;/code&gt; (&lt;em&gt;publish&lt;/em&gt; e.g. -p 3306:3306)
-This is easy and flexible, but it makes Docker start an additional process (&lt;em&gt;docker-proxy&lt;/em&gt;), which can use a non-trivial amount of CPU.&lt;/p&gt;
+To allow connections from outside, we must map the host’s ports to a container’s with <code class="language-plaintext highlighter-rouge">-p</code> (<em>publish</em> e.g. -p 3306:3306)
+This is easy and flexible, but it makes Docker start an additional process (<em>docker-proxy</em>), which can use a non-trivial amount of CPU.</p>
 
-&lt;p&gt;What’s the alternative? Consider using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--net=host&lt;/code&gt;, which connects the container network directly the host.
-In my experience, a considerable boost can be gained, specially when there are multiple connections.&lt;/p&gt;
+<p>What’s the alternative? Consider using <code class="language-plaintext highlighter-rouge">--net=host</code>, which connects the container network directly the host.
+In my experience, a considerable boost can be gained, specially when there are multiple connections.</p>
 
-&lt;p&gt;The downside of this is that we run the risk of inadvertently exposing ports to the outside world.
+<p>The downside of this is that we run the risk of inadvertently exposing ports to the outside world.
 Moreover, changing service ports is, yet again, a hassle.
-We’ll need to deal with configuration settings inside the container.&lt;/p&gt;
+We’ll need to deal with configuration settings inside the container.</p>
 
-&lt;p&gt;How much more we can get out of Docker?
-I ran a &lt;a href=&quot;/post/sysbench-guide-2&quot;&gt;sysbench&lt;/a&gt; OLTP read+write test with 8 threads on MariaDB 10.3.12 to see.&lt;/p&gt;
+<p>How much more we can get out of Docker?
+I ran a <a href="/post/sysbench-guide-2">sysbench</a> OLTP read+write test with 8 threads on MariaDB 10.3.12 to see.</p>
 
-&lt;p&gt;&lt;img src=&quot;/images/plots/docker-perf-tips/oltp_rw.png&quot; alt=&quot;Network Types&quot; /&gt;&lt;/p&gt;
+<p><img src="/images/plots/docker-perf-tips/oltp_rw.png" alt="Network Types" /></p>
 
-&lt;p&gt;In my test, host network means about a 37% TPS increase. I’ll let you decide if that is worth letting go of port mapping.&lt;/p&gt;
+<p>In my test, host network means about a 37% TPS increase. I’ll let you decide if that is worth letting go of port mapping.</p>
 
-&lt;h2 id=&quot;storage&quot;&gt;Storage&lt;/h2&gt;
+<h2 id="storage">Storage</h2>
 
-&lt;p&gt;Containers are made up of several layers, the top one is the only one that can be written into.
+<p>Containers are made up of several layers, the top one is the only one that can be written into.
 Once a container is stopped and removed, this layer is lost.
 The layers are managed by one of Docker’s storage drivers, which does copy-on-write.
-Docker’s documentation states that this feature reduces performance.&lt;/p&gt;
+Docker’s documentation states that this feature reduces performance.</p>
 
-&lt;p&gt;To provide permanent storage we can use volumes and bind mounts.
+<p>To provide permanent storage we can use volumes and bind mounts.
 Volumes are managed by Docker itself, whereas bind mounts provide a way to map directory or file between the host and the container.
-In theory, these methods should be more efficient because they bypass Docker’s storage driver.&lt;/p&gt;
+In theory, these methods should be more efficient because they bypass Docker’s storage driver.</p>
 
-&lt;p&gt;I was curious about a case in which I had to write lots of data but I didn’t need persistence.
+<p>I was curious about a case in which I had to write lots of data but I didn’t need persistence.
 The best solution would have been to a tmpfs mount, being memory storage, it’s the fastest.
-But we don’t always have enough memory. What’s the best other alternative?&lt;/p&gt;
+But we don’t always have enough memory. What’s the best other alternative?</p>
 
-&lt;p&gt;I tested random write speed with &lt;a href=&quot;http://freshmeat.sourceforge.net/projects/fio&quot;&gt;fio&lt;/a&gt; on an EC2 host with an io1 1000 IOPS volume.&lt;/p&gt;
+<p>I tested random write speed with <a href="http://freshmeat.sourceforge.net/projects/fio">fio</a> on an EC2 host with an io1 1000 IOPS volume.</p>
 
-&lt;p&gt;&lt;img src=&quot;/images/plots/docker-perf-tips/fio_write_3.png&quot; alt=&quot;Random write speeds&quot; /&gt;&lt;/p&gt;
+<p><img src="/images/plots/docker-perf-tips/fio_write_3.png" alt="Random write speeds" /></p>
 
-&lt;p&gt;As you can see, the mount option really makes no difference for write speeds.&lt;/p&gt;
+<p>As you can see, the mount option really makes no difference for write speeds.</p>
 
-&lt;p&gt;To put things into perspective I repeated the test with a tmpfs mount.
-I had to use a log scale to even see the slower options.&lt;/p&gt;
+<p>To put things into perspective I repeated the test with a tmpfs mount.
+I had to use a log scale to even see the slower options.</p>
 
-&lt;p&gt;&lt;img src=&quot;/images/plots/docker-perf-tips/fio_write_4_log.png&quot; alt=&quot;Random write speeds&quot; /&gt;&lt;/p&gt;
+<p><img src="/images/plots/docker-perf-tips/fio_write_4_log.png" alt="Random write speeds" /></p>
 
-&lt;h2 id=&quot;use-limits&quot;&gt;Use Limits&lt;/h2&gt;
+<h2 id="use-limits">Use Limits</h2>
 
-&lt;p&gt;Containers, by default, don’t have any limits.
+<p>Containers, by default, don’t have any limits.
 Any of them can hoard all the host system’s resources.
-This may be well and fine for development, but a potential disaster for production.&lt;/p&gt;
+This may be well and fine for development, but a potential disaster for production.</p>
 
-&lt;p&gt;Thus, a final recommendation: set limits for production containers. At the very least a memory limit.
+<p>Thus, a final recommendation: set limits for production containers. At the very least a memory limit.
 To avoid swapping and containers getting killed by out of memory errors.
-We can also set limits for CPU and disk I/O.&lt;/p&gt;
+We can also set limits for CPU and disk I/O.</p>
 
-&lt;p&gt;First, we need to find out suitable limits. We can start the container normally and check resource usage:&lt;/p&gt;
+<p>First, we need to find out suitable limits. We can start the container normally and check resource usage:</p>
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker stats &amp;lt;CONTAINER_ID&amp;gt;
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker stats &lt;CONTAINER_ID&gt;
 
 CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
 529ea41caf55        jolly_borg          3.36%               5.016MiB / 983.9MiB   0.51%               0B / 0B             36.1MB / 24.4GB     7
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;p&gt;A lot of details can be found under the &lt;strong&gt;/sys/fs/cgroup&lt;/strong&gt; filesystem.
-For example, we can get a great deal of interesting memory counters.&lt;/p&gt;
+<p>A lot of details can be found under the <strong>/sys/fs/cgroup</strong> filesystem.
+For example, we can get a great deal of interesting memory counters.</p>
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;-&amp;gt; cat /sys/fs/cgroup/memory/docker/&amp;lt;FULL_CONTAINER_ID&amp;gt;/memory.stats
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-&gt; cat /sys/fs/cgroup/memory/docker/&lt;FULL_CONTAINER_ID&gt;/memory.stats
 
 cache 41623552
 rss 1097854976
@@ -839,41 +839,41 @@ total_active_anon 738381824
 total_inactive_file 10625024
 total_active_file 15716352
 total_unevictable 0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;blockquote&gt;
-  &lt;p&gt;To get the full container id: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker ps --no-trunc&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>To get the full container id: <code class="language-plaintext highlighter-rouge">docker ps --no-trunc</code></p>
+</blockquote>
 
-&lt;p&gt;Once we have an estimation, we can try starting a new container with some limits.&lt;/p&gt;
+<p>Once we have an estimation, we can try starting a new container with some limits.</p>
 
-&lt;p&gt;For a hard memory limit, we can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--memory&lt;/code&gt;.
-Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--cpus&lt;/code&gt; to limit the amount of CPUs available.&lt;/p&gt;
+<p>For a hard memory limit, we can use <code class="language-plaintext highlighter-rouge">--memory</code>.
+Use <code class="language-plaintext highlighter-rouge">--cpus</code> to limit the amount of CPUs available.</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;When setting a memory limit, Docker will set a swap limit of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--memory&lt;/code&gt; * 2. This can be changed with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--memory-swap&lt;/code&gt;: &lt;em&gt;total swap allowed&lt;/em&gt; = &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--memory&lt;/code&gt; - &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--memory-swap&lt;/code&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p>When setting a memory limit, Docker will set a swap limit of <code class="language-plaintext highlighter-rouge">--memory</code> * 2. This can be changed with <code class="language-plaintext highlighter-rouge">--memory-swap</code>: <em>total swap allowed</em> = <code class="language-plaintext highlighter-rouge">--memory</code> - <code class="language-plaintext highlighter-rouge">--memory-swap</code>.</p>
+</blockquote>
 
-&lt;p&gt;Container limits can even be changed while they are running.
+<p>Container limits can even be changed while they are running.
 We don’t need to restart containers as
-Docker can change limits at runtime: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker update&lt;/code&gt;&lt;/p&gt;
+Docker can change limits at runtime: <code class="language-plaintext highlighter-rouge">docker update</code></p>
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# set limits, 4 CPUs, 4G of memory, 1G of swap
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code># set limits, 4 CPUs, 4G of memory, 1G of swap
 docker run -it --cpus=4 --memory=4G --memory-swap=5G ubuntu:latest bash
 # increase memory limits, 8G memory, 1G of swap
-docker update --memory=8G --memory-swap=9G &amp;lt;CONTAINER_ID&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+docker update --memory=8G --memory-swap=9G &lt;CONTAINER_ID&gt;
+</code></pre></div></div>
 
-&lt;h2 id=&quot;related-links&quot;&gt;Related links&lt;/h2&gt;
+<h2 id="related-links">Related links</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;Benchmark data: &lt;a href=&quot;https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips&quot;&gt;https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/network/&quot;&gt;https://docs.docker.com/network/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/storage/&quot;&gt;https://docs.docker.com/storage/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/config/containers/resource%5Fconstraints/&quot;&gt;https://docs.docker.com/config/containers/resource%5Fconstraints/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/config/containers/runmetrics/&quot;&gt;https://docs.docker.com/config/containers/runmetrics/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Benchmark data: <a href="https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips">https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips</a></li>
+  <li><a href="https://docs.docker.com/network/">https://docs.docker.com/network/</a></li>
+  <li><a href="https://docs.docker.com/storage/">https://docs.docker.com/storage/</a></li>
+  <li><a href="https://docs.docker.com/config/containers/resource%5Fconstraints/">https://docs.docker.com/config/containers/resource%5Fconstraints/</a></li>
+  <li><a href="https://docs.docker.com/config/containers/runmetrics/">https://docs.docker.com/config/containers/runmetrics/</a></li>
+</ul>
 
-&lt;p&gt;See you.&lt;/p&gt;
+<p>See you.</p>
 
-&lt;p&gt;Tomas&lt;/p&gt;</content><author><name></name></author><category term="docker" /><category term="mariadb" /><category term="linux" /><category term="benchmarks" /><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/docker.jpg" /><media:content medium="image" url="https://tomfern.com/images/docker.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="docker" /><category term="mariadb" /><category term="linux" /><category term="benchmarks" /><summary type="html"><![CDATA[A few tips to make the most of a Docker.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/docker.jpg" /><media:content medium="image" url="https://tomfern.com/images/docker.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

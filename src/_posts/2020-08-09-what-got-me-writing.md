@@ -4,7 +4,7 @@ date: "2020-08-08T07:00:00-03:00"
 permalink: "/post/what-got-me-writing"
 
 tags: "writing"
-description: "This is why I decided work as a writer."
+excerpt: "This is why I decided work as a writer."
 image: /images/writing.jpg
 ---
 

@@ -5,7 +5,7 @@ permalink: "/post/7-minikube-tips"
 
 tags: kubernetes minikube kubernetes
 # draft: false
-description: "A mix of tips and less know features."
+excerpt: "A mix of tips and less know features."
 
 ---
 

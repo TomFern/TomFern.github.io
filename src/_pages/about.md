@@ -1,9 +1,9 @@
 ---
-# layout: page
-title: About
+layout: single
+title: About me
 permalink: /about/
 image: /images/mountains.jpg
-description: About the author
+excerpt: About the author
 ---
 
 ![Me](/images/mountains.jpg)

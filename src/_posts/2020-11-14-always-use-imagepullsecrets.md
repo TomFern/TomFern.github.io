@@ -4,7 +4,7 @@ date: "2020-11-14T07:00:00-03:00"
 permalink: "/post/always-use-imagepullsecrets"
 
 tags: kubernetes docker
-description: "Kubernetes users: don't get bitten by rate limits."
+excerpt: "Kubernetes users: don't get bitten by rate limits."
 image: /images/speed-limit.jpg
 ---
 

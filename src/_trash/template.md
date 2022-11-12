@@ -7,7 +7,7 @@ category: ""
 tags:
     - tags
 draft: true
-description: "description"
+excerpt: "description"
 
 ---
 

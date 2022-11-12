@@ -4,7 +4,7 @@ date: "2019-12-15T14:04:00-03:00"
 permalink: "/post/vim-for-writers"
 
 tags: productivity writing vim
-description: "A text editor is so much more than mere software."
+excerpt: "A text editor is so much more than mere software."
 image: /images//writing.jpg
 ---
 

@@ -5,7 +5,7 @@ permalink: "/post/talk-nerdearla-2020"
 
 tags: talks nerdearla slides
 draft: false
-description: "View my talk 'Escritura técnica en inglés'"
+excerpt: "View my talk 'Escritura técnica en inglés'"
 image: /images/nerdearla.png
 ---
 

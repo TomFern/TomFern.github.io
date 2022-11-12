@@ -4,7 +4,7 @@ date: "2019-01-08T00:20:00-03:00"
 tags: databases mysql guides
 
 permalink: "/post/mysqlslap-guide-2"
-description: "A guide to benchmarking with mysqlslap."
+excerpt: "A guide to benchmarking with mysqlslap."
 image: /images/database.jpg
 ---
 

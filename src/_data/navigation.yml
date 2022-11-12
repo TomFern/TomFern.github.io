@@ -1,0 +1,15 @@
+main:
+  - title: "About"
+    url: /about
+  - title: "Tags"
+    url: /tags/
+  # - title: "Categories"
+  #   url: /categories/
+  # - title: "Tags"
+  #   url: /tags/
+  # - title: "Pages"
+  #   url: /page-archive/
+  # - title: "Collections"
+  #   url: /collection-archive/
+  - title: "My writings on Semaphore"
+    url: https://semaphoreci.com/author/tfernandez

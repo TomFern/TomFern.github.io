@@ -4,7 +4,7 @@ date: "2020-11-03T07:00:00-03:00"
 permalink: "/post/programming-humans"
 
 tags: writing
-description: "Language is I/O of the mind"
+excerpt: "Language is I/O of the mind"
 image: /images/image-4.jpg
 ---
 

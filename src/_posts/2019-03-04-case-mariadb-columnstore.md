@@ -5,7 +5,7 @@ permalink: "/post/case-mariadb-columnstore"
 
 tags: column-databases mariadb case-study
 draft: false
-description: "Taking advantage of column-based databases."
+excerpt: "Taking advantage of column-based databases."
 # aliases: ["/post/case-mariadb-columnstore"]
 image: /images/database.jpg
 ---
