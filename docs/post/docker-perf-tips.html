@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Making the most out of Docker | Chaos is order undeciphered</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Making the most out of Docker" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A few tips to make the most of a Docker." />
+<meta property="og:description" content="A few tips to make the most of a Docker." />
+<link rel="canonical" href="https://tomfern.com/post/docker-perf-tips" />
+<meta property="og:url" content="https://tomfern.com/post/docker-perf-tips" />
+<meta property="og:site_name" content="Chaos is order undeciphered" />
+<meta property="og:image" content="https://tomfern.com/images/docker.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-02T11:21:00-03:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://tomfern.com/images/docker.jpg" />
+<meta property="twitter:title" content="Making the most out of Docker" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-02-02T11:21:00-03:00","datePublished":"2019-02-02T11:21:00-03:00","description":"A few tips to make the most of a Docker.","headline":"Making the most out of Docker","image":"https://tomfern.com/images/docker.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://tomfern.com/post/docker-perf-tips"},"url":"https://tomfern.com/post/docker-perf-tips"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://tomfern.com/feed.xml" title="Chaos is order undeciphered" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Chaos is order undeciphered</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/images/">Shared static images</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Making the most out of Docker</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-02-02T11:21:00-03:00" itemprop="datePublished">Feb 2, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="/images/docker.jpg" alt="" />
+Some options that might increase performance, some that don’t.</p>
+
+<h2 id="network">Network</h2>
+
+<p>Containers get connected to a bridge network by default.
+A software bridge that allows communication between containers running on the same host &amp; bridge.
+We can also create and use custom bridges, to create isolated groups of containers.
+To allow connections from outside, we must map the host’s ports to a container’s with <code class="language-plaintext highlighter-rouge">-p</code> (<em>publish</em> e.g. -p 3306:3306)
+This is easy and flexible, but it makes Docker start an additional process (<em>docker-proxy</em>), which can use a non-trivial amount of CPU.</p>
+
+<p>What’s the alternative? Consider using <code class="language-plaintext highlighter-rouge">--net=host</code>, which connects the container network directly the host.
+In my experience, a considerable boost can be gained, specially when there are multiple connections.</p>
+
+<p>The downside of this is that we run the risk of inadvertently exposing ports to the outside world.
+Moreover, changing service ports is, yet again, a hassle.
+We’ll need to deal with configuration settings inside the container.</p>
+
+<p>How much more we can get out of Docker?
+I ran a <a href="/post/sysbench-guide-2">sysbench</a> OLTP read+write test with 8 threads on MariaDB 10.3.12 to see.</p>
+
+<p><img src="/images/plots/docker-perf-tips/oltp_rw.png" alt="Network Types" /></p>
+
+<p>In my test, host network means about a 37% TPS increase. I’ll let you decide if that is worth letting go of port mapping.</p>
+
+<h2 id="storage">Storage</h2>
+
+<p>Containers are made up of several layers, the top one is the only one that can be written into.
+Once a container is stopped and removed, this layer is lost.
+The layers are managed by one of Docker’s storage drivers, which does copy-on-write.
+Docker’s documentation states that this feature reduces performance.</p>
+
+<p>To provide permanent storage we can use volumes and bind mounts.
+Volumes are managed by Docker itself, whereas bind mounts provide a way to map directory or file between the host and the container.
+In theory, these methods should be more efficient because they bypass Docker’s storage driver.</p>
+
+<p>I was curious about a case in which I had to write lots of data but I didn’t need persistence.
+The best solution would have been to a tmpfs mount, being memory storage, it’s the fastest.
+But we don’t always have enough memory. What’s the best other alternative?</p>
+
+<p>I tested random write speed with <a href="http://freshmeat.sourceforge.net/projects/fio">fio</a> on an EC2 host with an io1 1000 IOPS volume.</p>
+
+<p><img src="/images/plots/docker-perf-tips/fio_write_3.png" alt="Random write speeds" /></p>
+
+<p>As you can see, the mount option really makes no difference for write speeds.</p>
+
+<p>To put things into perspective I repeated the test with a tmpfs mount.
+I had to use a log scale to even see the slower options.</p>
+
+<p><img src="/images/plots/docker-perf-tips/fio_write_4_log.png" alt="Random write speeds" /></p>
+
+<h2 id="use-limits">Use Limits</h2>
+
+<p>Containers, by default, don’t have any limits.
+Any of them can hoard all the host system’s resources.
+This may be well and fine for development, but a potential disaster for production.</p>
+
+<p>Thus, a final recommendation: set limits for production containers. At the very least a memory limit.
+To avoid swapping and containers getting killed by out of memory errors.
+We can also set limits for CPU and disk I/O.</p>
+
+<p>First, we need to find out suitable limits. We can start the container normally and check resource usage:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker stats &lt;CONTAINER_ID&gt;
+
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+529ea41caf55        jolly_borg          3.36%               5.016MiB / 983.9MiB   0.51%               0B / 0B             36.1MB / 24.4GB     7
+</code></pre></div></div>
+
+<p>A lot of details can be found under the <strong>/sys/fs/cgroup</strong> filesystem.
+For example, we can get a great deal of interesting memory counters.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-&gt; cat /sys/fs/cgroup/memory/docker/&lt;FULL_CONTAINER_ID&gt;/memory.stats
+
+cache 41623552
+rss 1097854976
+rss_huge 0
+shmem 15343616
+mapped_file 24809472
+dirty 0
+writeback 0
+swap 122916864
+pgpgin 91463838
+pgpgout 91185552
+pgfault 165685756
+pgmajfault 3525
+inactive_anon 373063680
+active_anon 738381824
+inactive_file 10625024
+active_file 15716352
+unevictable 0
+hierarchical_memory_limit 9223372036854771712
+hierarchical_memsw_limit 9223372036854771712
+total_cache 41623552
+total_rss 1096085504
+total_rss_huge 0
+total_shmem 15343616
+total_mapped_file 24809472
+total_dirty 0
+total_writeback 0
+total_swap 122916864
+total_pgpgin 91463838
+total_pgpgout 91186010
+total_pgfault 165685756
+total_pgmajfault 3525
+total_inactive_anon 373063680
+total_active_anon 738381824
+total_inactive_file 10625024
+total_active_file 15716352
+total_unevictable 0
+</code></pre></div></div>
+
+<blockquote>
+  <p>To get the full container id: <code class="language-plaintext highlighter-rouge">docker ps --no-trunc</code></p>
+</blockquote>
+
+<p>Once we have an estimation, we can try starting a new container with some limits.</p>
+
+<p>For a hard memory limit, we can use <code class="language-plaintext highlighter-rouge">--memory</code>.
+Use <code class="language-plaintext highlighter-rouge">--cpus</code> to limit the amount of CPUs available.</p>
+
+<blockquote>
+  <p>When setting a memory limit, Docker will set a swap limit of <code class="language-plaintext highlighter-rouge">--memory</code> * 2. This can be changed with <code class="language-plaintext highlighter-rouge">--memory-swap</code>: <em>total swap allowed</em> = <code class="language-plaintext highlighter-rouge">--memory</code> - <code class="language-plaintext highlighter-rouge">--memory-swap</code>.</p>
+</blockquote>
+
+<p>Container limits can even be changed while they are running.
+We don’t need to restart containers as
+Docker can change limits at runtime: <code class="language-plaintext highlighter-rouge">docker update</code></p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code># set limits, 4 CPUs, 4G of memory, 1G of swap
+docker run -it --cpus=4 --memory=4G --memory-swap=5G ubuntu:latest bash
+# increase memory limits, 8G memory, 1G of swap
+docker update --memory=8G --memory-swap=9G &lt;CONTAINER_ID&gt;
+</code></pre></div></div>
+
+<h2 id="related-links">Related links</h2>
+
+<ul>
+  <li>Benchmark data: <a href="https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips">https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips</a></li>
+  <li><a href="https://docs.docker.com/network/">https://docs.docker.com/network/</a></li>
+  <li><a href="https://docs.docker.com/storage/">https://docs.docker.com/storage/</a></li>
+  <li><a href="https://docs.docker.com/config/containers/resource%5Fconstraints/">https://docs.docker.com/config/containers/resource%5Fconstraints/</a></li>
+  <li><a href="https://docs.docker.com/config/containers/runmetrics/">https://docs.docker.com/config/containers/runmetrics/</a></li>
+</ul>
+
+<p>See you.</p>
+
+<p>Tomas</p>
+
+  </div><a class="u-url" href="/post/docker-perf-tips" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Chaos is order undeciphered</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Chaos is order undeciphered</li><li><a class="u-email" href="mailto:contact (at) tomfern.com">contact (at) tomfern.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomfern"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomfern</span></a></li><li><a href="https://www.twitter.com/tomfernblog"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomfernblog</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Technical writer at Semaphore CI/CD</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

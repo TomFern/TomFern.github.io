@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>MySQLSlap (part 1) | Chaos is order undeciphered</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="MySQLSlap (part 1)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A guide to benchmarking with mysqlslap." />
+<meta property="og:description" content="A guide to benchmarking with mysqlslap." />
+<link rel="canonical" href="https://tomfern.com/post/mysqlslap-guide-1" />
+<meta property="og:url" content="https://tomfern.com/post/mysqlslap-guide-1" />
+<meta property="og:site_name" content="Chaos is order undeciphered" />
+<meta property="og:image" content="https://tomfern.com/images/database.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-08T00:20:00-03:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://tomfern.com/images/database.jpg" />
+<meta property="twitter:title" content="MySQLSlap (part 1)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-01-08T00:20:00-03:00","datePublished":"2019-01-08T00:20:00-03:00","description":"A guide to benchmarking with mysqlslap.","headline":"MySQLSlap (part 1)","image":"https://tomfern.com/images/database.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://tomfern.com/post/mysqlslap-guide-1"},"url":"https://tomfern.com/post/mysqlslap-guide-1"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://tomfern.com/feed.xml" title="Chaos is order undeciphered" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Chaos is order undeciphered</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/images/">Shared static images</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">MySQLSlap (part 1)</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-01-08T00:20:00-03:00" itemprop="datePublished">Jan 8, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="/images/database.jpg" alt="" /></p>
+
+<p>There are loads of ways to benchmark MySQL. <code class="language-plaintext highlighter-rouge">mysqlslap</code> was, I believe, one of the first official tools for this. It’s bundled with the client tools for MySQL and MariaDB,
+so you probably already have it installed.</p>
+
+<p>In this post I’ll cover the basics and the <em>auto generate sql</em> mode, be sure to read the <a href="./mysqlslap-guide-2">second part</a> about other ways to use it.</p>
+
+<h2 id="how-does-it-work">How Does It Work?</h2>
+
+<p>mysqlslap uses the same connection parameters as the normal mysql client, so <code class="language-plaintext highlighter-rouge">--host</code> <code class="language-plaintext highlighter-rouge">--port</code> <code class="language-plaintext highlighter-rouge">--socket</code> <code class="language-plaintext highlighter-rouge">--username</code> <code class="language-plaintext highlighter-rouge">--password</code> all work
+ (but strangely the <code class="language-plaintext highlighter-rouge">--defaults-file</code> doesn’t).</p>
+
+<p>In the examples below, however, the parameters <em>will be omitted</em> for brevity’s sake.</p>
+
+<p>mysqlslap works in 3 stages:</p>
+
+<ol>
+  <li>create test schema</li>
+  <li>run test as multiple clients</li>
+  <li>delete test schema.</li>
+</ol>
+
+<p>The first and last are executed as a single connection, only in the middle step time is measured.</p>
+
+<h2 id="auto-generate-sql">Auto Generate Sql</h2>
+
+<p>In auto generate sql mode, mysqlslap will handle table and queries. No need to write any SQL.</p>
+
+<p>This mode activated with <code class="language-plaintext highlighter-rouge">--auto-generate-sql</code> (or in short form: <code class="language-plaintext highlighter-rouge">-a</code>).</p>
+
+<pre><code class="language-nil">-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=10
+Benchmark
+        Average number of seconds to run all queries: 0.004 seconds
+        Minimum number of seconds to run all queries: 0.004 seconds
+        Maximum number of seconds to run all queries: 0.004 seconds
+        Number of clients running queries: 1
+        Average number of queries per client: 10
+</code></pre>
+
+<p>What happened?</p>
+
+<ol>
+  <li>The <code class="language-plaintext highlighter-rouge">mysqlslap</code> schema was created</li>
+  <li>A test table <code class="language-plaintext highlighter-rouge">t1</code> was created. It has 1 integer and 1 varchar(128) column, no explicit primary key</li>
+  <li>The table was populated with random rows</li>
+  <li>A full table SELECT is run 10 times, sequentially, from a single connection</li>
+  <li>The <code class="language-plaintext highlighter-rouge">mysqlslap</code> schema is dropped</li>
+  <li>The total time taken reported</li>
+</ol>
+
+<p>Let’s break down the options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--auto-generate-sql-load-type</code> what is the test type to run</li>
+  <li><code class="language-plaintext highlighter-rouge">--auto-generate-sql-execute-number</code> how many queries to execute per client</li>
+</ul>
+
+<p>What is different about this next one?</p>
+
+<pre><code class="language-nil"># simulating 10 clients
+-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=1 --concurrency=10
+Benchmark
+        Average number of seconds to run all queries: 0.015 seconds
+        Minimum number of seconds to run all queries: 0.015 seconds
+        Maximum number of seconds to run all queries: 0.015 seconds
+        Number of clients running queries: 10
+        Average number of queries per client: 1
+</code></pre>
+
+<p>This one runs the same total number of SELECTs as before, however it does it in parallel.
+There are 10 clients running the a single query. We get the total taken to run the 10 queries.</p>
+
+<p>Did you notice the times reported? Why is it that we get the same values for average, max and min?
+This is because so far we ran the test only 1 time. We can choose to repeat the test using then <code class="language-plaintext highlighter-rouge">--iterations</code> parameter.</p>
+
+<pre><code class="language-nil"># 100 iterations, 10 clients
+-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-load-type=read --auto-generate-sql-execute-number=1 --concurrency=10 --iterations=100
+Benchmark
+        Average number of seconds to run all queries: 0.006 seconds
+        Minimum number of seconds to run all queries: 0.001 seconds
+        Maximum number of seconds to run all queries: 0.015 seconds
+        Number of clients running queries: 10
+        Average number of queries per client: 1
+</code></pre>
+
+<p>What changed?
+Essentially the whole thing (schema created and dropped) is done 100 times.
+Now times are different because we added some variability.</p>
+
+<h2 id="what-other-things-can-it-do">What Other Things Can It Do?</h2>
+
+<p>We can try other types of tests, <code class="language-plaintext highlighter-rouge">--auto-generate-sql-load-type</code> can be:</p>
+
+<ul>
+  <li>read: <code class="language-plaintext highlighter-rouge">SELECT * FROM table</code></li>
+  <li>write: <code class="language-plaintext highlighter-rouge">INSERT</code></li>
+  <li>key: <code class="language-plaintext highlighter-rouge">SELECT (primary keys columns)</code></li>
+  <li>update: <code class="language-plaintext highlighter-rouge">UPDATE (primary keys)</code></li>
+  <li>mixed: <code class="language-plaintext highlighter-rouge">INSERT INTO table; SELECT * FROM table</code></li>
+</ul>
+
+<p>The mixed mode is the default, it generates 2 queries and both count towards the <code class="language-plaintext highlighter-rouge">--auto-generate-sql-execute-number</code></p>
+
+<pre><code class="language-nil">-&gt; mysqlslap --auto-generate-sql --auto-generate-sql-execute-number=10
+Benchmark
+        Average number of seconds to run all queries: 0.006 seconds
+        Minimum number of seconds to run all queries: 0.006 seconds
+        Maximum number of seconds to run all queries: 0.006 seconds
+        Number of clients running queries: 1
+        Average number of queries per client: 10
+</code></pre>
+
+<p>Since we asked to generate 10 queries, mysqlslap ran 5 INSERTS and 5 SELECTs. We get the total time to run all the queries.</p>
+
+<p>The generated table can be tweaked with the following options:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--number-char-cols</code> number of varchar columns (1)</li>
+  <li><code class="language-plaintext highlighter-rouge">--number-int-cols</code> number of integer columns (1)</li>
+  <li><code class="language-plaintext highlighter-rouge">--auto-generate-sql-guid-primary</code> add a varchar(36) primary column (none)</li>
+  <li><code class="language-plaintext highlighter-rouge">--auto-generate-sql-add-autoincrement</code> add an auto-increment bigint column with an unique index (none)</li>
+  <li><code class="language-plaintext highlighter-rouge">--auto-generate-sql-secondary-indexes</code> generate n integer columns with unique indexes (0)</li>
+</ul>
+
+<p>The table row distribution can be further tweaked with:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--auto-generate-sql-write-number</code> how many rows to insert into test table (100)</li>
+  <li><code class="language-plaintext highlighter-rouge">--auto-generate-sql-unique-query-number</code> how many unique rows, so we can play with cardinality (10)</li>
+</ul>
+
+<p>Other commonly used options are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-vv</code> show verbose output</li>
+  <li><code class="language-plaintext highlighter-rouge">--csv</code> output into CSV file</li>
+  <li><code class="language-plaintext highlighter-rouge">--no-drop</code> don’t drop the schema when done</li>
+  <li><code class="language-plaintext highlighter-rouge">--create-schema</code> use a different test schema name</li>
+</ul>
+
+<h2 id="related-links">Related Links</h2>
+
+<ul>
+  <li>MariaDB’s mysqlslap: <a href="https://mariadb.com/kb/en/library/mysqlslap/">https://mariadb.com/kb/en/library/mysqlslap/</a></li>
+  <li>MySQL’s mysqlslap: <a href="https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html">https://dev.mysql.com/doc/refman/8.0/en/mysqlslap.html</a></li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>mysqlslap is, arguably, a simple benchmark tool, but sometimes simpler is better.</p>
+
+<p>And since we can almost always count on having it installed it’s a good idea to get familiarized with it.</p>
+
+<p>The <a href="./mysqlslap-guide-2">next part</a> will cover the query mode.</p>
+
+  </div><a class="u-url" href="/post/mysqlslap-guide-1" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Chaos is order undeciphered</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Chaos is order undeciphered</li><li><a class="u-email" href="mailto:contact (at) tomfern.com">contact (at) tomfern.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomfern"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomfern</span></a></li><li><a href="https://www.twitter.com/tomfernblog"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomfernblog</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Technical writer at Semaphore CI/CD</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

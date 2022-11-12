@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Sysbench for databases | Chaos is order undeciphered</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="Sysbench for databases" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Testing database with sysbench" />
+<meta property="og:description" content="Testing database with sysbench" />
+<link rel="canonical" href="https://tomfern.com/post/sysbench-guide-2" />
+<meta property="og:url" content="https://tomfern.com/post/sysbench-guide-2" />
+<meta property="og:site_name" content="Chaos is order undeciphered" />
+<meta property="og:image" content="https://tomfern.com/images/database.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-09T00:13:00-03:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://tomfern.com/images/database.jpg" />
+<meta property="twitter:title" content="Sysbench for databases" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-01-09T00:13:00-03:00","datePublished":"2019-01-09T00:13:00-03:00","description":"Testing database with sysbench","headline":"Sysbench for databases","image":"https://tomfern.com/images/database.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://tomfern.com/post/sysbench-guide-2"},"url":"https://tomfern.com/post/sysbench-guide-2"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://tomfern.com/feed.xml" title="Chaos is order undeciphered" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Chaos is order undeciphered</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/images/">Shared static images</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Sysbench for databases</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-01-09T00:13:00-03:00" itemprop="datePublished">Jan 9, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="/images/database.jpg" alt="" />
+This is my second part of the sysbench guide, I’ll cover here some basic benchmarks for databases. Feel free to check my <a href="./sysbench-guide-1">first part</a> for an introduction.</p>
+
+<h2 id="connecting-to-the-db">Connecting to the DB</h2>
+
+<p>First things first, we’ll need a test database. We’ll stick to the default “sbtest”, so go ahead and create it. I’ll wait.</p>
+
+<p>Now sysbench needs the connection parameters. The actual values depend on the target. Sysbench supports MySQL and postgreSQL.</p>
+
+<p>For MySQL, MariaDB or Percona Server the command line options are:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--db-driver=mysql
+--mysql-host=
+--mysql-port=
+--mysql-user=
+--mysql-password=
+</code></pre></div></div>
+
+<p>For postgreSQL, we have:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>--db-driver=pgsql
+--pgsql-host=
+--pgsql-port=
+--pgsql-user=
+--pgsql-password=
+</code></pre></div></div>
+
+<p>For brevity’s sake, I will be <em>omitting these parameters</em> in the examples below, but they are required so don’t you forget them.</p>
+
+<h2 id="the-test-table">The Test Table</h2>
+
+<p>Here we have the prototypical test table</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nv">`sbtest1`</span> <span class="p">(</span>
+  <span class="nv">`id`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+  <span class="nv">`k`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="nv">`c`</span> <span class="nb">char</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8mb4_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="nv">`pad`</span> <span class="nb">char</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span> <span class="k">COLLATE</span> <span class="n">utf8mb4_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">DEFAULT</span> <span class="s1">''</span><span class="p">,</span>
+  <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="nv">`id`</span><span class="p">),</span>
+  <span class="k">KEY</span> <span class="nv">`k_1`</span> <span class="p">(</span><span class="nv">`k`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">InnoDB</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8mb4</span> <span class="k">COLLATE</span><span class="o">=</span><span class="n">utf8mb4_unicode_ci</span>
+</code></pre></div></div>
+
+<p>That’s it. 4 columns: 2 integer and 2 chars. Unfortunately we don’t have so many built-in options to tweak the table as in other tools such as <a href="./mysqlslap-guide-1">mysqlslap</a>
+However, some control is possible.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--auto_inc</code> sets the id column as autoincrement/serial [on]</li>
+  <li><code class="language-plaintext highlighter-rouge">--create_secondary</code> creates a secondary index on column k [on]</li>
+  <li><code class="language-plaintext highlighter-rouge">--mysql_storage_engine</code> storage engine, only applies to MySQL [innodb]</li>
+</ul>
+
+<p>The <code class="language-plaintext highlighter-rouge">id</code> column is populated either by the DB (with autoincrement/serial), or by sequential integers generated by sysbench,
+<code class="language-plaintext highlighter-rouge">k</code> is assigned a random number between 1 and whatever the table size is. The char columns are filled with random numbers,
+in groups of 11 digits separated by dashes, no index is created for either <code class="language-plaintext highlighter-rouge">c</code> or <code class="language-plaintext highlighter-rouge">pad</code>.</p>
+
+<h2 id="bulk-insert">Bulk Insert</h2>
+
+<p>Bulk insert does concurrent multi-row inserts, we specify how many threads we want and each one inserts into its own table.
+So the total number of tables is the same as the number of threads.</p>
+
+<p>The default is 1 thread. But that is easily changed. Let’s create 20 tables.</p>
+
+<p>(remember that the db connection parameters <em>are omitted</em>)</p>
+
+<pre><code class="language-nil">sysbench bulk_insert prepare --threads=20
+</code></pre>
+
+<p>Now lets insert 1 million rows and see how long it takes. The rows distributed  over all the tables.</p>
+
+<pre><code class="language-nil"># Insert 1M rows total, concurrently on the 20 tables
+-&gt; sysbench bulk_insert run --threads=20 --events=1000000 --time=0
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 20
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           43
+        other:                           0
+        total:                           43
+    transactions:                        1000000 (144368.49 per sec.)
+    queries:                             43     (6.21 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          6.9213s
+    total number of events:              1000000
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.07
+         max:                                 2932.57
+         95th percentile:                        0.00
+         sum:                                67550.48
+
+Threads fairness:
+    events (avg/stddev):           50000.0000/13956.14
+    execution time (avg/stddev):   3.3775/0.26
+</code></pre>
+
+<p>We can see that 1M rows were added using a total of 43 INSERTs statements (an average of 23255.8 rows per INSERT). The total time was about 6.92 seconds.</p>
+
+<p>The <em>latency</em> statistics are interesting here, the <em>average</em> time to insert a set of rows was 0.07 milliseconds, but max was way higher, about 2.9 seconds.
+This is because the inserted rows are unevenly inserted among the tables, we can see this by comparing the fairness <em>stdev</em> vs the <em>avg</em>.</p>
+
+<p>After we are satisfied we can drop the tables, and be ready for the next test.</p>
+
+<pre><code class="language-nil">sysbench bulk_insert cleanup --threads=20
+</code></pre>
+
+<h2 id="oltp-read-only">OLTP Read-Only</h2>
+
+<p>OLTP (Online Transaction Processing) tests try simulate transaction-oriented loads in the database, sysbench does this by running several kinds of queries inside a transaction.</p>
+
+<p>Lets start simple. We want to create 10 tables, each with 10K rows. For a total of 100K rows.</p>
+
+<pre><code class="language-nil"># Prepare 10 tables, each with 10K rows
+sysbench oltp_read_only prepare --tables=10 --table_size=100000
+</code></pre>
+
+<p>It’s usually a good idea to <code class="language-plaintext highlighter-rouge">prewarm</code> the database, i.e. load the tables into the buffer pool. So we can more accurately simulate the steady-state performance.</p>
+
+<pre><code class="language-nil">sysbench oltp_read_only prewarm --tables=10 --threads=10
+</code></pre>
+
+<p>Run the benchmark with 10K events, with a ratio of 2 threads per table</p>
+
+<pre><code class="language-nil">-&gt; sysbench oltp_read_only run --tables=10 --threads=20 --events=10000 --time=0
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 20
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            140000
+        write:                           0
+        other:                           20000
+        total:                           160000
+    transactions:                        10000  (1077.22 per sec.)
+    queries:                             160000 (17235.59 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          9.2813s
+    total number of events:              10000
+
+Latency (ms):
+         min:                                    4.37
+         avg:                                   18.54
+         max:                                   69.91
+         95th percentile:                       29.19
+         sum:                               185396.12
+
+Threads fairness:
+    events (avg/stddev):           500.0000/4.46
+    execution time (avg/stddev):   9.2698/0.01
+</code></pre>
+
+<p>So, this is interesting: Why did we get 140K reads when we asked for 10K events?</p>
+
+<p>Sysbench by default runs the following statements per event:</p>
+
+<ul>
+  <li>10 x point selects: <code class="language-plaintext highlighter-rouge">select c from table where id=i</code></li>
+  <li>1 x simple range: <code class="language-plaintext highlighter-rouge">select c from table where id between a and b</code></li>
+  <li>1 x sum range: <code class="language-plaintext highlighter-rouge">select sum(k) from table where id between a and b</code></li>
+  <li>1 x order range: <code class="language-plaintext highlighter-rouge">select c from table where id between a and b order by c</code></li>
+  <li>1 x distinct range: <code class="language-plaintext highlighter-rouge">select distinct c from table where id between a and b order by c</code></li>
+</ul>
+
+<p>When done, delete the tables.</p>
+
+<pre><code class="language-nil">sysbench oltp_read_only cleanup --tables=20
+</code></pre>
+
+<p>Wasn’t that fun?</p>
+
+<h2 id="oltp-write-only">OLTP Write Only</h2>
+
+<p>This is the write counterpart of the previous test. By now, you know the drill, right?</p>
+
+<pre><code class="language-nil">sysbench oltp_write_only prepare --tables=10
+sysbench oltp_write_only prewarm --tables=10 --threads=10
+</code></pre>
+
+<p>Lets use a time limit instead:</p>
+
+<pre><code class="language-nil">-&gt; sysbench oltp_write_only run --tables=10 --threads=20 --events=0 --time=30
+
+sysbench 1.0.15 (using system LuaJIT 2.0.5)
+
+Running the test with following options:
+Number of threads: 20
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            0
+        write:                           341181
+        other:                           170918
+        total:                           512099
+    transactions:                        85123  (2836.18 per sec.)
+    queries:                             512099 (17062.42 per sec.)
+    ignored errors:                      672    (22.39 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    total time:                          30.0117s
+    total number of events:              85123
+
+Latency (ms):
+         min:                                    0.53
+         avg:                                    7.05
+         max:                                   67.17
+         95th percentile:                       14.21
+         sum:                               599892.48
+
+Threads fairness:
+    events (avg/stddev):           4256.1500/49.08
+    execution time (avg/stddev):   29.9946/0.00
+</code></pre>
+
+<p>Each write_only event consists of:</p>
+
+<ul>
+  <li>1 x index_updates: <code class="language-plaintext highlighter-rouge">update table set k~k+1 where id=i</code></li>
+  <li>1 x non_index_updates: <code class="language-plaintext highlighter-rouge">update table set c=? where id=i</code></li>
+  <li>1 x delete_inserts: <code class="language-plaintext highlighter-rouge">delete from table where id~i; insert into table (id, k, c, pad) values (...)</code></li>
+</ul>
+
+<p>When using a time stop condition, we’ll want to compare rates, such as <em>queries per second</em> or <em>transactions per second</em></p>
+
+<h2 id="oltp-read-write">OLTP Read Write</h2>
+
+<p>This test combines the last two in one package. First it runs the same code as in oltp_read_only and then continues with oltp_write_only.
+We can even reuse the table from the previous benchmark.</p>
+
+<p>The transaction content for tests can be tweaked.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--range_selects</code> Enable/disable all range SELECT queries [on]</li>
+  <li><code class="language-plaintext highlighter-rouge">--range_size</code> Range size for range SELECT queries [100]</li>
+  <li><code class="language-plaintext highlighter-rouge">--simple_ranges</code> Simple range SELECT queries per transaction [1]</li>
+  <li><code class="language-plaintext highlighter-rouge">--point_selects</code> Point SELECT queries per transaction [10]</li>
+  <li><code class="language-plaintext highlighter-rouge">--order_ranges</code> SELECT ORDER BY queries per transaction [1]</li>
+  <li><code class="language-plaintext highlighter-rouge">--distinct_ranges</code> SELECT DISTINCT queries per transaction [1]</li>
+  <li><code class="language-plaintext highlighter-rouge">--delete_inserts</code> DELETE/INSERT combinations per transaction [1]</li>
+  <li><code class="language-plaintext highlighter-rouge">--index_updates</code> UPDATE index queries per transaction [1]</li>
+  <li><code class="language-plaintext highlighter-rouge">--non_index_updates</code> UPDATE non-index queries per transaction [1]</li>
+  <li><code class="language-plaintext highlighter-rouge">--sum_ranges</code>  SELECT SUM() queries per transaction [1]</li>
+  <li><code class="language-plaintext highlighter-rouge">--skip_trx</code> Don’t start explicit transactions (use AUTOCOMMIT) [off]</li>
+</ul>
+
+<h2 id="related-links">Related Links</h2>
+
+<ul>
+  <li>sysbench’s github: <a href="https://github.com/akopytov/sysbench">https://github.com/akopytov/sysbench</a></li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>These aren’t the only DB tests that ship with sysbench, but the basic procedure is basically the same.</p>
+
+<p>Until next time.</p>
+
+<p>Tomas</p>
+
+  </div><a class="u-url" href="/post/sysbench-guide-2" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Chaos is order undeciphered</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Chaos is order undeciphered</li><li><a class="u-email" href="mailto:contact (at) tomfern.com">contact (at) tomfern.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomfern"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomfern</span></a></li><li><a href="https://www.twitter.com/tomfernblog"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomfernblog</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Technical writer at Semaphore CI/CD</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -4,6 +4,7 @@ serve:
 
 build:
 	(cd tomfern.com && bundler exec jekyll build)
+	mv tomfern.com/_site docs
 
 install:
 	(cd tomfern.com && bundler install)

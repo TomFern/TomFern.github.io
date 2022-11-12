@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>A guide to vmstat and friends | Chaos is order undeciphered</title>
+<meta name="generator" content="Jekyll v3.9.2" />
+<meta property="og:title" content="A guide to vmstat and friends" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A getting started guide for vmstat, iostat, mpstat and pidstat." />
+<meta property="og:description" content="A getting started guide for vmstat, iostat, mpstat and pidstat." />
+<link rel="canonical" href="https://tomfern.com/post/vmstat-guide" />
+<meta property="og:url" content="https://tomfern.com/post/vmstat-guide" />
+<meta property="og:site_name" content="Chaos is order undeciphered" />
+<meta property="og:image" content="https://tomfern.com/images/linux.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-06T21:12:00-03:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://tomfern.com/images/linux.jpg" />
+<meta property="twitter:title" content="A guide to vmstat and friends" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2019-01-06T21:12:00-03:00","datePublished":"2019-01-06T21:12:00-03:00","description":"A getting started guide for vmstat, iostat, mpstat and pidstat.","headline":"A guide to vmstat and friends","image":"https://tomfern.com/images/linux.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://tomfern.com/post/vmstat-guide"},"url":"https://tomfern.com/post/vmstat-guide"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="https://tomfern.com/feed.xml" title="Chaos is order undeciphered" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Chaos is order undeciphered</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/images/">Shared static images</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">A guide to vmstat and friends</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-01-06T21:12:00-03:00" itemprop="datePublished">Jan 6, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="/images/linux.jpg" alt="" />
+A getting started guide for vmstat, iostat, mpstat and pidstat.</p>
+
+<h2 id="vmstat">vmstat</h2>
+
+<p>Once I figured out how vmstat works, I found that I almost could no longer live without it, it’s that good.
+Fortunately it’s available everywhere, so I don’t. There are many versions around, both for
+Linux and Unix.</p>
+
+<p>vmstat does a little bit of everything: memory, processes, I/O, swap, disks, CPU.</p>
+
+<p>The basic syntax is:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vmstat [options] &lt;interval&gt; &lt;count&gt;
+</code></pre></div></div>
+
+<p>vmstat prints a new update every <em>interval</em> seconds, stopping after <em>count</em> lines.
+If no count is supplied, vmstat continues until killed. If there isn’t any <em>interval</em>, only 1 line is printed.</p>
+
+<pre><code class="language-nil"># 1 update per second, 5 updates
+-&gt; vmstat 1 5
+procs   -----------memory----------   --swap-    ---io--- -system-- ------cpu-----
+ r  b   swpd    free   buff  cache    si   so    bi    bo   in   cs us sy id wa st
+ 4  0      0 4098084 375068 3462944    0    0    34    25  340  320  8  3 89  0  0
+ 1  0      0 4098184 375068 3463264    0    0     0     0 1263 3198  4  3 93  0  0
+ 0  0      0 4098436 375068 3462924    0    0     0     0 1141 2999  3  2 95  0  0
+ 0  0      0 4097736 375076 3462916    0    0     0     0 2166 4414  5  4 92  0  0
+ 0  0      0 4096476 375076 3462916    0    0     0     0 1103 3130  3  3 94  0  0
+</code></pre>
+
+<p>The values in the very first line are averages since boot, thus it usually stands out as different than the rest.</p>
+
+<p>All values, with the exception of memory and processes, are average <em>rates</em> from the previous update.
+Memory and processes (the first 6 columns) are always instantaneous values.
+Memory is shown in KBs but <code class="language-plaintext highlighter-rouge">-S</code> changes units, e.g. <code class="language-plaintext highlighter-rouge">-S M</code> for MBs.</p>
+
+<p>If your version of vmstat supports <code class="language-plaintext highlighter-rouge">-w</code>, use it,  makes the table wider and easier to read.</p>
+
+<p>So what does each column mean?</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>column</th>
+      <th>meaning</th>
+      <th>unit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>r</td>
+      <td>number of processes running</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>number of processes sleeping</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>spwd</td>
+      <td>swap memory used</td>
+      <td>K</td>
+    </tr>
+    <tr>
+      <td>free</td>
+      <td>amount of idle memory</td>
+      <td>K</td>
+    </tr>
+    <tr>
+      <td>buff</td>
+      <td>memory used for buffers</td>
+      <td>K</td>
+    </tr>
+    <tr>
+      <td>cache</td>
+      <td>memory used for cache</td>
+      <td>K</td>
+    </tr>
+    <tr>
+      <td>si</td>
+      <td>swaps per second from disk to memory</td>
+      <td>1/s</td>
+    </tr>
+    <tr>
+      <td>so</td>
+      <td>swaps per second from memory to disk</td>
+      <td>1/s</td>
+    </tr>
+    <tr>
+      <td>bi</td>
+      <td>blocks per second received from block device</td>
+      <td>blocks/s</td>
+    </tr>
+    <tr>
+      <td>bo</td>
+      <td>blocks per second sent to block device</td>
+      <td>blocks/s</td>
+    </tr>
+    <tr>
+      <td>in</td>
+      <td>interrupts per second</td>
+      <td>1/s</td>
+    </tr>
+    <tr>
+      <td>cs</td>
+      <td>context switches per second</td>
+      <td>1/s</td>
+    </tr>
+    <tr>
+      <td>us</td>
+      <td>CPU user time</td>
+      <td>% of total</td>
+    </tr>
+    <tr>
+      <td>sy</td>
+      <td>CPU system time</td>
+      <td>% of total</td>
+    </tr>
+    <tr>
+      <td>id</td>
+      <td>CPU idle time</td>
+      <td>% of total</td>
+    </tr>
+    <tr>
+      <td>st</td>
+      <td>CPU time stolen from Virtual Machine</td>
+      <td>% of total</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A few guidelines to read the values:</p>
+
+<ul>
+  <li>check first <em>si</em> and <em>so</em> for swapping activity, this is <em>the</em> performance killer</li>
+  <li>check that memory allocation makes sense for the workload</li>
+  <li>consistent high <em>us</em> indicate possible CPU bound load</li>
+  <li>consistent high <em>wa</em> indicate possible I/O bound load</li>
+  <li>if this is a VM and <em>st</em> (steal) is consistently high for long, the host system could be overloaded or the VM under-provisioned</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">-d</code> gets us per-device I/O counters since boot. With <code class="language-plaintext highlighter-rouge">-p &lt;PART&gt;</code> we get the same for an specific parition.</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-&gt; vmstat -d 1
+disk- ------------reads------------ ------------writes----------- -----IO------
+       total merged sectors      ms  total merged sectors      ms    cur    sec
+sda   154968   4762 5471678   52614 123981  67290 4139296   68873      0     45
+sda   154968   4762 5471678   52614 123985  67305 4139440   68876      0     45
+sda   187412   5295 5735630   57902 126252  67704 5888256   80177      0     51
+...
+</code></pre></div></div>
+
+<p>Columns are read like this:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>column</th>
+      <th>meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>total</td>
+      <td>total number of reads / writes</td>
+    </tr>
+    <tr>
+      <td>merged</td>
+      <td>merged requests (N requests into one I/O)</td>
+    </tr>
+    <tr>
+      <td>sectors</td>
+      <td>number of sectors read / written</td>
+    </tr>
+    <tr>
+      <td>ms</td>
+      <td>milliseconds spent reading / writing</td>
+    </tr>
+    <tr>
+      <td>cur</td>
+      <td>number of I/O operations running</td>
+    </tr>
+    <tr>
+      <td>s</td>
+      <td>seconds spent for I/O</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>We can also access a detailed cache utilization report with <code class="language-plaintext highlighter-rouge">-m</code>, but it may require root permissions to work.</p>
+
+<pre><code class="language-nil">&gt; vmstat -m
+Cache                            Num  Total   Size  Pages
+ecryptfs_inode_cache            1544   1564    960     17
+ecryptfs_file_cache              256   1024     16    256
+ecryptfs_auth_tok_list_item       19     76    832     19
+nf_conntrack_expect                0      0    216     18
+nf_conntrack                     101    200    320     25
+fuse_request                      80     80    400     20
+fuse_inode                        42     76    832     19
+ext4_groupinfo_4k               1716   1736    144     28
+ext4_inode_cache              325004 327150   1080     30
+ext4_allocation_context          128    128    128     32
+ext4_io_end                      256    320     64     64
+ext4_extent_status            156920 156978     40    102
+mbcache                          294    438     56     73
+...
+</code></pre>
+
+<p>And the columns are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>column</th>
+      <th>meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cache</td>
+      <td>the cache name</td>
+    </tr>
+    <tr>
+      <td>num</td>
+      <td>active object count</td>
+    </tr>
+    <tr>
+      <td>total</td>
+      <td>total object count</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>size per object</td>
+    </tr>
+    <tr>
+      <td>pages</td>
+      <td>pages with one or more active object</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>vmstat also has these one-shot views:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-s</code> system statistics</li>
+  <li><code class="language-plaintext highlighter-rouge">-D</code> all disks summary</li>
+  <li><code class="language-plaintext highlighter-rouge">-f</code> forks</li>
+</ul>
+
+<h2 id="iostat">iostat</h2>
+
+<p>iostat shows the combined CPU and disk I/O statistics. As with vmstat, it can work with <em>interval</em> and <em>count</em></p>
+
+<pre><code class="language-nil"># one update per second
+-&gt; iostat 1
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          12.14    0.03    5.66    0.03    0.00   82.14
+
+Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+sda               4.41        29.11        49.44    3409859    5790640
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           5.56    0.00    3.79    0.00    0.00   90.66
+
+Device             tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+sda               0.00         0.00         0.00          0          0
+...
+</code></pre>
+
+<p>Again, the first report shows averages since boot (we can omit it with <code class="language-plaintext highlighter-rouge">-y</code>). While the following shows rates since the previous interval.</p>
+
+<p>We can choose to only see cpu with <code class="language-plaintext highlighter-rouge">-c</code> or disk with <code class="language-plaintext highlighter-rouge">-d</code>. Also <code class="language-plaintext highlighter-rouge">-x</code> shows extended I/O statistics and <code class="language-plaintext highlighter-rouge">-m</code> changes units to MB.
+<code class="language-plaintext highlighter-rouge">-h</code> changes into an easier to read (for humans) format.</p>
+
+<h2 id="mpstat">mpstat</h2>
+
+<p>mpstat shows (more) detailed CPU statistics. We get vmstat’s counters plus some. Same deal with the
+<em>interval</em> and <em>count</em></p>
+
+<pre><code class="language-nil"># 1 update per second
+-&gt; mpstat 1
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/24/2018 	_x86_64_	(4 CPU)
+
+06:48:41 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+06:48:42 PM  all    7.85    0.00    3.04    0.00    0.25    0.51    0.00    0.00    0.00   88.35
+06:48:43 PM  all   10.08    0.00    4.79    0.00    1.01    0.00    0.00    0.00    0.00   84.13
+06:48:44 PM  all    7.25    0.00    5.25    0.00    0.75    0.50    0.00    0.00    0.00   86.25
+06:48:45 PM  all    9.07    0.00    3.78    0.25    1.01    0.50    0.00    0.00    0.00   85.39
+</code></pre>
+
+<p>First line is, yet again, averages since boot.</p>
+
+<p>We can choose to only show activity for some CPUs with <code class="language-plaintext highlighter-rouge">-P</code>, e.g. <code class="language-plaintext highlighter-rouge">-P 1,3</code></p>
+
+<p>There are additional views: <code class="language-plaintext highlighter-rouge">-I ALL</code> shows all CPU interruptions, <code class="language-plaintext highlighter-rouge">-n</code> shows CPU statistics based on NUMA placement nodes
+(use <code class="language-plaintext highlighter-rouge">-N</code> to indicate which nodes to report). There is even a JSON output with <code class="language-plaintext highlighter-rouge">-o JSON</code></p>
+
+<p>mpstat shows general CPU utilization, to track an individual process there is <em>pidstat</em></p>
+
+<h2 id="pidstat">pidstat</h2>
+
+<p>This one has some similarities with <em>top</em>. Every <em>interval</em> pidstat prints what processes were running.
+We can also track particular processes with <code class="language-plaintext highlighter-rouge">-p</code>. Threads are shown with <code class="language-plaintext highlighter-rouge">-t</code>.</p>
+
+<pre><code class="language-nil"># track process CPU activity, thread view
+-&gt; pidstat -t -p 25809 1
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/29/2018 	_x86_64_	(4 CPU)
+
+11:00:58 PM   UID      TGID       TID    %usr %system  %guest   %wait    %CPU   CPU  Command
+11:00:58 PM   980     25809         -    0.22    0.07    0.00    0.00    0.28     1  mysqld
+11:00:58 PM   980         -     25809    0.00    0.00    0.00    0.00    0.00     1  |__mysqld
+11:00:58 PM   980         -     25811    0.00    0.00    0.00    0.00    0.00     0  |__mysqld
+11:00:58 PM   980         -     25812    0.00    0.00    0.00    0.00    0.00     3  |__mysqld
+11:00:58 PM   980         -     25820    0.00    0.00    0.00    0.00    0.00     1  |__mysqld
+11:00:58 PM   980         -     25834    0.02    0.01    0.00    0.01    0.02     3  |__mysqld
+11:00:58 PM   980         -     25835    0.02    0.00    0.00    0.01    0.02     3  |__mysqld
+11:00:58 PM   980         -     25836    0.01    0.00    0.00    0.01    0.02     2  |__mysqld
+11:00:58 PM   980         -     25837    0.01    0.00    0.00    0.01    0.01     0  |__mysqld
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">-r</code> shows memory per process, which gives a quick way to check for memory leaks</p>
+
+<pre><code class="language-nil"># track process memory activity
+-&gt; pidstat -r -p 27766 1
+Linux 4.19.8-arch1-1-ARCH (ix) 	12/30/2018 	_x86_64_	(4 CPU)
+
+09:42:59 PM   UID       PID  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+09:43:00 PM  1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+09:43:01 PM  1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+09:43:02 PM  1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+09:43:03 PM  1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+Average:     1000     27766      0.00      0.00  689680   17128   0.15  mysqld
+</code></pre>
+
+<p>pidstat can start a program with <code class="language-plaintext highlighter-rouge">-e</code> and show its activity during the execution.</p>
+
+<p>Besides CPU, pidstat can also show per-process I/O activity</p>
+
+<pre><code class="language-nil"># per-process I/O
+-&gt; pidstat -d 1 5
+Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
+
+04:04:53 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+04:04:54 PM  1000     14423    276.00 197888.00      0.00       1  dd
+04:04:55 PM  1000     14423      0.00 218880.00      0.00       0  dd
+04:04:56 PM  1000     14423      0.00 224664.00      0.00       0  dd
+04:04:57 PM  1000     14423      0.00 230428.00      0.00       0  dd
+04:04:59 PM  1000     14423      0.00 192520.00      0.00       0  dd
+Average:     1000     14423     46.00 207763.33      0.00       0  dd
+</code></pre>
+
+<p>If pidstat prints negative values, it means it doesn’t have enough permissions to access the process.
+Try switching to the user running the process (or as root, that should always).</p>
+
+<p>pidstat supports all these views:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-d</code>  I/O statistics</li>
+  <li><code class="language-plaintext highlighter-rouge">-u</code>  CPU statistics</li>
+  <li><code class="language-plaintext highlighter-rouge">-R</code>  process priority</li>
+  <li><code class="language-plaintext highlighter-rouge">-r</code>  memory utilization</li>
+  <li><code class="language-plaintext highlighter-rouge">-s</code>  stack utilization</li>
+  <li><code class="language-plaintext highlighter-rouge">-t</code>  thread statistics</li>
+  <li><code class="language-plaintext highlighter-rouge">-w</code>  task switching</li>
+  <li><code class="language-plaintext highlighter-rouge">-v</code>  file descriptor</li>
+</ul>
+
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+
+<p>These programs complement each other. How would all work together?
+Let’s say we want to find why my machine is running slow.</p>
+
+<p>The first thing we can check is vmstat:</p>
+
+<pre><code class="language-nil">-&gt; vmstat 1
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 0 12 773184 3782540 161528 3176304    0    0  1184 38944 2888 9877 20  5  1 74  0
+ 2  9 773184 3745748 161528 3213272    0    0  2660 36868 2876 7426 18  7  1 73  0
+ 0 11 773184 3630836 161540 3326616    0    0  2688 43052 2959 7064 23  5  1 70  0
+ 2 11 771648 2297092 161792 4873416    0    0  2672 40960 3034 7547 23  6  2 69  0
+ 1 11 771648 2255008 161796 4915000    0    0  2088 38912 2939 7370 24  6  2 67  0
+ 0 11 771648 2142616 161796 4992940    0    0  2148 38916 2976 8061 31  6  1 63  0
+ 1 10 771648 2100532 161804 5034252   20    0  1608 41012 3919 9665 34 11  1 54  0
+ 0 11 819776 149836 157540 6949188    0    0  1920 12292 2702 5527  6  4  0 90  0
+</code></pre>
+
+<p>What can you see? A consistent high number of sleeping (b), memory utilization going up, no swapping… that’s good,
+disks are being written.</p>
+
+<p>Hmm, a consistently high CPU wait (wa).
+There are indications of an I/O bottleneck, the CPUs are waiting for disks requests.</p>
+
+<p>What does mpstat say?</p>
+
+<pre><code class="language-nil">mpstat 1
+Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
+
+01:34:49 PM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+01:34:50 PM  all   24.54    0.00    4.22   68.87    1.06    1.06    0.00    0.00    0.00    0.26
+01:34:51 PM  all   19.05    0.00    3.44   74.87    1.06    0.53    0.00    0.00    0.00    1.06
+01:34:52 PM  all   19.37    0.00    3.14   74.61    0.79    1.05    0.00    0.00    0.00    1.05
+01:34:54 PM  all   22.08    0.00    3.12   62.86    0.52    1.04    0.00    0.00    0.00   10.39
+</code></pre>
+
+<p>Again there it is, a high iowait. There is something funny going on with the disks.</p>
+
+<p>Let’s try iostat:</p>
+
+<pre><code class="language-nil">iostat -x 1 -y
+Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.00    0.00    0.00    0.00    0.00    0.00
+
+Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util
+sda             54.00    0.00   2532.00      0.00     0.00     0.00   0.00   0.00    0.57    0.00   0.02    46.89     0.00   0.06   0.30
+dm-0            54.00    0.00   2532.00      0.00     0.00     0.00   0.00   0.00    0.50    0.00   0.03    46.89     0.00   0.24   1.30
+sdd              1.00  347.00      4.00  39512.00     0.00     0.00   0.00   0.00   53.00    5.42   0.99     4.00   113.87   2.86  99.40
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+          23.90    0.00    6.49   68.31    0.00    1.30
+
+Device            r/s     w/s     rkB/s     wkB/s   rrqm/s   wrqm/s  %rrqm  %wrqm r_await w_await aqu-sz rareq-sz wareq-sz  svctm  %util
+sda             69.00    0.00   2636.00      0.00     2.00     0.00   2.82   0.00    0.58    0.00   0.06    38.20     0.00   0.29   2.00
+dm-0            71.00    0.00   2636.00      0.00     0.00     0.00   0.00   0.00    1.03    0.00   0.07    37.13     0.00   0.32   2.30
+sdd              0.00  340.00      0.00  38672.00     0.00     0.00   0.00   0.00    0.00    5.84   0.99     0.00   113.74   2.92  99.30
+
+</code></pre>
+
+<p>Quite a lot of writes on the <em>sdd</em> device. Even worse, the %util is reaching 100%, the device is saturated
+(%util is only meaningful for spinning disks, RAID or SDD have different capacities)</p>
+
+<p>So the problem seems to be related with sdd.</p>
+
+<p>Can we check what processes are doing I/O?</p>
+
+<pre><code class="language-nil">sudo pidstat -d 1
+Linux 4.20.0-arch1-1-ARCH (ix) 	01/06/2019 	_x86_64_	(4 CPU)
+
+01:36:25 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+01:36:26 PM     0      2546      3.81      0.00      0.00     100  kworker/u8:3+flush-8:48
+01:36:26 PM     0      2799      0.00     38.10      0.00      48  jbd2/sdd1-8
+01:36:26 PM   980      3435   1474.29  36323.81      0.00       0  mysqld
+
+01:36:26 PM   UID       PID   kB_rd/s   kB_wr/s kB_ccwr/s iodelay  Command
+01:36:27 PM     0      2546      0.00      0.00      0.00      99  kworker/u8:3+flush-8:48
+01:36:27 PM   980      3435   2524.00  35096.00      0.00       0  mysqld
+</code></pre>
+
+<p>We find a mysql server, a kernel thread flushing data and jbd2 (filesystem journal).</p>
+
+<p>Aha! we found what has been causing all that troublesome I/O. To continue investigating we would need to get into the database, but
+this post is getting way too long already. If you are curious, the root cause was some bad queries that were creating temporary tables.</p>
+
+<h2 id="related-links">Related Links</h2>
+
+<ul>
+  <li>manpages
+    <ul>
+      <li>vmstat: <a href="https://linux.die.net/man/8/vmstat">https://linux.die.net/man/8/vmstat</a></li>
+      <li>iostat: <a href="https://linux.die.net/man/1/iostat">https://linux.die.net/man/1/iostat</a></li>
+      <li>mpstat: <a href="https://linux.die.net/man/1/mpstat">https://linux.die.net/man/1/mpstat</a></li>
+      <li>pidstat: <a href="https://linux.die.net/man/1/pidstat">https://linux.die.net/man/1/pidstat</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="whats-next">What’s Next?</h2>
+
+<p>How about some long term analysis? Something that can work unattended and do reports? Sounds nice?</p>
+
+<p>Good, I guess <a href="./sar-guide">next article</a> will be about <strong>sar</strong>.</p>
+
+<p>So long.</p>
+
+<p>Tomas</p>
+
+  </div><a class="u-url" href="/post/vmstat-guide" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Chaos is order undeciphered</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Chaos is order undeciphered</li><li><a class="u-email" href="mailto:contact (at) tomfern.com">contact (at) tomfern.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/tomfern"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">tomfern</span></a></li><li><a href="https://www.twitter.com/tomfernblog"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">tomfernblog</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Technical writer at Semaphore CI/CD</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
