@@ -1,7 +1,7 @@
 ---
 title: "Sysbench for databases"
 date: "2019-01-09T00:13:00-03:00"
-layout: "post"
+
 permalink: "/post/sysbench-guide-2"
 tags: databases mysql psql guides
 description: "Testing database with sysbench"

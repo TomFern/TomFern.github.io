@@ -2,7 +2,7 @@
 title: "Programming humans"
 date: "2020-11-03T07:00:00-03:00"
 permalink: "/post/programming-humans"
-layout: "post"
+
 tags: writing
 description: "Language is I/O of the mind"
 image: /images/image-4.jpg

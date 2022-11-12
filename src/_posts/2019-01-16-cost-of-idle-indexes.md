@@ -2,7 +2,7 @@
 title: "The Cost of Idle Indexes"
 date: "2019-01-16T12:36:00-03:00"
 permalink: "/post/cost-of-idle-indexes"
-layout: "post"
+
 tags: databases mysql benchmarks
 description: "A simple benchmark to assess the cost of unused indexes on MariaDB."
 image: /images/database.jpg

@@ -2,7 +2,7 @@
 title: "Case study: MariaDB ColumnStore"
 date: "2019-03-04T15:29:00-03:00"
 permalink: "/post/case-mariadb-columnstore"
-layout: "post"
+
 tags: column-databases mariadb case-study
 draft: false
 description: "Taking advantage of column-based databases."

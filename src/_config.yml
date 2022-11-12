@@ -39,6 +39,7 @@ social:
     # - https://keybase.io/benbalter
 
 # github pages
+destination: ../docs
 # lsi: false
 # safe: true
 # source: tomfern/tomfern.github.io
@@ -51,7 +52,33 @@ social:
   # syntax_highlighter: rouge
 
 # Build settings
-theme: minima
+# theme: minima
+# https://github.com/mmistakes/minimal-mistakes
+theme: minimal-mistakes-jekyll
+include: ["_pages"]
+minimal_mistakes_skin: "default"
+# theme settings
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

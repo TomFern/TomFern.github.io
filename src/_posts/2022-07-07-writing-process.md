@@ -2,10 +2,8 @@
 title: "My Writing Process"
 date: "2022-07-09T07:00:00-03:00"
 permalink: "/post/my-writing-process"
-layout: "post"
 tags: "writing"
-description: "The process I use from research to publication in my work as a full-time technical writer"
-
+excerpt: "The process I use from research to publication in my work as a full-time technical writer"
 ---
 
 

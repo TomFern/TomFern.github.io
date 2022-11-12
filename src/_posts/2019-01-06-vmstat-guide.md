@@ -3,7 +3,6 @@ title: "A guide to vmstat and friends"
 date: "2019-01-06T21:12:00-03:00"
 permalink: /post/vmstat-guide
 tags: linux unix monitoring
-layout: post
 image: /images/linux.jpg
 description: "A getting started guide for vmstat, iostat, mpstat and pidstat."
 ---

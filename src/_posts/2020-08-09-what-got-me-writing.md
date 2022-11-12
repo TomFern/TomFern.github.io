@@ -2,7 +2,7 @@
 title: "What Got Me Writing"
 date: "2020-08-08T07:00:00-03:00"
 permalink: "/post/what-got-me-writing"
-layout: "post"
+
 tags: "writing"
 description: "This is why I decided work as a writer."
 image: /images/writing.jpg

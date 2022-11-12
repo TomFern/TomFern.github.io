@@ -3,7 +3,7 @@ title: "Unused Index cleanup"
 date: "2019-01-09T16:15:00-03:00"
 permalink: "/post/unused-index-cleanup"
 tags: databases mysql tuning
-layout: "post"
+
 description: "Removing unused indexes for improved performance."
 image: /images/database.jpg
 ---

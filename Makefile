@@ -5,7 +5,6 @@ serve:
 build:
 	rm -rf docs
 	(cd src && bundler exec jekyll build)
-	mv src/_site docs
 	cp CNAME docs
 
 install:

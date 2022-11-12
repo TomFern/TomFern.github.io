@@ -2,7 +2,7 @@
 title: "MySQLSlap (part 1)"
 date: "2019-01-08T00:20:00-03:00"
 tags: databases mysql guides
-layout: "post"
+
 permalink: "/post/mysqlslap-guide-1"
 description: "A guide to benchmarking with mysqlslap."
 image: /images/database.jpg

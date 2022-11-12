@@ -1,7 +1,7 @@
 ---
 title: React Native and Expo
 date: "2020-09-01T23:46:37.121Z"
-layout: "post"
+
 permalink: "/post/react-native-and-expo"
 tags: "development"
 ---
