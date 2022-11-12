@@ -9,7 +9,7 @@
 
 Static site is located in the `/docs` folder.
 
-### Info
+## Info
 
 This repository was initialized with:
 
@@ -20,3 +20,7 @@ $ docker run --rm --platform linux/amd64 \
   sh -c "chown -R jekyll /usr/gem/ && jekyll new tomfern.com" \
   && cd tomfern.com
 ```
+
+## LICENSE
+
+MIT License Copyright 2022 Tomas Fernandez
