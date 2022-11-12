@@ -1,13 +1,14 @@
 
 serve:
-	(cd tomfern.com && bundler exec jekyll serve)
+	(cd src && bundler exec jekyll serve)
 
 build:
-	(cd tomfern.com && bundler exec jekyll build)
-	mv tomfern.com/_site docs
+	rm -rf docs
+	(cd src && bundler exec jekyll build)
+	mv src/_site docs
 
 install:
-	(cd tomfern.com && bundler install)
+	(cd src && bundler install)
 
 update:
-	(cd tomfern.com && bundler update)
+	(cd src && bundler update)
