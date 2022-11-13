@@ -35,7 +35,7 @@ That was the point I started considering writing as a job.
 
 In the following months, a lot of people were very kind and let me write for them. One person took a big chance and gave me enough work to take the plunge and try writing as a full-time job, for which I'll be eternally grateful.
 
-# So, what I like about writing
+## So, what I like about writing
 
 **It's different**
 
@@ -73,7 +73,7 @@ Writing forces me to put things down and examine them in the critical light of t
 We've all been tripped by an innocent question while explaining something that we thought we knew well.
 Without fail, writing reveals the flaws in our thinking and shows how well (or bad) we understand things.  
 
-# Give it a try
+## Give it a try
 
 Some people say that writing is art. That may be true for the likes of Poe or Bradbury. My problem with calling it art by default is that it puts it on a pedestal. For me, writing is like carpentry. It's a skill that must be honed every day. Something that takes time and effort, sure enough, but is entirely within reach of anyone.
 

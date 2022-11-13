@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tomfern.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tomfern.com/" rel="alternate" type="text/html" /><updated>2022-11-12T15:41:18-03:00</updated><id>https://tomfern.com/feed.xml</id><title type="html">Chaos is order undeciphered</title><author><name>Tommy Fernandez</name></author><entry><title type="html">My Writing Process</title><link href="https://tomfern.com/post/my-writing-process" rel="alternate" type="text/html" title="My Writing Process" /><published>2022-07-09T07:00:00-03:00</published><updated>2022-07-09T07:00:00-03:00</updated><id>https://tomfern.com/post/writing-process</id><content type="html" xml:base="https://tomfern.com/post/my-writing-process"><![CDATA[<p>I tend to have a more <em>suis generis</em> process for writing technical documents. With this I mean I don’t have too much of a structure when it’s time to type. I usually do an outline first (but not always) and then write, edit, cut, redit, recut until I have something that’s, at the very least, decent.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tomfern.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tomfern.com/" rel="alternate" type="text/html" /><updated>2022-11-13T18:48:13-03:00</updated><id>https://tomfern.com/feed.xml</id><title type="html">Chaos is order undeciphered</title><author><name>Tommy Fernandez</name></author><entry><title type="html">My Writing Process</title><link href="https://tomfern.com/post/my-writing-process" rel="alternate" type="text/html" title="My Writing Process" /><published>2022-07-09T07:00:00-03:00</published><updated>2022-07-09T07:00:00-03:00</updated><id>https://tomfern.com/post/writing-process</id><content type="html" xml:base="https://tomfern.com/post/my-writing-process"><![CDATA[<p>I tend to have a more <em>suis generis</em> process for writing technical documents. With this I mean I don’t have too much of a structure when it’s time to type. I usually do an outline first (but not always) and then write, edit, cut, redit, recut until I have something that’s, at the very least, decent.</p>
 
 <p>But lately I’ve been paying more attention to how I write and I’ve noted that I’m kind of following a process after all. After some though, I think I’m ready to formalize it a bit. For now, I’ll only name the steps:</p>
 
@@ -333,7 +333,7 @@ Cancel: I<span class="s1">'ll continue with my current project structure.
 
 <p>In the following months, a lot of people were very kind and let me write for them. One person took a big chance and gave me enough work to take the plunge and try writing as a full-time job, for which I’ll be eternally grateful.</p>
 
-<h1 id="so-what-i-like-about-writing">So, what I like about writing</h1>
+<h2 id="so-what-i-like-about-writing">So, what I like about writing</h2>
 
 <p><strong>It’s different</strong></p>
 
@@ -370,7 +370,7 @@ Cancel: I<span class="s1">'ll continue with my current project structure.
 <p>We’ve all been tripped by an innocent question while explaining something that we thought we knew well.
 Without fail, writing reveals the flaws in our thinking and shows how well (or bad) we understand things.</p>
 
-<h1 id="give-it-a-try">Give it a try</h1>
+<h2 id="give-it-a-try">Give it a try</h2>
 
 <p>Some people say that writing is art. That may be true for the likes of Poe or Bradbury. My problem with calling it art by default is that it puts it on a pedestal. For me, writing is like carpentry. It’s a skill that must be honed every day. Something that takes time and effort, sure enough, but is entirely within reach of anyone.</p>
 
