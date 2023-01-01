@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>The Cost of Idle Indexes - Chaos is order undeciphered</title>
-<meta name="description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
+<!-- begin _includes/seo.html --><title>Writing Posts in Markdown - Chaos is order undeciphered</title>
+<meta name="description" content="This is how I organize my writing projects.">
 
 
   <meta name="author" content="Tommy Fernandez">
@@ -22,11 +22,11 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Chaos is order undeciphered">
-<meta property="og:title" content="The Cost of Idle Indexes">
-<meta property="og:url" content="https://tomfern.com/post/cost-of-idle-indexes">
+<meta property="og:title" content="Writing Posts in Markdown">
+<meta property="og:url" content="https://tomfern.com/post/writing-in-markdown">
 
 
-  <meta property="og:description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
+  <meta property="og:description" content="This is how I organize my writing projects.">
 
 
 
@@ -35,9 +35,9 @@
 
 
   <meta name="twitter:site" content="@tomfernblog">
-  <meta name="twitter:title" content="The Cost of Idle Indexes">
-  <meta name="twitter:description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
-  <meta name="twitter:url" content="https://tomfern.com/post/cost-of-idle-indexes">
+  <meta name="twitter:title" content="Writing Posts in Markdown">
+  <meta name="twitter:description" content="This is how I organize my writing projects.">
+  <meta name="twitter:url" content="https://tomfern.com/post/writing-in-markdown">
 
   
     <meta name="twitter:card" content="summary">
@@ -50,14 +50,14 @@
 
 
 
-  <meta property="article:published_time" content="2019-01-16T12:36:00-03:00">
+  <meta property="article:published_time" content="2023-01-01T00:00:00-03:00">
 
 
 
 
 
 
-<link rel="canonical" href="https://tomfern.com/post/cost-of-idle-indexes">
+<link rel="canonical" href="https://tomfern.com/post/writing-in-markdown">
 
 
 
@@ -278,15 +278,15 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="The Cost of Idle Indexes">
-    <meta itemprop="description" content="A simple benchmark to assess the cost of unused indexes on MariaDB.">
-    <meta itemprop="datePublished" content="2019-01-16T12:36:00-03:00">
+    <meta itemprop="headline" content="Writing Posts in Markdown">
+    <meta itemprop="description" content="This is how I organize my writing projects.">
+    <meta itemprop="datePublished" content="2023-01-01T00:00:00-03:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">The Cost of Idle Indexes
+          <h1 id="page-title" class="page__title" itemprop="headline">Writing Posts in Markdown
 </h1>
           
 
@@ -314,88 +314,84 @@
 
       <section class="page__content" itemprop="text">
         
-        <p><img src="/images/database.jpg" alt="" /></p>
+        <p>TLDR; you can find the templates I use for writing at my <a href="https://github.com/TomFern/writing-templates">writing repository</a>.</p>
 
-<p>The last few days I’ve been <a href="./unused-index-cleanup">cleaning up indexes</a>. This entails removing duplicate, unused or redundant indexes.</p>
+<hr />
 
-<p>There were quite a lot of indexes, so it was hard work. I knew why this was important to do:
-as the table changes, indexes need to be kept updated,
-less indexes means less updates and less wasted resources.</p>
+<p>My <a href="/post/what-got-me-writing">very first writings</a> were done in Org-mode for Emacs. <a href="https://orgmode.org/">org-mode</a> is a beat of a format for the Emacs text editor. With it, you can take notes, track time, organize projects, make to-do lists, and write blog posts.</p>
 
-<p>But I wanted to have a real number to attach to the theory. How much benefit is there <em>really</em>? So I decided to run some simple benchmarks
- with <a href="./sysbench-guide-2">sysbench</a>.</p>
+<p>I loved working with org-mode. But, since no one uses it, I had to convert my lovely org files into Markdown or Word to get a review or share a publishable package.</p>
 
-<h2 id="the-test">The Test</h2>
+<p>The conversion itself was fine. <a href="https://pandoc.org/">Pandoc</a> is quite capable of parsing org files. The nag was that I had two juggle org and Markdown formats in my head. Too many times, I found myself adding org directives in Markdown and wondering why it didn’t work. Eventually, I decided to ditch org and move to Markdown for good.</p>
 
-<p>The test procedure is really simple:</p>
+<h2 id="org-mode-includes">Org-mode includes</h2>
 
-<ol>
-  <li>create a test table</li>
-  <li>run the desired benchmark</li>
-  <li>add an index</li>
-  <li>repeat benchmark</li>
-</ol>
+<p>The thing I loved most about org (for writing, at least) was its ability to use includes. I can add an <code class="language-plaintext highlighter-rouge">#+INCLUDE</code> directive, and Emacs/pandoc would expand the contents of that file into the main document. For example, with org, I could do this:</p>
 
-<p>I started with 1 index (the primary key) and went up in 10 index increments. InnoDB supports up to 64 indexes per table.</p>
+<pre><code class="language-org-mode">* My Title
 
-<p>Each particular combination of test + number of indexes was run 3 times. On the plots
-we’ll see the median, maximum and minimum values.</p>
+Check out this awesome code:
 
-<p>Testing was done on MariaDB 10.3.12 running in a docker container.</p>
+#+INCLUDE: "./example.js" src javascript
+</code></pre>
 
-<h2 id="bulk-insert">Bulk Insert</h2>
+<p>Having code in separate files makes it very easy to copy/paste the text into tools like Grammarly or Hemingway Editor.</p>
 
-<p>Let’s start with multi-row inserts.
-This test is entirely focused on writes, so the number of indexes should have a high impact.</p>
+<h2 id="adding-includes-to-markdown">Adding includes to Markdown</h2>
 
-<p><img src="/images/plots/cost-of-indexes/bulk_insert.png" alt="Bulk insert. 1 thread" /></p>
+<p>Markdown, unfortunately, does not have includes. With meant that I had to mix code and text on the same file. I didn’t want to do that. Was there any way of adding includes to Markdown?</p>
 
-<p>RPS with 11 indexes is about 3 times slower. That’s a lot. 61 indexes perform the worst, almost 13 times worse.</p>
+<p>After some Googling around, I found <a href="https://www.gnu.org/software/m4/">m4</a>, a macro processor that has an <a href="https://www.gnu.org/software/m4/manual/html_node/Include.html">include directive</a>. To use this feature on Markdown, we must first change the default quotation marks by adding this at the top of the main Markdown file:</p>
 
-<h2 id="oltp-write-only">OLTP Write Only</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>changequote(`{{', `}}')
+</code></pre></div></div>
 
-<p>This being a write only test, the number of indexes should still matter a lot.</p>
+<p>This enables me to write my code sample on a separate file, e.g., <code class="language-plaintext highlighter-rouge">example.js</code>:</p>
 
-<p><img src="/images/plots/cost-of-indexes/oltp_wo.png" alt="OLTP Write Only. 1 thread" /></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```javascript
+console.log("Hey!")
+```
+</code></pre></div></div>
 
-<p>11 indexes make transactions 40% slower. A considerable fall in performance. Worse case is a little bit less than 5 times slower.</p>
+<p>And expand its contents by adding this line in my main Markdown file:</p>
 
-<h2 id="oltp-readwrite">OLTP Read+Write</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include({{example.js}}
+</code></pre></div></div>
 
-<p>A mix of reads and writes.</p>
+<p>To render the expanded Markdown, we call m4 like this:</p>
 
-<p><img src="/images/plots/cost-of-indexes/oltp_rw.png" alt="OTLP Read+Write. 1 thread" /></p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>m4 <span class="nt">-E</span> <span class="nt">-I</span>./ main-post.md <span class="o">&gt;</span> expanded-post.md
+</code></pre></div></div>
 
-<p>With 11 indexes there is only about a 10% reduction in TPS. This should be due the fact that read speed is less affected
-by extra indexes.</p>
+<p>The <code class="language-plaintext highlighter-rouge">-I</code> argument points to the include folder. So, this:</p>
 
-<h2 id="oltp-read-only">OLTP Read Only</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>changequote(`{{', `}}')
 
-<p>Why does the number of indexes affect read speed?
-Well, for one thing the query optimizer needs to check all the indexes on a table (even if they are duplicate),
-also there’s some additional I/O required. So there is a cost, but it should be minimal.</p>
+# My Title
 
-<p>Let’s see if it shows in the test.
-<img src="/images/plots/cost-of-indexes/oltp_ro.png" alt="OTLP Read Only. 1 thread" /></p>
+Check out this awesome code:
 
-<p>As expected, TPS does depend on the number of indexes. Compared with previous tests, however, the impact is low:
-the worst case, having 61 indexes means a 7% reduction in transaction speed.</p>
+include({{example.js}}
+</code></pre></div></div>
 
-<h2 id="related-links">Related Links</h2>
+<p>Renders as:</p>
 
-<ul>
-  <li>benchmark data: <a href="https://github.com/TomFern/benchmark-data/tree/master/cost-of-idle-indexes">https://github.com/TomFern/benchmark-data/tree/master/cost-of-idle-indexes</a></li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># My Title
 
-<h2 id="conclusion">Conclusion</h2>
+Check out this awesome code:
 
-<p>No major discoveries here. Everything lines up with what we could have expected. It would be interesting
-to repeat the tests with higher a resolution between the first 15 or so indexes. Which, frankly,
-is much more common than having 60+.</p>
+```javascript
+console.log("Hey!")
+```
+</code></pre></div></div>
 
-<p>Bye.</p>
+<h2 id="putting-everything-together">Putting everything together</h2>
 
-<p>Tomas</p>
+<p>Over time, I put together small Makefiles that use this technique in conjunction with pandoc to convert my flavor of Markdown into plain Markdown, Word, or plain text. You can check the templates I use in my <a href="https://github.com/TomFern/writing-templates">writing repository</a>.</p>
+
+<p>Happy writing!</p>
+
+<p>-Tommy</p>
 
         
       </section>
@@ -412,7 +408,7 @@ is much more common than having 60+.</p>
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#mysql" class="page__taxonomy-item" rel="tag">mysql</a>
+      <a href="/tags/#writing" class="page__taxonomy-item" rel="tag">writing</a>
     
     </span>
   </p>
@@ -422,7 +418,7 @@ is much more common than having 60+.</p>
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-01-16T12:36:00-03:00">January 16, 2019</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-01-01T00:00:00-03:00">January 1, 2023</time></p>
 
 
       </footer>
@@ -430,23 +426,22 @@ is much more common than having 60+.</p>
       <section class="page__share">
   
 
-  <a href="https://twitter.com/intent/tweet?via=tomfernblog&text=The+Cost+of+Idle+Indexes%20https%3A%2F%2Ftomfern.com%2Fpost%2Fcost-of-idle-indexes" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=tomfernblog&text=Writing+Posts+in+Markdown%20https%3A%2F%2Ftomfern.com%2Fpost%2Fwriting-in-markdown" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftomfern.com%2Fpost%2Fcost-of-idle-indexes" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftomfern.com%2Fpost%2Fwriting-in-markdown" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftomfern.com%2Fpost%2Fcost-of-idle-indexes" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftomfern.com%2Fpost%2Fwriting-in-markdown" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="/post/unused-index-cleanup" class="pagination--pager" title="Unused Index cleanup
+      <a href="/post/my-writing-process" class="pagination--pager" title="My Writing Process
 ">Previous</a>
     
     
-      <a href="/post/a-container-for-my-dbs" class="pagination--pager" title="A Container for My Databases
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -460,46 +455,6 @@ is much more common than having 60+.</p>
     <div class="page__related">
       <h4 class="page__related-title">You May Also Enjoy</h4>
       <div class="grid__wrapper">
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title no_toc" itemprop="headline">
-      
-        <a href="/post/writing-in-markdown" rel="permalink">Writing Posts in Markdown
-</a>
-      
-    </h2>
-    
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          2 minute read
-        
-      </span>
-    
-  </p>
-
-
-    <p class="archive__item-excerpt" itemprop="description">This is how I organize my writing projects.
-</p>
-  </article>
-</div>
-
         
           
 
@@ -616,6 +571,46 @@ is much more common than having 60+.</p>
 
 
     <p class="archive__item-excerpt" itemprop="description">Language is I/O of the mind
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/post/talk-nerdearla-2020" rel="permalink">Talk: Technical writing in English
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">View my talk ‘Escritura técnica en inglés’
 </p>
   </article>
 </div>

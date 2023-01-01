@@ -1,4 +1,81 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-11-24T18:54:38-03:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Chaos is order undeciphered</title><author><name>Tommy Fernandez</name></author><entry><title type="html">My Writing Process</title><link href="http://localhost:4000/post/my-writing-process" rel="alternate" type="text/html" title="My Writing Process" /><published>2022-07-09T07:00:00-03:00</published><updated>2022-07-09T07:00:00-03:00</updated><id>http://localhost:4000/post/writing-process</id><content type="html" xml:base="http://localhost:4000/post/my-writing-process"><![CDATA[<p>I tend to have a more <em>suis generis</em> process for writing technical documents. With this I mean I don’t have too much of a structure when it’s time to type. I usually do an outline first (but not always) and then write, edit, cut, redit, recut until I have something that’s, at the very least, decent.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="https://tomfern.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://tomfern.com/" rel="alternate" type="text/html" /><updated>2023-01-01T16:14:59-03:00</updated><id>https://tomfern.com/feed.xml</id><title type="html">Chaos is order undeciphered</title><author><name>Tommy Fernandez</name></author><entry><title type="html">Writing Posts in Markdown</title><link href="https://tomfern.com/post/writing-in-markdown" rel="alternate" type="text/html" title="Writing Posts in Markdown" /><published>2023-01-01T00:00:00-03:00</published><updated>2023-01-01T00:00:00-03:00</updated><id>https://tomfern.com/post/writing-with-markdown</id><content type="html" xml:base="https://tomfern.com/post/writing-in-markdown"><![CDATA[<p>TLDR; you can find the templates I use for writing at my <a href="https://github.com/TomFern/writing-templates">writing repository</a>.</p>
+
+<hr />
+
+<p>My <a href="/post/what-got-me-writing">very first writings</a> were done in Org-mode for Emacs. <a href="https://orgmode.org/">org-mode</a> is a beat of a format for the Emacs text editor. With it, you can take notes, track time, organize projects, make to-do lists, and write blog posts.</p>
+
+<p>I loved working with org-mode. But, since no one uses it, I had to convert my lovely org files into Markdown or Word to get a review or share a publishable package.</p>
+
+<p>The conversion itself was fine. <a href="https://pandoc.org/">Pandoc</a> is quite capable of parsing org files. The nag was that I had two juggle org and Markdown formats in my head. Too many times, I found myself adding org directives in Markdown and wondering why it didn’t work. Eventually, I decided to ditch org and move to Markdown for good.</p>
+
+<h2 id="org-mode-includes">Org-mode includes</h2>
+
+<p>The thing I loved most about org (for writing, at least) was its ability to use includes. I can add an <code class="language-plaintext highlighter-rouge">#+INCLUDE</code> directive, and Emacs/pandoc would expand the contents of that file into the main document. For example, with org, I could do this:</p>
+
+<pre><code class="language-org-mode">* My Title
+
+Check out this awesome code:
+
+#+INCLUDE: "./example.js" src javascript
+</code></pre>
+
+<p>Having code in separate files makes it very easy to copy/paste the text into tools like Grammarly or Hemingway Editor.</p>
+
+<h2 id="adding-includes-to-markdown">Adding includes to Markdown</h2>
+
+<p>Markdown, unfortunately, does not have includes. With meant that I had to mix code and text on the same file. I didn’t want to do that. Was there any way of adding includes to Markdown?</p>
+
+<p>After some Googling around, I found <a href="https://www.gnu.org/software/m4/">m4</a>, a macro processor that has an <a href="https://www.gnu.org/software/m4/manual/html_node/Include.html">include directive</a>. To use this feature on Markdown, we must first change the default quotation marks by adding this at the top of the main Markdown file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>changequote(`{{', `}}')
+</code></pre></div></div>
+
+<p>This enables me to write my code sample on a separate file, e.g., <code class="language-plaintext highlighter-rouge">example.js</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```javascript
+console.log("Hey!")
+```
+</code></pre></div></div>
+
+<p>And expand its contents by adding this line in my main Markdown file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>include({{example.js}}
+</code></pre></div></div>
+
+<p>To render the expanded Markdown, we call m4 like this:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>m4 <span class="nt">-E</span> <span class="nt">-I</span>./ main-post.md <span class="o">&gt;</span> expanded-post.md
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">-I</code> argument points to the include folder. So, this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>changequote(`{{', `}}')
+
+# My Title
+
+Check out this awesome code:
+
+include({{example.js}}
+</code></pre></div></div>
+
+<p>Renders as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># My Title
+
+Check out this awesome code:
+
+```javascript
+console.log("Hey!")
+```
+</code></pre></div></div>
+
+<h2 id="putting-everything-together">Putting everything together</h2>
+
+<p>Over time, I put together small Makefiles that use this technique in conjunction with pandoc to convert my flavor of Markdown into plain Markdown, Word, or plain text. You can check the templates I use in my <a href="https://github.com/TomFern/writing-templates">writing repository</a>.</p>
+
+<p>Happy writing!</p>
+
+<p>-Tommy</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[This is how I organize my writing projects.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/gutenberg.jpg" /><media:content medium="image" url="https://tomfern.com/images/gutenberg.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">My Writing Process</title><link href="https://tomfern.com/post/my-writing-process" rel="alternate" type="text/html" title="My Writing Process" /><published>2022-07-09T07:00:00-03:00</published><updated>2022-07-09T07:00:00-03:00</updated><id>https://tomfern.com/post/writing-process</id><content type="html" xml:base="https://tomfern.com/post/my-writing-process"><![CDATA[<p>I tend to have a more <em>suis generis</em> process for writing technical documents. With this I mean I don’t have too much of a structure when it’s time to type. I usually do an outline first (but not always) and then write, edit, cut, redit, recut until I have something that’s, at the very least, decent.</p>
 
 <p>But lately I’ve been paying more attention to how I write and I’ve noted that I’m kind of following a process after all. After some though, I think I’m ready to formalize it a bit. For now, I’ll only name the steps:</p>
 
@@ -83,7 +160,7 @@
 
 <p>Happy writing</p>
 
-<p>-Tommy</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[The process I use from research to publication in my work as a full-time technical writer]]></summary></entry><entry><title type="html">Always use ImagePullSecrets</title><link href="http://localhost:4000/post/always-use-imagepullsecrets" rel="alternate" type="text/html" title="Always use ImagePullSecrets" /><published>2020-11-14T07:00:00-03:00</published><updated>2020-11-14T07:00:00-03:00</updated><id>http://localhost:4000/post/always-use-imagepullsecrets</id><content type="html" xml:base="http://localhost:4000/post/always-use-imagepullsecrets"><![CDATA[<p><img src="/images/speed-limit.jpg" alt="Speed Limit" /></p>
+<p>-Tommy</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[The process I use from research to publication in my work as a full-time technical writer]]></summary></entry><entry><title type="html">Always use ImagePullSecrets</title><link href="https://tomfern.com/post/always-use-imagepullsecrets" rel="alternate" type="text/html" title="Always use ImagePullSecrets" /><published>2020-11-14T07:00:00-03:00</published><updated>2020-11-14T07:00:00-03:00</updated><id>https://tomfern.com/post/always-use-imagepullsecrets</id><content type="html" xml:base="https://tomfern.com/post/always-use-imagepullsecrets"><![CDATA[<p><img src="/images/speed-limit.jpg" alt="Speed Limit" /></p>
 
 <p>Docker Hub <a href="https://www.docker.com/increase-rate-limits">introduced rate limits</a> for image pulls earlier this month. Being the default registry for Docker images, this is one of the biggest in the ecosystem in the last few years, and it will affect not only Docker users but also Kubernetes setups.</p>
 
@@ -165,7 +242,7 @@
 
 <p>I hope this helps you to prevent avoidable errors. Once authenticated, you should have a more consistent experience and a higher limit.</p>
 
-<p>I’ve not heard of anyone hitting the limit yet. Docker Hub said they’ll enforce them gradually, so I’m sure it’s a matter of time until someone gets bitten by the new caps.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="kubernetes" /><category term="docker" /><summary type="html"><![CDATA[Kubernetes users: don't get bitten by rate limits.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/speed-limit.jpg" /><media:content medium="image" url="http://localhost:4000/images/speed-limit.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Programming humans</title><link href="http://localhost:4000/post/programming-humans" rel="alternate" type="text/html" title="Programming humans" /><published>2020-11-03T07:00:00-03:00</published><updated>2020-11-03T07:00:00-03:00</updated><id>http://localhost:4000/post/programming-humans</id><content type="html" xml:base="http://localhost:4000/post/programming-humans"><![CDATA[<p><img src="/images/image-4.jpg" alt="" /></p>
+<p>I’ve not heard of anyone hitting the limit yet. Docker Hub said they’ll enforce them gradually, so I’m sure it’s a matter of time until someone gets bitten by the new caps.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="kubernetes" /><category term="docker" /><summary type="html"><![CDATA[Kubernetes users: don't get bitten by rate limits.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/speed-limit.jpg" /><media:content medium="image" url="https://tomfern.com/images/speed-limit.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Programming humans</title><link href="https://tomfern.com/post/programming-humans" rel="alternate" type="text/html" title="Programming humans" /><published>2020-11-03T07:00:00-03:00</published><updated>2020-11-03T07:00:00-03:00</updated><id>https://tomfern.com/post/programming-humans</id><content type="html" xml:base="https://tomfern.com/post/programming-humans"><![CDATA[<p><img src="/images/image-4.jpg" alt="" /></p>
 
 <p>While working on the slides for the <a href="./talk-nerdearla-2020">talk I gave</a> a few weeks ago, it occurred to me that writing and coding have more than a few things in common. I originally planned to speak a bit about that but had to take it out for lack of space. I’ll make a post instead, this one.</p>
 
@@ -207,7 +284,7 @@
 
 <p>If you’re a dev, the next time you see a writer, give them a nod and a hat tip. You have more in common with them than you think.</p>
 
-<p>-Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[Language is I/O of the mind]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/image-4.jpg" /><media:content medium="image" url="http://localhost:4000/images/image-4.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Talk: Technical writing in English</title><link href="http://localhost:4000/post/talk-nerdearla-2020" rel="alternate" type="text/html" title="Talk: Technical writing in English" /><published>2020-10-21T07:00:00-03:00</published><updated>2020-10-21T07:00:00-03:00</updated><id>http://localhost:4000/post/nerdearla-2020-talk</id><content type="html" xml:base="http://localhost:4000/post/talk-nerdearla-2020"><![CDATA[<p><img src="/images/nerdearla.png" alt="" /></p>
+<p>-Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[Language is I/O of the mind]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/image-4.jpg" /><media:content medium="image" url="https://tomfern.com/images/image-4.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Talk: Technical writing in English</title><link href="https://tomfern.com/post/talk-nerdearla-2020" rel="alternate" type="text/html" title="Talk: Technical writing in English" /><published>2020-10-21T07:00:00-03:00</published><updated>2020-10-21T07:00:00-03:00</updated><id>https://tomfern.com/post/nerdearla-2020-talk</id><content type="html" xml:base="https://tomfern.com/post/talk-nerdearla-2020"><![CDATA[<p><img src="/images/nerdearla.png" alt="" /></p>
 
 <p>I gave a talk about technical writing at <a href="https://nerdear.la/">nerdear.la</a>, a bilingual convention about technology and people that took place October 2020 in Argentina.</p>
 
@@ -221,7 +298,7 @@
 
 <p>You may download the slides <a href="https://drive.google.com/file/d/14Qo54DON9l2xhd1X6XyUl5_WGbImdmdl/view?usp=sharing">here</a>. You may use them or modify them, but if you do, please make the appropiate attribution.</p>
 
-<p>-Tommy</p>]]></content><author><name>Tommy Fernandez</name></author><category term="talks" /><summary type="html"><![CDATA[View my talk 'Escritura técnica en inglés']]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/nerdearla.png" /><media:content medium="image" url="http://localhost:4000/images/nerdearla.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">React Native and Expo</title><link href="http://localhost:4000/post/react-native-and-expo" rel="alternate" type="text/html" title="React Native and Expo" /><published>2020-09-01T20:46:37-03:00</published><updated>2020-09-01T20:46:37-03:00</updated><id>http://localhost:4000/post/react-native-expo</id><content type="html" xml:base="http://localhost:4000/post/react-native-and-expo"><![CDATA[<p>I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.</p>
+<p>-Tommy</p>]]></content><author><name>Tommy Fernandez</name></author><category term="talks" /><summary type="html"><![CDATA[View my talk 'Escritura técnica en inglés']]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/nerdearla.png" /><media:content medium="image" url="https://tomfern.com/images/nerdearla.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">React Native and Expo</title><link href="https://tomfern.com/post/react-native-and-expo" rel="alternate" type="text/html" title="React Native and Expo" /><published>2020-09-01T20:46:37-03:00</published><updated>2020-09-01T20:46:37-03:00</updated><id>https://tomfern.com/post/react-native-expo</id><content type="html" xml:base="https://tomfern.com/post/react-native-and-expo"><![CDATA[<p>I’ve started my career as a backend developer. Pretty early on, I had to get familiar the console and chose Vim as my main editor. Afterwards, as a sysadmin and dba I lived in ssh sessions. It’s great, I love it, but when it’s time to switch to the frontend I struggle.</p>
 
 <p>Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.</p>
 
@@ -305,7 +382,7 @@ Cancel: I<span class="s1">'ll continue with my current project structure.
 
 <h2 id="summary">Summary</h2>
 
-<p>Expo is a nice alternative to full-featured IDEs. We can prototype pretty quickly a mobile project and when it’s time for more serious work. We can get a good Android project.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="react" /><summary type="html"><![CDATA[Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.]]></summary></entry><entry><title type="html">What Got Me Writing</title><link href="http://localhost:4000/post/what-got-me-writing" rel="alternate" type="text/html" title="What Got Me Writing" /><published>2020-08-08T07:00:00-03:00</published><updated>2020-08-08T07:00:00-03:00</updated><id>http://localhost:4000/post/what-got-me-writing</id><content type="html" xml:base="http://localhost:4000/post/what-got-me-writing"><![CDATA[<p><img src="/images/writing.jpg" alt="" /></p>
+<p>Expo is a nice alternative to full-featured IDEs. We can prototype pretty quickly a mobile project and when it’s time for more serious work. We can get a good Android project.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="react" /><summary type="html"><![CDATA[Imagine my hapiness when I found about a project that lets me code for mobile without leaving the command line.]]></summary></entry><entry><title type="html">What Got Me Writing</title><link href="https://tomfern.com/post/what-got-me-writing" rel="alternate" type="text/html" title="What Got Me Writing" /><published>2020-08-08T07:00:00-03:00</published><updated>2020-08-08T07:00:00-03:00</updated><id>https://tomfern.com/post/what-got-me-writing</id><content type="html" xml:base="https://tomfern.com/post/what-got-me-writing"><![CDATA[<p><img src="/images/writing.jpg" alt="" /></p>
 
 <p>When I started freelancing, I never imagined I would end up writing for a living. Never in a hundred years. Yet, I’ve been doing it full-time for almost a year now.</p>
 
@@ -374,7 +451,7 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
 
 <p>Some people say that writing is art. That may be true for the likes of Poe or Bradbury. My problem with calling it art by default is that it puts it on a pedestal. For me, writing is like carpentry. It’s a skill that must be honed every day. Something that takes time and effort, sure enough, but is entirely within reach of anyone.</p>
 
-<p>So give it a try.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[This is why I decided work as a writer.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/writing.jpg" /><media:content medium="image" url="http://localhost:4000/images/writing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">7 Minikube Tips</title><link href="http://localhost:4000/post/7-minikube-tips" rel="alternate" type="text/html" title="7 Minikube Tips" /><published>2020-06-28T14:04:00-03:00</published><updated>2020-06-28T14:04:00-03:00</updated><id>http://localhost:4000/post/Minikube-tips-06-30---7-minikube-tips</id><content type="html" xml:base="http://localhost:4000/post/7-minikube-tips"><![CDATA[<p>I love my Arch Linux, which I’ve been using it for years, more than I care to count. But sometimes I believe that all of us Linux users, deep in our heart of hearts, have some Windows- or Mac-only software that we covet.</p>
+<p>So give it a try.</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><summary type="html"><![CDATA[This is why I decided work as a writer.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/writing.jpg" /><media:content medium="image" url="https://tomfern.com/images/writing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">7 Minikube Tips</title><link href="https://tomfern.com/post/7-minikube-tips" rel="alternate" type="text/html" title="7 Minikube Tips" /><published>2020-06-28T14:04:00-03:00</published><updated>2020-06-28T14:04:00-03:00</updated><id>https://tomfern.com/post/Minikube-tips-06-30---7-minikube-tips</id><content type="html" xml:base="https://tomfern.com/post/7-minikube-tips"><![CDATA[<p>I love my Arch Linux, which I’ve been using it for years, more than I care to count. But sometimes I believe that all of us Linux users, deep in our heart of hearts, have some Windows- or Mac-only software that we covet.</p>
 
 <p>For me, that software is Docker Desktop; not much for the sake of Docker, but mainly for the standalone Kubernetes cluster.</p>
 
@@ -466,7 +543,7 @@ minikube addons enable metrics-server -->
 
 <p>I’m glad we have Minikube; it’s an excellent way to try out and develop Kubernetes applications. I hope these tips helped you get the most out of it.</p>
 
-<p>-Tomas 👋</p>]]></content><author><name>Tommy Fernandez</name></author><category term="kubernetes" /><summary type="html"><![CDATA[A mix of tips and less know features.]]></summary></entry><entry><title type="html">10 Vim Plugins for Writers</title><link href="http://localhost:4000/post/vim-for-writers" rel="alternate" type="text/html" title="10 Vim Plugins for Writers" /><published>2019-12-15T14:04:00-03:00</published><updated>2019-12-15T14:04:00-03:00</updated><id>http://localhost:4000/post/vim-for-writers</id><content type="html" xml:base="http://localhost:4000/post/vim-for-writers"><![CDATA[<p><img src="/images/writing.jpg" alt="" /></p>
+<p>-Tomas 👋</p>]]></content><author><name>Tommy Fernandez</name></author><category term="kubernetes" /><summary type="html"><![CDATA[A mix of tips and less know features.]]></summary></entry><entry><title type="html">10 Vim Plugins for Writers</title><link href="https://tomfern.com/post/vim-for-writers" rel="alternate" type="text/html" title="10 Vim Plugins for Writers" /><published>2019-12-15T14:04:00-03:00</published><updated>2019-12-15T14:04:00-03:00</updated><id>https://tomfern.com/post/vim-for-writers</id><content type="html" xml:base="https://tomfern.com/post/vim-for-writers"><![CDATA[<p><img src="/images/writing.jpg" alt="" /></p>
 
 <p>I still remember the first time I came in contact with Vim; it was during my very first job. It was a part-time gig in a government office. A few months in, they decided to go open-source full in. Out the window went Windows and in came Linux. At the time, I was doing PHP development, and I was sorry to have to let go of my dear Dreamweaver.</p>
 
@@ -510,7 +587,7 @@ I don’t think I’m going to move away from Vim anymore. I tried most of the o
 
 <p>Happy writing!</p>
 
-<p>Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><category term="vim" /><summary type="html"><![CDATA[A text editor is so much more than mere software.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images//writing.jpg" /><media:content medium="image" url="http://localhost:4000/images//writing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Case study: MariaDB ColumnStore</title><link href="http://localhost:4000/post/case-mariadb-columnstore" rel="alternate" type="text/html" title="Case study: MariaDB ColumnStore" /><published>2019-03-04T15:29:00-03:00</published><updated>2019-03-04T15:29:00-03:00</updated><id>http://localhost:4000/post/case-mariadb-columnstore</id><content type="html" xml:base="http://localhost:4000/post/case-mariadb-columnstore"><![CDATA[<p><img src="/images/database.jpg" alt="" /></p>
+<p>Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="writing" /><category term="vim" /><summary type="html"><![CDATA[A text editor is so much more than mere software.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images//writing.jpg" /><media:content medium="image" url="https://tomfern.com/images//writing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Case study: MariaDB ColumnStore</title><link href="https://tomfern.com/post/case-mariadb-columnstore" rel="alternate" type="text/html" title="Case study: MariaDB ColumnStore" /><published>2019-03-04T15:29:00-03:00</published><updated>2019-03-04T15:29:00-03:00</updated><id>https://tomfern.com/post/case-mariadb-columnstore</id><content type="html" xml:base="https://tomfern.com/post/case-mariadb-columnstore"><![CDATA[<p><img src="/images/database.jpg" alt="" /></p>
 
 <p>A recent project I worked on provided an opportunity to work with MariaDB ColumnStore.</p>
 
@@ -728,152 +805,4 @@ but performance goes down fast. As a result, we had to tweak joins and where con
 
 <p>Later</p>
 
-<p>Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="mariadb" /><summary type="html"><![CDATA[Taking advantage of column-based databases.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/database.jpg" /><media:content medium="image" url="http://localhost:4000/images/database.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Making the most out of Docker</title><link href="http://localhost:4000/post/docker-perf-tips" rel="alternate" type="text/html" title="Making the most out of Docker" /><published>2019-02-02T11:21:00-03:00</published><updated>2019-02-02T11:21:00-03:00</updated><id>http://localhost:4000/post/making-the-most-out-of-docker</id><content type="html" xml:base="http://localhost:4000/post/docker-perf-tips"><![CDATA[<p><img src="/images/docker.jpg" alt="" /></p>
-
-<p>Some options that might increase performance, some that don’t.</p>
-
-<h2 id="network">Network</h2>
-
-<p>Containers get connected to a bridge network by default.
-A software bridge that allows communication between containers running on the same host &amp; bridge.
-We can also create and use custom bridges, to create isolated groups of containers.
-To allow connections from outside, we must map the host’s ports to a container’s with <code class="language-plaintext highlighter-rouge">-p</code> (<em>publish</em> e.g. -p 3306:3306)
-This is easy and flexible, but it makes Docker start an additional process (<em>docker-proxy</em>), which can use a non-trivial amount of CPU.</p>
-
-<p>What’s the alternative? Consider using <code class="language-plaintext highlighter-rouge">--net=host</code>, which connects the container network directly the host.
-In my experience, a considerable boost can be gained, specially when there are multiple connections.</p>
-
-<p>The downside of this is that we run the risk of inadvertently exposing ports to the outside world.
-Moreover, changing service ports is, yet again, a hassle.
-We’ll need to deal with configuration settings inside the container.</p>
-
-<p>How much more we can get out of Docker?
-I ran a <a href="/post/sysbench-guide-2">sysbench</a> OLTP read+write test with 8 threads on MariaDB 10.3.12 to see.</p>
-
-<p><img src="/images/plots/docker-perf-tips/oltp_rw.png" alt="Network Types" /></p>
-
-<p>In my test, host network means about a 37% TPS increase. I’ll let you decide if that is worth letting go of port mapping.</p>
-
-<h2 id="storage">Storage</h2>
-
-<p>Containers are made up of several layers, the top one is the only one that can be written into.
-Once a container is stopped and removed, this layer is lost.
-The layers are managed by one of Docker’s storage drivers, which does copy-on-write.
-Docker’s documentation states that this feature reduces performance.</p>
-
-<p>To provide permanent storage we can use volumes and bind mounts.
-Volumes are managed by Docker itself, whereas bind mounts provide a way to map directory or file between the host and the container.
-In theory, these methods should be more efficient because they bypass Docker’s storage driver.</p>
-
-<p>I was curious about a case in which I had to write lots of data but I didn’t need persistence.
-The best solution would have been to a tmpfs mount, being memory storage, it’s the fastest.
-But we don’t always have enough memory. What’s the best other alternative?</p>
-
-<p>I tested random write speed with <a href="http://freshmeat.sourceforge.net/projects/fio">fio</a> on an EC2 host with an io1 1000 IOPS volume.</p>
-
-<p><img src="/images/plots/docker-perf-tips/fio_write_3.png" alt="Random write speeds" /></p>
-
-<p>As you can see, the mount option really makes no difference for write speeds.</p>
-
-<p>To put things into perspective I repeated the test with a tmpfs mount.
-I had to use a log scale to even see the slower options.</p>
-
-<p><img src="/images/plots/docker-perf-tips/fio_write_4_log.png" alt="Random write speeds" /></p>
-
-<h2 id="use-limits">Use Limits</h2>
-
-<p>Containers, by default, don’t have any limits.
-Any of them can hoard all the host system’s resources.
-This may be well and fine for development, but a potential disaster for production.</p>
-
-<p>Thus, a final recommendation: set limits for production containers. At the very least a memory limit.
-To avoid swapping and containers getting killed by out of memory errors.
-We can also set limits for CPU and disk I/O.</p>
-
-<p>First, we need to find out suitable limits. We can start the container normally and check resource usage:</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker stats &lt;CONTAINER_ID&gt;
-
-CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
-529ea41caf55        jolly_borg          3.36%               5.016MiB / 983.9MiB   0.51%               0B / 0B             36.1MB / 24.4GB     7
-</code></pre></div></div>
-
-<p>A lot of details can be found under the <strong>/sys/fs/cgroup</strong> filesystem.
-For example, we can get a great deal of interesting memory counters.</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-&gt; cat /sys/fs/cgroup/memory/docker/&lt;FULL_CONTAINER_ID&gt;/memory.stats
-
-cache 41623552
-rss 1097854976
-rss_huge 0
-shmem 15343616
-mapped_file 24809472
-dirty 0
-writeback 0
-swap 122916864
-pgpgin 91463838
-pgpgout 91185552
-pgfault 165685756
-pgmajfault 3525
-inactive_anon 373063680
-active_anon 738381824
-inactive_file 10625024
-active_file 15716352
-unevictable 0
-hierarchical_memory_limit 9223372036854771712
-hierarchical_memsw_limit 9223372036854771712
-total_cache 41623552
-total_rss 1096085504
-total_rss_huge 0
-total_shmem 15343616
-total_mapped_file 24809472
-total_dirty 0
-total_writeback 0
-total_swap 122916864
-total_pgpgin 91463838
-total_pgpgout 91186010
-total_pgfault 165685756
-total_pgmajfault 3525
-total_inactive_anon 373063680
-total_active_anon 738381824
-total_inactive_file 10625024
-total_active_file 15716352
-total_unevictable 0
-</code></pre></div></div>
-
-<blockquote>
-  <p>To get the full container id: <code class="language-plaintext highlighter-rouge">docker ps --no-trunc</code></p>
-</blockquote>
-
-<p>Once we have an estimation, we can try starting a new container with some limits.</p>
-
-<p>For a hard memory limit, we can use <code class="language-plaintext highlighter-rouge">--memory</code>.
-Use <code class="language-plaintext highlighter-rouge">--cpus</code> to limit the amount of CPUs available.</p>
-
-<blockquote>
-  <p>When setting a memory limit, Docker will set a swap limit of <code class="language-plaintext highlighter-rouge">--memory</code> * 2. This can be changed with <code class="language-plaintext highlighter-rouge">--memory-swap</code>: <em>total swap allowed</em> = <code class="language-plaintext highlighter-rouge">--memory</code> - <code class="language-plaintext highlighter-rouge">--memory-swap</code>.</p>
-</blockquote>
-
-<p>Container limits can even be changed while they are running.
-We don’t need to restart containers as
-Docker can change limits at runtime: <code class="language-plaintext highlighter-rouge">docker update</code></p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code># set limits, 4 CPUs, 4G of memory, 1G of swap
-docker run -it --cpus=4 --memory=4G --memory-swap=5G ubuntu:latest bash
-# increase memory limits, 8G memory, 1G of swap
-docker update --memory=8G --memory-swap=9G &lt;CONTAINER_ID&gt;
-</code></pre></div></div>
-
-<h2 id="related-links">Related links</h2>
-
-<ul>
-  <li>Benchmark data: <a href="https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips">https://github.com/TomFern/benchmark-data/tree/master/docker-perf-tips</a></li>
-  <li><a href="https://docs.docker.com/network/">https://docs.docker.com/network/</a></li>
-  <li><a href="https://docs.docker.com/storage/">https://docs.docker.com/storage/</a></li>
-  <li><a href="https://docs.docker.com/config/containers/resource%5Fconstraints/">https://docs.docker.com/config/containers/resource%5Fconstraints/</a></li>
-  <li><a href="https://docs.docker.com/config/containers/runmetrics/">https://docs.docker.com/config/containers/runmetrics/</a></li>
-</ul>
-
-<p>See you.</p>
-
-<p>Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="docker" /><category term="mariadb" /><category term="benchmarks" /><summary type="html"><![CDATA[A few tips to make the most of a Docker.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/images/docker.jpg" /><media:content medium="image" url="http://localhost:4000/images/docker.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Tomas</p>]]></content><author><name>Tommy Fernandez</name></author><category term="mariadb" /><summary type="html"><![CDATA[Taking advantage of column-based databases.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://tomfern.com/images/database.jpg" /><media:content medium="image" url="https://tomfern.com/images/database.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
