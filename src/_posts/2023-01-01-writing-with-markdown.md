@@ -1,5 +1,5 @@
 ---
-title: "Writing Posts in Markdown"
+title: "Better Markdown for Writers"
 date: "2023-01-01T00:00:00-03:00"
 permalink: "/post/writing-in-markdown"
 tags: writing
@@ -50,7 +50,7 @@ This enables me to write my code sample on a separate file, e.g., `example.js`:
 And expand its contents by adding this line in my main Markdown file:
 
 {% raw  %}
-    include({{example.js}}
+    include({{example.js}})
 {% endraw %}
 
 To render the expanded Markdown, we call m4 like this:
@@ -68,7 +68,7 @@ The `-I` argument points to the include folder. So, this:
 
     Check out this awesome code:
 
-    include({{example.js}}
+    include({{example.js}})
 {% endraw %}
 
 Renders as:

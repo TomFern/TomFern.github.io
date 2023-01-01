@@ -119,7 +119,7 @@ var store = [{
         "url": "/post/my-writing-process",
         "teaser": null
       },{
-        "title": "Writing Posts in Markdown",
+        "title": "Better Markdown for Writers",
         "excerpt":"TLDR; you can find the templates I use for writing at my writing repository. My very first writings were done in Org-mode for Emacs. org-mode is a beat of a format for the Emacs text editor. With it, you can take notes, track time, organize projects, make to-do lists, and...","categories": [],
         "tags": ["writing"],
         "url": "/post/writing-in-markdown",
