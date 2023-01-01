@@ -91,6 +91,7 @@ GEM
     unicode-display_width (1.8.0)
 
 PLATFORMS
+  ruby
   universal-darwin-22
   x86_64-linux
 
