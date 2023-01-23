@@ -37,7 +37,7 @@ During this phase I create a tentative outline: write headers, describe the cont
 
 Before I start writing paragraphs I like to place a single sentence descring its main idea. It helps me keep focused and form an idea of how the article will flow from paragraph to paragran and section to section.
 
-For most of the first phases of the writing [I use Vim as my primary text editor](https://tomfern.com/posts/10-vim-plugins-for-writers/), because it’s so easy to move large chunks of text around.
+For most of the first phases of the writing [I use Vim as my primary text editor](https://tomfern.com/posts/vim-for-writers/), because it’s so easy to move large chunks of text around.
 
 ## 1st draft
 

@@ -12,7 +12,7 @@ image: /images/database.jpg
 
 ## Why, When, How?
 
-Benchmark shows the difference between should and does. Coupled with [monitoring](../tag/monitoring) it's a great tool to identify bottlenecks.
+Benchmark shows the difference between should and does. Coupled with monitoring it's a great tool to identify bottlenecks.
 
 As to when: whenever we can, as long as the system is production. A good benchmark will stress the server so we don't want users affected.
 Right after provisioning a server, during a maintenance window, before and after any major changes, these are all good opportunities to take advantage of a few precious
