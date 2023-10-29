@@ -11,5 +11,8 @@ main:
   #   url: /page-archive/
   # - title: "Collections"
   #   url: /collection-archive/
-  - title: "My writings on Semaphore"
+  - title: "My posts"
     url: https://semaphoreci.com/author/tfernandez
+  - title: "My videos"
+    url: https://www.youtube.com/playlist?list=PL9pxz3ccLeug2c74TKysCC-7ErP0dkqAk
+
