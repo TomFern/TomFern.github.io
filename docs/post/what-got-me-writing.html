@@ -1,11 +1,12 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.24.0 by Michael Rose
-  Copyright 2013-2020 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
-<html lang="en" class="no-js">
+
+<html lang="en-US" class="no-js">
   <head>
     <meta charset="utf-8">
 
@@ -50,7 +51,7 @@
 
 
 
-  <meta property="article:published_time" content="2020-08-08T07:00:00-03:00">
+  <meta property="article:published_time" content="2020-08-08T11:00:00+01:00">
 
 
 
@@ -62,16 +63,7 @@
 
 
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    
-      "@type": "Person",
-      "name": "Tomas Fernandez",
-      "url": "https://tomfern.com/"
-    
-  }
-</script>
+
 
 
 
@@ -84,19 +76,17 @@
 
 
   <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Chaos is order undeciphered Feed">
-
-
-<!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
+<script type="text/javascript">
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
 </script>
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
 
 
 
@@ -117,10 +107,6 @@
   </ul>
 </nav>
 
-    <!--[if lt IE 9]>
-<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
-<![endif]-->
-
     
 
 <div class="masthead">
@@ -133,13 +119,29 @@
           
         </a>
         <ul class="visible-links"><li class="masthead__menu-item">
-              <a href="/about">About</a>
+              <a
+                href="/about"
+                
+                
+              >About</a>
             </li><li class="masthead__menu-item">
-              <a href="/tags/">Tags</a>
+              <a
+                href="/tags/"
+                
+                
+              >Tags</a>
             </li><li class="masthead__menu-item">
-              <a href="https://semaphoreci.com/author/tfernandez">My posts</a>
+              <a
+                href="https://semaphoreci.com/author/tfernandez"
+                
+                
+              >My posts</a>
             </li><li class="masthead__menu-item">
-              <a href="https://www.youtube.com/playlist?list=PL9pxz3ccLeug2c74TKysCC-7ErP0dkqAk">My videos</a>
+              <a
+                href="https://www.youtube.com/playlist?list=PL9pxz3ccLeug2c74TKysCC-7ErP0dkqAk"
+                
+                
+              >My videos</a>
             </li></ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
@@ -158,28 +160,30 @@
 
 
 
+
+
 <div id="main" role="main">
   
   <div class="sidebar sticky">
   
 
 
-<div itemscope itemtype="https://schema.org/Person">
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
 
   
     <div class="author__avatar">
-      
-        <img src="/images/avatar.webp" alt="Tommy Fernandez" itemprop="image">
-      
+      <a href="https://tomfern.com/">
+        <img src="/images/avatar.webp" alt="Tommy Fernandez" itemprop="image" class="u-photo">
+      </a>
     </div>
   
 
   <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="https://tomfern.com/" itemprop="url">Tommy Fernandez</a>
+    </h3>
     
-      <h3 class="author__name" itemprop="name">Tommy Fernandez</h3>
-    
-    
-      <div class="author__bio" itemprop="description">
+      <div class="author__bio p-note" itemprop="description">
         <p>Technical writer and content creator</p>
 
       </div>
@@ -191,26 +195,26 @@
     <ul class="author__urls social-icons">
       
         <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
-          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Buenos Aires, Argentina</span>
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Portugal</span>
         </li>
       
 
       
         
           
-            <li><a href="/feed.xml" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-rss" aria-hidden="true"></i><span class="label">RSS</span></a></li>
+            <li><a href="/feed.xml" rel="nofollow noopener noreferrer me"><i class="fas fa-fw fa-rss" aria-hidden="true"></i><span class="label">RSS</span></a></li>
           
         
           
-            <li><a href="https://twitter.com/tomfernblog" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+            <li><a href="https://twitter.com/tomfernblog" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
           
         
           
-            <li><a href="https://www.linkedin.com/in/pablo-tomas-fernandez-b6077514/" rel="nofollow noopener noreferrer"><i class="fab fa-brands fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
+            <li><a href="https://www.linkedin.com/in/pablo-tomas-fernandez-b6077514/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-brands fa-linkedin" aria-hidden="true"></i><span class="label">LinkedIn</span></a></li>
           
         
           
-            <li><a href="https://github.com/tomfern" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+            <li><a href="https://github.com/tomfern" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
           
         
       
@@ -265,7 +269,7 @@
 
       <!--
   <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
       <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
     </a>
   </li>
@@ -282,14 +286,16 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="What Got Me Writing">
     <meta itemprop="description" content="This is why I decided work as a writer.">
-    <meta itemprop="datePublished" content="2020-08-08T07:00:00-03:00">
+    <meta itemprop="datePublished" content="2020-08-08T11:00:00+01:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">What Got Me Writing
-</h1>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://tomfern.com/post/what-got-me-writing" itemprop="url">What Got Me Writing
+</a>
+          </h1>
           
 
   <p class="page__meta">
@@ -402,7 +408,7 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#writing" class="page__taxonomy-item" rel="tag">writing</a>
+      <a href="/tags/#writing" class="page__taxonomy-item p-category" rel="tag">writing</a>
     
     </span>
   </p>
@@ -412,8 +418,7 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-08-08T07:00:00-03:00">August 8, 2020</time></p>
-
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-08-08T11:00:00+01:00">August 8, 2020</time></p>
 
       </footer>
 
@@ -424,7 +429,7 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftomfern.com%2Fpost%2Fwhat-got-me-writing" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Ftomfern.com%2Fpost%2Fwhat-got-me-writing" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://tomfern.com/post/what-got-me-writing" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
@@ -447,11 +452,14 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
 
   
   
-    <div class="page__related">
-      <h4 class="page__related-title">You May Also Enjoy</h4>
-      <div class="grid__wrapper">
-        
-          
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
 
 
 
@@ -490,8 +498,9 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
   </article>
 </div>
 
-        
-          
+    
+      
+      
 
 
 
@@ -530,8 +539,9 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
   </article>
 </div>
 
-        
-          
+    
+      
+      
 
 
 
@@ -570,8 +580,9 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
   </article>
 </div>
 
-        
-          
+    
+      
+      
 
 
 
@@ -610,13 +621,15 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
   </article>
 </div>
 
-        
-      </div>
-    </div>
+    
+  </div>
+</div>
+
   
   
 </div>
 
+      
     </div>
 
     
@@ -652,14 +665,13 @@ Without fail, writing reveals the flaws in our thinking and shows how well (or b
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2024 Tomas Fernandez. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2024 <a href="https://tomfern.com">Chaos is order undeciphered</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
 
     
   <script src="/assets/js/main.min.js"></script>
-
 
 
 
