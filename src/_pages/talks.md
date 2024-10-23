@@ -5,7 +5,7 @@ permalink: /Talks/
 excerpt: Recorded Talks
 ---
 
-Here recorded talks I have given. Starting from most recent.
+Here are recorded talks I have given. Starting from most recent.
 
 > MLOps: From Jupyter to Production | Conf42: MLOps 2024
 
