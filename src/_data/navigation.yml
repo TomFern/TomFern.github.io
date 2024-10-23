@@ -1,8 +1,8 @@
 main:
-  - title: "About"
-    url: /about
   - title: "Tags"
     url: /tags/
+  - title: "About Me"
+    url: /about
   # - title: "Categories"
   #   url: /categories/
   # - title: "Tags"
@@ -11,8 +11,10 @@ main:
   #   url: /page-archive/
   # - title: "Collections"
   #   url: /collection-archive/
-  - title: "My posts"
+  - title: "Talks"
+    url: /talks
+  - title: "Posts ↗"
     url: https://semaphoreci.com/author/tfernandez
-  - title: "My videos"
+  - title: "YouTube ↗"
     url: https://www.youtube.com/playlist?list=PL9pxz3ccLeug2c74TKysCC-7ErP0dkqAk
 
