@@ -7,6 +7,10 @@ excerpt: Recorded Talks
 
 Here are recorded talks I have given. Starting from most recent.
 
+> Testing LLM-Powered Applications | Conf42 Prompt Engineering 2024
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pfOYLX1XXvo?si=IZiMMvNrE6qDVySm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 > MLOps: From Jupyter to Production | Conf42: MLOps 2024
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bddiQ21qrKY?si=xnH4TrWvFw39GFjH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
