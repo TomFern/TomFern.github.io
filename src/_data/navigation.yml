@@ -2,7 +2,7 @@ main:
   - title: "Tags"
     url: /tags/
   - title: "About Me"
-    url: /about
+    url: /about/
   # - title: "Categories"
   #   url: /categories/
   # - title: "Tags"
@@ -12,9 +12,9 @@ main:
   # - title: "Collections"
   #   url: /collection-archive/
   - title: "Talks"
-    url: /talks
+    url: /talks/
   - title: "Posts ↗"
-    url: https://semaphoreci.com/author/tfernandez
+    url: https://semaphore.io/author/tfernandez
   - title: "YouTube ↗"
     url: https://www.youtube.com/playlist?list=PL9pxz3ccLeug2c74TKysCC-7ErP0dkqAk
 
