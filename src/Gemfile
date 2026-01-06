@@ -42,3 +42,6 @@ gem 'jekyll-gist', group: :jekyll_plugins
 gem 'jekyll-include-cache', group: :jekyll_plugins
 
 gem "webrick", "~> 1.8"
+gem 'csv', '~> 3.0'
+gem 'base64', '~> 0.3.0'
+gem 'bigdecimal', '~> 4.0', '>= 4.0.1'
