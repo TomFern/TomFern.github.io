@@ -13,8 +13,4 @@ main:
   #   url: /collection-archive/
   - title: "Talks"
     url: /talks/
-  - title: "Posts ↗"
-    url: https://semaphore.io/author/tfernandez
-  - title: "YouTube ↗"
-    url: https://www.youtube.com/playlist?list=PL9pxz3ccLeug2c74TKysCC-7ErP0dkqAk
 

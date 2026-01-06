@@ -10,7 +10,7 @@ excerpt: About the author
 
 👋 My name is Pablo (Tommy) Fernandez. I was born in Argentina and now live in beautiful Portugal. I am a technical writer at [VictoriaMetrics](https://victoriametrics.com).
 
-Before joining VictoriaMetrics, I worked as a Technical Writer for Semaphore. You can find my professional writings in the [Semaphore blog](https://semaphoreci.com/author/tfernandez) (where I also act as an editor and reviewer) and [my videos](https://www.youtube.com/playlist?list=PL9pxz3ccLeug2c74TKysCC-7ErP0dkqAk) for the Semaphore channel.
+Before joining VictoriaMetrics, I worked as a Technical Writer for Semaphore. You can find my professional writings in the [Semaphore blog](https://semaphore.io/author/tfernandez) (where I also act as an editor and reviewer) and [my videos](https://www.youtube.com/playlist?list=PL9pxz3ccLeug2c74TKysCC-7ErP0dkqAk) for their YouTube channel.
 
 I've written a bit about why and how I started writing in [this post](/post/what-got-me-writing).
 
